@@ -1,0 +1,26 @@
+.pnpm-store
+dist
+node_modules
+manual
+pnpm-lock.yaml
+*.html
+*.txt
+
+# 履歴・archive（履歴保全のため整形しない）
+issues/archive
+issues/**/history-*.md
+
+# 生成物・テスト出力
+test-results
+debug-screenshots
+.playwright-mcp
+.codex-temp
+# ローカル知識アダプタのDB・実行/終了記録は生成物。履歴の元byteを保全する。
+.knowledge
+
+# 機械所有 ledger。cluster-claim.mjs が JSON.stringify(registry, null, 2) で書くため、
+# prettier に整形させると「script が展開 → prettier が畳む」の往復 churn が恒常化する
+# （2026-08-04 時点で同内容の stash が 3 件溜まっていた）。展開形は 1 値 1 行なので
+# cross-lane の競合追記に対する 3-way マージ耐性も高い。正準形は
+# packages/rules-core/test/cluster-registry-format.test.ts で固定している。
+autorun-queue/cluster-registry.json

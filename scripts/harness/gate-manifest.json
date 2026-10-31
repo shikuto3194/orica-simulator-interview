@@ -1,0 +1,675 @@
+{
+  "gates": {
+    "auxiliary-model-policy": {
+      "node": "scripts/test-auxiliary-model-policy.mjs"
+    },
+    "notice-editor": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/operation-notice-digest.test.ts"]
+    },
+    "ismcts-program": {
+      "node": "scripts/test-ismcts-program.mjs",
+      "inputScope": "operational-fixtures-v1"
+    },
+    "review-batch": {
+      "node": "scripts/verify-review-batch.mjs",
+      "diffBase": true
+    },
+    "audit-operations": {
+      "node": "scripts/test-audit-operations.mjs"
+    },
+    "dot-connection": {
+      "node": "scripts/dot/test.mjs"
+    },
+    "funnel-watchdog": {
+      "node": "scripts/test-funnel-watchdog.mjs"
+    },
+    "saved-deck-types": {
+      "node": "node_modules/typescript/bin/tsc",
+      "args": ["-p", "apps/playground-web/tsconfig.json", "--noEmit"]
+    },
+    "saved-deck-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": [
+        "apps/playground-web/test/saved-deck-sort.test.ts",
+        "apps/playground-web/test/saved-deck-filters.test.ts"
+      ]
+    },
+    "saved-deck-ui": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/saved-deck-sort.spec.ts",
+        "e2e/saved-deck-filters.spec.ts",
+        "e2e/room-deck-picker.spec.ts",
+        "e2e/deck-builder-layout.spec.ts"
+      ]
+    },
+    "invitation-test-cleanup": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/room-invitations-cleanup.test.ts"]
+    },
+    "changed-style": {
+      "node": "scripts/harness/check-changed-style.mjs",
+      "changedFiles": true
+    },
+    "home-layout": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": ["test", "e2e/home-lobby.spec.ts"]
+    },
+    "title-preparation": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/title-image-download.spec.ts",
+        "e2e/title-asset-storage.spec.ts",
+        "e2e/title-direct-link.spec.ts"
+      ]
+    },
+    "app-appearance": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/app-theme.spec.ts",
+        "e2e/room-invitations.spec.ts",
+        "e2e/room-push.spec.ts"
+      ]
+    },
+    "battle-navigation": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/scenario-pregame-more-menu.spec.ts",
+        "e2e/replay-viewer.spec.ts"
+      ]
+    },
+    "format": {
+      "script": "format:check"
+    },
+    "lint": {
+      "script": "lint"
+    },
+    "dev-contract": {
+      "script": "check:dev-server"
+    },
+    "types": {
+      "script": "check"
+    },
+    "docs": {
+      "node": "scripts/check-docs.mjs",
+      "args": ["--summary"]
+    },
+    "ssot": {
+      "script": "check:ssot",
+      "reusable": true
+    },
+    "wiring": {
+      "script": "check:wiring",
+      "reusable": true
+    },
+    "ledger": {
+      "script": "cards:text-ledger",
+      "reusable": false,
+      "args": ["--gate"]
+    },
+    "harness": {
+      "script": "test:harness"
+    },
+    "verifier": {
+      "script": "test:verifier-gate"
+    },
+    "supervisor-lock": {
+      "script": "test:supervisor-lock"
+    },
+    "supervisor-runner-lock": {
+      "script": "test:supervisor-runner-lock"
+    },
+    "storage": {
+      "node": "scripts/test-artifact-storage.mjs"
+    },
+    "handoff": {
+      "script": "test:supervisor-handoff",
+      "inputScope": "operational-fixtures-v1"
+    },
+    "auto-merge-integration": {
+      "node": "scripts/test-supervisor-integration.mjs"
+    },
+    "telegram": {
+      "script": "test:telegram-reception"
+    },
+    "effect-debug": {
+      "script": "test:effect-debug-loop"
+    },
+    "text-accountability": {
+      "script": "test:card-text-accountability"
+    },
+    "put-semantics": {
+      "script": "test:put-action-semantics"
+    },
+    "fidelity": {
+      "script": "test:fidelity-audit"
+    },
+    "vitest": {
+      "node": "scripts/vitest-with-jest-aliases.mjs"
+    },
+    "card-tests": {
+      "script": "cards:test-coverage",
+      "diffBase": true,
+      "args": ["--gate"]
+    },
+    "build": {
+      "script": "build"
+    },
+    "scenario": {
+      "bin": "playwright",
+      "args": [
+        "test",
+        "e2e/scenario-four-of-a-kind.spec.ts",
+        "e2e/scenario-moon-girl.spec.ts",
+        "e2e/scenario-aldnoah-no-combine.spec.ts",
+        "e2e/scenario-m06-summon-life.spec.ts",
+        "e2e/scenario-c23-exclusive-reveal.spec.ts",
+        "e2e/scenario-self-magic-reduction.spec.ts",
+        "e2e/scenario-mirage-individual-swap.spec.ts",
+        "e2e/scenario-soul-state-brave-battle.spec.ts",
+        "e2e/ai-search-set-usage.spec.ts",
+        "e2e/ai-search-public-zone-instances.spec.ts",
+        "e2e/scenario-makai-conditional-cost.spec.ts",
+        "e2e/scenario-r21-conditional-cost.spec.ts",
+        "e2e/scenario-r12-accel-continuation.spec.ts",
+        "e2e/scenario-kaname-removal.spec.ts",
+        "e2e/scenario-deck-exclusion.spec.ts"
+      ]
+    },
+    "ismcts-runtime": {
+      "node": "scripts/test-ismcts-runtime.mjs"
+    },
+    "ismcts-telemetry": {
+      "node": "scripts/ismcts/test-runtime-telemetry.mjs"
+    },
+    "ismcts-dispatch": {
+      "node": "scripts/test-supervisor-work-plan.mjs"
+    },
+    "secrets": {
+      "node": "scripts/security/test-secrets.mjs"
+    },
+    "public-build": {
+      "bin": "playwright",
+      "args": ["test", "--config", "playwright.public.config.ts"]
+    },
+    "local-game-ui": {
+      "bin": "playwright",
+      "args": ["test", "--config", "playwright.local.config.ts"]
+    },
+    "local-game-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": [
+        "apps/playground-web/test/local-game-session.test.ts",
+        "apps/playground-web/test/local-game-api.test.ts"
+      ]
+    },
+    "scenario-file-scenario-four-of-a-kind": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-four-of-a-kind.spec.ts"]
+    },
+    "scenario-file-scenario-moon-girl": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-moon-girl.spec.ts"]
+    },
+    "scenario-file-scenario-aldnoah-no-combine": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-aldnoah-no-combine.spec.ts"]
+    },
+    "scenario-file-scenario-m06-summon-life": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-m06-summon-life.spec.ts"]
+    },
+    "scenario-file-scenario-c23-exclusive-reveal": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-c23-exclusive-reveal.spec.ts"]
+    },
+    "scenario-file-scenario-self-magic-reduction": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-self-magic-reduction.spec.ts"]
+    },
+    "scenario-file-scenario-mirage-individual-swap": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-mirage-individual-swap.spec.ts"]
+    },
+    "scenario-file-scenario-soul-state-brave-battle": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-soul-state-brave-battle.spec.ts"]
+    },
+    "scenario-file-ai-search-set-usage": {
+      "bin": "playwright",
+      "args": ["test", "e2e/ai-search-set-usage.spec.ts"]
+    },
+    "scenario-file-ai-search-public-zone-instances": {
+      "bin": "playwright",
+      "args": ["test", "e2e/ai-search-public-zone-instances.spec.ts"]
+    },
+    "scenario-file-scenario-makai-conditional-cost": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-makai-conditional-cost.spec.ts"]
+    },
+    "scenario-file-scenario-r21-conditional-cost": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-r21-conditional-cost.spec.ts"]
+    },
+    "scenario-file-scenario-r12-accel-continuation": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-r12-accel-continuation.spec.ts"]
+    },
+    "scenario-file-scenario-kaname-removal": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-kaname-removal.spec.ts"]
+    },
+    "scenario-file-scenario-deck-exclusion": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-deck-exclusion.spec.ts"]
+    }
+  },
+  "scopes": [
+    {
+      "patterns": ["^fidelity-baseline\\.json$"],
+      "gates": ["fidelity"]
+    },
+    {
+      "patterns": ["^manual/ai-reference/10_rules/.*\\.md$"],
+      "gates": ["docs", "fidelity"]
+    },
+    {
+      "patterns": ["^manual/ai-reference/10_rules/04_state-based-rules\\.md$"],
+      "gates": ["ssot"]
+    },
+    {
+      "patterns": ["^packages/rules-core/test/helpers/.*\\.ts$"],
+      "gates": ["vitest", "fidelity"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/test/local-game-(?:session|api)\\.test\\.ts$"
+      ],
+      "gates": ["local-game-unit"]
+    },
+    {
+      "patterns": [
+        "^e2e/(?:local-game-(?:sync\\.spec|fixture)|scenario-blazing-star-oracle\\.spec)\\.ts$",
+        "^playwright\\.local\\.config\\.ts$"
+      ],
+      "gates": ["local-game-ui"]
+    },
+    {
+      "patterns": ["^e2e/public-build\\.spec\\.ts$"],
+      "gates": ["build", "public-build"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-deck\\-exclusion\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-deck-exclusion"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-kaname\\-removal\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-kaname-removal"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-r12\\-accel\\-continuation\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-r12-accel-continuation"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-r21\\-conditional\\-cost\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-r21-conditional-cost"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-makai\\-conditional\\-cost\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-makai-conditional-cost"]
+    },
+    {
+      "patterns": ["^e2e/ai\\-search\\-public\\-zone\\-instances\\.spec\\.ts$"],
+      "gates": ["scenario-file-ai-search-public-zone-instances"]
+    },
+    {
+      "patterns": ["^e2e/ai\\-search\\-set\\-usage\\.spec\\.ts$"],
+      "gates": ["scenario-file-ai-search-set-usage"]
+    },
+    {
+      "patterns": [
+        "^e2e/scenario\\-soul\\-state\\-brave\\-battle\\.spec\\.ts$"
+      ],
+      "gates": ["scenario-file-scenario-soul-state-brave-battle"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-mirage\\-individual\\-swap\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-mirage-individual-swap"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-self\\-magic\\-reduction\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-self-magic-reduction"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-c23\\-exclusive\\-reveal\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-c23-exclusive-reveal"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-m06\\-summon\\-life\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-m06-summon-life"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-aldnoah\\-no\\-combine\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-aldnoah-no-combine"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-moon\\-girl\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-moon-girl"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-four\\-of\\-a\\-kind\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-four-of-a-kind"]
+    },
+    {
+      "patterns": ["^scripts/(?:check-docs|doc-links|test-doc-links)\\.mjs$"],
+      "gates": ["docs", "harness"]
+    },
+    {
+      "patterns": ["^scripts/ismcts/(?:test-)?runtime-telemetry\\.mjs$"],
+      "gates": ["ismcts-telemetry"]
+    },
+    {
+      "patterns": ["^scripts/test-ismcts-runtime\\.mjs$"],
+      "gates": ["ismcts-runtime"]
+    },
+    {
+      "patterns": ["^scripts/(?:fuzz-runner|test-fuzz-runner)\\.mjs$"],
+      "gates": ["harness", "handoff"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:auxiliary-model-policy|test-auxiliary-model-policy|telegram-reception-policy|telegram-message-worker|telegram-inbox)\\.mjs$"
+      ],
+      "gates": [
+        "auxiliary-model-policy",
+        "notice-editor",
+        "telegram",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/notices/codex-summary\\.mjs$",
+        "^apps/playground-web/test/operation-notice-digest\\.test\\.ts$"
+      ],
+      "gates": ["auxiliary-model-policy", "notice-editor"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:telegram-inbox|telegram-document|telegram-message-worker|test-telegram-documents)\\.mjs$"
+      ],
+      "gates": ["telegram"]
+    },
+    {
+      "patterns": [
+        "^scripts/ismcts-program\\.mjs$",
+        "^scripts/ismcts/(?!(?:test-)?runtime-telemetry\\.mjs$).*\\.(?:mjs|json|ps1|cs)$",
+        "^scripts/test-ismcts-program\\.mjs$"
+      ],
+      "gates": [
+        "ismcts-program",
+        "ismcts-runtime",
+        "harness",
+        "verifier",
+        "ismcts-dispatch",
+        "storage"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/fidelity-review-resolutions\\.json$",
+        "^fidelity-baseline\\.json$"
+      ],
+      "gates": ["fidelity", "review-batch"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:audit-inputs|supervisor-run-metrics|verify-review-batch|test-audit-operations|fidelity-review-state|fidelity-review-resolution|test-fidelity-review-state|test-fidelity-review-resolution|cards-fidelity-audit)\\.mjs$"
+      ],
+      "gates": ["audit-operations", "fidelity", "handoff"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:worker-codex-stream|test-telegram-reception)\\.mjs$"
+      ],
+      "gates": [
+        "audit-operations",
+        "supervisor-runner-lock",
+        "telegram",
+        "handoff"
+      ]
+    },
+    {
+      "patterns": [
+        "^deploy/local-pc/funnel-(?:probe|policy|watchdog)\\.mjs$",
+        "^deploy/local-pc/register-funnel-watchdog\\.ps1$",
+        "^scripts/test-funnel-watchdog\\.mjs$",
+        "^\\.github/workflows/public-api-monitor\\.yml$"
+      ],
+      "gates": ["funnel-watchdog"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/(?:SavedDeckBrowser|SavedDeckSort|SavedDeckFilters|RoomDeckPicker)\\.tsx$",
+        "^apps/playground-web/src/utils/saved-deck-(?:sort|filters)\\.ts$",
+        "^apps/playground-web/src/saved-deck-browser\\.css$",
+        "^apps/playground-web/test/saved-deck-(?:sort|filters)\\.test\\.ts$",
+        "^e2e/(?:saved-deck-sort|saved-deck-filters|room-deck-picker)\\.spec\\.ts$"
+      ],
+      "gates": ["saved-deck-types", "saved-deck-unit", "saved-deck-ui"]
+    },
+    {
+      "patterns": [
+        "^e2e/room-invitations-(?:live\\.spec|cleanup)\\.ts$",
+        "^apps/playground-web/test/room-invitations-cleanup\\.test\\.ts$"
+      ],
+      "gates": ["invitation-test-cleanup", "app-appearance"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:verifier-write-lock|run-with-lock-heartbeat|spawn-verifier|verifier-evidence)\\.mjs$"
+      ],
+      "gates": [
+        "verifier",
+        "handoff",
+        "supervisor-lock",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/auto-merge\\.ps1$",
+        "^scripts/supervisor-integration\\.mjs$",
+        "^scripts/test-supervisor-integration\\.mjs$"
+      ],
+      "gates": [
+        "auto-merge-integration",
+        "supervisor-lock",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": ["^packages/rules-core/test/.*\\.test\\.ts$"],
+      "gates": ["vitest"]
+    },
+    {
+      "patterns": [
+        "^packages/rules-core/src/(?:effect|battle|stack|play)/.*\\.ts$"
+      ],
+      "gates": [
+        "types",
+        "vitest",
+        "put-semantics",
+        "fidelity",
+        "ismcts-runtime"
+      ]
+    },
+    {
+      "patterns": ["^packages/card-data/src/.*\\.ts$"],
+      "gates": [
+        "types",
+        "vitest",
+        "put-semantics",
+        "fidelity",
+        "ismcts-runtime",
+        "ledger",
+        "card-tests"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/run-supervisor-iteration\\.ps1$",
+        "^scripts/(?:test-)?remote-main-integration\\.mjs$",
+        "^scripts/(?:test-)?full-run-checkouts\\.(?:mjs|json)$",
+        "^scripts/(?:register-supervisor-task|configure-codex-autostart)\\.ps1$",
+        "^scripts/sync-worktree-to-main\\.mjs$",
+        "^scripts/test-sync-worktree-failures\\.mjs$",
+        "^scripts/test-supervisor-publication-recovery\\.mjs$",
+        "^scripts/(?:test-)?supervisor-followup(?:-evidence)?\\.mjs$",
+        "^scripts/harness/vitest-acceptance-reporter\\.mjs$",
+        "^scripts/(?:test-)?primary-main\\.mjs$",
+        "^scripts/lib/supervisor-work-plan\\.ps1$",
+        "^scripts/test-supervisor-work-plan\\.mjs$",
+        "^scripts/test-supervisor-environment\\.mjs$",
+        "^scripts/(?:test-)?supervisor-health\\.mjs$",
+        "^scripts/auto-merge-status\\.mjs$",
+        "^scripts/watch-supervisor-events\\.mjs$",
+        "^scripts/test-supervisor-handoff\\.mjs$",
+        "^scripts/test-supervisor-runner-lock\\.mjs$",
+        "^scripts/(?:test-)?supervisor-work-recovery\\.mjs$"
+      ],
+      "gates": ["handoff", "supervisor-lock", "supervisor-runner-lock"]
+    },
+    {
+      "patterns": ["\\.md$"],
+      "gates": ["docs"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/Home(?:Lobby|AvatarPicker)\\.tsx$",
+        "^apps/playground-web/src/home-lobby\\.css$",
+        "^e2e/home-lobby\\.spec\\.ts$"
+      ],
+      "gates": ["home-layout"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/TitleScreen\\.tsx$",
+        "^apps/playground-web/src/components/title-screen\\.css$",
+        "^e2e/title-(?:image-download|asset-storage|direct-link)\\.spec\\.ts$"
+      ],
+      "gates": ["title-preparation"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/bgm/BgmControls\\.tsx$"],
+      "gates": ["title-preparation", "home-layout"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/app-theme\\.css$",
+        "^e2e/(?:app-theme|room-invitations|room-push)\\.spec\\.ts$"
+      ],
+      "gates": ["app-appearance"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/components/BattleScreen\\.tsx$"],
+      "changedLines": "^\\s*(?:// 「・・・」メニュー:.*|(?:タイトルへ|ホームへ)|onExit\\?\\.\\(\\);|\\(onHome \\?\\? onExit\\)\\?\\.\\(\\);|\\}, \\[roomId, userId, readOnly, (?:onHome, )?onExit, getAccessToken\\]\\);|\\{(?:onExit|\\(onHome \\|\\| onExit\\)) && \\()$",
+      "gates": ["battle-navigation"]
+    },
+    {
+      "patterns": [
+        "^e2e/(?:scenario-pregame-more-menu|replay-viewer)\\.spec\\.ts$"
+      ],
+      "gates": ["battle-navigation"]
+    },
+    {
+      "patterns": [
+        "^scripts/harness/",
+        "^scripts/test-harness\\.mjs$",
+        "^\\.husky/pre-push$"
+      ],
+      "gates": ["harness", "verifier", "dev-contract"]
+    },
+    {
+      "patterns": ["^package\\.json$"],
+      "changedLines": "^\\s*\"verify:dialogue\"\\s*:\\s*\"node scripts/harness/run-gates\\.mjs --profile dialogue\",?$",
+      "gates": ["harness"]
+    },
+    {
+      "patterns": [
+        "^scripts/security/",
+        "^\\.gitleaks\\.toml$",
+        "^\\.github/workflows/secrets\\.yml$",
+        "^\\.husky/pre-push$"
+      ],
+      "gates": ["secrets"]
+    },
+    {
+      "patterns": ["^scripts/test-local-game-gates\\.mjs$"],
+      "gates": ["harness"]
+    },
+    {
+      "patterns": ["^playwright\\.public\\.config\\.ts$"],
+      "gates": ["build", "public-build"]
+    }
+  ],
+  "testGates": [
+    "auxiliary-model-policy",
+    "notice-editor",
+    "dot-connection",
+    "audit-operations",
+    "funnel-watchdog",
+    "harness",
+    "verifier",
+    "supervisor-lock",
+    "supervisor-runner-lock",
+    "storage",
+    "telegram",
+    "effect-debug",
+    "text-accountability",
+    "put-semantics",
+    "fidelity",
+    "ismcts-program",
+    "ismcts-runtime",
+    "handoff",
+    "auto-merge-integration",
+    "vitest",
+    "secrets"
+  ],
+  "sourceGates": [
+    "format",
+    "lint",
+    "dev-contract",
+    "types",
+    "docs",
+    "ssot",
+    "wiring",
+    "ledger"
+  ],
+  "requiredScopes": [
+    {
+      "patterns": [
+        "^apps/playground-web/server/(?:game-api|local-game-(?:session|api))\\.ts$",
+        "^apps/playground-web/src/(?:App\\.tsx|AuthContext\\.tsx|main\\.tsx|development\\.ts|local-game-auth\\.tsx|hooks/useRoomSync\\.ts|components/BattleScreen\\.tsx)$",
+        "^apps/playground-web/shared/room-protocol\\.ts$",
+        "^apps/playground-web/vite\\.config\\.ts$",
+        "^playwright\\.local\\.config\\.ts$"
+      ],
+      "gates": ["local-game-ui"],
+      "whenFull": true
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/(?:main\\.tsx|development\\.ts|local-game-auth\\.tsx)$",
+        "^apps/playground-web/vite\\.config\\.ts$",
+        "^playwright\\.public\\.config\\.ts$"
+      ],
+      "gates": ["build", "public-build"]
+    }
+  ]
+}

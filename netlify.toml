@@ -1,0 +1,7 @@
+[build]
+  base = "."
+  command = "pnpm build"
+  publish = "apps/playground-web/dist"
+
+[build.environment]
+  VITE_INTERVIEW_MODE = "true"

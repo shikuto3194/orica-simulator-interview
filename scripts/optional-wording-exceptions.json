@@ -1,0 +1,247 @@
+{
+  "$comment": "P3-96 optional_wording 監査の false positive 除外。各キー = cardNo、effectIndexes = 除外する effect の index 配列、reason = 除外理由。能力付与「アタックできる」等を独自トークンで剥がしきれない場合や、継続効果の文中に可能形が混じる場合、または1つの textRef 行を分割実装している (mandatory part + optional part) ケースを理由付きで登録する。verifier (round 9 Lens 5 refute) に従い、対応 effect 単位で curate する。",
+  "BSAZ02-C08": {
+    "effectIndexes": [1],
+    "reason": "grant_declared_summon_alt_cost (continuous CE grant) — BSGE01-CX01 と同型。「疲労できる」の任意性は DSL 側の分岐ではなく、getAvailableHandSummonPermissionLegalActions が declared-alt-cost 版 (発揮元疲労+召喚条件無視+軽減全充足) を通常経路と並列した独立 legal action として提示するかどうかで担保される（プレイヤーは発揮元を疲労させない通常経路もそのまま選べる）。"
+  },
+  "BSAZ01-C12": {
+    "effectIndexes": [0],
+    "reason": "textRef[0] split-implementation: effects[0]=continuous reduction_symbol 追加。前半『デッキに92枚まで入れることができ』は card-level maxDeckCount:92 で表現済みで、この continuous effect 自身の任意性ではない。"
+  },
+  "BSAZ02-M01": {
+    "effectIndexes": [1, 2],
+    "reason": "effects[0]=executionMode:optional の配置 opt-in と、effects[1]=そうしたとき後の mandatory 全疲労を split 実装。全疲労自体は配置成立後は強制で正しい。effects[2] は【アルドノアドライブ】静的ルール説明で「置ける」を含むが、この effect 自身は grandwalker/under-card permission の継続宣言。"
+  },
+  "BSAZ02-X01": {
+    "effectIndexes": [3, 4],
+    "reason": "effects[3]「好きなように」は deck top/bottom への戻し順・配分選択であり effect optional ではない。effects[4] は【アルドノアドライブ】静的ルール説明で「置ける」を含むが、この effect 自身は grandwalker/under-card permission の継続宣言。"
+  },
+  "BSDB01-C02": {
+    "effectIndexes": [0],
+    "reason": "textRef[3,4] split-implementation: effects[0]=mandatory count+1、effects[1]=optional draw+discard 同 textRef 行を共有。effects[0] 自体は強制で正しい。"
+  },
+  "BSDB01-C03": {
+    "effectIndexes": [0],
+    "reason": "textRef[3,4] split-implementation 同型 (BSDB01-C02 と同じ pattern)。effects[0]=mandatory count+1、effects[1]=optional draw+discard。"
+  },
+  "BSDB01-C07": {
+    "effectIndexes": [1],
+    "reason": "textRef[2,3] split-implementation: effects[1]=continuous treat_as (mandatory 静的扱い変更)、effects[2,3]=executionMode:optional draw+discard が可能形「ドローできる」を担う。"
+  },
+  "BSFT01-TR05(A)": {
+    "effectIndexes": [1],
+    "reason": "timing:activated/stack — スタック効果の発揮はプレイヤーが任意に宣言する opt-in 機構。「残せる」は使用宣言の任意性そのものを描写。"
+  },
+  "BSFT01-TR03(B)": {
+    "effectIndexes": [0],
+    "reason": "BSFT01-TR03(A).backFace.cardNo として監査される裏面カード。effects[0]=continuous count_as_multiple の静的カウント規則で、「数えられる」は能力/状態の表現であり effect optional ではない。"
+  },
+  "BSFT01-CX01": {
+    "effectIndexes": [1],
+    "reason": "continuous override_properties + cost_modify による鍵カード/ブレイヴの magic-use permission。『使用できる』の opt-in は使用 legal action の選択が担い、この static grant 自身に executionMode は不要。"
+  },
+  "BSGE01-R01": {
+    "effectIndexes": [0],
+    "reason": "effect_resistance + replacement:soul_state — 「魂状態にできる」の任意 accept/decline は pendingSoulStateReplacement (current-actor / legal-actions-apply の resolve_soul_state_replacement) が SSOT で提供する。dsl-types.ts L1670 のコメント正源。"
+  },
+  "BSGE01-R02": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-R01 と同型 (effect_resistance + replacement:soul_state, pendingSoulStateReplacement で任意 accept/decline)。"
+  },
+  "BSGE01-R03": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-R01 と同型。"
+  },
+  "BSGE01-R04": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-R01 と同型。"
+  },
+  "BSGE01-R05": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-R01 と同型 (treat_as 赤 + effect_resistance + replacement:soul_state の複合行だが同じ replacement パスで任意性が担保される)。"
+  },
+  "BSGE01-CX01": {
+    "effectIndexes": [0, 2],
+    "reason": "「魂状態のこのカードには契約合体できる」は対象適格性を描写する継続的な keyword grant（P3-111 S4/S5, getAvailableContractCombineLegalActions の soulStateContractTargets）であり、DSL 側の任意分岐ではない。実行時のコア配置は buildChargeCoresPendingCoreDistribution の pendingCoreDistribution（プレイヤーが好きなだけ選べる任意選択 UI）が任意性を担保する。effects[2]「バレットエディット」の「置ける」も同様: getAvailableBulletEditLegalActions（P3-111 S7）が legal action として提示するかどうかで任意性を担保し、DSL 側の任意分岐は不要。"
+  },
+  "BSGE01-CX02": {
+    "effectIndexes": [0, 2],
+    "reason": "BSGE01-CX01 と同型。"
+  },
+  "BSGE01-CX03": {
+    "effectIndexes": [0, 2],
+    "reason": "BSGE01-CX01 と同型。"
+  },
+  "BSGE01-CX04": {
+    "effectIndexes": [0, 2],
+    "reason": "BSGE01-CX01 と同型。"
+  },
+  "BSKB01-CX01": {
+    "effectIndexes": [0],
+    "reason": "【契約】属性扱い + 【契約煌臨】can-be-source の継続宣言。「【契約煌臨】できる」は契約煌臨の opt-in 機構そのもの (advent declaration はプレイヤーが任意に行う) を描写。「コアを好きなだけ置く」は煌臨手順内の coreshoot で別 mechanic。"
+  },
+  "BSKB01-X01": {
+    "effectIndexes": [2],
+    "reason": "effects[0]=executionMode:optional の『コア3個まで置ける』を発揮したときだけ、effects[2]=grant_paid_prevention_immunity がその除外効果へ paid unpreventable variant を付与する split 実装。効果全体の任意性と『まで』の個数選択は effects[0] が担う。"
+  },
+  "BSLH01-C01": {
+    "effectIndexes": [0],
+    "reason": "textRef[0,1] split-implementation: effects[0]=continuous symbol_add (mandatory 「1つを追加する」)。「発揮でき」「コア+1できる」は同 textRef 内の他効果が別 effect で個別実装。"
+  },
+  "BSLH01-C08": {
+    "effectIndexes": [0],
+    "reason": "effects[0]=continuous effect_immunity (相手スピリットの効果耐性、mandatory 静的)。同 textRef[1] 内の「ドローできる」「使用コストを-1する」は他 effect が個別実装。"
+  },
+  "BSLH01-C11": {
+    "effectIndexes": [0],
+    "reason": "textRef[0,1] split-implementation: effects[0]=continuous treat_as (mandatory 色扱い変更)。「内容を見れる」は同 textRef 内の triggered 効果が別 effect で個別実装。"
+  },
+  "BSLH01-CX01": {
+    "effectIndexes": [0, 1],
+    "reason": "textRef[4,5] split-implementation: effects[0]=phase start カウント+2 (mandatory 「カウント+2する」終止形)、effects[1]=card_event:enter_soul_state カウント+2 (mandatory)、effects[2]=executionMode:optional draw が可能形「ドローできる」を担う。"
+  },
+  "BSLH01-X08": {
+    "effectIndexes": [0, 1, 3],
+    "reason": "textRef[0,1] split-implementation: 効果本体「効果を発揮させず…デッキの下に戻す」は終止形=mandatory。「自分のターンなら…創界神ネクサスも対象にできる」は対象フィルタの拡張を描写し、effects[0]=turn_player:opponent (grandwalker 含まず)、effects[1]=turn_player:self (filterOr に grandwalker nexus 追加) で split 実装。BSTH01-X09 「アルティメットにもできる」と同型の対象拡張の能力付与。effects[3]=【クォーツ：省EP2】set-effect の継続的コスト軽減 (mandatory 静的)。「手札から対象にセットできる」はクォーツ機構 (project_quartz_set_model) の set 行為が opt-in であることを描写 (BSLH01-X05 と同型)。"
+  },
+  "BSLH01-X09": {
+    "effectIndexes": [3],
+    "reason": "grant_optional_deck_reveal_count_boost は常時型の任意効果を legal-action overlay として表現する専用 action。ステップ内チョイス式に近く、プレイヤーが増量 variant を選ぶかで任意性を担保する。"
+  },
+  "BSLH01-R04": {
+    "effectIndexes": [0],
+    "reason": "timing:activated/main — 起動効果の使用宣言はプレイヤーが任意に行う opt-in 機構。「オープンできる」は使用宣言の任意性そのものを描写、内側の deck_reveal は使用後 mandatory。"
+  },
+  "BSLH01-X05": {
+    "effectIndexes": [2],
+    "reason": "【クォーツ：攻撃2】set-effect の継続的シンボル付与 (mandatory 静的)。「手札から対象にセットできる」はクォーツ機構 (project_quartz_set_model) の set 行為が opt-in であることを描写。"
+  },
+  "BSLH01-C13": {
+    "effectIndexes": [1],
+    "reason": "textRef[1] split-implementation: effects[1]=continuous effect_immunity (相手の効果を受けない、mandatory 静的)。「コストを支払わずに使用できる」は同 textRef 内の game_event 誘発 (executionMode:optional use_magic_without_cost) effects[2] が個別実装 (ENGINE-conditional-free-magic-use-on-event、BSTS01-R03 同型)。"
+  },
+  "BSKB01-C01": {
+    "effectIndexes": [0],
+    "reason": "textRef[3,4] split-implementation: effects[0]=mandatory count+1、effects[1]=optional draw+discard 同 textRef 行を共有 (verifier round 9 Lens 5 refute, 2026-06-23)。"
+  },
+  "BSSL01-CX01": {
+    "effectIndexes": [0],
+    "reason": "BSKB01-CX01 と同型 (【契約】属性 + 【契約煌臨】can-be-source の継続宣言、advent は opt-in 機構)。"
+  },
+  "BSSL01-M01": {
+    "effectIndexes": [1],
+    "reason": "textRef[2,3] split-implementation: effects[1]=continuous effect_resistance (mandatory「煌臨元に追加するか、トラッシュに置く」「相手の効果を受けない」)。「下の効果を発揮できる」は別 effect が個別実装。"
+  },
+  "BSTH001-R02": {
+    "effectIndexes": [2],
+    "reason": "timing:activated/stack — スタック効果の発揮宣言は opt-in 機構。「無効にできる」は使用宣言の任意性そのものを描写。"
+  },
+  "BSTH002-転醒R01(B)": {
+    "effectIndexes": [0],
+    "reason": "textRef[2,3] split-implementation: effects[0]=card_event:rebirth grant_effect (mandatory 「自分のスピリット1体を指定する」)。grantedEffect 側に executionMode:optional + recover が乗っており「フラッシュタイミングで回復できる」の任意は内側で担保。"
+  },
+  "BSTH003-M01": {
+    "effectIndexes": [1],
+    "reason": "timing:activated/flash — フラッシュ起動効果の発揮宣言は opt-in 機構。「BP-8000でき」は使用宣言の任意性そのものを描写。"
+  },
+  "BSTH01-M01": {
+    "effectIndexes": [2, 3],
+    "reason": "textRef[3,4] split-implementation: effects[2]=continuous effect_immunity (mandatory「相手の効果を受けない」)、effects[3]=continuous cost_modify (mandatory コスト-N で「使用できる」状態を作る)。継続効果は静的状態の宣言で「できる」は能力付与の描写。"
+  },
+  "BSTH01-M13": {
+    "effectIndexes": [1],
+    "reason": "timing:burst — バースト効果の発動はプレイヤーが任意に宣言する opt-in 機構。「発揮できる」は burst declaration の任意性そのものを描写。"
+  },
+  "BSTH01-R05#accel": {
+    "effectIndexes": [0],
+    "reason": "アクセル能力 sub-effect は accel 使用宣言自体が opt-in。「使用できる」はアクセル使用宣言の任意性、内側の deck_top 破棄 + 軽減コア配置は accel 使用後 mandatory。"
+  },
+  "BSTH01-R21": {
+    "effectIndexes": [1],
+    "reason": "textRef[5,6] split-implementation: effects[1]=continuous effect_resistance (mandatory「相手の効果では破壊されない」静的)。「コアを置ける」は同 textRef 内の triggered 効果 (召喚時) が別 effect で個別実装。"
+  },
+  "BSTH01-X09": {
+    "effectIndexes": [0],
+    "reason": "continuous effect_param_modify — 既存「BP破壊効果」の対象拡張は mandatory 継続的修飾。「アルティメットにもできる」は対象拡張の能力付与を描写。"
+  },
+  "BSTH02.7-TR01(A)": {
+    "effectIndexes": [0],
+    "reason": "rebirth トリガー宣言 (timing:continuous + action:rebirth) は BSSA01 等と同型の標準パターン。「裏返せる」の任意 opt-in は転醒 dispatch 機構が SSOT で提供 (executeRebirth + 転醒 pending)。「コアを好きなだけ置ける」は転醒後の coreshoot で別 mechanic stub。"
+  },
+  "BSTH02.7-TR02(A)": {
+    "effectIndexes": [0],
+    "reason": "BSTH02.7-TR01(A) と同型 (rebirth トリガー宣言、opt-in は転醒 dispatch 機構が担保)。"
+  },
+  "BSTH03-M02": {
+    "effectIndexes": [2],
+    "reason": "textRef[5,6] split-implementation: effects[1]=executionMode:optional bounce が可能形「戻せる」を担い、effects[2]=card_event:attack recover (mandatory「回復する」終止形) は条件付き別 effect。"
+  },
+  "BSTH05.5-C20": {
+    "effectIndexes": [0, 2],
+    "reason": "effects[0] の『導託できる』は導託 legal action/permission の説明。effects[2] は actsAsGuidedNexusForOwnExhaustEffects による対象候補化で、自分の対象効果で疲労対象を選ぶとき候補に入ることを表す継続宣言。どちらも effect execution optional ではない。"
+  },
+  "BSTH08-M01": {
+    "effectIndexes": [2],
+    "reason": "timing:activated/flash — フラッシュ起動効果の発揮宣言は opt-in 機構。"
+  },
+  "BSTH08-M02": {
+    "effectIndexes": [2],
+    "reason": "timing:activated/flash — フラッシュ起動効果の発揮宣言は opt-in 機構。"
+  },
+  "BSTH08.5-R12": {
+    "effectIndexes": [0],
+    "reason": "ユーザー裁定2026-08-09: 任意誘発効果で条件は『このカードが手元に置かれたとき、このターンの間、』。現行実装は zone_entered_this_turn 条件の cost_modify overlay で、無料使用 variant を選ぶかどうかで任意性を担保し、使用時に game 同名 usage を消費する。"
+  },
+  "BSTH08.5-X01": {
+    "effectIndexes": [0],
+    "reason": "textRef[2,3] の『セットして使用できる』は手元/手札からのセット使用 permission を表す cost_modify/zone permission。通常使用との legal-action 選択で opt-in されるため、この continuous effect 自身に executionMode は不要。"
+  },
+  "BSTS01-C01": {
+    "effectIndexes": [1],
+    "reason": "timing:activated/main — 起動効果の使用宣言は opt-in 機構。「配置できる」は使用宣言の任意性。"
+  },
+  "BSTS01-CX01": {
+    "effectIndexes": [0],
+    "reason": "BSKB01-CX01 と同型 (【契約】属性 + 【契約煌臨】can-be-source の継続宣言)。"
+  },
+  "BSTS01-M01": {
+    "effectIndexes": [1],
+    "reason": "timing:burst — バースト効果の発動はプレイヤーが任意に宣言する opt-in 機構。「発動できる」は burst declaration の任意性そのものを描写。"
+  },
+  "BSGE01-C05": {
+    "effectIndexes": [0],
+    "reason": "continuous effect_resistance+prevent_battle (mandatory 静的「疲労せず、アタック/ブロックできず」)。同textRef内「合体できる」は top-level braveCondition を getAvailableBraveCombineLegalActions が汎用参照するため専用ロジック不要 (P3-111 S5, effects[] の外側で表現)。"
+  },
+  "BSGE01-C06": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-C05 と同型。"
+  },
+  "BSGE01-C07": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-C05 と同型。"
+  },
+  "BSGE01-C08": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-C05 と同型。"
+  },
+  "BSGE01-C02": {
+    "effectIndexes": [0],
+    "reason": "textRef[0]=textLines[0]『【ミラージュ：コスト2<緑>（このカードは手札からセットできる）】』の「セットできる」はミラージュ・キーワード自体の一般ルール説明であり、本 effect (相手バースト/スタック無効の強制継続効果) 自身の任意性ではない。BSGE01-C01/C04 の mirageData 宣言カードは同じ textLines[0] を参照するが、effects[0] 内の別 step (draw executionMode:optional 等) が偶然任意表現を満たすため audit を素通りしていた (BSGE01-C02/C11 効果本体は無条件の常時効果で任意 step を持たないため明示除外する)。"
+  },
+  "BSGE01-C11": {
+    "effectIndexes": [0],
+    "reason": "BSGE01-C02 と同型 (同一 textLines[0] mirage keyword 説明文 + 無条件常時効果)。"
+  },
+  "BSDB01-R03": {
+    "effectIndexes": [0],
+    "reason": "continuous cost_modify (mandatory コスト固定「コスト3になり」)。同textRef内「トラッシュからも使用できる」は zone:[\"trash\"] を持つ別 registration (effects[2]) の存在そのものが表現する (engine-magic-trash-use-permission)。effects[0] 自身は当該ゾーン拡張を伴う対象コスト効果のみで任意分岐を持たない。"
+  },
+  "BSDB01-C09": {
+    "effectIndexes": [0],
+    "reason": "BSDB01-R03 と同型。continuous cost_modify (mandatory コスト固定「2コスト支払って」= override:2)。同textRef[0]内「スタック効果を使用できる」「このカードを除外する」は applicability.zone:[\"trash\"] を持つ別 registration (effects[3]、usageLimit game/1・timingScope 相手アタックステップ・remove_from_game 込み) の存在そのものが表現する (engine-magic-trash-use-permission)。effects[0] 自身はコスト上書きのみで任意分岐を持たない。"
+  },
+  "BSTH07.8-XX01": {
+    "effectIndexes": [1],
+    "reason": "continuous 効果バンドル (allow_simultaneous_attack/cost_modify/force_attack_step_end/allow_mid_battle_join)。「アタックでき」「使用できる」は能力付与/ルール変更を描写する継続的な permission grant であり、通常コスト版の legal action も並行して残るため player の optional 実行選択ではない (P2-05 Phase 4a コメント参照)。"
+  }
+}

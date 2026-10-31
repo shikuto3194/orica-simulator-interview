@@ -1,0 +1,442 @@
+/* Paint only: do not add dimensions, typography, transforms, stacking contexts,
+ * pointer handling or layout here. Existing screens own their geometry.
+ * Native buttons include inline-styled controls and portals outside #root.
+ * !important is limited to paint so those legacy styles share the same states. */
+:root {
+  --ui-panel: #191d2d;
+  --ui-focus: #ffe0a3;
+}
+
+html,
+.bgm-initial-loading,
+.replay-viewer {
+  background: #141826;
+  color: var(--lobby-text);
+}
+.battle-screen,
+.janken-screen {
+  background:
+    radial-gradient(ellipse at 50% 0%, #6e35442e, transparent 65%),
+    linear-gradient(180deg, #202030, #171d2c 55%, #242132);
+  color: var(--lobby-text);
+}
+.field-area {
+  background: #e5c99105;
+}
+.field-opponent {
+  border-bottom-color: var(--lobby-border);
+}
+
+/* Controls use tone variables; hover and press remain visibly different even
+ * on primary/selected buttons. No movement or enlarged click targets. */
+:where(button) {
+  --control-alpha: 0.82;
+  --control-hover-alpha: var(--control-alpha);
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-border: var(--lobby-border);
+  --control-text: var(--lobby-text);
+  --control-hover: rgb(42 46 61 / var(--control-hover-alpha));
+  --control-ring: inset 0 1px #ffffff08;
+}
+button {
+  background: var(--control-bg) !important;
+  border-color: var(--control-border) !important;
+  color: var(--control-text) !important;
+  box-shadow: var(--control-ring) !important;
+  text-shadow: none !important;
+}
+:is(
+  .ui-primary,
+  button[type="submit"],
+  .home-action-primary,
+  .db-search-btn,
+  .db-btn-save,
+  .mp-btn-primary,
+  .setup-btn-start,
+  .room-create,
+  .btn-step,
+  .action-btn,
+  .card-action-btn,
+  .effect-choice-btn,
+  .ac-footer-ok,
+  .hand-selection-banner-button.confirm,
+  .dr-btn.confirm,
+  .bjk-pick-btn,
+  .bjk-proceed,
+  .janken-proceed-btn,
+  .janken-pick-btn,
+  .game-result-btn,
+  .replay-control-play,
+  .cdm-btn-plus,
+  .db-grid-plus,
+  .db-token-solid
+) {
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-text: #fff1d5;
+  --control-hover: rgb(42 46 61 / var(--control-hover-alpha));
+  --control-border: #d8bc8380;
+}
+:is(
+  .ui-danger,
+  .db-btn-clear,
+  .btn-reset:not(.btn-more-menu),
+  .ac-footer-cancel,
+  .btn-cancel-target
+) {
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-border: #ce8b9373;
+  --control-text: #ffd8d7;
+  --control-hover: rgb(42 46 61 / var(--control-hover-alpha));
+}
+:is(
+  .ui-quiet,
+  .action-skip,
+  .action-block-decline,
+  .card-action-cancel,
+  .effect-choice-skip,
+  .effect-choice-cancel,
+  .hand-selection-banner-button.skip,
+  .bjk-pick-btn-no,
+  .game-result-btn-secondary,
+  .btn-more-menu
+) {
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-border: var(--lobby-border);
+  --control-text: var(--lobby-muted);
+  --control-hover: rgb(42 46 61 / var(--control-hover-alpha));
+}
+.ac-footer-warn {
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-text: #ffe0a3;
+  --control-hover: rgb(42 46 61 / var(--control-hover-alpha));
+}
+:is(
+  .db-tab-btn,
+  .home-title-link,
+  .more-menu-item,
+  .db-info-close,
+  .cdm-close,
+  .dvm-close,
+  .card-detail-close,
+  .zone-browse-close,
+  .cdm-toggle-btn,
+  .cdm-token-toggle,
+  .cdm-thumbnail-btn,
+  .more-menu-bgm-btn,
+  .ui-link,
+  .invite-text-button,
+  .invitation-list button,
+  .push-settings :where([role="switch"]),
+  .janken-back,
+  .db-btn-back,
+  .cdm-token-nav button,
+  .mp-avatar-btn,
+  .gensou-bgm button
+) {
+  --control-alpha: 0;
+  --control-hover-alpha: 0.12;
+  --control-bg: transparent;
+  --control-ring: none;
+}
+button:is(
+  [aria-pressed="true"],
+  [aria-checked="true"],
+  .active,
+  .selected,
+  .setup-selected,
+  .btn-active,
+  .btn-symbol-active,
+  .modal-peek-toggle--peeked
+) {
+  --control-bg: rgb(122 98 59 / min(var(--control-alpha), 0.3));
+  --control-border: var(--lobby-gold);
+  --control-text: #fff1d5;
+  --control-hover: rgb(132 112 77 / var(--control-hover-alpha));
+  --control-ring: inset 0 0 0 1px #e5c99166;
+}
+/* Tabs retain their bottom-line selection without a boxed tile. */
+button.db-tab-btn {
+  --control-border: transparent;
+}
+button.db-tab-btn.active {
+  --control-bg: linear-gradient(0deg, #d8bc8324, transparent);
+  --control-ring: inset 0 -1px var(--lobby-gold);
+  border-bottom-color: var(--lobby-gold) !important;
+}
+button:enabled:not([aria-disabled="true"]):hover {
+  background: var(--control-hover) !important;
+  border-color: #d9bb86b3 !important;
+  color: #fff9ef !important;
+  box-shadow: inset 0 0 0 1px #e5c99140 !important;
+}
+button:enabled:not([aria-disabled="true"]):active {
+  background: rgb(46 49 63 / var(--control-hover-alpha)) !important;
+  border-color: #e5c991cc !important;
+  color: #fff9ef !important;
+  box-shadow:
+    inset 0 0 0 1px #e5c99180,
+    inset 0 2px 5px #0005 !important;
+}
+button:is(:disabled, [aria-disabled="true"]) {
+  background: rgb(32 35 48 / var(--control-alpha)) !important;
+  color: #a5a09a !important;
+  border-color: #716b6066 !important;
+  box-shadow: none !important;
+}
+:is(button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--ui-focus) !important;
+  outline-offset: 2px;
+}
+
+/* The retry button is an invisible hit area over the title download text. */
+button.title-download-retry,
+button.title-download-retry:is(:hover, :active) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.title-screen:has(.title-download-retry:hover) .title-download-log,
+.title-screen:has(.title-download-retry:active) .title-download-log {
+  color: var(--ui-focus);
+}
+
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    [type="file"]
+  ):not([type="hidden"]),
+select,
+textarea {
+  background: var(--lobby-surface) !important;
+  border-color: var(--lobby-border) !important;
+  color: var(--lobby-text) !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #b7b2aa !important;
+}
+input,
+select,
+textarea {
+  accent-color: var(--lobby-gold) !important;
+}
+option {
+  background: var(--ui-panel);
+  color: var(--lobby-text);
+}
+summary:hover {
+  color: var(--ui-focus);
+  background-color: #e5c99120;
+}
+
+/* Solid translucent surfaces keep text readable in every modal and portal.
+ * Do not add backdrop-filter: that would move fixed descendants. */
+:is(
+  .cdm-content,
+  .dvm-content,
+  .db-info-modal,
+  .card-detail-popup,
+  .zone-browse-panel,
+  .dr-modal,
+  .keyboard-help-modal,
+  .bjk-card,
+  .game-result-card,
+  .more-menu-panel,
+  .replay-speed-menu,
+  .login-panel
+),
+:is(
+    .dscc-overlay,
+    .ldc-overlay,
+    .lgr-overlay,
+    .gscoc-overlay,
+    .scec-overlay,
+    .sscm-overlay,
+    .ccm-overlay
+  )
+  > div {
+  background: linear-gradient(145deg, #272332f5, #161d2cf7) !important;
+  color: var(--lobby-text);
+  border-color: var(--lobby-border) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--lobby-border),
+    0 16px 50px #0007 !important;
+}
+:is(
+  .game-hud .hud-turn-number,
+  .game-hud .hud-step,
+  .game-hud .hud-bgm,
+  .game-hud .hud-first-second,
+  .game-hud .hud-void-block,
+  .effect-queue-card,
+  .effect-queue-toggle,
+  .ac-toast,
+  .ac-footer-actions,
+  .hand-selection-banner,
+  .public-disclosure-card-presentation,
+  .public-disclosure-entry,
+  .message-toast,
+  .db-info-stat,
+  .db-info-chip,
+  .cdm-field-status
+) {
+  background: var(--lobby-panel);
+  border-color: var(--lobby-border);
+  color: var(--lobby-text);
+}
+.effect-queue-card.active {
+  border-color: var(--lobby-gold);
+  box-shadow: 0 0 0 1px #e5c99166;
+}
+:is(
+  .zone-browse-title,
+  .zone-browse-group-title,
+  .dr-title,
+  .card-action-title,
+  .card-action-effect-choice-title,
+  .keyboard-help-title,
+  .janken-title,
+  .bjk-title,
+  .dvm-title,
+  .cdm-card-name,
+  .card-detail-name,
+  .hud-turn-number,
+  .ac-toast,
+  .db-info-modal h2,
+  .db-info-modal h3
+) {
+  color: var(--lobby-gold);
+}
+:is(.more-menu-divider, .zone-browse-header, .dvm-token-header) {
+  border-color: var(--lobby-border);
+}
+:is(.dvm-list-row, .dvm-grid-cell, .db-tribe-option):hover {
+  background-color: #e5c99119;
+  box-shadow: inset 0 0 0 1px var(--lobby-gold);
+}
+
+/* Keep the existing alpha of exposed controls. A shared palette must not turn
+ * the battle's glass buttons or previously empty modal containers into panels. */
+.action-btn {
+  --control-alpha: 0.42;
+  --control-hover-alpha: 0.55;
+}
+:is(.btn-step, .btn-reset, .game-result-btn) {
+  --control-alpha: 0.2;
+  --control-hover-alpha: 0.35;
+}
+.card-action-btn {
+  --control-alpha: 0.3;
+  --control-hover-alpha: 0.5;
+}
+.ac-footer-ok {
+  --control-alpha: 0.25;
+  --control-hover-alpha: 0.25;
+}
+.ac-footer-warn {
+  --control-alpha: 0.18;
+  --control-hover-alpha: 0.18;
+}
+.ac-footer-cancel {
+  --control-alpha: 0.22;
+  --control-hover-alpha: 0.22;
+}
+:is(.bjk-pick-btn, .janken-pick-btn, .bjk-proceed, .janken-proceed-btn) {
+  --control-alpha: 0.1;
+  --control-hover-alpha: 0.25;
+}
+:is(.bjk-btn, .janken-btn) {
+  --control-alpha: 0.05;
+  --control-hover-alpha: 0.1;
+}
+.bjk-contract-card-button {
+  --control-alpha: 0.06;
+  --control-hover-alpha: 0.12;
+}
+:is(.modal-peek-toggle, .effect-queue-toggle) {
+  --control-alpha: 0.7;
+  --control-hover-alpha: 0.9;
+}
+.public-disclosure-entry {
+  --control-alpha: 0.045;
+  --control-hover-alpha: 0.12;
+  background: rgb(229 201 145 / 0.045);
+}
+.cdm-field-status {
+  background: rgb(229 201 145 / 0.1);
+}
+.bjk-contract-card {
+  background: rgb(229 201 145 / 0.06);
+}
+.home-glass {
+  --control-alpha: 0.74;
+  --control-hover-alpha: 0.79;
+}
+.home-action-primary {
+  --control-alpha: 0.74;
+  --control-hover-alpha: 0.79;
+}
+.home-utilities button {
+  --control-alpha: 0.74;
+}
+.invitation-list button[aria-pressed="true"] {
+  --control-alpha: 0.07;
+  --control-hover-alpha: 0.12;
+}
+.invitation-list button:not([aria-pressed="true"]) {
+  --control-border: transparent;
+}
+.push-settings [role="switch"][aria-checked="true"] {
+  --control-bg: transparent;
+  --control-ring: none;
+}
+button.setup-selected {
+  --control-alpha: 0.14;
+}
+button.setup-option {
+  --control-hover-alpha: 0.1;
+}
+button.db-view-btn.active {
+  --control-alpha: 0.14;
+  --control-hover-alpha: 0.14;
+}
+.home-avatar figcaption button {
+  --control-alpha: 0.61;
+}
+.deck-browse-known-card {
+  --control-alpha: 0.72;
+  --control-hover-alpha: 0.8;
+}
+.ow-dismiss {
+  --control-alpha: 0.3;
+}
+.db-home-dev-btn {
+  --control-alpha: 0.04;
+  --control-hover-alpha: 0.1;
+}
+.game-result-btn-secondary {
+  --control-alpha: 0.08;
+  --control-hover-alpha: 0.15;
+}
+.bjk-card {
+  background: rgb(25 29 45 / 0.95) !important;
+}
+.login-panel {
+  background: rgb(25 29 45 / 0.85) !important;
+}
+
+/* Deliberate transparent containers: paint only individual buttons, never a
+ * strip across the field. Preserve battle.css's click-through behavior. */
+.action-bar,
+.action-group,
+.battle-controls {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Static HTML safety notices live outside the React root. */
+body:has(.battle-screen) #orientation-warning-portrait {
+  background: #141826f5;
+  color: var(--lobby-gold);
+}
+#orientation-warning-small:not(.dismissed) {
+  background: #532b36f5;
+  color: var(--lobby-text);
+}

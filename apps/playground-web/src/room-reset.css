@@ -1,0 +1,33 @@
+.more-menu-item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.more-menu-item:disabled:hover {
+  background: rgba(231, 76, 60, 0.18);
+}
+
+.room-reset-notice {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(440px, calc(100vw - 32px));
+  box-sizing: border-box;
+  z-index: 12000;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: #202332;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.room-reset-notice p {
+  margin: 0 0 8px;
+}
+
+.room-reset-actions {
+  display: flex;
+  gap: 8px;
+}

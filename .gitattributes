@@ -1,0 +1,35 @@
+# 改行コード方針: テキストは LF、Windows 専用スクリプトのみ CRLF
+# prettier (endOfLine: lf) と整合させ、Windows / Linux 間の swing を防ぐ
+
+* text=auto eol=lf
+
+# Windows 専用スクリプト
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+*.vbs  text eol=crlf
+
+# バイナリ（明示）
+*.png   binary
+*.webp  binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.zip   binary
+*.gz    binary
+*.m4a   binary
+
+# diff 抑制（巨大 lockfile）
+pnpm-lock.yaml -text -diff
+
+# 残量 ledger は cross-lane で必ず competing-append する生成物。custom merge driver で
+# 決定論的に 3-way 自動マージし競合を根絶する（driver 定義は scripts/sync-worktree-to-main.mjs
+# が共有 .git/config に冪等登録。正源: scripts/git-merge-ledger.mjs）。
+fidelity-baseline.json merge=oledger

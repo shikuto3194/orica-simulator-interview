@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "warningGiB": 150,
+  "maximumGiB": 200,
+  "targetGiB": 120,
+  "minimumFreeGiB": 100,
+  "warningFreeGiB": 150,
+  "minimumAgeHours": 6,
+  "keepLatestRuns": 2,
+  "maximumFileMiB": 1024,
+  "maximumAggregateFileMiB": 8192,
+  "maximumRunGiB": 32,
+  "buckets": [
+    "effect-debug",
+    "policy-shadow",
+    "position-bias",
+    "policy-bootstrap"
+  ]
+}

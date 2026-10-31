@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sha256": "92bbd98dc0df5371d805916ca95b318cce2f4064dff1bec6d2f7a92a4d5ed332",
+  "source": {
+    "repository": "https://github.com/shikuto3194/orika-react",
+    "revision": "f51f8ba814654a725e7d36554ada87265293bde9",
+    "path": "src/cardData.js"
+  },
+  "reviewedAt": "2026-10-30",
+  "evidence": "manual/ai-reference/00_meta/source-review-2026-10-30-krillin.md",
+  "corrections": [
+    {
+      "cardNo": "BSTH08.5-X01",
+      "field": "reduction",
+      "upstreamValue": ["赤", "赤", "神", "導"],
+      "correctedValue": ["赤", "赤", "赤", "神", "導"],
+      "source": "Telegram 629905112 / followup-b4475e9533fb5ed942bf; images/BSTH08.5-X01.webp",
+      "imageSha256": "f14b6fa860d9417cf4828e093d90b136c82ade9b31dad5106566004ea10b041f",
+      "baseMirrorSha256": "84e44c876d73aa715f8970e49b8b9bb2ac6b4920eb2c8852ae4dfee66cd665e1"
+    },
+    {
+      "cardNo": "BSDB01-C05",
+      "field": "reduction",
+      "upstreamValue": ["赤"],
+      "correctedValue": ["赤", "青"],
+      "source": "Telegram 629905123 / followup-7960147f490a9563dd3f; images/BSDB01-C05.webp",
+      "imageSha256": "7b8afa25ec471ceb8bec09b888719f43901166898abb0ac6c8e97f073f13900c",
+      "baseMirrorSha256": "9509857cddf6cf9909f877e0f2370776d1191de71e3efbb814e1a28ab58b00dc"
+    }
+  ]
+}

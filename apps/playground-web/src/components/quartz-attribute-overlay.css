@@ -1,0 +1,37 @@
+.quartz-attribute-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--battle-card-w);
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  pointer-events: none;
+  direction: ltr;
+}
+
+/* ENIGMA の中央を維持したまま、左右のクォーツを含む幅へ広げる。 */
+.quartz-attribute-overlay-expanded {
+  width: calc(
+    var(--battle-card-w) + var(--quartz-cluster-step-x) +
+      var(--quartz-cluster-step-x)
+  );
+}
+
+.quartz-attribute-values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 6px;
+}
+
+.quartz-attribute-measure {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--battle-card-w);
+  transform: translateX(-50%);
+  /* 測定用の改行は scrollHeight で読む。非表示要素で盤面を押し広げない。 */
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}

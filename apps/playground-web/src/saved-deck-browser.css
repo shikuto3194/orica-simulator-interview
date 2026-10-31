@@ -1,0 +1,352 @@
+.saved-deck-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.saved-deck-toolbar input[type="search"] {
+  flex: 1 1 12em;
+  min-width: 0;
+  padding: 0.5em;
+  border: 1px solid var(--lobby-border, #333);
+  border-radius: 6px;
+  background: var(--lobby-surface, #0f3460);
+  color: inherit;
+  font: inherit;
+}
+.saved-deck-toolbar .db-import-label,
+.saved-deck-toolbar .saved-deck-action {
+  --control-bg: var(--lobby-primary);
+  --control-hover: linear-gradient(120deg, #824354, #50354c);
+  --control-ring: inset 0 0 0 1px #e5c99135;
+  --control-text: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 2.4em;
+  padding: 0.4em 1em;
+  border: 0;
+  border-radius: 6px;
+  background: var(--control-bg);
+  box-shadow: var(--control-ring);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.saved-deck-toolbar .db-import-label:hover,
+.saved-deck-toolbar .saved-deck-action:enabled:hover {
+  background: var(--control-hover);
+}
+.saved-deck-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.saved-deck-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+  min-width: 0;
+  color: var(--lobby-muted);
+  font-size: 0.85em;
+}
+.saved-deck-filter-field :is(input, select) {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  padding: 0.65em;
+  border: 1px solid var(--lobby-border);
+  border-radius: 6px;
+  color: var(--lobby-text);
+  background: var(--lobby-surface);
+  font: inherit;
+}
+.saved-deck-results-count {
+  color: var(--lobby-muted);
+  font-size: 0.8em;
+  line-height: 1.7;
+  margin: 0.8em 0;
+}
+.saved-deck-card {
+  min-width: 0;
+}
+.saved-deck-open {
+  flex: 1;
+  --control-bg: transparent;
+  --control-ring: none;
+  --control-hover: #e5c99110;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.saved-deck-open .battle-deck-thumbnail {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.1em;
+}
+.saved-deck-open .deck-title {
+  width: 100%;
+}
+.saved-deck-open .deck-count {
+  display: block;
+}
+.saved-deck-open:focus-visible {
+  outline: 2px solid var(--lobby-gold, #edc577);
+  outline-offset: 4px;
+}
+.saved-deck-card.is-selected {
+  outline: 2px solid var(--lobby-gold, #edc577);
+  outline-offset: -2px;
+}
+.saved-deck-selected {
+  color: var(--lobby-gold, #edc577);
+  font-size: 0.8em;
+}
+.saved-deck-issue {
+  color: #ffb4ab;
+  font-size: 0.85em;
+  overflow-wrap: anywhere;
+}
+.room-deck-picker {
+  width: min(1040px, 96vw);
+  height: min(740px, 94dvh);
+  max-width: 96vw;
+  max-height: 94dvh;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--lobby-border, #555);
+  border-radius: 12px;
+  background:
+    radial-gradient(ellipse at top left, #49344745, transparent 60%), #191e2f;
+  color: var(--lobby-text, #fff);
+  color-scheme: dark;
+  font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  box-shadow:
+    0 24px 80px #0009,
+    inset 0 1px #fff1;
+}
+.room-deck-picker::backdrop {
+  background: #000a;
+}
+.room-deck-picker-body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  padding: clamp(14px, 2.5vw, 28px);
+}
+.room-deck-picker-heading {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.2em;
+  padding-bottom: 0.8em;
+  border-bottom: 1px solid var(--lobby-border);
+}
+.room-deck-picker-heading h2 {
+  color: var(--lobby-gold);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.4em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.room-deck-picker-heading button {
+  --control-bg: transparent;
+  --control-ring: none;
+  --control-text: var(--lobby-muted);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.room-deck-picker .room-deck-picker-workspace .saved-decks-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(170px, 100%), 1fr));
+  gap: 12px;
+  margin: 0;
+  align-content: start;
+}
+.room-deck-picker-workspace {
+  flex: 1;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 1em;
+  min-height: 0;
+  overflow-y: auto;
+}
+.room-deck-picker .db-workspace-cards {
+  min-width: 0;
+}
+.room-deck-picker .room-deck-picker-workspace .saved-deck-card {
+  aspect-ratio: auto;
+  font-size: 0.95rem;
+  background: var(--lobby-surface);
+  border: 1px solid var(--lobby-border);
+  border-radius: 8px;
+  padding: 18px 12px;
+  transition:
+    border-color 150ms,
+    background-color 150ms;
+}
+.room-deck-picker .saved-deck-card:hover {
+  border-color: var(--lobby-gold);
+  background: #303345;
+}
+.room-deck-picker .saved-deck-open {
+  --control-hover: transparent;
+  gap: 0.55em;
+  font-weight: 400;
+}
+.room-deck-picker .saved-deck-open .battle-deck-thumbnail {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 6px;
+  border: 1px solid var(--lobby-border);
+  border-radius: 8px;
+}
+.room-deck-picker .saved-deck-card .deck-title {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: var(--lobby-text);
+}
+.room-deck-picker .deck-count {
+  font-size: 0.75em;
+  color: var(--lobby-muted);
+}
+.room-deck-picker .saved-deck-selected {
+  padding: 2px 10px;
+  border: 1px solid var(--lobby-border);
+  border-radius: 20px;
+  background: #e5c99110;
+  font-size: 0.7em;
+  letter-spacing: 0.08em;
+}
+.room-deck-picker .saved-deck-toolbar {
+  gap: 8px;
+}
+.room-deck-picker .saved-deck-toolbar input[type="search"] {
+  flex-basis: 100%;
+  font-size: 0.9em;
+}
+.room-deck-picker .saved-deck-filters {
+  grid-template-columns: minmax(0, 1fr);
+}
+.room-deck-picker .saved-deck-issue {
+  font-size: 0.75em;
+}
+.room-deck-picker .dvm-title {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  color: var(--lobby-gold);
+}
+.room-deck-picker .dvm-close,
+.room-deck-confirm button {
+  font: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (orientation: portrait) {
+  .room-deck-picker .room-deck-picker-workspace .saved-decks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .room-deck-picker .saved-deck-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  .room-deck-picker .saved-deck-card {
+    padding: 12px 8px;
+  }
+  .room-deck-picker-heading {
+    margin-bottom: 0.7em;
+    padding-bottom: 0.5em;
+  }
+}
+.room-deck-picker .dvm-content {
+  background: var(--lobby-surface, #1a1a2e);
+}
+.room-deck-confirm {
+  margin-top: 1em;
+}
+.room-deck-confirm button {
+  width: 100%;
+  padding: 0.7em;
+}
+.room-selected-deck {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  width: 100%;
+  text-align: left;
+  padding: 0.8em;
+  margin: 0.8em 0;
+  color: inherit;
+  font: inherit;
+  border: 1px solid var(--lobby-border, #555);
+  border-radius: 8px;
+  background: var(--lobby-surface, #0f3460);
+  cursor: pointer;
+}
+.room-selected-deck > span {
+  min-width: 0;
+}
+.room-selected-deck strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.room-selected-deck small {
+  display: block;
+  margin-top: 0.25em;
+  color: var(--lobby-muted, #ccc);
+}
+.room-ready-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  font-size: 0.9em;
+  margin: 0.8em 0;
+}
+@media (orientation: landscape) {
+  .room-deck-picker-workspace {
+    grid-template-columns: minmax(160px, 28%) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    overflow: hidden;
+  }
+  .room-deck-picker-workspace > .db-workspace-controls,
+  .room-deck-picker-workspace > .db-workspace-cards {
+    display: block;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}

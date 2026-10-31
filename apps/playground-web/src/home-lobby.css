@@ -1,0 +1,694 @@
+.gensou-shell .db-root .db-home-tab {
+  padding: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.home-lobby {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(185px, 1fr) minmax(0, 1.75fr) minmax(
+      230px,
+      1.1fr
+    );
+  gap: clamp(12px, 2vw, 36px);
+  padding: clamp(16px, 3vh, 32px) clamp(16px, 3vw, 48px) 12px;
+  text-shadow: 0 2px 12px #0008;
+}
+.home-lobby button {
+  font: inherit;
+  cursor: pointer;
+}
+.home-lobby svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.home-sidebar,
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+  min-height: 0;
+}
+.home-sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 2px;
+}
+.home-lobby > :is(.home-sidebar, .home-avatar, .home-actions) {
+  margin-bottom: calc(
+    var(--home-player-clearance, var(--bgm-controls-clearance, 58px)) - 12px
+  );
+}
+.home-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--lobby-gold);
+}
+.home-brand {
+  margin: 10px 0 16px;
+}
+.home-brand h1 {
+  font-family: "Gensoufu Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  font-size: clamp(40px, 4.5vw, 72px);
+  letter-spacing: 0.16em;
+  margin: 8px 0;
+  color: #fff1d4;
+}
+.home-brand p {
+  margin: 0;
+  color: #e1d7c7;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.home-glass {
+  background: rgb(28 33 49 / 0.74);
+  border: 1px solid var(--lobby-border);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 24px #0002,
+    inset 0 1px #fff1;
+  color: var(--lobby-text);
+}
+.home-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  text-align: left;
+}
+.home-profile img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #d8bc8380;
+  flex-shrink: 0;
+}
+.home-profile > span {
+  min-width: 0;
+}
+.home-profile strong {
+  display: block;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.home-profile small {
+  display: block;
+  color: var(--lobby-gold);
+  font-size: 11px;
+  margin-top: 5px;
+}
+.home-library {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  text-align: left;
+}
+.home-library > span:first-of-type {
+  flex: 1;
+  font-size: 13px;
+}
+.home-library small {
+  display: block;
+  margin-top: 4px;
+  color: var(--lobby-muted);
+  font-size: 11px;
+}
+.home-support {
+  margin-top: auto;
+  font-size: 11px;
+  color: #d3c8b6;
+}
+.home-card-count {
+  margin: 8px 0;
+}
+.home-title-link {
+  padding: 8px 0;
+  background: none;
+  border: 0;
+  color: #e0d4c0;
+  text-align: left;
+}
+.gensou-shell .home-support .db-home-dev {
+  margin: 0;
+  padding: 6px 0;
+  border-color: var(--lobby-border);
+  text-align: left;
+}
+.gensou-shell .home-support .db-home-dev summary {
+  font-size: 11px;
+  color: #d3c8b6;
+}
+.home-avatar {
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.home-avatar-stage {
+  min-height: 0;
+  flex: 1;
+  position: relative;
+}
+.home-avatar-stage::before {
+  content: "";
+  position: absolute;
+  inset: 18% -10% 0;
+  background: radial-gradient(ellipse at 50% 70%, #e5c99130, transparent 65%);
+  pointer-events: none;
+}
+.home-avatar-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  filter: drop-shadow(0 14px 22px #0005);
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+.home-avatar figcaption {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3px;
+  text-align: center;
+  padding-top: 8px;
+}
+.home-epithet {
+  color: #efdcba;
+  font-family: "Yu Mincho", serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+.home-avatar figcaption strong {
+  color: #fff2db;
+  font-family: "Yu Mincho", serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+.home-avatar figcaption button {
+  background: #1417229c;
+  border: 1px solid #d8bc8333;
+  border-radius: 20px;
+  color: #e2d7c3;
+  font-size: 10px;
+  padding: 4px 12px;
+}
+.home-actions {
+  justify-content: space-between;
+  padding: 2px;
+}
+.home-utilities {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.home-utilities button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d8bc8333;
+  background: #181c2abd;
+  color: #c9c1b3;
+  text-align: left;
+  font-size: 10px;
+}
+.home-utilities small {
+  display: block;
+  color: #bcb4a8;
+  font-size: 9px;
+  margin-top: 2px;
+}
+.home-message-button {
+  position: relative;
+}
+.home-unread-badge {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border: 2px solid #1c2131;
+  border-radius: 999px;
+  background: #d93649;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: none;
+  pointer-events: none;
+}
+.home-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: auto 0;
+}
+.home-menu-caption {
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.12em;
+}
+.home-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  min-height: 84px;
+  padding: 16px 20px;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.home-action > span:first-of-type {
+  flex: 1;
+}
+.home-action strong {
+  display: block;
+  font-size: clamp(15px, 1.5vw, 21px);
+  letter-spacing: 0.05em;
+}
+.home-action small {
+  display: block;
+  color: #c5b9aa;
+  font-size: 11px;
+  margin-top: 6px;
+}
+.home-action-primary {
+  min-height: 98px;
+  background: rgb(28 33 49 / 0.74);
+  border: 1px solid #d8bc8388;
+  border-radius: 12px;
+  color: #ffebbe;
+  box-shadow:
+    0 8px 30px #0003,
+    inset 0 1px #fff2;
+}
+.home-lobby button:not(:disabled):hover {
+  border-color: #e5c991;
+  background-color: #594757;
+}
+
+/* Short landscape: only columns under the player need bottom clearance. */
+@media (orientation: landscape) and (max-height: 600px) {
+  .home-lobby {
+    grid-template-columns: minmax(140px, 1fr) minmax(0, 1.3fr) minmax(
+        172px,
+        1.1fr
+      );
+    gap: 12px;
+    padding: 10px 18px 12px;
+  }
+  .home-sidebar,
+  .home-actions {
+    gap: 9px;
+  }
+  .home-brand {
+    margin: 0;
+  }
+  .home-brand h1 {
+    font-size: 34px;
+    margin: 2px 0;
+  }
+  .home-brand p,
+  .home-brand .home-eyebrow {
+    display: none;
+  }
+  .home-profile {
+    padding: 8px;
+    gap: 8px;
+  }
+  .home-profile img {
+    width: 32px;
+    height: 32px;
+  }
+  .home-profile strong {
+    font-size: 12px;
+  }
+  .home-profile small {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .home-library {
+    padding: 8px 10px;
+  }
+  .home-library small {
+    display: inline;
+    margin-left: 8px;
+  }
+  .home-support {
+    font-size: 10px;
+  }
+  .home-card-count {
+    margin: 2px 0;
+  }
+  .home-title-link {
+    padding: 5px 0;
+  }
+  .home-avatar figcaption {
+    padding-top: 3px;
+    gap: 1px;
+  }
+  .home-epithet {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+  .home-avatar figcaption strong {
+    font-size: 18px;
+  }
+  .home-avatar figcaption button {
+    padding: 2px 8px;
+    font-size: 9px;
+  }
+  .home-menu-caption {
+    display: none;
+  }
+  .home-action-list {
+    gap: 8px;
+  }
+  .home-action,
+  .home-action-primary {
+    padding: 10px;
+    gap: 8px;
+    min-height: 48px;
+  }
+  .home-action strong {
+    font-size: 14px;
+  }
+  .home-action small {
+    display: none;
+  }
+  .home-utilities {
+    gap: 6px;
+  }
+  .home-utilities button {
+    padding: 6px;
+    gap: 5px;
+    font-size: 9px;
+    flex: 1;
+  }
+  .home-utilities svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (orientation: landscape) and (max-width: 650px) {
+  .home-lobby {
+    grid-template-columns: minmax(126px, 1fr) minmax(0, 1.1fr) minmax(
+        155px,
+        1fr
+      );
+    gap: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .home-utilities button {
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+  }
+  .home-utilities button > span {
+    font-size: 9px;
+  }
+  .home-utilities small {
+    display: inline;
+    margin-left: 3px;
+    font-size: 8px;
+  }
+  .home-action {
+    min-height: 40px;
+    padding: 7px;
+  }
+  .home-action svg {
+    width: 18px;
+    height: 18px;
+  }
+  .home-action strong {
+    font-size: 12px;
+  }
+}
+@media (orientation: portrait), (aspect-ratio: 1/1) {
+  .home-lobby {
+    flex: 0 0 auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 18px 20px var(--bgm-controls-clearance, 58px);
+  }
+  .home-lobby > :is(.home-sidebar, .home-avatar, .home-actions) {
+    margin-bottom: 0;
+  }
+  .home-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 12px;
+    overflow: visible;
+  }
+  .home-brand {
+    margin: 0;
+  }
+  .home-brand h1 {
+    font-size: 36px;
+    margin: 3px 0;
+  }
+  .home-brand p {
+    display: none;
+  }
+  .home-brand .home-eyebrow {
+    font-size: 9px;
+  }
+  .home-profile {
+    gap: 8px;
+    padding: 10px;
+  }
+  .home-profile img {
+    width: 34px;
+    height: 34px;
+  }
+  .home-profile strong {
+    font-size: 12px;
+  }
+  .home-library {
+    padding: 10px;
+  }
+  .home-library small {
+    display: inline;
+    margin-left: 8px;
+  }
+  .home-support {
+    margin: 0;
+    font-size: 10px;
+  }
+  .home-card-count {
+    margin: 0;
+  }
+  .home-avatar {
+    height: clamp(320px, 48dvh, 680px);
+  }
+  .home-actions {
+    gap: 14px;
+  }
+  .home-utilities {
+    justify-content: center;
+  }
+  .home-utilities button {
+    flex: 1;
+    justify-content: center;
+  }
+  .home-action-list {
+    gap: 10px;
+    margin: 0;
+  }
+  .home-menu-caption {
+    display: none;
+  }
+  .home-action,
+  .home-action-primary {
+    min-height: 68px;
+    padding: 14px 18px;
+  }
+}
+
+/* Editing stays on the home background, with the full width available for
+ * swipe controls even on short landscape screens. */
+.home-lobby--editing {
+  grid-template-columns: minmax(0, 1fr);
+}
+.home-lobby--editing > :is(.home-sidebar, .home-actions) {
+  display: none;
+}
+.home-lobby--editing .home-avatar {
+  width: 100%;
+  min-width: 0;
+}
+.home-avatar-stage.is-editing {
+  touch-action: pan-y;
+  user-select: none;
+}
+.home-avatar-arrow {
+  position: absolute;
+  top: 45%;
+  width: 40px;
+  min-height: 44px;
+  border: 1px solid var(--lobby-border);
+  border-radius: 8px;
+  font-size: 26px !important;
+  z-index: 1;
+}
+.home-avatar-prev {
+  left: max(0px, calc(50% - 220px));
+}
+.home-avatar-next {
+  right: max(0px, calc(50% - 220px));
+}
+.home-avatar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+.home-lobby--editing .home-avatar-toolbar button {
+  font-size: 13px;
+  padding: 7px 14px;
+  min-height: 36px;
+  border-radius: 8px;
+}
+.home-avatar-picker {
+  width: min(100%, 760px);
+  margin: 5px auto;
+  min-width: 0;
+  border-radius: 10px;
+  border: 1px solid var(--lobby-border);
+  background: var(--lobby-panel);
+  backdrop-filter: blur(12px);
+}
+.home-avatar-picker-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 12px 0;
+  font-size: 11px;
+  color: var(--lobby-muted);
+}
+.home-avatar-rail {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  padding: 6px calc((100% - 62px) / 2);
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+  user-select: none;
+}
+.home-avatar-rail::-webkit-scrollbar {
+  display: none;
+}
+.home-avatar figcaption .home-avatar-icon {
+  flex: 0 0 62px;
+  width: 62px;
+  padding: 4px 2px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  scroll-snap-align: center;
+  font-size: 10px;
+}
+.home-avatar-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.home-avatar-icon span {
+  white-space: nowrap;
+}
+.home-avatar-icon[aria-pressed="true"] span::before {
+  content: "✓ ";
+}
+.home-avatar-error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #ffd8d7;
+  max-width: 640px;
+  overflow-wrap: anywhere;
+}
+@media (orientation: portrait), (aspect-ratio: 1/1) {
+  .home-lobby--editing .home-avatar {
+    height: max(
+      400px,
+      calc(100dvh - 110px - var(--bgm-controls-clearance, 58px))
+    );
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .home-lobby--editing .home-avatar-toolbar button {
+    min-height: 32px;
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  .home-avatar-picker {
+    margin: 2px auto;
+  }
+  .home-avatar-picker-label {
+    padding-top: 3px;
+    font-size: 10px;
+  }
+  .home-avatar figcaption .home-avatar-icon {
+    padding-block: 2px;
+    gap: 1px;
+  }
+  .home-avatar-icon img {
+    width: 30px;
+    height: 30px;
+  }
+  .home-avatar-rail {
+    padding-block: 3px;
+  }
+}
+@media (orientation: landscape) and (max-height: 360px) {
+  .home-lobby--editing .home-epithet,
+  .home-lobby--editing .home-avatar-picker-label {
+    display: none;
+  }
+  .home-lobby--editing .home-avatar figcaption strong {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .home-lobby--editing .home-avatar figcaption {
+    padding-top: 0;
+  }
+}
+@media (pointer: coarse) {
+  .home-lobby--editing .home-avatar-toolbar button {
+    min-height: 44px;
+  }
+}

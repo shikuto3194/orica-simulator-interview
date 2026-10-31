@@ -1,0 +1,43 @@
+{
+  "name": "@orica/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "prompts",
+    "skills"
+  ],
+  "bin": {
+    "orica-ai-chat": "./dist/cli/chat.js",
+    "orica-ai-parse-card": "./dist/cli/parse-card.js",
+    "orica-ai-rule-qa": "./dist/cli/rule-qa.js",
+    "orica-ai-smoke": "./dist/cli/smoke.js",
+    "orica-ai-web-smoke": "./dist/cli/web-smoke.js",
+    "orica-ai-run": "./dist/cli/run.js",
+    "orica-ai-gui": "./dist/cli/gui.js",
+    "orica-ai-lint": "./dist/cli/ai-lint.js",
+    "orica-ai-skill-report": "./dist/cli/skill-report.js"
+  },
+  "dependencies": {
+    "@orica/card-data": "workspace:*",
+    "@orica/rules-core": "workspace:*",
+    "ollama": "^0.5.11",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "undici": "^6.21.0"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check": "tsc -b"
+  }
+}

@@ -1,0 +1,2207 @@
+{
+  "schemaVersion": 1,
+  "kind": "ismcts-fixed-decks",
+  "source": {
+    "artifact": "ai-deck-selection/kenshi1645-tier24/selected-decks.json",
+    "sha256": "12eca9b2d0c8a6c044fe7f6a9a890fc962200223416c2e42686048ea65fdf45f",
+    "exportedAt": "2026-08-14T18:03:49.074Z",
+    "tierEntry": "24 — 2026/7/19"
+  },
+  "selectionPolicy": "保存済みsanitizedCardNosからtier1を4、tier2を4選定。色・攻撃テンポ比較・制御・複雑入力を分散。選定理由はカード構造に基づき、実戦速度/強さの実証とは分ける。",
+  "decks": [
+    {
+      "id": "49a80861-26f4-4bd3-af2b-d318fb45a209",
+      "name": "暴嵐",
+      "archetype": "暴嵐",
+      "tier": "tier1",
+      "reason": "tier1の暴嵐。除去・コア配布・複数対象と無償マジックを含む。攻撃テンポ比較候補とし、速攻性能は実戦で未測定。",
+      "cardNos": [
+        "BSTS01-C02",
+        "BSTS01-C02",
+        "BSTS01-C02",
+        "BSTS01-C03",
+        "BSTS01-C03",
+        "BSTS01-C03",
+        "BSTS01-C04",
+        "BSTS01-C04",
+        "BSTS01-C04",
+        "BSTS01-CX01",
+        "BSTS01-CX01",
+        "BSTS01-CX01",
+        "BSTS01-C05",
+        "BSTS01-C05",
+        "BSTS01-C05",
+        "BSTS01-R01",
+        "BSTS01-R01",
+        "BSTS01-X02",
+        "BSTS01-X02",
+        "BSTS01-X02",
+        "BSTS01-M03",
+        "BSTS01-M03",
+        "BSTS01-M02",
+        "BSTS01-M02",
+        "BSTH08-C01",
+        "BSTH08-C01",
+        "BSTS01-C01",
+        "BSTS01-C01",
+        "BSTS01-C01",
+        "BSTS01-R02",
+        "BSTS01-R02",
+        "BSTS01-R02",
+        "BSLH01-C13",
+        "BSLH01-C13",
+        "BSTH01-C21",
+        "BSTH05-R02",
+        "BSTH05-R02",
+        "BSTS01-R03",
+        "BSTS01-R03",
+        "BSSG01-R02",
+        "BSTS01-M01"
+      ],
+      "cardNosSha256": "0f05c93d4aaa3550c7c8a24060db95685a5c04f8125e7cbff3767e5b20f7d51c",
+      "definitionsSha256": "3d57f0c17fef164d02fc2d2bf46276c97ba59cb98a9a6afcd77aa3928904a78c",
+      "profile": {
+        "colorCounts": {
+          "green": 18,
+          "blue": 22,
+          "red": 8,
+          "purple": 8,
+          "white": 8,
+          "yellow": 9,
+          "black": 2
+        },
+        "mechanics": [
+          "bounce",
+          "core_distribute",
+          "core_move",
+          "cost_modify",
+          "count_gain_modifier",
+          "count_increase",
+          "deck_reveal",
+          "destroy",
+          "discard",
+          "draw",
+          "effect_immunity",
+          "effect_resistance",
+          "end_attack_step",
+          "exhaust",
+          "gate_flash_stack_core",
+          "life_damage_interception",
+          "move_card",
+          "move_self",
+          "negate",
+          "override_properties",
+          "recover",
+          "remove_from_game",
+          "restrict_use",
+          "search_zone",
+          "summon",
+          "suppress_effect",
+          "treat_as",
+          "unblockable",
+          "use_magic_without_cost",
+          "vanish"
+        ]
+      }
+    },
+    {
+      "id": "5483f79d-e858-417f-a383-7dc02ad460f1",
+      "name": "動魔",
+      "archetype": "動魔",
+      "tier": "tier1",
+      "reason": "tier1の動魔。白/黄の回復・防御置換・手札トラッシュ入替・転醒を含む制御入力候補。",
+      "cardNos": [
+        "BSTH02.7-C01",
+        "BSTH02.7-C01",
+        "BSTH02.7-C02",
+        "BSTH02.7-C02",
+        "BSTH02.7-C03",
+        "BSTH02.7-C03",
+        "BSTH02.7-C03",
+        "BSTH02.7-C04",
+        "BSTH02.7-C04",
+        "BSTH02.7-C04",
+        "BSTH02.7-CX01",
+        "BSTH02.7-CX01",
+        "BSTH02.7-M01",
+        "BSTH02.7-R01",
+        "BSTH02.7-R01",
+        "BSTH005-TX01(A)",
+        "BSTH005-TX01(A)",
+        "BSTH04-XX01",
+        "BSTH04-XX01",
+        "BSTH04-XX01",
+        "BSTH02.7-C06",
+        "BSTH02.7-TR03(A)",
+        "BSTH02.7-TR03(A)",
+        "BSTH02.7-TR03(A)",
+        "BSTH02.7-X01",
+        "BSTH02.7-X01",
+        "BSTH02.7-X01",
+        "BSTH02.7-C05",
+        "BSTH02.7-TR02(A)",
+        "BSTH02.7-TR02(A)",
+        "BSTH02.7-TR02(A)",
+        "BSTH02.7-TR01(A)",
+        "BSTH02.7-TR01(A)",
+        "BSTH02.7-TR01(A)",
+        "BSTH02.7-TX01(A)",
+        "BSTH02.7-X03",
+        "BSTH02.7-X03",
+        "BSTH02.7-X02",
+        "BSTH02.7-X02",
+        "BSTH02.7-X02",
+        "BSSG01-C06",
+        "BSAZ01-C08"
+      ],
+      "cardNosSha256": "01d4ed95925dac7caeb11ab2073dddc0679d4ab7d9d30a175e351056e3b73a54",
+      "definitionsSha256": "b59f6b1bbf25c71ceda67c850666d82c8a4dd01a4519c402cc7dc52c87ab5a62",
+      "profile": {
+        "colorCounts": {
+          "yellow": 41,
+          "white": 1
+        },
+        "mechanics": [
+          "bounce",
+          "bp_modify",
+          "core_distribute",
+          "core_move",
+          "cost_modify",
+          "deck_reveal",
+          "destroy",
+          "draw",
+          "effect_immunity",
+          "effect_resistance",
+          "end_attack_step",
+          "force_first_attacker",
+          "grant_effect",
+          "grant_magic_use",
+          "life_damage_interception",
+          "life_gain_replacement",
+          "move_card",
+          "move_self",
+          "override_properties",
+          "pay_cost",
+          "place",
+          "prevent_battle",
+          "queue_hand_trash_swap",
+          "rebirth",
+          "recover",
+          "remove_from_game",
+          "restrict_end_attack_step",
+          "restrict_end_turn",
+          "restrict_stack",
+          "send_to_deck",
+          "summon",
+          "suppress_effect",
+          "suppress_pending_leave_effects",
+          "treat_as",
+          "unblockable"
+        ]
+      }
+    },
+    {
+      "id": "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+      "name": "CB",
+      "archetype": "CB",
+      "tier": "tier1",
+      "reason": "tier1のCB。七色/黒を含むクォーツ・借用・反復・転醒の複雑入力候補。",
+      "cardNos": [
+        "BSLH01-C02",
+        "BSLH01-C02",
+        "BSLH01-C02",
+        "BSLH01-C04",
+        "BSLH01-C04",
+        "BSLH01-C04",
+        "BSLH01-C06",
+        "BSLH01-C06",
+        "BSLH01-C09",
+        "BSLH01-C09",
+        "BSLH01-CX01",
+        "BSLH01-M03",
+        "BSLH01-M03",
+        "BSLH01-R03",
+        "BSLH01-R03",
+        "BSLH01-TR03(A)",
+        "BSLH01-TR03(A)",
+        "BSLH01-TR03(A)",
+        "BSLH01-X01",
+        "BSLH01-X01",
+        "BSLH01-X01",
+        "BSLH01-X03",
+        "BSLH01-X04",
+        "BSLH01-X04",
+        "BSLH01-X05",
+        "BSLH01-X06",
+        "BSLH01-X07",
+        "BSLH01-X07",
+        "BSTH08-C01",
+        "BSTH08-C01",
+        "BSLH01-TR01(A)",
+        "BSLH01-TR01(A)",
+        "BSLH01-TR01(A)",
+        "BSLH01-X08",
+        "BSLH01-R01",
+        "BSLH01-R01",
+        "BSLH01-M05",
+        "BSLH01-TR04(A)",
+        "BSLH01-X09",
+        "BSLH01-R05",
+        "BSLH01-R05",
+        "BSLH01-R06",
+        "BSLH01-R06",
+        "BSLH01-M04",
+        "BSLH01-C05",
+        "BSLH01-C05",
+        "BSLH01-C13",
+        "BSLH01-C13"
+      ],
+      "cardNosSha256": "5d45bd9acbaff14ec16518b09f6ad91b0e76f2056662ddcea7e8d70f655ab769",
+      "definitionsSha256": "864cd0716243059c1b76cb52394095c3b601834109f805ab5b5edeca41c85a06",
+      "profile": {
+        "colorCounts": {
+          "red": 15,
+          "purple": 14,
+          "green": 16,
+          "white": 17,
+          "yellow": 12,
+          "blue": 15,
+          "black": 14
+        },
+        "mechanics": [
+          "borrow_card_event_effect",
+          "borrow_magic_effect",
+          "bounce",
+          "bp_compare_destroy",
+          "core_distribute",
+          "core_move",
+          "cost_modify",
+          "count_increase",
+          "deck_reveal",
+          "declare_gimmick",
+          "destroy",
+          "discard",
+          "discard_set_burst",
+          "draw",
+          "duration_override",
+          "effect_immunity",
+          "end_attack_step",
+          "enter_soul_state",
+          "exhaust",
+          "grant_life_damage_source_prevention_immunity",
+          "grant_optional_deck_reveal_count_boost",
+          "life_damage_interception",
+          "move_card",
+          "move_self",
+          "override_properties",
+          "prevent_next_recovery",
+          "quartz_set",
+          "rebirth",
+          "recover",
+          "remove_from_game",
+          "reveal_hand",
+          "search_zone",
+          "send_to_deck",
+          "set_exhaust_state",
+          "stay_on_field",
+          "summon",
+          "suppress_effect",
+          "symbol_add",
+          "treat_as",
+          "unblockable",
+          "use_magic_without_cost",
+          "vanish"
+        ]
+      }
+    },
+    {
+      "id": "04c41c90-b35f-4aaf-91a7-9527153a8018",
+      "name": "紅魔郷",
+      "archetype": "紅魔郷",
+      "tier": "tier1",
+      "reason": "tier1の紅魔郷。赤/紫の追加アタック・ドロー破棄・対象応答を含む攻撃テンポ比較候補。",
+      "cardNos": [
+        "BSTH01-C04",
+        "BSTH01-C04",
+        "BSTH01-C04",
+        "BSTH01-C12",
+        "BSTH01-C12",
+        "BSTH01-C12",
+        "BSTH01-C22",
+        "BSTH01-C22",
+        "BSTH01-C22",
+        "BSTH01-M01",
+        "BSTH01-M01",
+        "BSTH01-M01",
+        "BSTH01-R04",
+        "BSTH01-R04",
+        "BSTH01-R04",
+        "BSTH01-R05",
+        "BSTH01-R05",
+        "BSTH01-R05",
+        "BSTH01-R12",
+        "BSTH01-R12",
+        "BSTH01-R12",
+        "BSTH01-R21",
+        "BSTH01-R21",
+        "BSTH01-R21",
+        "BSTH01-X03",
+        "BSTH01-X03",
+        "BSTH01-X03",
+        "BSTH01-X04",
+        "BSTH01-X04",
+        "BSTH01-X04",
+        "BSTH01-X05",
+        "BSTH01-X05",
+        "BSTH01-X05",
+        "BSTH01-X07",
+        "BSTH01-X07",
+        "BSTH01-X08",
+        "BSTH01-X08",
+        "BSTH01-X09",
+        "BSTH01-X09",
+        "BSTH01-X09"
+      ],
+      "cardNosSha256": "b34b046690d44413b404421d4746740a231d3a54de5df5ed2afdb90385a2a2ce",
+      "definitionsSha256": "4334602e678aee04ff911dffdb2c08ed8694d224dfb321b4eac741c0fd358f7b",
+      "profile": {
+        "colorCounts": {
+          "red": 25,
+          "purple": 9,
+          "white": 6
+        },
+        "mechanics": [
+          "additional_attack",
+          "core_distribute",
+          "core_move",
+          "cost_modify",
+          "deck_reveal",
+          "destroy",
+          "discard",
+          "draw",
+          "draw_modify",
+          "effect_immunity",
+          "effect_param_modify",
+          "effect_resistance",
+          "end_attack_step",
+          "move_card",
+          "move_self",
+          "negate",
+          "pay_cost",
+          "prevent_battle",
+          "recover",
+          "register_act_as_spirit",
+          "register_redirect_effect_target",
+          "remove_from_game",
+          "search_zone",
+          "set_exhaust_state",
+          "summon",
+          "symbol_add",
+          "treat_as"
+        ]
+      }
+    },
+    {
+      "id": "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+      "name": "ユウ",
+      "archetype": "ユウ",
+      "tier": "tier2",
+      "reason": "tier2のユウ。合体・弾丸・入替・count増減を含み、tier1とは異なる複雑入力を追加。",
+      "cardNos": [
+        "BSGE01-C01",
+        "BSGE01-C01",
+        "BSGE01-C01",
+        "BSGE01-C09",
+        "BSGE01-C09",
+        "BSGE01-C09",
+        "BSGE01-C08",
+        "BSGE01-C08",
+        "BSGE01-C05",
+        "BSGE01-C05",
+        "BSGE01-C05",
+        "BSGE01-C13",
+        "BSGE01-C13",
+        "BSGE01-C13",
+        "BSGE01-CX01",
+        "BSGE01-CX01",
+        "BSGE01-CX01",
+        "BSGE01-M01",
+        "BSGE01-M01",
+        "BSGE01-M01",
+        "BSGE01-M03",
+        "BSGE01-M03",
+        "BSGE01-R01",
+        "BSGE01-R01",
+        "BSGE01-R01",
+        "BSGE01-R02",
+        "BSGE01-R02",
+        "BSGE01-R03",
+        "BSGE01-R05",
+        "BSGE01-R05",
+        "BSGE01-R04",
+        "BSGE01-R04",
+        "BSGE01-TR01(A)",
+        "BSGE01-TR01(A)",
+        "BSGE01-TR01(A)",
+        "BSGE01-TX01(A)",
+        "BSGE01-TX01(A)",
+        "BSGE01-TX01(A)",
+        "BSTH08-C01",
+        "BSTH08-C01"
+      ],
+      "cardNosSha256": "911fe44621a2faba3e721f545a6f4d8bd8dc0259da1ddb6e769c563017668d6e",
+      "definitionsSha256": "305ddc260ed703e5cf84c52630b1c8b9856a97ce88605e9d78f93956a34ae6be",
+      "profile": {
+        "colorCounts": {
+          "red": 24,
+          "yellow": 7,
+          "purple": 10,
+          "green": 4,
+          "white": 5,
+          "blue": 5
+        },
+        "mechanics": [
+          "bounce",
+          "bp_modify",
+          "brave_combine_effect",
+          "bullet_edit",
+          "core_move",
+          "count_decrease",
+          "count_increase",
+          "destroy",
+          "discard",
+          "draw",
+          "effect_immunity",
+          "effect_resistance",
+          "grant_paid_leave_suppression_immunity",
+          "grant_paid_prevention_immunity",
+          "life_damage_interception",
+          "move_self",
+          "noop",
+          "override_properties",
+          "prevent_battle",
+          "rebirth",
+          "summon",
+          "swap_bullet_edit",
+          "symbol_add",
+          "treat_as"
+        ]
+      }
+    },
+    {
+      "id": "de51c8de-fc18-4d57-8975-181fb1113c22",
+      "name": "86",
+      "archetype": "86",
+      "tier": "tier2",
+      "reason": "tier2の86。白/黄のバウンス・防御・回復・配置を含み、制御対面を追加。",
+      "cardNos": [
+        "BSES01-C01",
+        "BSES01-C01",
+        "BSES01-C01",
+        "BSES01-C02",
+        "BSES01-C02",
+        "BSES01-C02",
+        "BSES01-C03",
+        "BSES01-C03",
+        "BSES01-C04",
+        "BSES01-C04",
+        "BSES01-C05",
+        "BSES01-C05",
+        "BSES01-C05",
+        "BSES01-C06",
+        "BSES01-C06",
+        "BSES01-C06",
+        "BSES01-CX01",
+        "BSES01-CX01",
+        "BSES01-CX01",
+        "BSES01-M01",
+        "BSES01-M01",
+        "BSES01-M01",
+        "BSES01-M02",
+        "BSES01-M02",
+        "BSES01-M02",
+        "BSES01-M03",
+        "BSES01-M03",
+        "BSES01-M03",
+        "BSES01-M04",
+        "BSES01-M04",
+        "BSES01-M04",
+        "BSES01-R01",
+        "BSES01-R01",
+        "BSES01-R01",
+        "BSES01-R03",
+        "BSES01-R03",
+        "BSES01-R03",
+        "BSES01-X01",
+        "BSES01-X01",
+        "BSES01-X01"
+      ],
+      "cardNosSha256": "d4c3df47b135db6069c75c00b2af559c35fea1522a72bd89ef6c82a9aa9828a0",
+      "definitionsSha256": "d4e375a54d2925f809cac81ccd3eadee734acf8b496fbe9a189427110d943abb",
+      "profile": {
+        "colorCounts": {
+          "white": 10,
+          "yellow": 30
+        },
+        "mechanics": [
+          "block_unblockable",
+          "bounce",
+          "bp_modify",
+          "core_move",
+          "deck_reveal",
+          "destroy",
+          "discard_set_burst",
+          "draw",
+          "effect_immunity",
+          "effect_resistance",
+          "grant_effect",
+          "grant_life_damage_source_prevention_immunity",
+          "move_card",
+          "move_self",
+          "place",
+          "prevent_battle",
+          "recover",
+          "send_to_deck",
+          "summon",
+          "suppress_effect"
+        ]
+      }
+    },
+    {
+      "id": "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+      "name": "天空璋",
+      "archetype": "天空璋",
+      "tier": "tier2",
+      "reason": "tier2の天空璋。緑単色の配置・配布・疲労/回復と神託を含み、色とコア入力の偏りを減らす。",
+      "cardNos": [
+        "BSTH11-C01",
+        "BSTH11-C01",
+        "BSTH11-C01",
+        "BSTH11-C02",
+        "BSTH11-C02",
+        "BSTH11-C02",
+        "BSTH11-C03",
+        "BSTH11-C03",
+        "BSTH11-C03",
+        "BSTH11-C04",
+        "BSTH11-C04",
+        "BSTH11-M01",
+        "BSTH11-M01",
+        "BSTH11-M01",
+        "BSTH11-R01",
+        "BSTH11-R01",
+        "BSTH11-R01",
+        "BSTH11-R02",
+        "BSTH11-R02",
+        "BSTH11-R02",
+        "BSTH11-R03",
+        "BSTH11-R03",
+        "BSTH11-R03",
+        "BSTH11-X01",
+        "BSTH11-X01",
+        "BSTH11-X01",
+        "BSTH11-X02",
+        "BSTH11-X02",
+        "BSTH11-X02",
+        "BSTH11-X03",
+        "BSTH11-X03",
+        "BSTH11-X03",
+        "BSTH11-X04",
+        "BSTH11-X04",
+        "BSTH11-X04",
+        "BSGE01-C15",
+        "BSGE01-C15",
+        "BSTH05-C02",
+        "BSTH05-C02",
+        "BSTH05-C02"
+      ],
+      "cardNosSha256": "bf00c8a24c95c1fb6703e5a9075f43c3a9dd16aa593410ba8c2426f43f093876",
+      "definitionsSha256": "2d1a7bdf03f3d6112fafef08cb6d9ac2e1239ab430320b27092131062338af14",
+      "profile": {
+        "colorCounts": {
+          "green": 40
+        },
+        "mechanics": [
+          "bounce",
+          "core_distribute",
+          "core_move",
+          "cost_modify",
+          "deck_reveal",
+          "draw",
+          "effect_immunity",
+          "exhaust",
+          "grant_effect_source_prevention_immunity",
+          "move_card",
+          "move_self",
+          "negate",
+          "override_properties",
+          "pay_cost",
+          "put",
+          "recover",
+          "restrict_recovery",
+          "search_zone",
+          "summon",
+          "suppress_effect",
+          "treat_as"
+        ]
+      }
+    },
+    {
+      "id": "7b33aba3-e919-48fc-be08-359359cb076d",
+      "name": "花映塚",
+      "archetype": "花映塚",
+      "tier": "tier2",
+      "reason": "tier2の花映塚。紫/黄のBP操作・破棄・回復・制限を含み、除去/制御対面を追加。",
+      "cardNos": [
+        "BSTH04-C01",
+        "BSTH04-C01",
+        "BSTH04-C01",
+        "BSTH04-C02",
+        "BSTH04-C02",
+        "BSTH04-C02",
+        "BSTH04-C03",
+        "BSTH04-C03",
+        "BSTH04-C11",
+        "BSTH04-C11",
+        "BSTH04-C11",
+        "BSTH04-C12",
+        "BSTH04-C12",
+        "BSTH04-C12",
+        "BSTH04-M01",
+        "BSTH04-M01",
+        "BSTH04-R01",
+        "BSTH04-R01",
+        "BSTH04-R01",
+        "BSTH04-X01",
+        "BSTH04-X01",
+        "BSTH04-X01",
+        "BSTH04-X02",
+        "BSTH04-X02",
+        "BSTH04-X02",
+        "BSTH04-X03",
+        "BSTH04-X03",
+        "BSTH04-X03",
+        "BSTH04-XX01",
+        "BSTH04-XX01",
+        "BSTH04-XX01",
+        "BSTH04-転醒R01(A)",
+        "BSTH04-転醒R01(A)",
+        "BSTH04-転醒R01(A)",
+        "BSTH04-転醒R02(A)",
+        "BSTH04-転醒R02(A)",
+        "BSTH04-転醒R02(A)",
+        "BSTH02-M02",
+        "BSTH02-M02",
+        "BSTH02-M02",
+        "BSTH01-C21"
+      ],
+      "cardNosSha256": "827042c0631a685a5a6c7a09b82077a4919e7d96af6bf0f5c74171c327421598",
+      "definitionsSha256": "4fd2fdd53bd447bd9e0241b45fd469576b28acbd812cf9adb8b2c77dceda4ae4",
+      "profile": {
+        "colorCounts": {
+          "purple": 17,
+          "yellow": 27
+        },
+        "mechanics": [
+          "bp_modify",
+          "core_distribute",
+          "core_move",
+          "count_increase",
+          "deck_reveal",
+          "destroy",
+          "discard",
+          "draw",
+          "effect_immunity",
+          "end_attack_step",
+          "life_damage_interception",
+          "move_card",
+          "move_self",
+          "negate",
+          "override_properties",
+          "prevent_battle",
+          "rebirth",
+          "recover",
+          "restrict_burst_activation",
+          "restrict_stack",
+          "restrict_use",
+          "search_zone",
+          "set_exhaust_state",
+          "stay_on_field",
+          "summon",
+          "suppress_effect",
+          "symbol_add",
+          "treat_as",
+          "unblockable"
+        ]
+      }
+    }
+  ],
+  "seeds": {
+    "training": {
+      "first": 1073741824,
+      "last": 2147483647
+    },
+    "calibration": [3145728, 3145729, 3145730],
+    "smokePairs": [
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 1048576
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 1048577
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 1048578
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 1048579
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 1048580
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 1048581
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 1048582
+      },
+      {
+        "decks": [
+          "7b33aba3-e919-48fc-be08-359359cb076d",
+          "49a80861-26f4-4bd3-af2b-d318fb45a209"
+        ],
+        "seed": 1048583
+      }
+    ],
+    "releasePairs": [
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097152
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097153
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097154
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097155
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097156
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097157
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097158
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097159
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097160
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097161
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097162
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097163
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097164
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097165
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097166
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097167
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097168
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097169
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097170
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097171
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097172
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097173
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097174
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097175
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097176
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097177
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097178
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097179
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097180
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097181
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097182
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097183
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097184
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097185
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097186
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097187
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097188
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097189
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097190
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097191
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097192
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097193
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097194
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097195
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097196
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097197
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097198
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097199
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097200
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097201
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097202
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097203
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097204
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097205
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097206
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097207
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097208
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097209
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097210
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097211
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097212
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097213
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097214
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097215
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097216
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097217
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097218
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097219
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097220
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097221
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097222
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097223
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097224
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097225
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097226
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097227
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097228
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097229
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097230
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097231
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097232
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097233
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097234
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097235
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097236
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097237
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097238
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097239
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097240
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097241
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097242
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097243
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097244
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097245
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097246
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097247
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097248
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097249
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097250
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097251
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097252
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097253
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097254
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097255
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097256
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097257
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097258
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097259
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097260
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097261
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097262
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097263
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097264
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097265
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097266
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097267
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097268
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097269
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097270
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097271
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097272
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097273
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097274
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097275
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097276
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097277
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097278
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097279
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097280
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097281
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097282
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097283
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097284
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097285
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097286
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097287
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097288
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097289
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097290
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097291
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097292
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097293
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097294
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097295
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097296
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097297
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097298
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097299
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097300
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097301
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097302
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097303
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097304
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097305
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097306
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097307
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097308
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097309
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097310
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097311
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097312
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097313
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097314
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097315
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097316
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097317
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097318
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097319
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097320
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097321
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097322
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097323
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097324
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097325
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097326
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0"
+        ],
+        "seed": 2097327
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097328
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097329
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097330
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097331
+      },
+      {
+        "decks": [
+          "5483f79d-e858-417f-a383-7dc02ad460f1",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097332
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097333
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097334
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097335
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097336
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097337
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636"
+        ],
+        "seed": 2097338
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097339
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097340
+      },
+      {
+        "decks": [
+          "04c41c90-b35f-4aaf-91a7-9527153a8018",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097341
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097342
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097343
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097344
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe"
+        ],
+        "seed": 2097345
+      },
+      {
+        "decks": [
+          "de51c8de-fc18-4d57-8975-181fb1113c22",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097346
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097347
+      },
+      {
+        "decks": [
+          "49a80861-26f4-4bd3-af2b-d318fb45a209",
+          "5483f79d-e858-417f-a383-7dc02ad460f1"
+        ],
+        "seed": 2097348
+      },
+      {
+        "decks": [
+          "78e3bf79-e7a1-4793-ba4b-3cfe1d958dc0",
+          "04c41c90-b35f-4aaf-91a7-9527153a8018"
+        ],
+        "seed": 2097349
+      },
+      {
+        "decks": [
+          "360b9dc9-98dc-42db-b1e5-75f29cc7e636",
+          "de51c8de-fc18-4d57-8975-181fb1113c22"
+        ],
+        "seed": 2097350
+      },
+      {
+        "decks": [
+          "19a7ff86-b2c4-4569-9a33-8beaf9fafdbe",
+          "7b33aba3-e919-48fc-be08-359359cb076d"
+        ],
+        "seed": 2097351
+      }
+    ]
+  },
+  "contentSha256": "d795be5dfcf55abec90b8c1c086933c28177c7446da98ef1710703a7f2a15fa5"
+}
