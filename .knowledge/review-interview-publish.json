@@ -1,0 +1,14 @@
+{
+  "decision": "updated",
+  "reason": "面接用アカウントの実作成と2 tenantの直接REST相互検査を終え、公開用の運用記録を実態に合わせた。",
+  "used_ids": ["p.d705aea0dd8a.interview-tenant-control-plane"],
+  "changed_ids": ["p.d705aea0dd8a.interview-tenant-control-plane"],
+  "skipped_candidates": [
+    {"id": "g.goal-first", "reason": "一般的な目的整理であり、公開済み面接環境の認証とテナント検証には関係しない。"}
+  ],
+  "learning": {
+    "disposition": "saved",
+    "note": "既存のtenant認可項目を改訂し、2ユーザー間のread/write分離が直接RESTで確認できた条件と結果を記録した。",
+    "evidence": []
+  }
+}

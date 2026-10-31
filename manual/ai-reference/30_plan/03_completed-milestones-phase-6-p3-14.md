@@ -1,0 +1,132 @@
+# Completed Milestones: Phase 6 — P3-14 DSL 拡張シリーズ
+
+このファイルは、Phase 6 の「P3-14 DSL 拡張シリーズ（A/B/C/D 各項目）」の完了履歴です。
+索引は [03_completed-milestones-phase-6.md](./03_completed-milestones-phase-6.md) から辿ります。
+
+## Phase 6: データと DSL — P3-14 DSL 拡張
+
+- **P3-14 D-1 動的amount（DynamicCount拡張）実装完了** (2026-04-09)
+  - `dsl-types.ts`: `DynamicCount.source` に `{ kind: "count_value"; player: PlayerRef }` を追加。`offset?: number` フィールド追加（計算式: `baseCount * multiplier + offset`）。
+  - `target-resolution.ts`: `resolveDynamicCount()` に `count_value` case 追加（`PlayerState.countValue` 参照）。offset 加算ロジック追加。
+  - DynamicCount ソース全5種: `cards_in_zone` / `cards_from_ref` / `cores_on` / `count_value`(新規) / `event_amount`。
+  - テスト5件追加: count_value self/opponent、multiplier、offset、cards_in_zone フィールドカウント。
+  - P3-14 A-5（カウント連動効果）も D-1 で解決済み。
+  - 全822テスト通過。
+- **P3-14 B-4 ゾーン内カウント条件実装完了** (2026-04-09)
+  - `model.ts`: `field_has` に `zone?: Zone` + `maxCount?: number` 追加。`field_lacks` に `zone?: Zone` 追加。デフォルト `"field"` で既存互換。
+  - `structured-effect-interpreter.ts`: `evaluateConditionClause` の `field_has`/`field_lacks` でハードコード `"field"` → `clause.zone ?? "field"` に変更。`maxCount` チェック追加。
+  - 対応パターン: トラッシュ枚数条件(`zone:"trash"`)、デッキ枚数条件(`zone:"deck"` + `maxCount`)、手元カード存在(`zone:"set_aside"`)。
+  - テスト8件追加: trash has/lacks、deck maxCount、set_aside、デフォルト互換。
+  - 全830テスト通過。
+- **P3-14 B-1 複合系統条件確認完了** (2026-04-09)
+  - `CardFilter.tribesLogic: "and" | "or"` で既に完全対応済みであることを確認。`tribesRequired` フィールドも独立AND条件として実装済み。
+  - BSTH02/BSTH03 の実カードで使用実績あり。`card-filter.test.ts` にテスト済み。新規実装不要。
+- **P3-14 A-1 アクティベーションコスト実装完了** (2026-04-09)
+  - `effect-interpreter.ts`: 非カード移動アクション（count_decrease/core_move/life_damage 等）の `succeeded` 判定を実際の状態変化検出に修正（`didNonCardActionChangeState`）。
+  - `structured-effect-interpreter.ts`: `executeCoreMove` に不足パス追加（this_card→void, reserve→void, trash→void, reserve→this_card）。
+  - テスト8件追加。全838テスト通過。
+- **P3-14 B-3 バトル状態詳細条件実装完了** (2026-04-09)
+  - `dsl-types.ts`: `CardFilter.battleState` フィールド追加（`"in_battle" | "not_in_battle" | "attacking" | "blocking"`）。
+  - `card-filter.ts`: `MatchCardFilterOptions.battleEntities` 追加。`matchesCardFilter` で `BattleEntity.attackState` を参照してバトル状態判定。
+  - `model.ts`: `ConditionClause` に `{ kind: "in_battle"; state?: "attacking" | "blocking" }` 追加。
+  - `structured-effect-interpreter.ts`: `evaluateConditionClause` に `in_battle` ケース追加。
+  - テスト12件追加（CardFilter: 7件、ConditionClause: 5件）。全850テスト通過。
+- **P3-14 A-2 フィールド離脱置換効果実装完了** (2026-04-09)
+  - `dsl-types.ts`: `FieldExitReplacement` 型追加（`exhaust` / `move_to hand|deck_bottom`）。`EffectResistanceAction.replacement` フィールド追加。
+  - `model.ts`: `ContinuousEffectTag` に `replace_destroy_exhaust` / `replace_destroy_to_hand` / `replace_destroy_to_deck_bottom` 追加。v1 `EffectResistanceAction.resistType` にも同3値追加。
+  - `effect-interpreter.ts`: DSL `replacement` → v1 `resistType` マッピング追加。
+  - `state-based-actions.ts`: `checkFieldExitReplacement()` 関数追加。`flushPendingLeaves()` 内で魂状態置換チェックの後に呼び出し、破壊対象カードの CE を検査して置換を適用。exhaust 置換はフィールド残留+疲労、hand/deck_bottom 置換はゾーン移動先変更+プレイヤーカウント補正。`processMovedToTrashEffects` からの置換済みカード除外。
+  - テスト5件追加（exhaust残留・手札戻し・デッキ下・vanish非対象・混在）。全855テスト通過。
+- **P3-14 A-2 フィールド離脱置換効果 概念再設計** (2026-04-10)
+  - 初回実装の `replace_destroy_*` 命名と `pl.kind === "destroy"` 限定フィルタが現実のカードテキスト（「相手の効果でフィールドを離れるとき、疲労状態でフィールドに残る」BSTH02 等）と合致しないため再設計。
+  - `model.ts`: `ContinuousEffectTag` の `replace_destroy_*` 3 タグを `replace_field_exit` 単一タグに統合。`EffectResistanceAction` に `replacementTrigger`（`"leave_field" | "destroy" | "bounce" | "vanish"`）と `replacementAction` フィールドを追加。
+  - `effect-interpreter.ts`: DSL `resistsOutcome` を `replacementTrigger` に、`replacement` を `replacementAction` にマッピング。`source` も渡す。
+  - `structured-effect-interpreter.ts`: `executeEffectResistance` で置換効果の場合 `metadata: { trigger, source, replacement }` を CE に格納。
+  - `state-based-actions.ts`: `checkFieldExitReplacement()` を再設計。`pl.kind !== "destroy"` フィルタを撤去し、`metadata.trigger` と `pl.kind` をマッチング（`leave_field` は任意の離脱原因に一致）。`metadata.source === "opponent_effect"` の場合は `pl.causePlayerId !== controllerPlayerId` のみ捕捉。
+  - テスト 8 件追加（trigger=leave_field × destroy/bounce/vanish, trigger=destroy で bounce 不一致, source=opponent_effect の自分効果除外, source=all, state-based 除外）。既存5件は新スキーマに更新。全 862 テスト通過。
+  - 残留懸念: `PendingLeaveKind` は現状 `destroy | vanish | bounce` のみで `send_to_deck` 系は未対応。実カードに直接置換効果を持つカード追加例はまだない。
+- **P3-14 A-2 triggered 残置効果分離（補完修正）** (2026-04-10)
+  - ユーザー指摘により概念修正:「破壊されるとき / 離れるとき疲労状態で残る」(BSTH02 等) は **真の置換ではなく triggered effect**。pendingLeave に入った *後* に発火する後発状態であり、B 効果（「相手スピリットを破壊したとき」等）と同時誘発する場面でターンプレイヤーが解決順を選べる必要があるため、純粋な置換ではない。
+  - `model.ts`: `TriggerEventCause = "opponent_effect" | "self_effect" | "battle" | "state_based"` 追加。`Timing.card_event` / `Timing.game_event` に `cause?: TriggerEventCause`、`StructuredTriggerEvent` / `PendingTriggeredEffect` にも `cause?` を追加。`StayOnFieldAction` 新設。`EffectResistanceAction.replacementAction` から `{ kind: "exhaust" }` 撤去。
+  - `dsl-types.ts`: DSL 名前空間に `StayOnFieldAction` 追加。`FieldExitReplacement` から `{ kind: "exhaust" }` バリアント削除。
+  - `trigger-system.ts`: `deriveTriggerEventCauseFromPendingLeave()` ヘルパー追加（state_based_action / battle / opponent_effect / self_effect の判定）。`collectTriggerEventsFromStateDelta` で pendingLeave から cause を導出し event/leave_field flush 両方に伝搬。`queuePendingReactionsFromTriggerEvents` で pending.event.cause / pending.cause に伝搬。`TriggerEventMatcher.cause` 追加で `matchesTriggerEvent` の絞り込みサポート。
+  - `structured-effect-registrations.ts`: `effect.timing.cause` 指定時、eventMatcher の `family` + `causeKind` + `cause` を構築。
+  - `structured-effect-interpreter.ts`: `executeStayOnField` 新設。pendingLeaveEntities から対象除外、`pendingLeaveKind/Cause/ChainId` を null クリア、`exhaustState` を `newExhaustState` に設定、同 `simultaneousGroupId` 内で `relatedInstanceId === target` の destroy/vanish/bounce/leave_field 系 pending triggered/burst を撤回。pendingLeave 状態の対象を取得するため `findTargetCards` のフィルタを迂回（zone === "field" のみで直接検索）。`executeEffectAction` options に `pendingEffectSimultaneousGroupId?: string` 追加。`executeEffectResistance` の replacement metadata 生成から exhaust 系を撤去。
+  - `effect-interpreter.ts`: DSL `stay_on_field` → v1 変換追加。`getActionTargetSpec` switch に `stay_on_field` 追加。`ExecuteEffectOptions` / `executeEffectAction` 呼び出しで `pendingEffectSimultaneousGroupId` を伝搬。`EffectResistanceAction.replacement` の exhaust 分岐削除。
+  - `effect-resolution.ts`: `EffectActionContext.pendingEffectSimultaneousGroupId` 追加。`tryExecuteEffects` で context から `executeEffect` に伝搬。
+  - `legal-actions-apply.ts`: `case "resolve_pending_triggered_effect"` で `pendingEffect.simultaneousGroupId` を `EffectActionContext.pendingEffectSimultaneousGroupId` に転写（hand-written と structured fallback の両経路）。
+  - `state-based-actions.ts`: `checkFieldExitReplacement` から exhaust 系経路を撤去（戻り値 `exhaustReplacedIds` 削除、exhaust 後の state 構築ブロック削除）。`flushPendingLeaves` の `effectiveFlushable` フィルタからも exhaust 除外を削除。move_to 系 (`zoneReplacements`) は維持。
+  - テスト構成変更: `state-based-actions.test.ts` の exhaust 系 6 件削除し、4 件を `replacement: { kind: "move_to", zone: "hand" }` に書き換え（trigger/source フィルタ検証は維持）。`ReplacementMeta` 型から exhaust バリアント削除。新規 `stay-on-field-action.test.ts` 14 件追加: `deriveTriggerEventCauseFromPendingLeave` 5件 + `executeStayOnField` 基本 4件 + simultaneous group 5件（同グループ撤回 / 別グループ非撤回 / relatedInstanceId 不一致 / 異種 eventKind / グループ ID 未指定）。`index.test.ts` の battle leave_field event objectContaining に `cause: "battle"` 追加。
+  - 全 881 テスト通過（862 → 881、+19）。型チェック通過。
+  - 残留懸念: 「破壊されるとき疲労状態で残る」のような破壊**前**の置換テキストは未確認。論理的には `replace_field_exit.exhaust` 復活が必要だが、実カード発見時点で復活させる方針。`PendingLeaveKind.send_to_deck` 拡張は別件で残置。
+- **P3-14 D-4 期間拡張（Nターン継続・次ターン）実装完了** (2026-04-10)
+  - `model.ts`: `Duration` に `turns?: number` を追加（既定=1）。`next?: boolean` のセマンティクスを `scope: "turn"` で +1 ターン延命と明確化。
+  - `legal-actions-shared.ts`: `removeExpiredContinuousEffects` を `state.turnNumber - createdAtTurn` 経過数ベースに更新。`elapsed < (turns ?? 1) + (next ? 1 : 0) - 1` で生存判定。
+  - `retrigger-system.ts`: `removeExpiredRetriggerEffects` も同じロジックに更新。`isRetriggerMatch` の turn 一致チェックも `elapsed < totalTurns` のウィンドウチェックに変更。
+  - 「N ターンの間」「次のターンまで」「このターンの間」を統一した turn 経過数ベースで表現可能に。
+  - テスト 11 件追加（CE 7件: 既定/turns=2/turns=3/next=true/next+turns=2/permanent維持/混在、retrigger 4件: turns=2/turns=3/next=true/next+turns=2）。全 873 テスト通過。
+  - 残留懸念: `whose: "self" | "opponent"` は型定義としては存在するが現状は honored されない。「自分のターン終了時まで」「相手のターン終了時まで」が必要になったら別途対応。
+- **P3-14 A-4 プロパティコピー（copy_from スナップショット）実装完了** (2026-04-10)
+  - `dsl-types.ts`: `DSL.CopyFromTargetSpec` 型 (`{ copy_from: TargetSpec }`) を新設し、`OverridePropertiesAction.properties` の `bp`/`symbols`/`cardName`/`cost`/`tribes` のユニオンに追加。
+  - `effect-interpreter.ts`: `resolveCopyFromInProperties()` ヘルパー追加。CE 登録前に `copy_from` 指定を検出 → `resolveTargetSpec` でソースカードを解決 → 該当プロパティをスナップショット解決してリテラル値に置き換える。BP は `getEffectiveBp()`、シンボルは `getEffectiveSymbols()` を使用しモディファイア込みで取得。BP は `{ lv1, lv2, lv3 }` 全レベル一律で保存（「現在の BP」スナップショット意味論）。
+  - `executeOverrideProperties()` で metadata.properties に解決済みの値を保存するため、消費側 (`getOverriddenProperties`) には変更不要（リテラル値として透過的に消費される）。
+  - 解決失敗（対象が見つからない等）の場合は当該プロパティを `undefined` にして除外し、CE 自体は登録する。
+  - `copy_self`（既存）と `copy_from`（新規）は同じプロパティオブジェクト内で混在可能。`copy_self` は metadata に文字列として保存され `getOverriddenProperties` で解決、`copy_from` は CE 登録時にリテラル化される。
+  - 「相手のスピリットの BP/シンボル/カード名/コスト/系統と同じ」表現を実カード追加なしで型レベルから対応可能に。
+  - テスト 8 件追加（`effect-interpreter.test.ts` "A-4: override_properties copy_from スナップショット"）: bp/symbols/cardName/cost/tribes/混在/解決失敗/スナップショット不変性。全 889 テスト通過。
+  - 残留懸念: レベルコピー（「Lv2 として扱う」）は未対応。動的選択（GUI で対象を選ばせる）は preSelectedIds 経由の対象引き渡しが必要なケースを Task A で実カード追加時に検証する。
+- **P3-14 B-2 効果結果ベーストリガー実装完了** (2026-04-10)
+  - `dsl-types.ts`: `StepCondition` 全変種に `not?: boolean` を追加（`ref_succeeded` / `ref_has_color` / `ref_has_match` / 新規 `ref_count`）。`ref_has_color` と `ref_has_match` に `minCount?: number` / `maxCount?: number` を追加（既定 `minCount=1` で従来の `some()` 互換）。新変種 `{ kind: "ref_count"; stepId: string; min?; max?; not? }` を追加（`affectedCardInstanceIds.length` をフィルタなしで件数比較。既定 `min=1`）。
+  - `effect-interpreter.ts`: `evaluateStepCondition()` を `evaluateStepConditionRaw()` + 否定ラッパ（`not ? !raw : raw`）に分離。`ref_count` ケース新設。`ref_has_color` / `ref_has_match` を `some()` ではなく `reduce()` ベースの件数カウントに変更し、`minCount` / `maxCount` を判定。
+  - 表現可能になったパターン: 「2 体以上破壊したとき」（`ref_count.min=2`）/「破壊できなかったとき」（`ref_succeeded.not=true`）/「赤色のカードを 1 枚以上手札に加えたとき」（`ref_has_color.minCount=1`）/「ちょうど N 枚マッチしたとき」（`ref_has_match.minCount=maxCount=N`）。
+  - スコープ外: 「相手の効果を受けなかったとき」は StepCondition の領域ではなく `effect_resisted` トリガーイベント（C-2）が必要なため別タスクへ分離。
+  - テスト 10 件追加（`effect-interpreter.test.ts` "B-2"）: ref_succeeded not 成功/失敗（`count_decrease` で件数 0/1 を作る）、ref_count min/max/0件、ref_count not、ref_has_match minCount 既定/2件不足/not、ref_has_color minCount。全 899 テスト通過（889 → 899、+10）。
+  - 設計判断: `not?` を variant 共通フィールドとして wrapper で一括処理することで、各 case のロジックを純粋にした。既定 `minCount=1` / `min=1` で既存の `some()` セマンティクスとの後方互換を保った。
+- **P3-14 C-3 自動発動型効果（recover トリガー）部分実装完了** (2026-04-10)
+  - `model.ts`: `TriggerEventKind` に `"recover"` を追加。`CardEventType` に `"recover"` を追加。
+  - `trigger-system.ts`: `triggerEventKindToMatcher` / `triggerEventKindToStructuredEvent` に `case "recover"` を追加（`family: "state_change"` + `validationMode: "require_related_instance_on_field"`）。`collectTriggerEventsFromStateDelta` の exhaust 検出ループ内に「回復方向の変化」（`exhausted → recovered` / `heavily_exhausted → exhausted` / `heavily_exhausted → recovered`）を検出して `eventKind: "recover"` 発火を追加。`filterOptInTriggerEvents` を `OPT_IN_TRIGGER_EVENT_KINDS = { exhaust, recover }` set ベースに汎化（該当カードに `card_event` の対応 timing 効果がない場合はキューイングしない opt-in 方式を維持）。
+  - `structured-effect-registrations.ts`: `CARD_EVENT_TO_TRIGGER` に `recover: "recover"`、`EVENT_KIND_TO_FAMILY` に `recover: "state_change"` を追加。
+  - `action.kind` の `recover`（既存 `RecoverAction`）と `eventKind` の `recover`（新規 `TriggerEventKind`）は別の型族（discriminated union のキーが異なる）で名前衝突しない。
+  - 「回復したとき、〜」表現が DSL から定義可能に。`exhaust` と同じ `state_change` family に所属し、対称的な opt-in pipeline を共有。
+  - テスト 10 件追加（`trigger-system.test.ts`）: exhaust 2件（recovered→exhausted, recovered→heavily_exhausted）、recover 3件（exhausted→recovered, heavily_exhausted→exhausted, heavily_exhausted→recovered）、no-op 1件、非フィールド除外 1件、混在 1件、structured event マッピング 2件。全 909 テスト通過（899 → 909、+10）。
+  - 残留懸念: `revealed` / `moved_to_trash` 以外の「自動発動・常時監視型」パターン（例: 「BP が 0 になったとき」「コアが置かれたとき」）は C-2 不足トリガーイベントと連動して別途対応する。実カードに `recover` トリガーを使用するカード追加例はまだない（テストカバレッジのみ）。
+- **P3-14 D-2 Phase 1 選択肢の柔軟化（選択→分岐）実装完了** (2026-04-10)
+  - `step-execution-context.ts`: `StepResult` に `chosenChoiceIndex?: number` を追加（step.choice 持ち + `options.choiceIndex` 確定時のみ記録、0=デフォルト action / 1+=`choice[N-1]`）。step.choice なしのステップでは undefined のまま。
+  - `dsl-types.ts`: `StepCondition` ユニオンに `{ kind: "ref_choice"; stepId: string; choiceIndex: number; not?: boolean }` バリアントを追加。
+  - `effect-interpreter.ts`: ステップ結果記録ブロックで `step.choice && step.choice.length > 0 && options.choiceIndex !== undefined` の条件で `chosenChoiceIndex` を `recordStepResult` に渡す。`evaluateStepConditionRaw` に `case "ref_choice"` を追加（参照先 result が無い / `chosenChoiceIndex` 未記録 → false、否定は既存の `not ? !raw : raw` ラッパで処理）。
+  - 既存の choice 登録パイプライン（`structured-effect-registrations.ts:362-410` で choice ステップを複数 registration に展開し、各 registration が独立した legal action として `actionId` 付きで表面化される）には変更不要 — プレイヤーが選んだ legal action から `executeEffect` の `options.choiceIndex` に渡る既存経路にそのまま乗っているだけ。
+  - 表現可能になったパターン: 「A か B を選ぶ。A を選んだ場合さらに C を行う」（`ref_choice.choiceIndex=0`）/「A を選んだとき X、B を選んだとき Y」（双方向分岐 — 各分岐用ステップに別 choiceIndex の `ref_choice` を付与）/「B を選ばなかったとき追加」（`not: true`）。
+  - スコープ外（Phase 2 以降に分離）: chooser（相手の選択 — `EffectStep.chooser?: PlayerRef` + 登録への伝搬 + `legal-actions-availability.ts` での `actingPlayerId` 反転が必要、影響範囲が広いため分離）/ 複数選択（`selectionCount?: { min, max }` + 新 legal action 形態 + UI 連動が必要）/ 1 effect 内の複数 choice ステップ（既存登録ロジックが `effect.steps.find` で 1 つだけ取得するため）。
+  - テスト 7 件追加（`effect-interpreter.test.ts` "D-2"）: デフォルト選択（choiceIndex=0）/ 代替選択（choiceIndex=1）/ not=true / 双方向分岐 / choice なしの参照ステップ → false / 未知 stepId → false / `options.choiceIndex` 未指定 → 未記録で false。全 916 テスト通過（909 → 916、+7）。
+  - 設計判断: 既存 choice インフラ流用で最小コスト実装。`chosenChoiceIndex` は `serializeStepContext` の `...rest` スプレッドで pending 経由再開時に自動伝搬される（明示テストは未追加、実カード追加時に GUI 経由で検証推奨）。「未記録 → false」とすることで「分岐用 ref_choice をうっかり choice なしステップに付けた」場合に黙ってスキップされ、デバッグしやすい挙動を選択。
+- **P3-14 D-2 Phase 2 chooser（相手の選択）最小実装完了** (2026-04-11)
+  - `dsl-types.ts`: `EffectStep` に `chooser?: PlayerRef` 追加（"省略時 = self / opponent = 効果オーナーの相手が選ぶ" のセマンティクス）。
+  - `legal-actions-types.ts`: `RegisteredTargetedEffectActionBase` に `chooser?: "self" | "opponent" | "either"` 追加（汎用 base 用）。`ResolvePendingTriggeredEffectLegalAction` に `chooserPlayerId?: string` 追加（prompt 相手の player ID。owner と異なる場合のみ出力）。
+  - `trigger-system.ts`: `RegisteredTriggeredEffectAction` interface（base を継承していない別 interface）に `chooser?: "self" | "opponent" | "either"` 追加。同時に `maxTargetCount?: number` も追加（D-2 Phase 2 multi-select の取りこぼし）。
+  - `structured-effect-registrations.ts`: `extractChooserFromStep(step)` ヘルパー新設。`extractFieldTargetingMetadata(effect)` を「対象を持つ最初の step の chooser を伝搬」するよう拡張。`generateTriggeredEffectRegistrations` の choice 展開部で、デフォルト action と各 choice entry の両方に `extractChooserFromStep` を適用。
+  - `legal-actions-availability.ts:getAvailablePendingTriggeredEffectLegalActions`: 入口ガードを「呼び出し側 player が effect owner」または「effect owner の opponent」のいずれかを許容するよう緩和。各 sourceChoice について `chooserPlayerId` を解決（chooser="opponent" なら opponent player ID、それ以外は effect owner ID）+ `chooserPlayerId !== options.actingPlayerId` の sourceChoice はスキップ + 出力 legal action の `actingPlayerId` は据え置き（効果オーナー）で `chooserPlayerId` のみ反転後の prompt 相手 + sourceChoices 存在時に fallback action を抑制（registration があったが chooser フィルタで全除外された場合に「registration なし fallback prompt」を出さない）。
+  - 設計判断: `actingPlayerId` フィールドを直接 flip すると `useResolvePendingTriggeredEffectAsAction` の `pendingEffect.actingPlayerId !== options.actingPlayerId` 厳密検証で例外が出るため、別フィールド `chooserPlayerId` で「prompt 相手のみ」を反転する方針を採用。効果実行時の owner は据え置きで、`useResolvePendingTriggeredEffectAsAction` には引き続き `action.actingPlayerId`（= 効果オーナー）が渡されるため互換。
+  - 表現可能になったパターン: 「相手は自分のスピリット 1 体を選んで破壊する」（`chooser: "opponent"` + `target: { player: "opponent", ... }`）。pending triggered effect 経路のみ。BSLH01 / BSTH02 / BSTH03 で 3〜5 枚の「相手が選ぶ」「相手が対象を選びなおす」「相手がリザーブ/トラッシュを選ぶ」テキストが対象。
+  - スコープ外（残）: pending triggered effect 以外の経路（battle immediate / field card / magic / hand card）の chooser 対応 / GUI 側で `chooserPlayerId` を読んで prompt 相手に表示する処理 / 複数選択 GUI multi-pick UI / chooser="either" の実装。
+  - テスト 8 件追加（`chooser-targeting.test.ts`）: registration 伝搬 4 件（chooser='opponent' 伝搬 / chooser 未指定 / chooser='self' 伝搬 / choice ステップ各 entry 独立伝搬）+ legal-actions builder 4 件（chooser 未指定で owner のみ / chooser='self' で owner のみ / chooser='opponent' で opponent のみ / chooser='opponent' でも pendingId 据え置き）。941 → 949 テスト全通過（+8）。
+- **P3-14 残り項目の詳細調査完了** (2026-04-11)
+  - **C-3 残部 不要判定**: `level_up`/`bp_changed`/`symbol_changed`/`brave_combined`/`brave_separated`/`cost_changed` は `packages/card-data/` 全体のテキストパターンに需要ゼロ（`revealed` は `deck_reveal` 系 disposition で既存対応済み）。CLAUDE.md「カード追加時オンデマンド」原則に従い `OPT_IN_TRIGGER_EVENT_KINDS` 追加対象から外す判定。
+  - **C-1 相対タイミング 3 サブ項目別実装計画**: フラッシュ使用後以外（`CardEventType` に `flash_used` 追加 + `GameState.hasUsedFlashThisStep` 追跡、要ユーザー裁定）/ アタック宣言前（engine `Window.pre_declaration_stack` 既存基盤あり、`Timing.phase` に `subPhase: "pre_declaration"` 追加で対応）/ 召喚コスト支払い時（`payment-system.ts` で payment milestone を event 化、要 rule clarification）。
+  - **A-3 サブ項目別実装難易度**: `deck_shuffle` 95% 対応済み（`search_zone` 後処理）/ `restrict_use` 100% 完成 / `reveal_hand` 未実装（中、4〜6h、BSTH 全弾で 2〜3 枚）/ `peek_deck` 未実装（低、1 枚）/ `shuffle_zone` 未実装（低、1 枚）。
+  - **D-2 Phase 2 chooser 段階分け**: 最小実装（pending triggered のみ）→ 中規模（battle immediate / field card / magic も対応）→ フル（GUI multi-pick + chooser='either' + 複数人マッチ）。最小実装完了済（上記）。
+- **P3-14 C-1 アタック/ブロック宣言前タイミング 実装完了** (2026-04-16)
+  - 採用案: 案 D — 既存 `Timing.card_event` / `Timing.game_event` に `CardEventType` を 2 種追加する最小拡張。`relative_to` 等の Timing 構造拡張は不要。
+  - `model.ts`: `CardEventType` に `"pre_declaration_attack"` / `"pre_declaration_block"` 追加。`TriggerEventKind` に同 2 種追加。`StructuredTriggerEventFamily` に新規 `"declaration_timing"` family 追加、`StructuredTriggerEventActionKind` に `"block"` 追加（attack/block を actionKind で区別）。
+  - `trigger-system.ts`: `triggerEventKindToMatcher` / `triggerEventKindToStructuredEvent` に 2 case 追加（`validationMode: "require_related_instance_on_field"`）。新規 export `queuePreDeclarationStackTriggers({ state, windowKind, sourceInstanceId, actingPlayerId, getCardDefinitionById })` ヘルパー追加（内部で `filterOptInTriggerEvents` → `queuePendingReactionsFromTriggerEvents` を順次呼ぶ）。`OPT_IN_TRIGGER_EVENT_KINDS` に 2 種追加（attacker/blocker に `card_event: pre_declaration_{attack,block}` timing 効果がなければ pending を生成しない opt-in フィルタ）。
+  - `structured-effect-registrations.ts`: `EVENT_KIND_TO_FAMILY` に `pre_declaration_attack: "declaration_timing"` / `pre_declaration_block: "declaration_timing"` 追加。`CARD_EVENT_TO_TRIGGER` に 2 エントリ追加。
+  - `battle-actions.ts`: `useAttackAsAction` / `useBlockAsAction` の window 入り直後で `queuePreDeclarationStackTriggers` を呼び出し、`options.getCardDefinitionById` を渡して opt-in filter を有効化。
+  - `legal-actions-apply.ts`: forced_block 経路は `sourceInstanceId=null` で opt-in filter が `relatedInstanceId=null` を自動除外するため呼び出しスキップ（最小実装、コメントに設計判断を明記）。
+  - 残 C-1 サブ項目: 「フラッシュ使用後以外」（エターナル版ルール本文に明文規定なし、要ユーザー裁定）/ 「召喚コスト支払い時」（payment milestone のイベント化に rule clarification 必要）。
+  - テスト 7 件追加（`pre-declaration-trigger.test.ts`）: structured event マッピング 2 件（`pre_declaration_attack` / `pre_declaration_block` それぞれ family + actionKind + validationMode 検証）+ `useAttackAsAction` の opt-in: timing あり/なし 2 件 + `useBlockAsAction` 補助 1 件 + `queuePreDeclarationStackTriggers` 直接呼び出し 2 件（block kind で pending 生成 / forced_block kind で null 除外）。990 → 997 テスト全通過（+7）/ tsc --noEmit 通過。
+- **P3-15 問題2 汎用 core_move フォールバック実装** (2026-04-15) — 関連項目のためここに記載（純粋に P3-14 ではなく P3-15 / P3-13 の延長）
+  - `structured-effect-interpreter.ts:executeCoreMove` 末尾に `toSimpleNormalCoreContainer` ヘルパー + `moveNormalCores` プリミティブ委譲の汎用フォールバック追加。明示ブランチにマッチしない `void/reserve/trash/life/this_card` 間の simple container-to-container パスを P3-13 対策1 のプリミティブ層経由で一括解決。
+  - 自動的に追加対応された経路: `reserve → life`、`reserve → trash`、`trash → reserve`、`trash → life`、`trash → this_card`、`this_card → reserve`、`this_card → trash`、`this_card → life`、およびそれらの `opponent` 指定版。
+  - 除外（明示ブランチに据え置き）: `from = field / target_card / field_card`（GUI 選択必要）、`from = life`（`applyLifeDamageInterception` 必要）。ヘルパーに `allowLife` 引数を入れ、`from` 側は life を拒否、`to` 側は許可する非対称設定で表現。
+  - 残り `partial-impl`: field → trash/void/life、life → void/this_card 等は明示ブランチ無し。`applyPendingCoreShootAction` の toKind 分岐は reserve 固定のバグが残る（field → trash/void は GUI 選択の適用側未対応）。実カードで遭遇した時点でオンデマンド修正。
+  - 設計判断: 既存の明示ブランチ（`void→reserve` 等の早期 return 群）は変更せず、フォールバックはその後段に追加する最小侵襲実装。`partial-impl` ログは残存（fallback でも処理できない組み合わせの可視化用）。
+  - テスト 10 件追加（`core-move-fallback.test.ts`）: reserve→life / reserve→trash / trash→reserve / trash→life / this_card→reserve / this_card→trash / opponent→self / from=life の明示ブランチ経由確認 / コア0件時の no-source-cores ログ。968 → 978 テスト全通過（+10）。

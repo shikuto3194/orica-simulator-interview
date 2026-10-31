@@ -1,0 +1,9 @@
+{
+  "key": "interview-tenant-control-plane",
+  "title": "面接用共有DBのmembership認可基盤",
+  "body": "面接専用Supabaseはserver-side membershipでtenantを認可し、public app tablesはRLSとFORCE RLSを使う。面接用member JWTで2つのtenantを相互に試し、双方が自身のprofileのみ1件読め、相手tenantのprofile readとno-op updateは0行になることを直接RESTで確認した。probe用tenant/userは検査後に削除する。Simulator APIは別8443 Funnelと面接Origin限定CORSを使い、server-only service-roleをクライアントへ置かない。",
+  "tags": ["interview", "tenant", "Supabase", "membership", "RLS", "API", "Tailscale", "Funnel"],
+  "evidence": ["INTERVIEW_DEPLOYMENT.md"],
+  "conditions": {"os": "windows", "tool": "codex"},
+  "review_days": 90
+}

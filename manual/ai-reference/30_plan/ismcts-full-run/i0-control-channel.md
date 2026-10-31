@@ -1,0 +1,60 @@
+# I0 Windows制御channelの放棄時cleanup
+
+2026-10-11分割候補。`windows-bootstrap-lease.cs`と既存`windows-control-lease.cs`を
+guardianと読取専用meterへ接続する。
+共有budget受付や2秒schedulerを置き換えず、callerが長く停止してstdinの要求が途絶えた場合に
+所有helperの寿命を制限する。R1-runtime/calibrationの受入gateは未登録のまま維持する。
+
+## 終了経路
+
+guardianは小さいlease型のコンパイル後、初期stdin待機の前に15秒のbootstrap leaseを開始する。
+spawn引数の1/2 CPU枠で、このコンパイル前からhelper自身をBelowNormal/affinity制限する。
+launch/attachのthreadsはspawn引数と一致しなければ拒否する。
+bootstrapは大きいnative型のコンパイルとconstructorも覆い、更新APIを持たない。
+guardianはnative job生成後、初回sampleの前に既存5秒制御leaseを開始してbootstrapを完了する。
+既存のstart/sample/heartbeat/terminate/finish要求ごとに同じ単調clockのleaseを更新する。
+期限切れ後の要求は復帰させず拒否する。100msのnative timerはstdinやjob計測mutexを待たず、
+lease失効時にguardian自身をexit127で終了する。OSが非継承のjob handleを閉じるため、
+実行中の子孫と未開始のsuspended rootも終了する。外部PIDをopen/終了するAPIを追加しない。
+5秒は制御channelのcleanup猶予であり、既存3秒resource heartbeatやchunk wall予算を延長しない。
+期限切れ後・二度目の完了は拒否する。要求の内容が不正なら既存の拒否経路で閉じる。
+bootstrap開始前のPowerShell起動・小さいlease型コンパイルは独立timerの対象外である。
+
+meterも同じ15秒bootstrapで初期stdin・native型コンパイル・constructorを制限する。
+guardianのquery/synchronize専用handle取得と既存lease設置後にbootstrapを閉じ、
+保持handleの既存leaseへ寿命管理を渡す。完了時にもbootstrap期限を検査する。
+meterは生成時から保持しているquery/synchronize専用guardian handleを100ms間隔で観察する。
+同じprocess objectのsignaled確認後に5秒の終了猶予を一度だけ開始し、その後meter自身をexit127で
+終了する。sample/finishの反復でこの猶予を延長しない。通常は既存finish/EOFで先にexit0となる。
+異常なhandle観察も生存とみなさず自身を終了する。対象への書込み/終了権限は追加しない。
+leaseの専用mutexで更新・expiry・Disposeを直列化し、jobの計測mutexとは共有しない。
+
+異常終了では最終CPUを正常な終端値として採用しない。既存JS channel検査は異常exitを拒否し、
+共有予約/ownerを保持する。callerの停止そのもの、bootstrap開始前の起動/コンパイル、全writer、
+caller/probe/service全体会計は未解決で、`accountingComplete:false`を維持する。
+正常終了したhelperの終端CPUは[保持handle](i0-process-handle.md)で取得し、異常終了では採用しない。
+nominalな15秒/5秒閾値はOS/ThreadPool schedulingを含む厳密な終了時刻の保証ではない。
+bootstrap timeoutは初期化の拒否であり、共有予約からの残時間やnative wall期限を延長しない。
+
+## 私有回帰と証明範囲
+
+2026-10-11の修復前観察では、初期stdinを送らず17秒待っても両helperが生存した。
+修復後の常設回帰はstdinを開いたまま両helperがexit127で終了することを確認する。
+別の私有コピーではnativeコンパイル直前へ20秒待機を注入して両helperの終了と成功応答不在を、
+constructorのatomic job生成直後へ20秒待機を注入してguardianとsuspended rootの終了・marker不在を確認する。
+更新API不在と二重完了の拒否も検査する。私有timer停止によりcallback遅延を模し、
+15秒超の完了拒否も確認する。これは初期化停止モデルであり、
+本番コンパイラ障害や厳密な終了時刻、program全体会計を証明するものではない。
+
+修復前は私有callerを12秒停止すると、実行中のrootはresource watchdogで終了するが
+guardian/meterは残り、未開始のrootも残った。修復後の同条件ではcallerの復帰前に三者の終了を確認した。
+常設回帰は私有callerを18秒停止し、別の観察processから最大13秒待ち、root/子孫/guardian/meterが
+消えたこととcallerがまだ復帰していないことを検査する。未開始のrootのmarker不在も検査する。
+CPUを消費するspinではなくAtomics.waitを使い、fixtureが生成したcallerだけを後始末する。
+既存の2秒poll/終端計測/600sample/短い3.5秒遅延の回帰も維持する。
+
+この私有idle OS回帰は本番異常・20分runtime・HTTP service負荷・実ゲーム校正の証明ではない。
+共有service履歴の読取性能、production runtime/Linux、固定8デッキ実戦と実機校正は残る。
+根拠A: [TimerのThreadPool実行](https://learn.microsoft.com/en-us/dotnet/api/system.threading.timer)、
+[Environment.Exitのprocess終了](https://learn.microsoft.com/en-us/dotnet/api/system.environment.exit)、
+[終了時のprocess handle解放](https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process)。

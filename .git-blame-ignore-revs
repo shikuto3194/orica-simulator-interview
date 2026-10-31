@@ -1,0 +1,7 @@
+# このファイルに記載されたコミットは `git blame` で無視される
+# 使い方: git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# 大量整形・rename 等、コードの責任範囲を変えないコミットを登録する
+
+# P6-02 Phase 1: prettier 一括整形 (2026-04-25)
+8f734b01e07192c0d844f6b5fa4a5c56f0c452e7

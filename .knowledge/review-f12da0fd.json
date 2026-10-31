@@ -1,0 +1,12 @@
+{
+  "decision": "updated",
+  "reason": "既存のtenant membership認可レコードを今回の公開APIで再検証し、別8443番Funnel・厳密なCORS・本番443番維持の証拠を追加した。監査はpartialでmissing_startが5件報告されたが、この公開作業への帰属は確認できないため過去完了を補作しない。",
+  "used_ids": ["p.d705aea0dd8a.interview-tenant-control-plane"],
+  "changed_ids": ["p.d705aea0dd8a.interview-tenant-control-plane"],
+  "skipped_candidates": [],
+  "learning": {
+    "disposition": "saved",
+    "note": "面接専用APIのservice-role membership検査と、既存本番443番を維持する別8443番Funnel運用を確認済み事実として既存レコードへ統合した。",
+    "evidence": []
+  }
+}

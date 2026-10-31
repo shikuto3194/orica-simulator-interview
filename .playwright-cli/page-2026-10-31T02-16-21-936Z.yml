@@ -1,0 +1,5 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]: ログイン状態を確認しています...
+  - iframe [ref=f4e4]:
+    - button "Powered by Netlify — build your own site" [ref=f5e3] [cursor=pointer]:
+      - generic [ref=f5e13]: Powered by Netlify

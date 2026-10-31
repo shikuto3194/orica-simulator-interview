@@ -1,39 +1,107 @@
-# 幻想符 Simulator — 面接用ソース公開版
+# Orica Simulator
 
-カード効果と対戦進行を扱う、ルールエンジンを中核としたブラウザー向けシミュレーター。
+バトルスピリッツ向けの、再利用可能なルールエンジンを中核にしたシミュレーターです。
 
-[動作デモ](https://orica-simulator-interview-001.netlify.app/) — ログイン情報は個別に案内しています。このリポジトリには含めません。
+## 方針
 
-## 主な実装
+- 先に UI 非依存のルールエンジンを作る
+- その上に手動操作 UI、AI 操作、将来的なゲーム画面を載せる
+- 全カード対応より先に、状態遷移とルール再現性を固める
 
-- `packages/rules-core/`: UIから独立したルール処理
-- `packages/card-data/`: カード・効果の定義
-- `apps/playground-web/`: React画面と対戦API
-- `packages/ai/`: AI関連の実装
+## ワークスペース構成
 
-## 開発での担当
+```text
+packages/
+  rules-core/     ルールエンジン本体
+  card-data/      カード定義とサンプルデータ
+  ai/             ローカル LLM エージェント基盤 (Ollama tool-call, GUI チャット, 自動 skill / web リサーチ / snapshot 紐付け)
+apps/
+  cli/            ルールエンジンのCLI確認用
+  playground-web/ ブラウザ確認用の最小UI
+manual/           調査と設計ドキュメント
+```
 
-個人開発として、目的・仕様の整理、AIへの指示、改善方針の判断、動作確認を担当しています。実装コードの作成にはAIを活用しています。
+## 推奨環境
 
-## 公開範囲
+- Node.js `>=22.16.0`
+- pnpm `10.15.1`
 
-このリポジトリは、面接用に分離した作業コピーから2026年10月31日に作成した、履歴を持ち込まないソースコードのスナップショットです。元の開発用リポジトリとは独立しています。
+Node/pnpmの要求は [package.json](package.json)。以下はrepo rootで実行します。
 
-- アプリケーション実装、関連するテスト・検査コード、依存関係の定義を掲載しています。
-- `.env`、認証情報、DBの実データ、運用ログ、過去のGit履歴、内部運用資料は含めていません。
-- カード画像・背景・音源等のメディアはこのソース公開に含めていません。素材のライセンス・再配布許諾を一括して付与するものではありません。確認可能な同梱ライセンス文書は保持しています。
-- 既存テストの実データに由来するJSON fixtureは公開対象から除外しています。
+## セットアップ
 
-- 元の環境専用の保守スクリプトを除外し、Simulator APIの接続先と公開用キーの初期値を環境変数・サンプル値へ置き換えています。
+```bash
+corepack enable
+corepack prepare pnpm@10.15.1 --activate
+pnpm install
+pnpm check
+npx vite --config apps/playground-web/vite.config.ts --port 4173
+```
 
-## 実行・検証の前提
+Windows PowerShell で `npm` 実行ポリシーに引っかかる場合は、`npm.cmd` を使う方法もあります。
+Corepackのダウンロード/DNS失敗は依存準備の失敗です。ゲート通過とは扱わず、接続と指定pnpmの利用可否を確認して再試行します。
 
-Node.js 22系を使用します。依存の固定情報と元のスクリプト定義はpackage.jsonおよびlockfileを参照してください。環境変数は`.env.example`に例を記載しています。自分で用意した環境・公開用キーを使い、秘密キーをブラウザーへ渡さないでください。
+| 作業             | 入口                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| ルールの単体回帰 | [単体テスト](manual/ai-reference/00_meta/unit-test-entry.md)                                                                    |
+| GUIのシナリオ    | [正準起動](manual/ai-reference/00_meta/local-tooling.md) → [シナリオ](manual/ai-reference/25_gui/10_scenario-test-reference.md) |
+| 認証付き対戦     | [ローカルPC環境](manual/ai-reference/00_meta/local-pc-deployment.md)                                                            |
+| 公開用build      | [公開境界と素材](manual/ai-reference/00_meta/public-build.md)                                                                   |
 
-この公開版はコード閲覧を目的とし、元の環境をcloneだけで再現する完全な配布物ではありません。**画像・音源・一部のfixtureと運用資料を含まないため、元の全ビルド・全テストには追加の準備が必要です。** 実際の操作は上記の面接用デモで確認できます。
+実行環境・認証・素材の前提を各入口で確認します。単体テスト成功だけでは認証付き対戦や配備の確認にはなりません。
 
-このリポジトリから既存デモへ自動デプロイする設定はありません。GitHubへの公開とNetlifyのデプロイは別に管理しています。
+### カード画像 (可逆 WebP を Git 管理)
 
-## ライセンス
+配信用の `images/BS*.webp` を Git 管理し、カード定義も WebP を参照します。
+clone で画像が揃うため、公開ビルドにカード画像用のアーカイブ復元は不要です。
+ビルドは参照される表裏画像だけを `apps/playground-web/dist/images/` にコピーし、
+必要な画像が欠けていれば失敗します。
 
-既存の第三者ライセンス・著作権表示は各ファイルを参照してください。今回の公開に伴って、作品全体へ新たなオープンソースライセンスを設定してはいません。
+画像追加・更新時は元 PNG を `images/` に置き、次を実行します:
+
+```bash
+pnpm images:prepare
+```
+
+解像度を変えず可逆 WebP に変換し、全画像の表示画素と透明度の一致を検証します。
+生成した WebP と、それを参照するカード定義を一緒に commit します。
+元 PNG は削除せず、Git・dist・アプリの事前ダウンロード対象から除外します。
+完全透明な画素の見えない RGB 値は一致判定から除きます。
+
+編集用の元 PNG を復元する旧 `pnpm fetch-images` も利用できます。
+既定は `C:/dev/orica-card-images-archive/orica-card-images-2026-04-27.tar.gz`、
+別アーカイブは `ORICA_IMAGES_TARBALL` で指定します。
+タイトル背景（WebP）・BGM（AAC/M4A）も Git 管理し、clone だけで公開ビルドできます。
+元素材を更新したときは `pnpm bgm:prepare` で圧縮・検証します（FFmpeg / ffprobe が必要）。
+詳細は[公開用 dist の素材管理](manual/ai-reference/00_meta/public-build.md#タイトル背景bgm-の配備前提)を参照してください。
+
+## 主なコマンド
+
+```bash
+pnpm check
+pnpm lint
+pnpm format:check
+pnpm build
+pnpm test
+npx vite --config apps/playground-web/vite.config.ts --port 4173
+```
+
+## 品質ゲート
+
+公開先には `apps/playground-web/dist/` を指定する。開発ソースの push は従来どおりでよい。
+1人バトル・バグ報告用スナップショットを含め、検証シナリオ・学習 AI・参考素材は公開ビルドから除外する。
+詳細: [公開用 dist の境界](manual/ai-reference/00_meta/public-build.md)。
+
+- `pnpm format:check`
+- `pnpm lint`
+- `pnpm check`
+- `pnpm test`
+- `pnpm build`
+
+CIは [workflow](.github/workflows/ci.yml) の `pnpm verify:ci`。検査範囲と再利用条件は [検証運用](manual/ai-reference/00_meta/harness-validation.md)、検査一覧は [gate manifest](scripts/harness/gate-manifest.json) を参照してください。
+
+## 現状と次タスク
+
+実装ステータス・直近着地・次タスクは [manual/ai-reference/30_plan/02_detailed-todo.md](manual/ai-reference/30_plan/02_detailed-todo.md) を参照。完了履歴は [manual/ai-reference/30_plan/03_completed-milestones.md](manual/ai-reference/30_plan/03_completed-milestones.md) を起点に phase 別ファイルへ辿る。
+
+ルール・設計・GUI・ポリシーの詳細は [manual/ai-reference/README.md](manual/ai-reference/README.md) の目的別索引から、運用ルールは [CLAUDE.md](CLAUDE.md) の Cross-cutting Rule を参照。

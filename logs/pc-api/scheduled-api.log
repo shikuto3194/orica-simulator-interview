@@ -1,0 +1,4 @@
+[api] Listening on 127.0.0.1:8443
+[api] Listening on 127.0.0.1:8443
+[2026-10-31T02:10:59.249Z] API ready interview-001-working-tree (pid 47080)
+[2026-10-31T02:10:59.250Z] Interview API pinned to interview-001-working-tree; automatic updates are disabled

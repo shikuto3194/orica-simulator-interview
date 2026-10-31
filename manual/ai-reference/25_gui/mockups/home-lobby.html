@@ -1,0 +1,418 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ホーム画面モックアップ</title><style>html,body{margin:0;background:#101723}body{padding:16px}#gensou-home-review{max-width:1600px;margin:auto}.review-note{color:#ccc;font:13px sans-serif;max-width:1600px;margin:0 auto 12px}#gensou-home-review .gh-avatar-choices{grid-template-columns:repeat(3,1fr)}</style><script>const reviewIcons={"mail":[["path",{"d":"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"}],["rect",{"x":"2","y":"4","width":"20","height":"16","rx":"2"}]],"bell":[["path",{"d":"M10.268 21a2 2 0 0 0 3.464 0"}],["path",{"d":"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"}]],"settings-2":[["path",{"d":"M14 17H5"}],["path",{"d":"M19 7h-9"}],["circle",{"cx":"17","cy":"17","r":"3"}],["circle",{"cx":"7","cy":"7","r":"3"}]],"user-round":[["circle",{"cx":"12","cy":"8","r":"5"}],["path",{"d":"M20 21a8 8 0 0 0-16 0"}]],"star":[["path",{"d":"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"}]],"chevron-right":[["path",{"d":"m9 18 6-6-6-6"}]],"refresh-cw":[["path",{"d":"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"}],["path",{"d":"M21 3v5h-5"}],["path",{"d":"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"}],["path",{"d":"M8 16H3v5"}]],"swords":[["polyline",{"points":"14.5 17.5 3 6 3 3 6 3 17.5 14.5"}],["line",{"x1":"13","x2":"19","y1":"19","y2":"13"}],["line",{"x1":"16","x2":"20","y1":"16","y2":"20"}],["line",{"x1":"19","x2":"21","y1":"21","y2":"19"}],["polyline",{"points":"14.5 6.5 18 3 21 3 21 6 17.5 9.5"}],["line",{"x1":"5","x2":"9","y1":"14","y2":"18"}],["line",{"x1":"7","x2":"4","y1":"17","y2":"20"}],["line",{"x1":"3","x2":"5","y1":"19","y2":"21"}]],"arrow-right":[["path",{"d":"M5 12h14"}],["path",{"d":"m12 5 7 7-7 7"}]],"sparkles":[["path",{"d":"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"}],["path",{"d":"M20 2v4"}],["path",{"d":"M22 4h-4"}],["circle",{"cx":"4","cy":"20","r":"2"}]],"layers-2":[["path",{"d":"M13 13.74a2 2 0 0 1-2 0L2.5 8.87a1 1 0 0 1 0-1.74L11 2.26a2 2 0 0 1 2 0l8.5 4.87a1 1 0 0 1 0 1.74z"}],["path",{"d":"m20 14.285 1.5.845a1 1 0 0 1 0 1.74L13 21.74a2 2 0 0 1-2 0l-8.5-4.87a1 1 0 0 1 0-1.74l1.5-.845"}]],"megaphone":[["path",{"d":"M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"}],["path",{"d":"M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"}],["path",{"d":"M8 6v8"}]],"music-2":[["circle",{"cx":"8","cy":"18","r":"4"}],["path",{"d":"M12 18V2l7 4"}]],"play":[["path",{"d":"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"}]],"image":[["rect",{"width":"18","height":"18","x":"3","y":"3","rx":"2","ry":"2"}],["circle",{"cx":"9","cy":"9","r":"2"}],["path",{"d":"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"}]],"log-out":[["path",{"d":"m16 17 5-5-5-5"}],["path",{"d":"M21 12H9"}],["path",{"d":"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"}]],"x":[["path",{"d":"M18 6 6 18"}],["path",{"d":"m6 6 12 12"}]],"arrow-left":[["path",{"d":"m12 19-7-7 7-7"}],["path",{"d":"M19 12H5"}]],"send":[["path",{"d":"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"}],["path",{"d":"m21.854 2.147-10.94 10.939"}]],"pause":[["rect",{"x":"14","y":"3","width":"5","height":"18","rx":"1"}],["rect",{"x":"5","y":"3","width":"5","height":"18","rx":"1"}]]};window.lucide={createIcons(){document.querySelectorAll('i[data-lucide]').forEach(el=>{const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');for(const [k,v] of Object.entries({viewBox:'0 0 24 24',width:20,height:20,fill:'none',stroke:'currentColor','stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round','aria-hidden':'true',class:el.className}))svg.setAttribute(k,v);for(const [tag,attrs] of reviewIcons[el.dataset.lucide]||[]){const child=document.createElementNS(svg.namespaceURI,tag);for(const [k,v] of Object.entries(attrs))child.setAttribute(k,v);svg.append(child)}el.replaceWith(svg)})}};</script></head><body><p class="review-note">ホーム画面のレビュー用モックアップ · メッセージ・通知はサンプル表示です。 <a href="../../../../images/avater/fullbody/review.html" style="color:#e3c78d">全身素材を拡大確認</a></p><div id="gensou-home-review" aria-label="幻想符 ホーム画面のデザイン案">
+  <style>
+    #gensou-home-review { --gh-ink:#f5f0e7; --gh-muted:#c9c5c0; --gh-gold:#e3c78d; --gh-gold-soft:#8f7650; --gh-dark:#101723; --gh-shade:.29; --gh-blur:1px; --gh-avatar:100%; font-family:"Yu Gothic UI","Meiryo",sans-serif; font-size:14px; line-height:1.5; color:var(--gh-ink); color-scheme:dark; background:var(--gh-dark); position:relative; isolation:isolate; min-width:0; overflow:hidden; border-radius:14px; }
+    #gensou-home-review * { box-sizing:border-box; }
+    #gensou-home-review [hidden] { display:none !important; }
+    #gensou-home-review button, #gensou-home-review input { font:inherit; }
+    #gensou-home-review button { color:inherit; cursor:pointer; }
+    #gensou-home-review button:focus-visible, #gensou-home-review input:focus-visible { outline:2px solid var(--gh-gold); outline-offset:4px; }
+    #gensou-home-review button { -webkit-tap-highlight-color:transparent; }
+    #gensou-home-review button:hover { filter:brightness(1.1); }
+    #gensou-home-review h1, #gensou-home-review h2, #gensou-home-review h3, #gensou-home-review p { margin:0; }
+    #gensou-home-review .gh-backdrop { position:absolute; inset:0; z-index:-4; width:100%; height:100%; object-fit:cover; object-position:50% 35%; filter:blur(var(--gh-blur)); }
+    #gensou-home-review .gh-tint { position:absolute; inset:0; z-index:-3; background:rgba(7,14,29,var(--gh-shade)); }
+    #gensou-home-review .gh-vignette { position:absolute; inset:0; z-index:-2; background:linear-gradient(180deg,rgba(8,14,24,.33),transparent 28%,transparent 48%,rgba(8,14,24,.95)),linear-gradient(90deg,rgba(7,14,27,.14) 10%,transparent 45%,rgba(7,14,27,.38)); }
+    #gensou-home-review .gh-header { height:52px; border-bottom:1px solid rgba(255,255,255,.1); background:rgba(0,0,0,.3); position:relative; z-index:5; }
+    #gensou-home-review .gh-nav { display:grid; grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,2.5fr)) minmax(0,1fr); gap:6px; height:100%; }
+    #gensou-home-review .gh-nav button { min-width:0; padding:.8em .2em; border:0; border-bottom:2px solid transparent; background:none; font-size:16px; font-weight:700; color:#e94560; text-align:center; white-space:nowrap; }
+    #gensou-home-review .gh-nav button[aria-current="page"] { color:#fff; border-bottom-color:#e94560; background:rgba(255,255,255,.05); }
+    #gensou-home-review .gh-nav button:focus-visible { outline-offset:-4px; }
+    #gensou-home-review .gh-tools { display:flex; gap:5px; position:absolute; right:27px; top:22px; z-index:3; padding:3px; border:1px solid rgba(227,199,141,.2); border-radius:10px; background:rgba(10,17,29,.55); }
+    #gensou-home-review .gh-tab-preview { min-height:636px; padding:72px 32px; background:rgba(10,17,29,.75); }
+    #gensou-home-review .gh-tab-preview h1 { font-size:25px; margin:22px 0 12px; }
+    #gensou-home-review .gh-tab-preview p { max-width:560px; color:var(--gh-muted); line-height:1.9; }
+    #gensou-home-review .gh-tab-preview .gh-panel-action { margin-top:28px; }
+    #gensou-home-review .gh-icon-button { border:1px solid transparent; background:transparent; width:39px; height:42px; padding:0; display:grid; place-items:center; position:relative; border-radius:8px; }
+    #gensou-home-review .gh-icon-button:hover { background:rgba(227,199,141,.1); border-color:rgba(227,199,141,.22); }
+    #gensou-home-review svg { width:19px; height:19px; stroke-width:1.5; flex-shrink:0; }
+    #gensou-home-review .gh-icon-button[aria-expanded="true"] { background:rgba(227,199,141,.18); color:var(--gh-gold); }
+    #gensou-home-review .gh-badge { position:absolute; top:1px; right:0; min-width:15px; height:15px; padding:0 3px; display:grid; place-items:center; border-radius:10px; background:#b54449; color:#fff; font-size:10px; box-shadow:0 0 0 2px #101723; }
+    #gensou-home-review .gh-dot { width:7px; height:7px; border-radius:50%; background:var(--gh-gold); position:absolute; right:6px; top:7px; box-shadow:0 0 0 2px #101723; }
+    #gensou-home-review .gh-main { display:grid; grid-template-columns:25% 50% 25%; min-height:576px; padding:27px 27px 24px; position:relative; }
+    #gensou-home-review .gh-left-rail { min-width:0; display:flex; flex-direction:column; align-items:flex-start; position:relative; z-index:2; }
+    #gensou-home-review .gh-left-rail .gh-greeting { margin-top:31px; }
+    #gensou-home-review .gh-left-rail .gh-greeting h1 { font-size:21px; line-height:1.8; }
+    #gensou-home-review .gh-left-rail .gh-greeting p { font-size:11px; line-height:1.9; }
+    #gensou-home-review .gh-left-rail .gh-player { margin-bottom:0; }
+    #gensou-home-review .gh-left-rail .gh-deck { position:relative; margin-top:auto; flex-wrap:wrap; width:85%; padding:15px 12px; gap:12px; }
+    #gensou-home-review .gh-left-rail .gh-deck-art { width:45px; height:64px; margin:2px auto 4px; }
+    #gensou-home-review .gh-left-rail .gh-deck-copy { width:100%; }
+    #gensou-home-review .gh-left-rail .gh-deck>svg { position:absolute; right:10px; bottom:27px; }
+    #gensou-home-review .gh-character { position:relative; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
+    #gensou-home-review .gh-player { align-self:flex-start; display:flex; gap:11px; align-items:center; border:0; padding:0; background:none; text-align:left; margin-bottom:auto; }
+    #gensou-home-review .gh-player-mark { width:38px; height:38px; display:grid; place-items:center; border:1px solid rgba(227,199,141,.65); background:#172032; border-radius:50%; color:var(--gh-gold); }
+    #gensou-home-review .gh-player-small { display:block; font-size:10px; letter-spacing:.14em; color:#ddd6c9; text-shadow:0 2px 5px #101723; }
+    #gensou-home-review .gh-player-name { display:block; font-size:16px; letter-spacing:.08em; text-shadow:0 2px 8px #101723; }
+    #gensou-home-review .gh-avatar-wrap { position:relative; width:100%; height:432px; display:grid; place-items:center; margin:0; }
+    #gensou-home-review .gh-aura { position:absolute; width:80%; aspect-ratio:1; border-radius:50%; background:radial-gradient(ellipse,rgba(242,213,161,.16),rgba(238,202,142,.04) 53%,transparent 70%); z-index:-1; }
+    #gensou-home-review .gh-avatar { position:absolute; inset:0; width:100%; height:100%; max-width:100%; object-fit:contain; object-position:center; scale:var(--gh-avatar); filter:drop-shadow(0 10px 22px rgba(3,8,14,.35)); }
+    #gensou-home-review .gh-character-foot { display:flex; align-items:center; gap:16px; width:100%; justify-content:center; margin-top:calc(9px + var(--gh-avatar-overflow, 0px)); }
+    #gensou-home-review .gh-character-foot:before, #gensou-home-review .gh-character-foot:after { content:""; height:1px; width:45px; background:linear-gradient(90deg,transparent,var(--gh-gold-soft)); }
+    #gensou-home-review .gh-character-foot:after { transform:rotate(180deg); }
+    #gensou-home-review .gh-character-title { font-size:10px; text-align:center; letter-spacing:.16em; color:var(--gh-muted); }
+    #gensou-home-review .gh-character-name { display:block; font-family:"Yu Mincho",serif; color:var(--gh-ink); font-size:24px; letter-spacing:.21em; margin-top:2px; }
+    #gensou-home-review .gh-character-change { background:rgba(12,20,32,.75); border:1px solid rgba(227,199,141,.24); color:#dfd7c7; border-radius:20px; font-size:11px; padding:5px 12px; margin-top:12px; display:flex; align-items:center; gap:6px; }
+    #gensou-home-review .gh-character-change svg { width:12px; height:12px; }
+    #gensou-home-review .gh-dashboard { min-width:0; padding:105px 0 0 0; display:flex; flex-direction:column; gap:12px; position:relative; z-index:2; }
+    #gensou-home-review .gh-menu-heading { display:flex; align-items:center; gap:9px; color:var(--gh-gold); font-size:10px; letter-spacing:.2em; margin-bottom:0; text-shadow:0 2px 5px #101723; }
+    #gensou-home-review .gh-menu-heading:after { content:""; flex:1; height:1px; background:rgba(227,199,141,.4); }
+    #gensou-home-review .gh-greeting { padding:0 0 12px; text-shadow:0 2px 14px #101723; }
+    #gensou-home-review .gh-eyebrow { font-size:10px; color:var(--gh-gold); letter-spacing:.2em; margin-bottom:5px; }
+    #gensou-home-review .gh-greeting h1 { font-family:"Yu Mincho","Noto Serif JP",serif; font-size:29px; font-weight:500; letter-spacing:.09em; line-height:1.5; }
+    #gensou-home-review .gh-greeting p { font-size:12px; color:#f0ece6; margin-top:4px; }
+    #gensou-home-review .gh-battle { min-height:112px; padding:18px 16px; position:relative; overflow:hidden; border:1px solid rgba(238,203,140,.75); background:linear-gradient(115deg,#e4c995,#ba9459); color:#2e2417; border-radius:5px; display:flex; align-items:center; gap:12px; text-align:left; box-shadow:0 8px 35px rgba(9,13,22,.25),inset 0 0 0 4px rgba(44,28,6,.08); }
+    #gensou-home-review .gh-battle:after { content:""; width:130px; height:130px; border:1px solid rgba(255,244,216,.3); position:absolute; transform:rotate(35deg); right:19px; top:-35px; pointer-events:none; }
+    #gensou-home-review .gh-battle>svg:first-child { width:26px; height:26px; }
+    #gensou-home-review .gh-battle .gh-arrow { margin-left:auto; width:25px; height:25px; }
+    #gensou-home-review .gh-button-caption { display:block; letter-spacing:.15em; font-size:9px; opacity:.75; margin-bottom:3px; }
+    #gensou-home-review .gh-button-title { display:block; font-size:20px; letter-spacing:.04em; font-weight:600; }
+    #gensou-home-review .gh-button-note { display:block; font-size:11px; margin-top:3px; opacity:.88; }
+    #gensou-home-review .gh-secondary-row { display:grid; grid-template-columns:1fr; gap:11px; }
+    #gensou-home-review .gh-secondary { display:flex; align-items:center; gap:12px; text-align:left; min-height:78px; background:rgba(14,24,40,.89); border:1px solid rgba(225,205,166,.32); border-radius:5px; padding:15px; box-shadow:0 5px 16px rgba(0,0,0,.08); }
+    #gensou-home-review .gh-secondary svg { color:var(--gh-gold); width:24px; height:24px; }
+    #gensou-home-review .gh-secondary-title { display:block; font-size:14px; letter-spacing:.04em; }
+    #gensou-home-review .gh-secondary small { display:block; color:#bfc5cc; font-size:10px; margin-top:4px; }
+    #gensou-home-review .gh-deck { display:flex; align-items:center; gap:15px; padding:13px 15px; min-height:89px; border:1px solid rgba(220,224,232,.19); background:rgba(14,24,40,.89); border-radius:5px; text-align:left; }
+    #gensou-home-review .gh-deck-art { height:62px; width:48px; position:relative; flex-shrink:0; margin-left:4px; }
+    #gensou-home-review .gh-deck-art:before { content:""; position:absolute; inset:0; border:1px solid #997a50; background:#1c2940; border-radius:3px; transform:rotate(-13deg); }
+    #gensou-home-review .gh-deck-art img { position:absolute; width:100%; height:100%; object-fit:cover; background:linear-gradient(155deg,#733a39,#191f30); border:1px solid #c7a97a; border-radius:3px; }
+    #gensou-home-review .gh-deck-label { font-size:9px; color:var(--gh-gold); letter-spacing:.13em; display:flex; gap:5px; align-items:center; }
+    #gensou-home-review .gh-deck-label svg { width:10px; height:10px; }
+    #gensou-home-review .gh-deck-name { display:block; font-size:14px; margin-top:4px; }
+    #gensou-home-review .gh-deck-info { display:block; color:#b6bfcb; font-size:10px; margin-top:3px; }
+    #gensou-home-review .gh-deck>svg { margin-left:auto; color:var(--gh-gold); width:16px; }
+    #gensou-home-review .gh-news-strip { padding:13px 0 0; margin-top:auto; border:0; border-top:1px solid rgba(227,199,141,.24); display:flex; align-items:center; gap:7px; background:none; text-align:left; font-size:10px; color:#e5e1da; }
+    #gensou-home-review .gh-news-strip>svg { width:14px; height:14px; color:var(--gh-gold); }
+    #gensou-home-review .gh-news-tag { font-size:9px; color:var(--gh-gold); letter-spacing:.08em; }
+    #gensou-home-review .gh-news-strip>svg:last-child { margin-left:auto; }
+    #gensou-home-review .gh-footer { display:flex; align-items:center; gap:16px; min-height:60px; padding:12px; }
+    #gensou-home-review .gh-music { display:flex; align-items:center; gap:6px; min-width:0; max-width:min(80vw,520px); margin-left:auto; order:3; padding:6px 12px; border-radius:999px; background:rgba(9,16,27,.8); box-shadow:inset 0 0 0 1px rgba(227,199,141,.18); backdrop-filter:blur(6px); font-size:13.6px; }
+    #gensou-home-review .gh-music-copy { min-width:0; max-width:260px; }
+    #gensou-home-review .gh-music>svg { color:var(--gh-gold); width:16px; height:16px; }
+    #gensou-home-review .gh-music-label { font-size:9px; line-height:1.1; color:#a4b1bf; letter-spacing:.08em; }
+    #gensou-home-review .gh-track { font-size:.78em; line-height:1.15; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    #gensou-home-review .gh-footer .gh-icon-button { width:26px; height:22px; flex-shrink:0; }
+    #gensou-home-review .gh-footer .gh-icon-button svg { width:14px; height:14px; }
+    #gensou-home-review .gh-footer-links { display:flex; gap:19px; align-items:center; order:1; }
+    #gensou-home-review .gh-footer-links button { border:0; padding:0; background:none; font-size:10px; color:#c3c8cf; display:flex; align-items:center; gap:5px; }
+    #gensou-home-review .gh-footer-links svg { width:12px; height:12px; }
+    #gensou-home-review .gh-preview-label { color:#8390a2; font-size:9px; letter-spacing:.12em; order:2; }
+    #gensou-home-review .gh-scrim { position:absolute; inset:52px 0 60px; background:rgba(3,7,15,.5); backdrop-filter:blur(3px); z-index:10; }
+    #gensou-home-review .gh-drawer { position:absolute; right:0; top:52px; bottom:60px; width:370px; max-width:100%; z-index:11; background:#121d2e; box-shadow:-12px 0 40px rgba(0,0,0,.3); border-left:1px solid #4b4650; padding:23px; overflow:auto; }
+    #gensou-home-review .gh-drawer-header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #344054; padding-bottom:15px; margin-bottom:17px; }
+    #gensou-home-review .gh-drawer-header h2 { font-family:"Yu Mincho",serif; font-size:21px; font-weight:500; letter-spacing:.05em; }
+    #gensou-home-review .gh-panel-kicker { color:var(--gh-gold); font-size:9px; letter-spacing:.14em; }
+    #gensou-home-review .gh-sample { font-size:10px; color:#acb5c4; }
+    #gensou-home-review .gh-message-row { display:flex; align-items:center; gap:12px; width:100%; padding:17px 0; border:0; border-bottom:1px solid #29354a; text-align:left; background:none; }
+    #gensou-home-review .gh-contact { width:43px; height:43px; border-radius:50%; border:1px solid #675e50; object-fit:cover; background:#29334b; flex-shrink:0; }
+    #gensou-home-review .gh-message-row span { display:block; }
+    #gensou-home-review .gh-message-row strong { font-weight:500; font-size:13px; }
+    #gensou-home-review .gh-message-preview { font-size:11px; color:#b5bfcd; margin-top:4px; }
+    #gensou-home-review .gh-message-meta { margin-left:auto; text-align:right; color:#a8b1c0; font-size:10px; flex-shrink:0; }
+    #gensou-home-review .gh-small-badge { display:inline-grid !important; place-items:center; background:#a84a4f; color:#fff; width:17px; height:17px; border-radius:50%; font-size:10px; margin-top:6px; }
+    #gensou-home-review .gh-drawer-tip { margin-top:20px; color:#a9b4c4; font-size:11px; }
+    #gensou-home-review .gh-notice { padding:16px 0; border-bottom:1px solid #29354a; }
+    #gensou-home-review .gh-notice h3 { font-size:14px; font-weight:500; margin:6px 0; }
+    #gensou-home-review .gh-notice p { font-size:12px; color:#bbc5d3; line-height:1.8; }
+    #gensou-home-review .gh-notice time { color:#aeb8c6; font-size:10px; }
+    #gensou-home-review .gh-tag { font-size:10px; color:var(--gh-gold); margin-right:12px; }
+    #gensou-home-review .gh-thread-back { border:0; padding:0; background:none; display:flex; align-items:center; gap:5px; color:var(--gh-gold); font-size:11px; margin-bottom:18px; }
+    #gensou-home-review .gh-chat-bubble { padding:12px 15px; background:#25334a; border-radius:0 12px 12px; font-size:12px; line-height:1.8; margin:12px 24px 7px 0; }
+    #gensou-home-review .gh-chat-bubble.gh-own { margin:12px 0 7px 24px; background:#514636; border-radius:12px 0 12px 12px; }
+    #gensou-home-review .gh-chat-time { color:#a9b3c1; font-size:10px; }
+    #gensou-home-review .gh-compose { display:flex; gap:8px; margin-top:22px; }
+    #gensou-home-review .gh-compose input { min-width:0; flex:1; background:#0c1524; color:#eee9e0; border:1px solid #475166; border-radius:6px; padding:10px; font-size:12px; }
+    #gensou-home-review .gh-compose button, #gensou-home-review .gh-panel-action { border:1px solid #8f7650; color:var(--gh-gold); background:#253044; padding:9px 12px; border-radius:6px; }
+    #gensou-home-review .gh-setting { padding:17px 0; border-bottom:1px solid #29354a; }
+    #gensou-home-review .gh-setting label { display:flex; justify-content:space-between; font-size:12px; margin-bottom:12px; }
+    #gensou-home-review .gh-setting input[type="range"] { width:100%; accent-color:var(--gh-gold); }
+    #gensou-home-review .gh-avatar-choices { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; }
+    #gensou-home-review .gh-avatar-choice { border:1px solid #455168; border-radius:7px; padding:10px; background:#1c283b; }
+    #gensou-home-review .gh-avatar-choice[aria-pressed="true"] { border-color:var(--gh-gold); background:#383629; }
+    #gensou-home-review .gh-avatar-choice img { width:100%; aspect-ratio:1; object-fit:contain; display:block; }
+    #gensou-home-review .gh-avatar-choice span { font-size:12px; display:block; margin-top:6px; }
+    #gensou-home-review .gh-mini-status { position:absolute; bottom:74px; left:50%; transform:translateX(-50%); width:max-content; max-width:90%; border:1px solid #665a46; background:#182338; color:#f0e8d9; padding:10px 18px; font-size:12px; border-radius:7px; z-index:13; box-shadow:0 5px 24px #07101c; }
+    @media (max-width:820px) {
+      #gensou-home-review .gh-main { padding:25px 20px; grid-template-columns:25% 50% 25%; }
+      #gensou-home-review .gh-dashboard { padding-left:0; }
+      #gensou-home-review .gh-avatar-wrap { height:420px; width:100%; }
+      #gensou-home-review .gh-left-rail .gh-greeting h1 { font-size:17px; }
+      #gensou-home-review .gh-player-mark { display:none; }
+      #gensou-home-review .gh-battle { gap:8px; padding:15px 12px; }
+      #gensou-home-review .gh-battle>svg:first-child { display:none; }
+      #gensou-home-review .gh-button-title { font-size:19px; }
+      #gensou-home-review .gh-deck-name { font-size:12px; }
+      #gensou-home-review .gh-deck-info { font-size:9px; }
+      #gensou-home-review .gh-news-tag { display:none; }
+      #gensou-home-review .gh-secondary { padding:12px; gap:9px; }
+      #gensou-home-review .gh-secondary svg { width:20px; height:20px; }
+    }
+    @media (max-width:700px) {
+      #gensou-home-review { border-radius:10px; }
+      #gensou-home-review .gh-nav button { font-size:14px; }
+      #gensou-home-review .gh-tools { top:16px; right:14px; gap:2px; }
+      #gensou-home-review .gh-tools .gh-icon-button { width:32px; height:34px; }
+      #gensou-home-review .gh-tab-preview { min-height:610px; padding:48px 20px; }
+      #gensou-home-review .gh-main { display:flex; flex-direction:column; padding:20px 20px 24px; }
+      #gensou-home-review .gh-character { min-height:440px; order:1; }
+      #gensou-home-review .gh-left-rail { display:contents; }
+      #gensou-home-review .gh-left-rail .gh-greeting { display:none; }
+      #gensou-home-review .gh-player { position:absolute; top:20px; left:20px; z-index:3; }
+      #gensou-home-review .gh-left-rail .gh-deck { order:3; width:100%; flex-wrap:nowrap; margin-top:16px; padding:12px 16px; }
+      #gensou-home-review .gh-left-rail .gh-deck-art { margin:0; height:60px; }
+      #gensou-home-review .gh-left-rail .gh-deck-copy { width:auto; }
+      #gensou-home-review .gh-left-rail .gh-deck>svg { position:static; }
+      #gensou-home-review .gh-player-mark { width:30px; height:30px; }
+      #gensou-home-review .gh-player-small { font-size:9px; }
+      #gensou-home-review .gh-player-name { font-size:14px; }
+      #gensou-home-review .gh-avatar-wrap { height:374px; margin-top:80px; width:100%; }
+      #gensou-home-review .gh-avatar { width:87%; left:6.5%; right:auto; }
+      #gensou-home-review .gh-character-foot { margin-top:var(--gh-avatar-overflow, 0px); }
+      #gensou-home-review .gh-character-name { font-size:21px; }
+      #gensou-home-review .gh-character-change { position:absolute; bottom:12px; right:0; padding:6px; border-radius:50%; width:30px; height:30px; justify-content:center; }
+      #gensou-home-review .gh-character-change span { display:none; }
+      #gensou-home-review .gh-dashboard { order:2; padding:20px 0 0; gap:12px; }
+      #gensou-home-review .gh-secondary-row { grid-template-columns:1fr 1fr; }
+      #gensou-home-review .gh-battle>svg:first-child { display:block; }
+      #gensou-home-review .gh-deck-name { font-size:14px; }
+      #gensou-home-review .gh-deck-info { font-size:10px; }
+      #gensou-home-review .gh-greeting { padding-bottom:4px; }
+      #gensou-home-review .gh-greeting h1 { font-size:25px; }
+      #gensou-home-review .gh-greeting p { font-size:11px; }
+      #gensou-home-review .gh-greeting .gh-eyebrow { display:none; }
+      #gensou-home-review .gh-battle { min-height:100px; }
+      #gensou-home-review .gh-footer { gap:10px; flex-wrap:wrap; }
+      #gensou-home-review .gh-preview-label { display:none; }
+      #gensou-home-review .gh-scrim { inset:52px 0 0; }
+      #gensou-home-review .gh-drawer { top:52px; bottom:auto; min-height:520px; width:100%; }
+      #gensou-home-review .gh-backdrop { object-position:57% top; }
+      #gensou-home-review .gh-vignette { background:linear-gradient(180deg,rgba(8,14,24,.15),transparent 30%,rgba(8,14,24,.9) 58%,#0b1322); }
+      #gensou-home-review .gh-mini-status { bottom:120px; }
+      #gensou-home-review .gh-compose input { font-size:16px; }
+    }
+    @media (max-width:420px) {
+      #gensou-home-review .gh-nav button { font-size:clamp(10px,3.2vw,14px); }
+    }
+    @media (max-width:360px) {
+      #gensou-home-review .gh-main { padding:18px 15px 22px; }
+      #gensou-home-review .gh-secondary { gap:7px; padding:11px 9px; }
+      #gensou-home-review .gh-secondary-title { font-size:13px; }
+      #gensou-home-review .gh-secondary small { font-size:9px; }
+    }
+    @media (prefers-reduced-motion:no-preference) {
+      #gensou-home-review button { transition:filter .16s,background .16s,border-color .16s; }
+      #gensou-home-review .gh-drawer { animation:gh-enter .2s ease-out; }
+      @keyframes gh-enter { from { opacity:.4; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
+    }
+  </style>
+  <img class="gh-backdrop" src="assets/spring.webp" alt="" aria-hidden="true">
+  <div class="gh-tint"></div><div class="gh-vignette"></div>
+  <header class="gh-header">
+    <nav class="gh-nav" aria-label="メインメニュー">
+      <button type="button" aria-current="page" data-action="home" aria-label="ホーム" title="ホーム"><span aria-hidden="true">🏠</span></button>
+      <button type="button" data-action="cards">カード検索</button>
+      <button type="button" data-action="build">作成中デッキ</button>
+      <button type="button" data-action="decks">保存デッキ</button>
+      <button type="button" data-action="qa">QA</button>
+    </nav>
+  </header>
+  <main class="gh-main">
+    <div class="gh-tools" role="group" aria-label="ホームのツール">
+      <button type="button" class="gh-icon-button" aria-label="メッセージ、未読3件" data-panel="messages" aria-expanded="false"><i data-lucide="mail" aria-hidden="true"></i><span class="gh-badge">3</span></button>
+      <button type="button" class="gh-icon-button" aria-label="運営からのお知らせ、未読あり" data-panel="notices" aria-expanded="false"><i data-lucide="bell" aria-hidden="true"></i><span class="gh-dot"></span></button>
+      <button type="button" class="gh-icon-button" aria-label="設定" data-panel="settings" aria-expanded="false"><i data-lucide="settings-2" aria-hidden="true"></i></button>
+    </div>
+    <aside class="gh-left-rail" aria-label="プレイヤーとお気に入りデッキ">
+      <button type="button" class="gh-player" data-panel="profile"><span class="gh-player-mark"><i data-lucide="user-round" aria-hidden="true"></i></span><span><span class="gh-player-name">プレイヤー</span><span class="gh-player-small">マイページ ›</span></span></button>
+      <div class="gh-greeting"><div class="gh-eyebrow">WELCOME HOME</div><h1>おかえりなさい。</h1><p>今日も、あなたの一手で。</p></div>
+      <button type="button" class="gh-deck" data-action="favorite"><span class="gh-deck-art"><img src="../../../../images/avater/fullbody/reimu.webp" alt="お気に入りデッキの代表画像"></span><span class="gh-deck-copy"><span class="gh-deck-label"><i data-lucide="star" aria-hidden="true"></i> FAVORITE DECK</span><span class="gh-deck-name">博麗の結界</span><span class="gh-deck-info">40枚 · 最後に使ったデッキ</span></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+    </aside>
+    <section class="gh-character" aria-label="中央の待機アバター">
+      <figure class="gh-avatar-wrap"><div class="gh-aura"></div><img class="gh-avatar" src="../../../../images/avater/fullbody/reimu.webp" alt="博麗霊夢のアバター画像全体"></figure>
+      <div class="gh-character-foot"><div class="gh-character-title"><span data-character-title>楽園の素敵な巫女</span><span class="gh-character-name">博麗 霊夢</span></div></div>
+      <button type="button" class="gh-character-change" data-panel="profile" aria-label="アバターを変更"><i data-lucide="refresh-cw" aria-hidden="true"></i><span>アバターを変更</span></button>
+    </section>
+    <section class="gh-dashboard" aria-label="対戦メニュー">
+      <div class="gh-menu-heading">BATTLE &amp; DECK</div>
+      <button type="button" class="gh-battle" data-action="battle"><i data-lucide="swords" aria-hidden="true"></i><span><span class="gh-button-caption">ONLINE BATTLE</span><span class="gh-button-title">対戦ルーム</span><span class="gh-button-note">ルームを探す・作成する</span></span><i class="gh-arrow" data-lucide="arrow-right" aria-hidden="true"></i></button>
+      <div class="gh-secondary-row">
+        <button type="button" class="gh-secondary" data-action="solo"><i data-lucide="sparkles" aria-hidden="true"></i><span><span class="gh-secondary-title">1人バトル</span><small>デッキを試す</small></span></button>
+        <button type="button" class="gh-secondary" data-action="build"><i data-lucide="layers-2" aria-hidden="true"></i><span><span class="gh-secondary-title">作成中デッキ</span><small>編集中のデッキを開く</small></span></button>
+      </div>
+      <button type="button" class="gh-news-strip" data-panel="notices"><i data-lucide="megaphone" aria-hidden="true"></i><span class="gh-news-tag">NEWS</span><span>新しいカードが追加されました</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+    </section>
+  </main>
+  <section class="gh-tab-preview" aria-labelledby="gh-preview-title" hidden>
+    <div class="gh-sample">タブ切り替えのプレビュー</div>
+    <h1 id="gh-preview-title" tabindex="-1"></h1>
+    <p data-preview-copy></p>
+    <p style="margin-top:16px">このモックアップではホーム画面のデザインを確認できます。</p>
+    <button type="button" class="gh-panel-action" data-action="home">ホームに戻る</button>
+  </section>
+  <footer class="gh-footer">
+    <div class="gh-music" role="group" aria-label="曲プレイヤー"><i data-lucide="music-2" aria-hidden="true"></i><div class="gh-music-copy"><div class="gh-music-label">東方妖々夢</div><div class="gh-track">妖々夢 ～ Snow or Cherry Petal</div></div><button type="button" class="gh-icon-button" aria-label="BGM再生表示を切り替え" data-action="music"><i data-lucide="play" aria-hidden="true"></i></button></div>
+    <div class="gh-footer-links"><button type="button" data-action="title"><i data-lucide="log-out" aria-hidden="true"></i>タイトルへ</button></div>
+    <span class="gh-preview-label">DESIGN PREVIEW</span>
+  </footer>
+  <div class="gh-scrim" hidden></div>
+  <aside class="gh-drawer" hidden role="dialog" aria-modal="true" aria-labelledby="gh-drawer-title">
+    <div class="gh-drawer-header"><div><div class="gh-panel-kicker">GENSOU FUDA</div><h2 id="gh-drawer-title">メッセージ</h2></div><button class="gh-icon-button" type="button" aria-label="パネルを閉じる" data-action="close"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <div data-pane="messages" hidden>
+      <div class="gh-sample">サンプルの会話</div>
+      <button type="button" class="gh-message-row" data-thread="marisa"><img class="gh-contact" src="../../../../images/avater/fullbody/marisa.webp" alt=""><span><strong>魔理沙</strong><span class="gh-message-preview">あとで一戦どう？</span></span><span class="gh-message-meta">5分前<span class="gh-small-badge">2</span></span></button>
+      <button type="button" class="gh-message-row" data-thread="reimu"><img class="gh-contact" src="../../../../images/avater/fullbody/reimu.webp" alt=""><span><strong>霊夢</strong><span class="gh-message-preview">対戦ありがとう！</span></span><span class="gh-message-meta">1時間前<span class="gh-small-badge">1</span></span></button>
+      <p class="gh-drawer-tip">ユーザーを選ぶと会話を開きます。</p>
+    </div>
+    <div data-pane="thread" hidden>
+      <button type="button" class="gh-thread-back" data-panel="messages"><i data-lucide="arrow-left" aria-hidden="true"></i>メッセージ一覧</button>
+      <div class="gh-sample">サンプルの会話 · <span data-thread-name>魔理沙</span></div>
+      <div data-chat-log aria-live="polite"><div class="gh-chat-bubble">あとで一戦どう？<br>新しいデッキ、試してみたい！</div><div class="gh-chat-time">5分前</div></div>
+      <div class="gh-compose" role="group" aria-label="サンプル返信"><input aria-label="返信メッセージ" placeholder="メッセージを入力" maxlength="140"><button type="button" data-action="reply" aria-label="サンプル返信を追加"><i data-lucide="send" aria-hidden="true"></i></button></div>
+    </div>
+    <div data-pane="notices" hidden>
+      <div class="gh-sample">運営からのお知らせ · サンプル</div>
+      <article class="gh-notice"><span class="gh-tag">カード追加</span><time>9月18日</time><h3>新しいカードが追加されました</h3><p>カード検索から追加カードを確認できます。新しい組み合わせでデッキを作ってみましょう。</p></article>
+      <article class="gh-notice"><span class="gh-tag">アップデート</span><time>9月16日</time><h3>対戦画面の操作性を改善しました</h3><p>カードの選択表示と操作メニューを調整しました。</p></article>
+      <article class="gh-notice"><span class="gh-tag">ご案内</span><time>9月12日</time><h3>幻想符へようこそ</h3><p>アバターを選んで、あなたのホームを楽しんでください。</p></article>
+    </div>
+    <div data-pane="settings" hidden>
+      <div class="gh-setting"><label for="gh-darkness">背景の暗さ <output data-darkness-output>29%</output></label><input id="gh-darkness" type="range" min="10" max="60" value="29"></div>
+      <div class="gh-setting"><label for="gh-volume">BGM音量 <output data-volume-output>35%</output></label><input id="gh-volume" type="range" min="0" max="100" value="35"></div>
+      <p class="gh-drawer-tip">このプレビューでは音声は再生されません。</p>
+    </div>
+    <div data-pane="profile" hidden>
+      <div class="gh-sample">アバター</div>
+      <div class="gh-avatar-choices"><button type="button" class="gh-avatar-choice" data-avatar="reimu" aria-pressed="true"><img loading="lazy" src="../../../../images/avater/fullbody/reimu.webp" alt=""><span>霊夢</span></button><button type="button" class="gh-avatar-choice" data-avatar="marisa" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/marisa.webp" alt=""><span>魔理沙</span></button><button type="button" class="gh-avatar-choice" data-avatar="sakuya" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/sakuya.webp" alt=""><span>咲夜</span></button><button type="button" class="gh-avatar-choice" data-avatar="remilia" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/remilia.webp" alt=""><span>レミリア</span></button><button type="button" class="gh-avatar-choice" data-avatar="flandre" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/flandre.webp" alt=""><span>フランドール</span></button><button type="button" class="gh-avatar-choice" data-avatar="patchouli" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/patchouli.webp" alt=""><span>パチュリー</span></button><button type="button" class="gh-avatar-choice" data-avatar="alice" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/alice.webp" alt=""><span>アリス</span></button><button type="button" class="gh-avatar-choice" data-avatar="youmu" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/youmu.webp" alt=""><span>妖夢</span></button><button type="button" class="gh-avatar-choice" data-avatar="sanae" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/sanae.webp" alt=""><span>早苗</span></button><button type="button" class="gh-avatar-choice" data-avatar="suwako" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/suwako.webp" alt=""><span>諏訪子</span></button><button type="button" class="gh-avatar-choice" data-avatar="cirno" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/cirno.webp" alt=""><span>チルノ</span></button><button type="button" class="gh-avatar-choice" data-avatar="reisen" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/reisen.webp" alt=""><span>鈴仙</span></button><button type="button" class="gh-avatar-choice" data-avatar="tenshi" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/tenshi.webp" alt=""><span>天子</span></button><button type="button" class="gh-avatar-choice" data-avatar="suika" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/suika.webp" alt=""><span>萃香</span></button><button type="button" class="gh-avatar-choice" data-avatar="satori" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/satori.webp" alt=""><span>さとり</span></button><button type="button" class="gh-avatar-choice" data-avatar="koishi" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/koishi.webp" alt=""><span>こいし</span></button><button type="button" class="gh-avatar-choice" data-avatar="kokoro" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/kokoro.webp" alt=""><span>心</span></button><button type="button" class="gh-avatar-choice" data-avatar="miko" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/miko.webp" alt=""><span>神子</span></button><button type="button" class="gh-avatar-choice" data-avatar="eiki" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/eiki.webp" alt=""><span>映姫</span></button><button type="button" class="gh-avatar-choice" data-avatar="akyuu" aria-pressed="false"><img loading="lazy" src="../../../../images/avater/fullbody/akyuu.webp" alt=""><span>阿求</span></button></div>
+      <p class="gh-drawer-tip">選んだアバターがホームに表示されます。</p>
+    </div>
+    <div data-pane="destination" hidden><div class="gh-sample">画面遷移プレビュー</div><p data-destination-copy style="margin-top:20px;font-size:14px;line-height:1.9"></p><button type="button" class="gh-panel-action" data-action="close" style="margin-top:24px">ホームに戻る</button></div>
+  </aside>
+  <div class="gh-mini-status" role="status" hidden></div>
+  <script>
+    (() => {
+      const root = document.getElementById('gensou-home-review');
+      const assets = {"reimu":"../../../../images/avater/fullbody/reimu.webp","marisa":"../../../../images/avater/fullbody/marisa.webp","sakuya":"../../../../images/avater/fullbody/sakuya.webp","remilia":"../../../../images/avater/fullbody/remilia.webp","flandre":"../../../../images/avater/fullbody/flandre.webp","patchouli":"../../../../images/avater/fullbody/patchouli.webp","alice":"../../../../images/avater/fullbody/alice.webp","youmu":"../../../../images/avater/fullbody/youmu.webp","sanae":"../../../../images/avater/fullbody/sanae.webp","suwako":"../../../../images/avater/fullbody/suwako.webp","cirno":"../../../../images/avater/fullbody/cirno.webp","reisen":"../../../../images/avater/fullbody/reisen.webp","tenshi":"../../../../images/avater/fullbody/tenshi.webp","suika":"../../../../images/avater/fullbody/suika.webp","satori":"../../../../images/avater/fullbody/satori.webp","koishi":"../../../../images/avater/fullbody/koishi.webp","kokoro":"../../../../images/avater/fullbody/kokoro.webp","miko":"../../../../images/avater/fullbody/miko.webp","eiki":"../../../../images/avater/fullbody/eiki.webp","akyuu":"../../../../images/avater/fullbody/akyuu.webp","spring":"assets/spring.webp","night":"assets/night.webp"};
+      const defaults = { darkness:34, blur:2, avatar:'reimu', avatarSize:115, background:'spring', accent:'#e3c78d' };
+      const state = {...defaults};
+      const saved = window.openai?.widgetState;
+      let currentPanel = null, lastTrigger = null, toastTimer = null, musicPlaying = false;
+      const $ = selector => root.querySelector(selector);
+      const $$ = selector => Array.from(root.querySelectorAll(selector));
+      const character = {"reimu":{"name":"霊夢","title":"楽園の素敵な巫女"},"marisa":{"name":"魔理沙","title":"普通の魔法使い"},"sakuya":{"name":"咲夜","title":"幻想郷の仲間"},"remilia":{"name":"レミリア","title":"幻想郷の仲間"},"flandre":{"name":"フランドール","title":"幻想郷の仲間"},"patchouli":{"name":"パチュリー","title":"幻想郷の仲間"},"alice":{"name":"アリス","title":"幻想郷の仲間"},"youmu":{"name":"妖夢","title":"幻想郷の仲間"},"sanae":{"name":"早苗","title":"幻想郷の仲間"},"suwako":{"name":"諏訪子","title":"幻想郷の仲間"},"cirno":{"name":"チルノ","title":"幻想郷の仲間"},"reisen":{"name":"鈴仙","title":"幻想郷の仲間"},"tenshi":{"name":"天子","title":"幻想郷の仲間"},"suika":{"name":"萃香","title":"幻想郷の仲間"},"satori":{"name":"さとり","title":"幻想郷の仲間"},"koishi":{"name":"こいし","title":"幻想郷の仲間"},"kokoro":{"name":"心","title":"幻想郷の仲間"},"miko":{"name":"神子","title":"幻想郷の仲間"},"eiki":{"name":"映姫","title":"幻想郷の仲間"},"akyuu":{"name":"阿求","title":"幻想郷の仲間"}};
+      const titles = {messages:'メッセージ',notices:'運営のお知らせ',settings:'設定',profile:'マイページ',thread:'メッセージ',destination:'プレビュー'};
+      function persist() {
+        window.openai?.setWidgetState?.({modelContent:{design:'幻想符ホーム案',...state},privateContent:{panel:currentPanel}})?.catch(() => {});
+      }
+      function applySaved(snapshot) {
+        const value = snapshot?.modelContent;
+        if (!value || value.design !== '幻想符ホーム案') return;
+        for (const key of ['darkness','blur','avatarSize']) if (Number.isFinite(value[key])) state[key]=value[key];
+        if (character[value.avatar]) state.avatar=value.avatar;
+        if (['spring','night'].includes(value.background)) state.background=value.background;
+        if (/^#[0-9a-f]{6}$/i.test(value.accent || '')) state.accent=value.accent;
+        state.darkness=Math.min(60,Math.max(10,state.darkness)); state.blur=Math.min(12,Math.max(0,state.blur)); state.avatarSize=Math.min(120,Math.max(70,state.avatarSize));
+      }
+      function render() {
+        root.style.setProperty('--gh-shade',state.darkness/100);
+        root.style.setProperty('--gh-blur',state.blur+'px');
+        root.style.setProperty('--gh-avatar',state.avatarSize+'%');
+        root.style.setProperty('--gh-avatar-overflow',Math.max(0,state.avatarSize-100)*2.2+'px');
+        root.style.setProperty('--gh-gold',state.accent);
+        const bg=$('.gh-backdrop'); if (bg.src!==assets[state.background]) bg.src=assets[state.background];
+        const avatar=$('.gh-avatar'); if (avatar.src!==assets[state.avatar]) avatar.src=assets[state.avatar];
+        avatar.alt=character[state.avatar].name+'のアバター画像全体';
+        $('.gh-character-name').textContent=character[state.avatar].name;
+        $('[data-character-title]').textContent=character[state.avatar].title;
+        $$('.gh-avatar-choice').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.avatar===state.avatar)));
+        $('#gh-darkness').value=state.darkness; $('[data-darkness-output]').textContent=state.darkness+'%';
+        $('.gh-music-label').textContent=state.background==='spring'?'東方妖々夢':'東方永夜抄';
+        $('.gh-track').textContent=state.background==='spring'?'妖々夢 ～ Snow or Cherry Petal':'永夜抄 ～ Eastern Night.';
+      }
+      function openPanel(name,trigger) {
+        lastTrigger=trigger || lastTrigger;
+        currentPanel=name;
+        $('.gh-drawer').hidden=false; $('.gh-scrim').hidden=false;
+        $$('.gh-header,.gh-main,.gh-footer').forEach(el=>el.inert=true);
+        $$('[data-pane]').forEach(el=>el.hidden=el.dataset.pane!==name);
+        $('#gh-drawer-title').textContent=titles[name] || 'プレビュー';
+        $$('.gh-tools [data-panel]').forEach(el=>el.setAttribute('aria-expanded',String(el.dataset.panel===name)));
+        $('[data-action="close"]').focus();
+        persist();
+      }
+      function closePanel() {
+        currentPanel=null; $('.gh-drawer').hidden=true; $('.gh-scrim').hidden=true;
+        $$('.gh-header,.gh-main,.gh-footer').forEach(el=>el.inert=false);
+        $$('.gh-tools [data-panel]').forEach(el=>el.setAttribute('aria-expanded','false'));
+        if (lastTrigger && !lastTrigger.closest('[hidden]')) lastTrigger.focus();
+        persist();
+      }
+      function toast(text) { clearTimeout(toastTimer); const node=$('.gh-mini-status'); node.textContent=text; node.hidden=false; toastTimer=setTimeout(()=>node.hidden=true,2800); }
+      const destinations = {cards:['カード検索','収録カードを検索し、作成中デッキへカードを追加するタブです。'],build:['作成中デッキ','編集中のデッキのカード・枚数を確認し、編集・保存するタブです。'],decks:['保存デッキ','保存したデッキを検索し、読み込み・管理するタブです。'],qa:['QA','ルールとカードのQ&Aを検索するタブです。'],battle:['対戦ルーム','公開ルームの一覧と、ルーム作成・参加の画面へ進みます。'],solo:['1人バトル','使用するデッキと対戦条件を選ぶ画面へ進みます。'],favorite:['博麗の結界','お気に入りデッキの内容を確認し、編集・対戦へ進みます。'],title:['タイトル','タイトル画面へ戻ります。']};
+      function selectTab(action) {
+        const isHome=action==='home';
+        if(currentPanel) closePanel();
+        $$('.gh-nav button').forEach(button=>{
+          if(button.dataset.action===action) button.setAttribute('aria-current','page');
+          else button.removeAttribute('aria-current');
+        });
+        $('.gh-main').hidden=!isHome; $('.gh-footer').hidden=!isHome; $('.gh-tab-preview').hidden=isHome;
+        if(isHome) $('.gh-nav [data-action="home"]').focus();
+        else {
+          $('#gh-preview-title').textContent=destinations[action][0];
+          $('[data-preview-copy]').textContent=destinations[action][1];
+          $('#gh-preview-title').focus();
+        }
+      }
+      root.addEventListener('click',event=>{
+        const button=event.target.closest('button'); if (!button) return;
+        if (button.dataset.panel) { openPanel(button.dataset.panel,button); return; }
+        if (button.dataset.avatar) { state.avatar=button.dataset.avatar; render(); closePanel(); persist(); return; }
+        if (button.dataset.thread) {
+          const isMarisa=button.dataset.thread==='marisa';
+          $('[data-thread-name]').textContent=isMarisa?'魔理沙':'霊夢';
+          const log=$('[data-chat-log]'); log.replaceChildren();
+          const bubble=document.createElement('div'); bubble.className='gh-chat-bubble'; bubble.textContent=isMarisa?'あとで一戦どう？ 新しいデッキ、試してみたい！':'対戦ありがとう！ また遊ぼうね。'; log.append(bubble);
+          openPanel('thread',button); return;
+        }
+        const action=button.dataset.action;
+        if (action==='reply') {sendReply();return;}
+        if (action==='close') { closePanel(); return; }
+        if (['home','cards','build','decks','qa'].includes(action)) { selectTab(action); return; }
+        if (action==='music') {
+          musicPlaying=!musicPlaying; button.innerHTML='<i data-lucide="'+(musicPlaying?'pause':'play')+'" aria-hidden="true"></i>';
+          button.setAttribute('aria-label',musicPlaying?'BGMを停止する表示に切り替え':'BGMを再生する表示に切り替え');
+          if(globalThis.lucide)lucide.createIcons({attrs:{width:16,height:16}}); toast('BGM操作のプレビューです（音声なし）');return;
+        }
+        if (destinations[action]) {openPanel('destination',button);$('#gh-drawer-title').textContent=destinations[action][0];$('[data-destination-copy]').textContent=destinations[action][1];}
+      });
+      $('.gh-scrim').addEventListener('click',closePanel);
+      root.addEventListener('keydown',event=>{
+        if (event.key==='Escape' && currentPanel) closePanel();
+        if (event.key!=='Tab' || !currentPanel) return;
+        const focusables=Array.from($('.gh-drawer').querySelectorAll('button,input')).filter(el=>!el.closest('[hidden]'));
+        const first=focusables[0],last=focusables[focusables.length-1];
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+      });
+      $('#gh-darkness').addEventListener('input',event=>{state.darkness=Number(event.target.value);render();});
+      $('#gh-darkness').addEventListener('change',persist);
+      $('#gh-volume').addEventListener('input',event=>$('[data-volume-output]').textContent=event.target.value+'%');
+      function sendReply() {
+        const input=$('.gh-compose input'); const message=input.value.trim(); if(!message)return;
+        const bubble=document.createElement('div');bubble.className='gh-chat-bubble gh-own';bubble.textContent=message;$('[data-chat-log]').append(bubble);input.value='';toast('プレビュー内に返信を追加しました');
+      }
+      $('.gh-compose input').addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.isComposing){event.preventDefault();sendReply();}});
+      applySaved(saved); render();
+      window.addEventListener('openai:set_globals',event=>{const snapshot=event.detail?.globals?.widgetState;if(snapshot){applySaved(snapshot);render();}});
+      if (globalThis.Tweak) {
+        const tweak = new Tweak({container:root,onChange:()=>{render();persist();}});
+        tweak.addSlider(state,'darkness',{label:'背景の暗さ',min:10,max:60,unit:'%'});
+        tweak.addSlider(state,'blur',{label:'背景のぼかし',min:0,max:12,unit:'px'});
+        tweak.addSlider(state,'avatarSize',{label:'アバターの大きさ',min:70,max:120,unit:'%'});
+        tweak.addSelect(state,'avatar',{label:'アバター',options:[{"label":"霊夢","value":"reimu"},{"label":"魔理沙","value":"marisa"},{"label":"咲夜","value":"sakuya"},{"label":"レミリア","value":"remilia"},{"label":"フランドール","value":"flandre"},{"label":"パチュリー","value":"patchouli"},{"label":"アリス","value":"alice"},{"label":"妖夢","value":"youmu"},{"label":"早苗","value":"sanae"},{"label":"諏訪子","value":"suwako"},{"label":"チルノ","value":"cirno"},{"label":"鈴仙","value":"reisen"},{"label":"天子","value":"tenshi"},{"label":"萃香","value":"suika"},{"label":"さとり","value":"satori"},{"label":"こいし","value":"koishi"},{"label":"心","value":"kokoro"},{"label":"神子","value":"miko"},{"label":"映姫","value":"eiki"},{"label":"阿求","value":"akyuu"}]});
+        tweak.addColorPicker(state,'accent',{label:'装飾色',reference:'--gh-gold'});
+      }
+    })();
+  </script>
+</div>
+<script>lucide.createIcons()</script></body></html>

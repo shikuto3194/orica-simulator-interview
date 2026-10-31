@@ -1,0 +1,27 @@
+[Unit]
+Description=Orica game API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=orica
+Group=orica
+WorkingDirectory=/opt/orica/current
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/orica/api.env
+ExecStart=/usr/local/bin/node /opt/orica/current/server.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+UMask=0077
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=orica-api
+
+[Install]
+WantedBy=multi-user.target

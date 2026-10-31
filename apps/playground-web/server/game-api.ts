@@ -128,8 +128,10 @@ if (
     "Interview API requires its own SUPABASE_URL and cannot use production."
   );
 }
-const supabaseUrl = interviewSupabaseUrl ?? "https://your-project.supabase.co";
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ?? "example-publishable-key";
+const supabaseUrl = INTERVIEW_MODE
+  ? interviewSupabaseUrl!
+  : PRODUCTION_SUPABASE_URL;
+const SUPABASE_ANON_KEY = "sb_publishable_3v3fyKOO4Bib5aoa-rMwcQ_EOBMK_28";
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (INTERVIEW_MODE && !supabaseServiceKey?.trim()) {
   throw new Error(

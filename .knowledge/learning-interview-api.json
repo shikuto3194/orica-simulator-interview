@@ -1,0 +1,9 @@
+{
+  "key": "interview-tenant-control-plane",
+  "title": "面接用共有DBのmembership認可基盤",
+  "body": "面接専用Simulator APIはservice-roleを使うため、各リクエストとSSEでactive membershipを再確認し、public application tableはRLSとFORCE RLSでtenant分離する。Windowsホストで既存本番Funnelが443番を使う場合、面接APIは別のHTTPS 8443番へ追加し、443番ルートを維持する。Funnel status、公開health、面接Originのpreflight、production Origin拒否を確認する。APIリリースは面接用ビルドに固定し、service-role keyをブラウザー/Netlify build variablesへ置かない。",
+  "tags": ["interview", "tenant", "Supabase", "membership", "RLS", "API", "Tailscale", "Funnel"],
+  "evidence": ["INTERVIEW_DEPLOYMENT.md"],
+  "conditions": {"os": "windows", "tool": "codex"},
+  "review_days": 90
+}

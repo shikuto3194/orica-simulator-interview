@@ -1,0 +1,59 @@
+# I0共有service優先の分割入口
+
+2026-10-10候補。`service-priority.mjs`の`withIsmctsServicePriority(worktree, handler)`は、
+登録worktreeの`programPaths().shared`へ受付lifetimeを保存してからhandlerを呼ぶ。
+handlerのPromiseが完了した後だけ同じownerを解除する。HTTP認証・session/queue・
+timeout/切断を実装するAPIではない。実routeの認証成功後の接続は未実装。
+
+## 保存と拒否
+
+service用最新anchor・headとSHA付き連番checkpointを共有budgetと同じ`transaction.lock`で更新する。
+最新anchorをpendingへ進め、checkpointを排他新規作成/fsync、headを更新後にanchorをcompletedにする。
+両参照も一時ファイルをfsync後renameする。読取は全保存列のSHA・連番・前head・
+時刻・owner追加/解除の遷移を照合する。欠落・巻戻し・中途書込み・時計逆転をidleにしない。
+最新anchorと保存末尾が一致しなければ拒否する。末尾欠落と旧idle head復元の組合せも拒否する。
+全保存列と両参照を一緒に過去へ復元する操作を検出する外部anchorは未実装。
+終了ownerの再使用、他owner解除、二重解除を拒否する。秘密token・request body・game stateは保存しない。
+受付processの終了や時刻経過だけではownerを解除しない。安全回収は未実装で、staleを保全して拒否する。
+
+分割入口の上限は同時lifetime 5件・checkpoint 4096件・1記録16KiB。
+追加時には全activeの解除に必要な保存枠も確保する。満杯ならhandlerへ進まない。
+この上限は本番serviceのqueue仕様や長期保存policyの完成を証明しない。
+独立査読の旧候補で4094件の読取は3438/4299/3951msだった。2秒tick以内の読取は未達であり、
+履歴の圧縮/安全回収と本番受付量に対応する読取性能は今後の接続時に検証する。
+
+## オフラインjobとの接続
+
+`reserveBudget`は同じ共有transaction内でactive serviceを検査し、予約を作らず
+`deferred_load/service_priority`を返す。Windows予約入口も予約前・生成直前に共有状態を読み、
+下位schedulerの2秒tickへ同じ専用readerを渡す。local `serviceBusy`とのORで判定する。
+開始tickのbooleanに加え、schedulerは同じ同期readerをcontrollerの最終開始guardへ渡す。
+最終native sampleの応答後に共有/local状態を再読取し、その待機中の受付ならrootを開始しない。
+busyは30秒安全windowをリセットする。共有読取の破損/例外は所有jobをcloseする。
+`windows-service-state.mjs`でbooleanまたは`createWindowsServiceReader(boolean)`が作った
+凍結readerだけを受け付け、WeakMap内の状態を読む。local変更は`setWindowsServiceBusy(reader, boolean)`に限る。
+任意callback・Proxy・bindした別関数は呼出前に拒否する。Promiseのhandler登録でもconstructor/@@speciesが
+先にthrowできるため、返却Promiseを後処理する方式は使わない。このservice入力経路ではcallbackもPromiseも生成しない。
+公開予約入口は共有directoryを専用readerへ結合し、callerに共有検査のcallbackを差し替えさせない。
+直接の下位controller呼出では`start(busy, reader)`を使う。reader省略時は渡したbooleanだけを扱う。
+読取後からnative開始要求までの新受付を原子的に禁止するものではなく、後続tick/watchdogを維持する。
+後段拒否・scheduler停止・破損読取は全予約を保持し、完全会計なしの返却を行わない。
+生成直後の新受付を原子的に禁止する仕組みやservice側受付応答を保証するものではない。
+native watchdogと資源/期限の制御は既存のまま必要である。
+
+## 証明の境界
+
+私有保存先の受付/解除、別processの登録後終了、末尾欠落と旧idle head復元、
+pending/anchor欠落・巻戻し/破損と時刻変異、
+容量再検査中の登録、共通schedulerへの共有busy伝播/停止と破損時closeを回帰で確認する。
+schedulerはメモリ内controller対例であり、実service負荷や実OSの実行中yieldではない。
+最終計測待ち中のbusy変化・不正reader・安全windowのリセットと、共有予約入口から
+最終readerへの伝播をメモリ内対例で確認する。旧実装では同じ入力がrunningとなった。
+この回帰は実HTTP受付・30秒実OS安全後の開始・実ゲーム校正を証明しない。
+async throw・通常rejected Promise・constructor getter/不正species/throwing speciesを生成するcallbackは
+呼出0件のまま拒否する。独立Node processの既定rejection policy・listenerなしで、模擬close完了後のcaller生存を検査する。
+旧handlerの3対例と元stashはartifactに保持する。これは実OS異常cleanupや任意の`onSample`callback安全性の証明ではない。
+実HTTP受付・認証・複数worktreeの本番競合・独立強制停止・長期運転は未検証。
+helper終端tail/caller/probe/service全体会計、全出力先guard、本番runtime/Linux、
+固定8デッキ実戦/実ゲーム校正とR1-runtime/calibration受入は未達。
+`accountingComplete:false`を維持し、I0完了や配備済みへ読み替えない。

@@ -1,21 +1,78 @@
 node_modules/
 dist/
-**/dist/
+dev-dist/
+.pnpm-store/
+.vite/
+coverage/
+*.tsbuildinfo
+.claude/
+debug.log
+
+# 環境変数 (service_role_key などの秘密情報)
 .env
-.env.*
-!.env.example
-**/.env.*
-!**/.env.example
-.netlify/
-.knowledge/
-.codex-temp/
-.playwright-cli/
-artifacts/
+.env.local
+.env.*.local
+
 logs/
-output/
-*.log
-images/
-sounds/
-public/images/
-tmp_acg_html/
-src/imagesManifest.generated.js
+# 実行成果物専用（CLAUDE.md Cross-cutting Rule）。生成元・形式が増えても個別追加しない。
+/artifacts/
+.codex-temp/
+.codex-remote-attachments/
+debug-screenshots/
+.playwright-mcp/
+.playwright-cli/
+.telegram-images/
+
+# 一時生成物・調査用スクリプト
+card-coverage.json
+# 外部 QA/裁定 資料 (orika-react からコピー、参照専用)
+external-qa/
+external-qa-official/
+eslint-*.txt
+eslint-*.json
+tmp-*.json
+tmp/
+.verifier-prompt.md
+.verifier-prompt.txt
+.verifier-context.json
+.verifier-report.json
+.verifier-result.json
+.engine-deep-ledger.json
+stubs_data.txt
+field-exit-replacement-mid-battle.png
+packages/card-data/src/cards/analyze_duplicates.py
+cost-payment-result.png
+full_analysis.txt
+analyze_effects.js
+p2-08-approach-c-*.png
+# Playwright の失敗時成果物。primary tree での検証でも auto-merge の clean 前提を壊さない。
+test-results/
+
+# カード画像: 配信用 images/*.webp を Git 管理。元 PNG はローカルに保持。
+# pnpm images:prepare で画素一致を検証した可逆 WebP を生成する。
+images/*.png
+
+# BGM: 配信用 WebP/M4A のみ Git 管理。編集元はローカルに残す。
+images/title/**/*
+!images/title/**/
+!images/title/**/*.webp
+sounds/*
+!sounds/music/
+sounds/music/**/*
+!sounds/music/**/
+!sounds/music/**/*.m4a
+
+# avatar の元素材 PNG はリポジトリ外。採用済み全身素材は fullbody/ の可逆 WebP を commit。
+images/avater/*立ち絵*.png
+
+# filter-repo 実行前の .git バックアップ (一時的)
+.git.bak/
+
+# @orica/ai 生成物
+packages/card-data/proposals/
+packages/ai/.cache/
+*.gguf
+fidelity-audit.json
+text-accountability-audit.json
+supabase/.temp/
+.netlify/

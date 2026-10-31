@@ -1,0 +1,13 @@
+- generic [active] [ref=e1]:
+  - form "ログイン" [ref=e4]:
+    - heading "幻想符" [level=2] [ref=e5]
+    - paragraph [ref=e6]: TCGマネージャー アカウントでログイン
+    - text: メールアドレス
+    - textbox "メールアドレス" [ref=e7]:
+      - /placeholder: example@mail.com
+    - text: パスワード
+    - textbox "パスワード" [ref=e8]
+    - button "ログイン" [ref=e9] [cursor=pointer]
+  - iframe [ref=e10]:
+    - button "Powered by Netlify — build your own site" [ref=f1e3] [cursor=pointer]:
+      - generic [ref=f1e13]: Powered by Netlify

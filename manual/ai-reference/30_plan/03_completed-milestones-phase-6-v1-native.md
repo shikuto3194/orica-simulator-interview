@@ -1,0 +1,122 @@
+# Completed Milestones: Phase 6 — P3-15 問題1 V1→Native 実行パス統合 / 問題3 / クリーンアップ / P3-17
+
+このファイルは、Phase 6 の「P3-15 問題1 (V1→Native 実行パス統合 Phase 1〜15) + 問題3 (after_triggers コネクタ最小実装) + クリーンアップ + 残クリーンアップ option 1〜3 + P3-17 (DSL `discard` / `deck_reveal` の `action.player` 未反映バグ修正)」の完了履歴です。
+索引は [03_completed-milestones-phase-6.md](./03_completed-milestones-phase-6.md) から辿ります。
+
+## Phase 6: データと DSL — P3-15 問題1 V1→Native 統合
+
+- **P3-15 問題1 Phase 1 `draw` アクション V1→Native パス移行完了** (2026-04-15)
+  - `structured-effect-interpreter.ts:executeDraw` を `export function` 化。
+  - `effect-interpreter.ts:executeNativeAction` に `case "draw"` を追加し `resolveCountToNumber` で count 解決後 `executeDraw` を直接呼び出し。
+  - `convertToV1Action` の `case "draw"` を削除。
+  - Native パス経由アクションが 8→9 種に拡張、V1 パス経由は 30+ 種残存。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 2 シンプル状態遷移系 7 アクション V1→Native 移行完了** (2026-04-15)
+  - 対象アクション: `life_damage` / `life_fill` / `count_increase` / `count_decrease` / `count_set` / `end_attack_step` / `additional_attack`。
+  - `structured-effect-interpreter.ts` の `executeLifeDamage` / `executeLifeFill` / `executeCountIncrease` / `executeCountDecrease` / `executeCountSet` / `executeEndAttackStep` / `executeAdditionalAttack` を `export function` 化。
+  - `effect-interpreter.ts:executeNativeAction` に上記 7 ケース追加（`resolveAmountToNumber` で amount 解決、既存内部シグネチャに合わせた resolve 済み v1 action / player+amount primitive で呼び出し）。
+  - `convertToV1Action` から上記 7 ケースを削除。
+  - 副次修正: Native パスの `succeeded` 判定が従来 `true` 固定だったため `count_decrease` の rollback テスト等が破綻。V1 パスで使用している `didNonCardActionChangeState` + 「zone 変化 OR 非カード状態変化」の複合判定ロジックを Native パスにも適用し、zone 変化系は `nonCardResult === null` で従来通り `true` 固定にフォールバック。`chosenChoiceIndex` 記録も V1 パスと同一方式に合わせた。
+  - Native パス経由アクションが 9→16 種に拡張、V1 パス経由は 23+ 種残存。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 3〜10 V1→Native 移行完了** (2026-04-15〜2026-04-16)
+  - Phase 3: `recover` / `exhaust` (target 変換 + `resolvedTargetIds` 渡し)
+  - Phase 4: `set_exhaust_state` (Phase 3 延長、executeRecover/executeExhaust 直呼び)
+  - Phase 5: `bp_modify` / `symbol_add` (CE 生成系初対応、`tScope` 伝搬 + デュアルカラーループ Native 化)
+  - Phase 6: `enter_soul_state` / `leave_soul_state` (軽量 target 解決、soulStateInstanceIds 長変化検出)
+  - Phase 7: CE 登録系 7 アクション `effect_immunity` / `unblockable` / `prevent_battle` / `prevent_life_damage` / `effect_resistance` / `draw_modify` / `restrict_flash` (restriction 合成・resistsOutcome/replacement 変換・`activeContinuousEffects.length` 変化検出)
+  - Phase 8: `negate` / `treat_as` / `rebirth` / `cost_modify` (`additional_cost` インライン抽出・aspect 合成・optional default 埋め・4 分岐 Native ディスパッチ)
+  - Phase 9: `stay_on_field` (`pendingEffectSimultaneousGroupId` 伝搬で同時誘発グループ連動撤回を維持)
+  - Phase 10: フィールド離脱系 5 アクション `destroy` / `vanish` / `bounce` / `send_to_deck` / `remove_from_game` (pendingLeaveEntities 長変化 / cardInstances[i].zone 変化の 2 グループで succeeded 判定)
+  - Native パス経由アクションが 16→40 種に拡張、V1 パス経由は 23+→5 DSL アクションに縮小。
+  - 各 Phase で 978 tests 全通過 / tsc --noEmit 通過。詳細は [issues/archive/P3-15](../../../issues/archive/P3-15/index.md) 参照。
+- **P3-15 問題1 Phase 11 `discard` V1→Native 移行完了** (2026-04-16)
+  - pending 生成系の初対応。`structured-effect-interpreter.ts:executeDiscardHand` を `export function` 化。
+  - `effect-interpreter.ts` の type import に `DiscardHandAction` を追加、value import に `executeDiscardHand` を追加。
+  - `executeNativeAction` に `case "discard"` を追加: `resolveCountToNumber` で count 解決後、DSL `fromZone: Zone | Zone[]` → v1 `"hand" | "set_aside" | "hand_or_set_aside"` 合成（`hand`+`set_aside` → `"hand_or_set_aside"`、`set_aside` のみ → `"set_aside"`、他 → `"hand"`）、DSL `action.player` は v1 `targetPlayer` にマップのみ（既存 `executeDiscardHand` は第2引数 `actingPlayerId` を直接使い `targetPlayer` フィールドを参照しないため、Native 側も `actingPlayerId` をそのまま渡して既存挙動を維持）、`action.filter` の category / colors / tribes を条件付きスプレッドで転記、`effect.timing` を `effectTiming` 引数として伝搬し `pendingZoneSelection.effectTiming` に反映。
+  - `convertToV1Action` から `case "discard"` を削除。
+  - 副次修正: `didNonCardActionChangeState` に `case "discard"` を追加。`discard` は 2 つの状態変化パターン — (a) 即時破棄時は `cardInstances[i].zone` が hand → trash、(b) 候補超過時は `pendingZoneSelection` が null → オブジェクト生成 — があるため、`pre.pendingZoneSelection !== post.pendingZoneSelection || pre.cardInstances.some((c, i) => { const q = post.cardInstances[i]; return !!q && c.instanceId === q.instanceId && c.zone !== q.zone; })` の OR 条件で判定（no-matching / 全 match 保護の真の no-op で `succeeded=false`）。V1 パス側も同共通ヘルパーを参照するため V1/Native 両パスで succeeded セマンティクスを統一。
+  - Native パス経由アクションが 40→41 種に拡張、V1 パス経由は 5→4 DSL アクションに縮小（`core_move[to]` / `deck_reveal` / `search_zone` / `summon`）。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 12 `deck_reveal` V1→Native 移行完了** (2026-04-16)
+  - pending 生成系の第 2 弾対応（Phase 11 `discard` の `pendingZoneSelection` に続き `pendingDeckReveal` 生成系）。`structured-effect-interpreter.ts:executeDeckReveal` を `export function` 化。
+  - `effect-interpreter.ts` の type import に `DeckRevealAction` を追加、value import に `executeDeckReveal` を追加。
+  - `executeNativeAction` に `case "deck_reveal"` を追加: DSL `picks[].filter` (CardFilter 型) → v1 `picks[].filter` (DeckRevealPickFilter 型) への変換を条件付きスプレッドで移植（category / colors / tribes / tribesLogic のみ転記、`exactOptionalPropertyTypes: true` 互換）。DSL `remainder === "player_choice"` → v1 `"top_or_bottom"` マッピングを維持。`action.player` は v1 `DeckRevealAction` 側にフィールドがない（旧 convertToV1Action でも未転記）ため Native 側でも無視し、既存挙動（`actingPlayerId` のデッキを対象にする）を維持（P3-17 で後日解消）。
+  - `convertToV1Action` から `case "deck_reveal"` を削除（旧変換ロジックは Native 側に同等移植済み、`import("./dsl-types").CardFilter` の inline 型参照も不要化）。
+  - 副次修正: `didNonCardActionChangeState` に `case "deck_reveal"` を追加。`deck_reveal` は 2 つの状態変化パターン — (a) 全 mandatory 消化時は `cardInstances[i].zone` が deck → hand/field、(b) optional/選択待ち時は `pendingDeckReveal` が null → オブジェクト生成 — があるため、`pre.pendingDeckReveal !== post.pendingDeckReveal || pre.cardInstances.some((c, i) => { const q = post.cardInstances[i]; return !!q && c.instanceId === q.instanceId && c.zone !== q.zone; })` の OR 条件で判定（revealCount=0 / deck=empty の no-op 時は `succeeded=false`）。V1 パス側も同共通ヘルパーを参照するため V1/Native 両パスで succeeded セマンティクスを統一。
+  - Native パス経由アクションが 41→42 種に拡張、V1 パス経由は 4→3 DSL アクションに縮小（`core_move[to]` / `search_zone` / `summon`）。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 13 `search_zone` V1→Native 移行完了** (2026-04-16)
+  - pending 生成系の第 3 弾対応（deck / trash 両ゾーン対応）。`structured-effect-interpreter.ts:executeSearchDeck` / `executeReturnFromTrash` を `export function` 化。
+  - `effect-interpreter.ts` の type import に `SearchDeckAction` / `ReturnFromTrashAction` を追加、value import に対応関数を追加。
+  - `executeNativeAction` に `case "search_zone"` を追加: `resolveCountToNumber` で count 解決後、DSL `action.filter` の category / colors / tribes / maxCost を v1 filter に条件付きスプレッドで転記、zone 別にディスパッチ。`zone === "deck"` は `destination` → v1 `"hand" | "field" | "top_of_deck" | "bottom_of_deck"` マッピングで `SearchDeckAction` を構築し `executeSearchDeck` 直呼び、`zone === "trash"` は `destination` → v1 `"hand" | "field" | "set_aside"` マッピングで `ReturnFromTrashAction` を構築し `executeReturnFromTrash` 直呼び。どちらも `effect.timing` を `effectTiming` 引数として伝搬し `pendingZoneSelection.effectTiming` に反映。未対応 zone（deck/trash 以外）は state をそのまま返す no-op 挙動維持。
+  - `convertToV1Action` から `case "search_zone"` を削除。
+  - 副次修正: `didNonCardActionChangeState` に `case "search_zone"` を追加。`search_zone` は 2 つの状態変化パターン — (a) 自動選択時は `cardInstances[i].zone` が deck/trash → hand/field 等に変化、(b) 候補超過時は `pendingZoneSelection` が null → オブジェクト生成 — があるため、Phase 11 `discard` と同パターンで `pre.pendingZoneSelection !== post.pendingZoneSelection || pre.cardInstances.some((c, i) => { const q = post.cardInstances[i]; return !!q && c.instanceId === q.instanceId && c.zone !== q.zone; })` の OR 条件で判定。
+  - DSL `search_zone` に `player?: PlayerRef` フィールドは定義されておらず、常に acting player のデッキ／トラッシュを対象にする挙動を維持（P3-17 の同族バグ対象外）。
+  - Native パス経由アクションが 42→43 種に拡張、V1 パス経由は 3→2 DSL アクション（`core_move[to]` / `summon`）に縮小。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 14 `summon` V1→Native 移行完了** (2026-04-16)
+  - zone 合成 + CostModifier 展開 + target self / from_zone の 2 分岐対応。`structured-effect-interpreter.ts:executeSummon` を `export function` 化（`executeSummonSelf` / `executeSummonOther` は内部関数のまま維持）。
+  - `effect-interpreter.ts` の type import に `SummonAction` を追加、value import に `executeSummon` を追加。
+  - `executeNativeAction` に `case "summon"` を追加:
+    - `action.target.kind === "self"` 分岐: `costModifier` を v1 `withoutCost` / `overrideCost` / `fixedPayment` / `fullReduction` に条件付きスプレッドで展開し v1 `SummonAction { target: "self" }` を構築。
+    - `action.target.kind === "from_zone"` 分岐: `target.zone: Zone | Zone[]` を v1 `"hand" | "set_aside" | "trash" | "hand_or_set_aside" | "hand_or_set_aside_or_trash"` に合成（単一 zone はそのまま、複数 zone はソート後 `_or_` 結合、例: `["hand", "set_aside"]` → `"hand_or_set_aside"`）、`resolveCountToNumber` で count 解決、`target.filter` の category / colors / tribes / maxCost を v1 filter に条件付きスプレッド転記、`costModifier` を同様に展開し v1 `SummonAction { target: "other" }` を構築。
+  - `convertToV1Action` から `case "summon"` を削除。
+  - 副次修正: `didNonCardActionChangeState` に `case "summon"` を追加（Phase 10 bounce/send_to_deck と同パターン、`cardInstances[i].zone` 変化検出）で no-targets 時の succeeded=false を担保。
+  - DSL `SummonAction.target` の `{ kind: "self" }` / `{ kind: "from_zone"; zone; filter?; count }` の 2 分岐には `player` フィールド未定義、常に `actingPlayerId` を対象（P3-17 の同族バグ対象外）。
+  - Native パス経由アクションが 43→44 種に拡張、V1 パス経由は 2→1 DSL アクション（`core_move[to]`）に縮小。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 Phase 15 `core_move[to]` V1→Native 移行完了 (問題1 V1→Native 実行パス統合完全完了)** (2026-04-16)
+  - DSL アクション V1→Native 移行の最終段階。`structured-effect-interpreter.ts:executeCoreMove` を `export function` 化（void/reserve/trash/life/this_card/field/target_card/field_card 間の全パスを包含する複雑関数）。
+  - `effect-interpreter.ts` の value import に `executeCoreMove` を追加（type import は既に `EffectCoreLocation` を含む）。
+  - `executeNativeAction` のシグネチャに optional 10 / 11 番目引数 `coreShootDistribution?: Record<string, number>` / `coreShootSoulCoreInstanceId?: string` を追加し、`executeEffect` 内の呼び出し側で `options.coreShootDistribution` / `options.coreShootSoulCoreInstanceId` を伝搬。
+  - `case "core_move"` を二分岐に拡張: (a) `action.splitDestinations` あり → `executeCoreMoveSplit` 直呼び（既存挙動維持）、(b) `action.to` あり → `action.amount === "all" ? Infinity : resolveCountToNumber(...)` で amount 解決（`structured-effect-interpreter.ts:424` と同一ロジック）、`convertCoreLocation` で DSL CoreLocation → v1 EffectCoreLocation 変換して `executeCoreMove` 直呼び。
+  - `convertToV1Action` から `case "core_move"` を削除し DSL 専用アクションリストに統合。`convertToV1Action` は 11 種の null-return マーカー関数に縮退。
+  - 副次修正: `didNonCardActionChangeState` は既に Phase 1 時点で `case "core_move"` が存在（`reserveNormalCoreCount` / `voidNormalCoreCount` / `lifeNormalCoreCount` / `trashNormalCoreCount` / `cardInstances[i].normalCoreCount` の変化検出）し共用されていたため追加変更不要。
+  - Native パス経由アクションが 44→45 種に拡張、V1 パス経由は 1→0 DSL アクション — **V1 実行パスを経由する DSL アクションは全廃、問題1 の V1→Native 実行パス統合が完全完了**。
+  - ロジック不変、978 tests 全通過 / tsc --noEmit 通過。
+- **P3-17 DSL `discard` / `deck_reveal` の `action.player` 未反映バグ修正完了** (2026-04-16)
+  - Phase 11 / 12 作業中に検出した独立バグ。`executeDiscardHand` / `executeDeckReveal` が `action.player`（v1 `targetPlayer`）を無視し常に `actingPlayerId` のゾーンを対象としていた挙動を、`resolvePlayerRef` 経由で `targetPlayerId` を解決して使う形に修正。
+  - `model.ts:DeckRevealAction` に `targetPlayer?: EffectPlayerRef` を追加（v1 `DiscardHandAction` は以前から `targetPlayer` フィールドを持っていたが実装が未対応）。
+  - `structured-effect-interpreter.ts:executeDiscardHand` 先頭で `targetPlayerId = action.targetPlayer ? resolvePlayerRef(actingPlayerId, action.targetPlayer, state) : actingPlayerId` を導入し、手札フィルタ（`ownerPlayerId === targetPlayerId`）・`handCount` 減算・ログ・`pendingZoneSelection.actingPlayerId` をすべて `targetPlayerId` に差し替え（破棄される側本人が自身の手札から何を破棄するかを選ぶルール）。
+  - `structured-effect-interpreter.ts:executeDeckReveal` 先頭で同様に `targetPlayerId` を導入し、`deckCards` フィルタ・`handCount`/`deckCount` 更新・ログを `targetPlayerId` に差し替え。一方 `pendingDeckReveal.actingPlayerId` は効果実行者 (`actingPlayerId`) のまま維持（picks 選択は実行者が行うルール）。
+  - `effect-interpreter.ts:case "deck_reveal"` で DSL `action.player` → v1 `targetPlayer` マッピングを追加（`case "discard"` は Phase 11 時点で既にマップ済み）。
+  - テスト 7 件追加（`dsl-action-player-ref.test.ts`: discard 4 件 + deck_reveal 3 件、`opponent` / `self` 明示 / 未指定の 3 パターンを網羅）。
+  - 978 → 985 tests 全通過 / tsc --noEmit 通過。残留懸念: pick destination 別プレイヤー指定（「相手のデッキを見て自分の手札に加える」等）、`search_zone` / `summon` の DSL 型 `player` フィールド追加は需要発生時に対応。
+- **P3-15 問題3 `after_triggers` コネクタ最小実装完了** (2026-04-16)
+  - `effect-interpreter.ts:handleConnector:case "after_triggers"` を sequential 同等の no-op から、step 境界で **SBA + CE 再計算 + 誘発効果キュー化 + pending leave flush** を挟む形に拡張。
+  - `ConnectorResult` に `mutatedState?: GameState` を追加、`handleConnector` シグネチャに `previousStepPreState: GameState | null` / `sourceInstanceId: string` / `getCardDefinitionById` を追加。
+  - `executeEffect` のステップループに `let previousStepPreState: GameState | null = null;` を追加し、action 実行直前（condition / stepCondition / retrigger のスキップ判定通過後）に `previousStepPreState = currentState` を記録（skip された step では非更新）。
+  - `case "after_triggers"` ブランチで `runStateBasedActions` → `recomputeContinuousEffects` → `collectAndQueueTriggerReactions({ beforeState: previousStepPreState, afterState: currentState, source: "action_resolution", chainId: "after_triggers:<sourceInstanceId>:<stepIndex>" })` → `flushPendingLeaves` の順に実行。
+  - 設計判断: DSL エンジン単体では誘発効果のプレイヤー選択・分岐解決を扱えないため、最小実装は SBA + pending leave flush + 誘発キュー化まで。実体解決は外側のチェーン解決パイプラインに委ねる。これで「step N で破壊 → step N+1 の condition で `field にいない` と判定」というエターナル Ver.17.0 ルール挙動が達成される。
+  - 副次修正: Phase 7 作業で `didNonCardActionChangeState:case "draw_modify"` に重複 case があり Vite 警告を出していたため削除、CE 登録系グループに統一。
+  - テスト 5 件追加（`after-triggers-connector.test.ts`: destroy→flush / sequential 対比 / leave_field 誘発キュー化 / 初回 step 無効 / skip step 非更新）。985 → 990 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 問題1 クリーンアップ完了** (2026-04-16)
+  - Phase 15 で null-return マーカー関数と化していた `convertToV1Action` 関数本体 (26 行)、`executeEffect` ステップループ内の V1 呼び出し分岐（約 45 行）を `effect-interpreter.ts` から削除し、Native パスを唯一の実行パスに統一。未対応アクションは `effect:unsupported-action:<kind>` ログ + `succeeded=false` StepResult 記録の既存挙動を維持。
+  - import 整理: `executeEffectAction` を `structured-effect-interpreter` からの import 一覧から削除（他 50+ 個の native 実装関数は引き続き import）、type import から未使用の `EffectAction` を削除。
+  - コメント更新: line 8 冒頭 / line 266 `executeEffect` docstring / line 959 `executeNativeAction` docstring を「全アクションは Native パスで実行」形式に変更。line 1131 / 1144 の旧 `convertToV1Action` 参照を「旧 V1 変換」という歴史的注記に差し替え。line 418 のブロックコメントも Native path 用に更新。
+  - `executeEffectAction` 関数本体（`structured-effect-interpreter.ts:392`）は本体 2 箇所（`applyPendingCoreSplitSelection` / `applyDivineSkillAction`）＋ テスト 15 箇所の外部利用者が残るため public API として維持。
+  - ロジック不変、テスト改変なし、990 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 残クリーンアップ option 1 完了** (2026-04-16)
+  - `legal-actions-apply.ts:applyPendingCoreSplitSelection` の `executeEffectAction({ state, action: { kind: "core_move", from, to, amount }, sourceInstanceId, actingPlayerId, getCardDefinitionById, effectTiming })` 呼び出し（12 行）を `executeCoreMove(currentState, pending.actingPlayerId, pending.fromLocation, dest.location, amount, pending.sourceInstanceId, undefined, undefined, options.getCardDefinitionById, pending.effectTiming)` の 10 引数直呼び（10 行）に置換。
+  - `executeEffectAction:case "core_move"` のラッパ（`action.amount === "all" ? Infinity : action.amount` + 引数展開）と完全等価。本経路では v1 `CoreMoveAction.amount` が `number` 型で既に解決済みのため `Infinity` 分岐は不要。
+  - import に `executeCoreMove` を追加（`executeEffectAction` import は `applyDivineSkillAction` で引き続き利用するため維持）。
+  - `executeEffectAction` の本体外部利用者は 2 → 1 箇所に縮小（残るは `applyDivineSkillAction` のみ）。option 2（`applyDivineSkillAction` の DSL 化）は `DivineSkillEntry.effects: EffectAction[]` の型変更を伴うため実カード追加オンデマンド対応、option 3（テスト群書き換え）は優先度最低として据え置き。
+  - ロジック不変、テスト改変なし、990 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 残クリーンアップ option 2 完了** (2026-04-16)
+  - `model.ts:DivineSkillEntry.effects` の型を `EffectAction[]` → `import("./dsl-types").Effect[]` に変更し、神技/界放の effects を DSL 側で定義可能にした。
+  - `structured-effect-interpreter.ts:executeDivineTransform` を `export function` 化（既存シグネチャ不変）。`effect-interpreter.ts:executeNativeAction` に `case "divine_transform"` を追加(`convertTargetSpecToEffectTarget` で DSL TargetSpec → v1 EffectTarget 変換後、v1 `DivineTransformAction` を構築して `executeDivineTransform` 直呼び)。
+  - `convertTargetSpecToEffectTarget` の filter 分岐に `target.filter.targetsGrandwalker ? { includeGrandwalker: true }` マッピングを追加（DSL `CardFilter.targetsGrandwalker: true` → v1 `EffectTarget.includeGrandwalker: true`、転神対象の創界神ネクサスに対する効果を grandwalker 除外ガードから解除）。
+  - `didNonCardActionChangeState` に `case "divine_transform"` を追加（`cardInstances[i].divineTransformState !== q.divineTransformState` の変化検出で no-targets / 対象外時の `succeeded=false` を担保）。
+  - `legal-actions-apply.ts:applyDivineSkillAction` のループを `executeEffectAction` 呼び出しから `executeEffect` 呼び出しに置換。import から `executeEffectAction` を削除し `executeEffect` を追加。
+  - BSTH05 X01 / `phase-f-grandwalker.test.ts:grandwalkerWithTransformDef()` の神技定義を v1 EffectAction 形式から DSL Effect 形式（`timing: { kind: "activated", mode: "main" }` + `steps[].action` + `target: { kind: "filter", filter: { ..., targetsGrandwalker } }` + `count: "all"`）に書き換え。神技統合テスト 92 件が全通過。
+  - `executeEffectAction` の本体利用者は `legal-actions-apply.ts` 1 → 0 箇所に縮小、残るはテスト 15 箇所のみ（`stay-on-field-action.test.ts` 10 / `phase-f-grandwalker.test.ts` 5。option 3 で対応、優先度最低）。
+  - ロジック不変、990 tests 全通過 / tsc --noEmit 通過。
+- **P3-15 残クリーンアップ option 3 完了 → 問題1 完全完了** (2026-04-16)
+  - テスト群の `executeEffectAction` 呼び出しを export 済み個別関数の直呼びに置換し、`executeEffectAction` 関数本体を削除。**`executeEffectAction` API は廃止**、Native パス（`effect-interpreter.ts:executeNativeAction`）が DSL Action 実行の唯一のエントリ点となった。
+  - `stay-on-field-action.test.ts`: 9 箇所（issue 当初想定 10 と差分あり、実際は 9 が正）の `executeEffectAction({ state, action, sourceInstanceId, actingPlayerId, getCardDefinitionById, pendingEffectSimultaneousGroupId? })` 呼び出しを `executeStayOnField(state, actingPlayerId, action, getCardDefinitionById, sourceInstanceId, undefined, simultaneousGroupId ? { simultaneousGroupId } : undefined)` の直呼びに置換。import を `executeEffectAction` → `executeStayOnField` に変更。
+  - `phase-f-grandwalker.test.ts`: 4 箇所（issue 当初想定 5 と差分あり、実際は 4 が正）のうち divine_transform 2 件を `executeDivineTransform(state, actingPlayerId, action, getCardDefinitionById, sourceInstanceId)` 直呼び、destroy 2 件を `executeDestroy(state, actingPlayerId, action.target, getCardDefinitionById, sourceInstanceId)` 直呼びに置換。import を `executeEffectAction` → `executeDestroy, executeDivineTransform` に変更。
+  - `structured-effect-interpreter.ts`: `executeEffectAction` 関数本体（約 150 行・40 ケース dispatch + exhaustive チェック + EffectAction オプション型）を削除。`EffectAction` 型 import を削除（関数削除と同時に未使用化）。モジュール冒頭 docstring を「executeEffectAction を中心に、インタプリタや条件評価から利用される共通関数群」→「個別の execute* 関数（executeDestroy / executeSummon など）を export し、effect-interpreter.ts:executeNativeAction から直接呼び出される形で利用される」に更新。
+  - 設計判断: 当初「テスト品質基準の再設計を伴う」として優先度最低と評価されていたが、Phase 9 / option 2 で `executeStayOnField` / `executeDivineTransform` が、Phase 10 で `executeDestroy` が既に export 済みだったため、テスト側は単に共通エントリ点を経由せず個別関数を直接呼ぶだけで完了し、テスト構造の再設計は不要だった。
+  - **P3-15 問題1 (V1/Native 二重パス) は完全完了**: V1→Native 移行 (Phase 1〜15) → クリーンアップ (`convertToV1Action` / V1 呼び出しブロック削除) → option 1 (`executeCoreMove` プリミティブ直呼び) → option 2 (`DivineSkillEntry.effects` DSL 化) → option 3 (`executeEffectAction` 関数削除) の段階的縮約を完遂。
+  - ロジック不変、990 tests 全通過 / tsc --noEmit 通過。

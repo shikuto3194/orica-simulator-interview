@@ -1,0 +1,44 @@
+{
+  "mode": "A: 弾シャード + worktree隔離 + DSL単一ライター",
+  "updated": "2026-06-09",
+  "invariants": [
+    "worker は担当弾の card ファイル(packages/card-data/src/cards/<SET>.ts)とそのテストのみ編集する。",
+    "worker は rules-core を絶対に編集しない(model.ts / interpreter / structured-effect-registrations / generated-index)。",
+    "既存DSLで表現可能なカードは worker がその場で実装。新DSL/新timingが要るカードは実装せず autorun-queue/needs-dsl.<worker>.jsonl に1行 append してスキップする。",
+    "DSL/エンジン拡張は main の単一ライターのみが行う(並行禁止=SSOT/マージ競合回避)。",
+    "ルールから確定不能な裁定は autorun-queue/needs-ruling.<worker>.jsonl に park(従来 root needs-ruling.jsonl の per-worker 版)。"
+  ],
+  "dslWriter": {
+    "who": "main(対話セッション/人間)",
+    "loop": "autorun-queue/needs-dsl.*.jsonl をドレイン→rules-core を1プリミティブずつ拡張→main に commit。worker は run 冒頭で main を rebase(または merge --ff-only)して昇格カードを取り込み、実装後に該当 needs-dsl 行を status:resolved にする。"
+  },
+  "stopCondition": "全 worker の担当弾 todo=0(pnpm cards:coverage) かつ needs-dsl.*.jsonl / needs-ruling.*.jsonl の open 行が 0。",
+  "integration": "各 worker は feat/<branch> に積む。人間が main で取り込む。card ファイルは弾 disjoint・rules-core は main 単一ライターなので構造的に競合しない。queue は per-worker ファイルなので merge 競合しない。",
+  "workers": [
+    {
+      "id": "W1",
+      "worktree": "C:\\dev\\orica-wt\\autorun-cards",
+      "branch": "feat/autorun-cards",
+      "sets": ["BSFT01", "BSRK01", "BSTS01"],
+      "todo": 45,
+      "note": "既存 worktree を流用(scripts/new-worktree.ps1 -Task autorun-cards で作成済)"
+    },
+    {
+      "id": "W2",
+      "worktree": "C:\\dev\\orica-wt\\autorun-w2",
+      "branch": "feat/autorun-w2",
+      "sets": ["BSDB01", "BSSL01", "BSKB01", "BSAZ03"],
+      "todo": 46,
+      "note": "scripts/new-worktree.ps1 -Task autorun-w2 -From main で作成"
+    },
+    {
+      "id": "W3",
+      "worktree": "C:\\dev\\orica-wt\\autorun-w3",
+      "branch": "feat/autorun-w3",
+      "sets": ["BSSG01", "BSES01", "BSSA01", "BSSG02"],
+      "todo": 45,
+      "note": "scripts/new-worktree.ps1 -Task autorun-w3 -From main で作成"
+    }
+  ],
+  "reshard": "worker 数/割当は編集可。再シャード時は pnpm cards:coverage の todo を再集計し、todo 数で balance し直す(LPT 法推奨)。"
+}

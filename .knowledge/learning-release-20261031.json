@@ -1,0 +1,23 @@
+{
+  "body": "面接用APIはprivate.interviewsとprivate.interview_membershipsで認可し、user_metadata等のユーザー編集可能値を根拠にしない。service-role APIは各requestとSSEでactive membershipを再確認する。アプリDBとStorageのtenant RLSは別途必要。Windows用面接ランチャーは準備済みreleaseに固定し、本番origin/mainを自動追従しない。",
+  "tags": [
+    "interview",
+    "tenant",
+    "Supabase",
+    "membership",
+    "RLS",
+    "Auth",
+    "API release"
+  ],
+  "kind": "fact",
+  "title": "面接用共有DBのmembership認可基盤",
+  "evidence": [
+    "deploy/interview/supabase/README.md",
+    "INTERVIEW_DEPLOYMENT.md"
+  ],
+  "key": "interview-tenant-control-plane",
+  "conditions": {
+    "tool": "codex",
+    "os": "windows"
+  }
+}

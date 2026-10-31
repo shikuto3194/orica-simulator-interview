@@ -1,0 +1,22 @@
+{
+  "used_ids": [
+    "g.working-preferences",
+    "g.knowledge-workflow"
+  ],
+  "decision": "updated",
+  "skipped_candidates": [
+    {
+      "reason": "今回のSupabase認可・API実装とは無関係な目的優先の共通方針",
+      "id": "g.goal-first"
+    }
+  ],
+  "learning": {
+    "note": "面接tenant認可の正本とAPI失効確認を保存し、アプリ行とStorageへの適用が残ることを明記。",
+    "disposition": "saved",
+    "evidence": []
+  },
+  "changed_ids": [
+    "p.d705aea0dd8a.interview-tenant-control-plane"
+  ],
+  "reason": "面接用共有DBにAuth membershipを正本とする認可基盤を適用し、幻想符APIとSSEから失効状態を再確認する実装を追加した。アプリ行のtenant RLSは未完了。"
+}

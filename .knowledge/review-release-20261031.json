@@ -1,0 +1,16 @@
+{
+  "used_ids": [
+    "p.d705aea0dd8a.interview-tenant-control-plane"
+  ],
+  "decision": "updated",
+  "changed_ids": [
+    "p.d705aea0dd8a.interview-tenant-control-plane"
+  ],
+  "skipped_candidates": [],
+  "reason": "面接用APIの固定版運用を実装したので、既存の面接tenant認可知識を現状の説明書と一致させた。",
+  "learning": {
+    "note": "既存のtenant認可レコードに、面接APIが本番mainを自動追従しないことを追記した。",
+    "disposition": "saved",
+    "evidence": []
+  }
+}
