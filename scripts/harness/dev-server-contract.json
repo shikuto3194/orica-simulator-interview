@@ -1,0 +1,5 @@
+{
+  "command": "npx vite --config apps/playground-web/vite.config.ts --port 4173",
+  "configPath": "apps/playground-web/vite.config.ts",
+  "mainPort": 4173
+}

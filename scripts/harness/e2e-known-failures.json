@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "entries": [],
+  "skips": [
+    {
+      "file": "e2e/account-link.spec.ts",
+      "project": "chromium",
+      "title": "orika: 管理画面とRESTでオン・メイン交換・オフを往復する",
+      "reason": "環境オプトイン: orika アプリは別リポジトリで、ORIKA_TEST_URL が無いと実行しない"
+    },
+    {
+      "file": "e2e/room-network-live.spec.ts",
+      "project": "chromium",
+      "title": "real JWT + durable commits: duplicate ACK recovery, two-viewer SSE and latency",
+      "reason": "環境オプトイン: 実リソースを使うため ROOM_NETWORK_LIVE=1 / ROOM_NETWORK_LOAD=1 の明示指定でだけ実行する"
+    },
+    {
+      "file": "e2e/room-network-live.spec.ts",
+      "project": "chromium",
+      "title": "ten rooms and twenty verified streams survive simultaneous writes and reconnect",
+      "reason": "環境オプトイン: 実リソースを使うため ROOM_NETWORK_LIVE=1 / ROOM_NETWORK_LOAD=1 の明示指定でだけ実行する"
+    },
+    {
+      "file": "e2e/room-public-latency.spec.ts",
+      "project": "chromium",
+      "title": "public browser click to committed version paint, with owned test users only",
+      "reason": "環境オプトイン: 本番受入専用で ROOM_PUBLIC_ACCEPTANCE=1 の明示指定でだけ実行する"
+    },
+    {
+      "file": "e2e/title-image-production.spec.ts",
+      "project": "chromium",
+      "title": "production assets install after login and the app reloads offline",
+      "reason": "環境オプトイン: pnpm build と実画像資産が前提で PW_TITLE_PRODUCTION=1 の明示指定でだけ実行する"
+    }
+  ]
+}

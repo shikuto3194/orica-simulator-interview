@@ -1,0 +1,462 @@
+@import "./home-lobby.css";
+@import "./my-page.css";
+
+/* Shared palette, including body portals and battle/replay controls. */
+:root {
+  --lobby-panel: rgba(20, 24, 38, 0.84);
+  --lobby-surface: rgba(28, 33, 49, 0.82);
+  --lobby-border: rgba(215, 186, 130, 0.32);
+  --lobby-gold: #e5c991;
+  --lobby-text: #f3eee5;
+  --lobby-muted: #c3c0bc;
+  --lobby-primary: linear-gradient(120deg, #6e3544, #3d293b);
+}
+/* Home-only layout boundary. Battle geometry is owned by battle.css. */
+.gensou-shell {
+  min-height: 100dvh;
+  color: var(--lobby-text);
+  color-scheme: dark;
+}
+.gensou-shell :is(button, input, select, summary):focus-visible {
+  outline: 2px solid var(--lobby-gold);
+  outline-offset: 2px;
+}
+.gensou-shell button:disabled {
+  cursor: default;
+}
+.gensou-shell .db-root {
+  height: 100dvh;
+  color: var(--lobby-text);
+}
+.gensou-shell .db-tab-bar {
+  background: rgba(17, 20, 32, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--lobby-border);
+  box-shadow: 0 4px 20px #0003;
+}
+.gensou-shell .db-tab-btn {
+  color: #c6bda9;
+}
+.gensou-shell .db-tab-btn.active {
+  color: #fff5df;
+  border-bottom-color: var(--lobby-gold);
+  background: linear-gradient(0deg, #d8bc831c, transparent);
+}
+.gensou-shell .db-tab-btn:hover {
+  background-color: #d8bc8314;
+}
+/* Library typography follows the home's quiet Mincho headings. Keep these
+ * rules inside the four workspace tabs; home, title and battle own their type. */
+.gensou-shell :is(.db-tab-btn:not(.db-tab-home), .dvm-title) {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.gensou-shell .db-workspace h2 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.3em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: var(--lobby-gold);
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--lobby-border);
+}
+.gensou-shell .db-workspace :is(button, input, select) {
+  font-family: inherit;
+}
+.gensou-shell
+  .db-workspace
+  :is(
+    .db-results-label,
+    .db-qa-results-heading strong,
+    .db-qa-search-label,
+    .db-btn-save,
+    .db-btn-share,
+    .db-import-label,
+    .db-list-info b,
+    .deck-title
+  ) {
+  font-weight: 500;
+}
+.gensou-shell
+  :is(.db-results-label, .db-qa-results-heading strong, .db-qa-search-label) {
+  color: var(--lobby-gold);
+  letter-spacing: 0.04em;
+}
+.gensou-shell
+  :is(
+    .db-filter-count,
+    .db-filter-field label,
+    .db-list-type,
+    .db-list-controls span,
+    .db-grid-card-controls span,
+    .db-grid-card-placeholder,
+    .db-empty,
+    .db-library-status,
+    .saved-deck-card .deck-count,
+    .dvm-list-type,
+    .db-qa-results-heading span,
+    .db-qa-tags time,
+    .db-qa-empty
+  ) {
+  color: var(--lobby-muted);
+}
+.gensou-shell :is(.db-list-info, .saved-deck-card .deck-title) {
+  color: var(--lobby-text);
+}
+.gensou-shell
+  :is(
+    .db-deck-count,
+    .db-deck-token-count,
+    .db-token-heading,
+    .dvm-main-count,
+    .dvm-token-count,
+    .dvm-list-count,
+    .dvm-list-count-token,
+    .dvm-token-header
+  ) {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--lobby-gold);
+}
+.gensou-shell :is(.db-grid-card-badge, .dvm-grid-badge) {
+  background: #633746;
+  color: #fff1d5;
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px #d8bc8370;
+}
+.gensou-shell :is(.db-grid-card-badge.token, .dvm-grid-badge.token) {
+  background: #665137;
+}
+.gensou-shell :is(.db-deck-thumb-wrap, .dvm-thumb) {
+  border-color: var(--lobby-border);
+  background: var(--lobby-surface);
+}
+.gensou-shell .db-deck-thumb-placeholder {
+  background: var(--lobby-panel);
+}
+.gensou-shell .db-message {
+  color: #c5d3bc;
+}
+.gensou-shell .db-library-error {
+  color: #ffd8d7;
+}
+.gensou-shell
+  :is(
+    .db-filter-input,
+    .db-filter-input-sm,
+    .db-filter-field select,
+    .db-deck-name-input,
+    .db-qa-search,
+    .mp-input
+  ) {
+  background: var(--lobby-surface);
+  border-color: var(--lobby-border);
+  color: var(--lobby-text);
+}
+.gensou-shell
+  :is(
+    .db-filter-input,
+    .db-filter-input-sm,
+    .db-deck-name-input,
+    .mp-input
+  )::placeholder {
+  color: #b7b2aa;
+}
+.gensou-shell
+  :is(
+    .db-search-btn,
+    .db-view-btn.active,
+    .db-btn-save,
+    .mp-btn-primary,
+    .setup-btn-start
+  ) {
+  background: var(--lobby-primary);
+  border: 1px solid var(--lobby-border);
+  color: #fff1d5;
+}
+.gensou-shell
+  :is(
+    .db-filter-toggle,
+    .db-view-btn,
+    .db-btn-share,
+    .mp-btn-secondary,
+    .mp-back-btn,
+    .setup-btn
+  ) {
+  background: var(--lobby-surface);
+  border-color: var(--lobby-border);
+  color: var(--lobby-text);
+}
+.gensou-shell :is(.mp-btn-primary, .setup-btn-start):hover:not(:disabled) {
+  background: #6e3544;
+}
+.gensou-shell :is(.db-view-btn.active, .setup-selected) {
+  color: var(--lobby-gold);
+  border-color: var(--lobby-gold);
+  background: #c5a86b24;
+}
+.gensou-shell :is(.db-qa-list, .db-qa-item + .db-qa-item) {
+  border-color: var(--lobby-border);
+}
+.gensou-shell .db-qa-question {
+  background: var(--lobby-surface);
+}
+.gensou-shell .db-qa-question strong {
+  color: var(--lobby-gold);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.gensou-shell .db-qa-question:is(:hover, [aria-expanded="true"]) {
+  background: #45404b;
+}
+.gensou-shell .db-qa-answer {
+  background: var(--lobby-panel);
+}
+.gensou-shell .db-qa-answer-label {
+  color: var(--lobby-gold);
+  font-weight: 500;
+}
+.gensou-shell .db-qa-answer-text {
+  color: var(--lobby-text);
+}
+.gensou-shell .db-qa-answer-text a {
+  color: var(--lobby-gold);
+  text-decoration-color: var(--lobby-border);
+  text-underline-offset: 0.2em;
+}
+.gensou-shell .saved-deck-card {
+  background: var(--lobby-surface);
+  border: 1px solid var(--lobby-border);
+}
+.gensou-shell :is(.db-info-modal, .dvm-content) {
+  background: #191e2f;
+  border: 1px solid var(--lobby-border);
+}
+.gensou-shell .dvm-close {
+  --control-alpha: 0.18;
+  --control-hover-alpha: 0.3;
+  --control-bg: rgb(28 33 49 / var(--control-alpha));
+  --control-ring: inset 0 0 0 1px #e5c99130;
+  border-radius: 6px;
+  z-index: 4;
+}
+.gensou-shell .db-qa-tags > span {
+  background: #e5c99119;
+  color: #dfd2bb;
+}
+.gensou-shell
+  :is(
+    .db-list-item,
+    .db-grid-card-img-wrap,
+    .db-grid-card-img,
+    .db-tribe-dropdown
+  ) {
+  background: var(--lobby-surface);
+}
+.gensou-shell :is(.db-list-item, .db-deck-bottom) {
+  border-color: var(--lobby-border);
+}
+.gensou-shell .db-deck-bottom {
+  background: transparent;
+}
+.gensou-shell :is(.mp-title, .mp-section-title, .setup-title) {
+  color: var(--lobby-gold);
+}
+.gensou-shell .mp-section-title {
+  border-color: var(--lobby-border);
+}
+.gensou-shell :is(.mp-root, .battle-setup, .room-lobby) {
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: 24px 16px calc(24px + var(--bgm-controls-clearance, 58px));
+}
+.gensou-shell :is(.mp-card, .setup-card, .room-lobby-card) {
+  box-sizing: border-box;
+  background: var(--lobby-panel);
+  border: 1px solid var(--lobby-border);
+  border-radius: 16px;
+  box-shadow:
+    0 16px 50px #0005,
+    inset 0 1px #fff1;
+  backdrop-filter: blur(12px);
+}
+.gensou-shell .setup-card {
+  max-width: 660px;
+  width: 100%;
+}
+.gensou-shell .setup-option {
+  background: var(--lobby-surface);
+}
+.gensou-shell .setup-option.setup-selected {
+  background: #c5a86b24;
+}
+.gensou-shell :is(.setup-deck-info, .setup-note, .setup-section h2, .mp-label) {
+  color: var(--lobby-muted);
+}
+.gensou-shell .room-lobby {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gensou-shell .room-lobby-card {
+  padding: 28px;
+  width: 100%;
+  max-width: 560px;
+}
+.gensou-shell .room-lobby input {
+  min-width: 0;
+}
+.gensou-shell .room-lobby button:disabled {
+  opacity: 0.5;
+}
+.gensou-shell .room-lobby-heading {
+  color: var(--lobby-gold);
+  text-align: center;
+  margin: 0 0 8px;
+}
+.gensou-shell .room-lobby-brand {
+  text-align: center;
+  color: var(--lobby-muted);
+  letter-spacing: 0.3em;
+  font-family: serif;
+  margin: 0 0 6px;
+  font-size: 12px;
+}
+.gensou-shell .room-resume {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lobby-border);
+}
+.gensou-shell .room-resume-header,
+.gensou-shell .room-resume-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gensou-shell .room-resume-header {
+  flex-wrap: wrap;
+}
+.gensou-shell .room-resume-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.gensou-shell .room-resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  max-height: 210px;
+  overflow-y: auto;
+}
+.gensou-shell .room-resume-list li {
+  padding: 10px 0;
+}
+.gensou-shell .room-resume-list span {
+  display: block;
+  color: var(--lobby-muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+.gensou-shell .room-resume-list button {
+  flex-shrink: 0;
+}
+.gensou-bgm {
+  box-shadow:
+    0 0 0 1px #d8bc8355,
+    0 4px 20px #0004;
+}
+.gensou-bgm-work,
+.gensou-bgm-song {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.15;
+}
+.gensou-bgm-work {
+  color: #e5c991;
+  font-size: 9px;
+}
+.gensou-bgm-song {
+  font-size: 11px;
+}
+.gensou-bgm input {
+  accent-color: #e5c991 !important;
+  min-width: 35px;
+  flex-shrink: 1;
+}
+.gensou-bgm [data-testid="bgm-now-playing"] {
+  min-width: 0;
+}
+.gensou-bgm button {
+  flex-shrink: 0;
+}
+@media (orientation: landscape) {
+  /* The close control floats over the cards instead of reserving a top band. */
+  .gensou-shell .dvm-content {
+    padding-top: 0.8em;
+  }
+}
+@media (max-width: 420px) {
+  .gensou-shell .db-tab-btn:not(.db-tab-home) {
+    font-size: clamp(0.7rem, 3.7vw, 0.95rem);
+    letter-spacing: 0;
+  }
+}
+@media (max-width: 600px) {
+  .gensou-shell :is(.mp-card, .setup-card, .room-lobby-card) {
+    padding: 18px;
+  }
+  .gensou-shell .mp-back-btn {
+    padding: 6px 8px;
+    white-space: nowrap;
+  }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .gensou-shell :is(.mp-root, .battle-setup, .room-lobby) {
+    padding-top: 12px;
+    align-items: flex-start;
+  }
+  .gensou-shell .room-lobby-card {
+    max-width: 680px;
+    padding: 20px;
+  }
+  .gensou-shell .room-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 16px;
+    align-items: center;
+  }
+  .gensou-shell .room-create {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .gensou-shell .room-share {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .gensou-shell .room-join {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .gensou-shell .room-qr {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .gensou-shell .room-or {
+    display: none;
+  }
+  .gensou-shell .room-account {
+    margin: 6px 0 16px !important;
+  }
+  .gensou-shell .room-footer {
+    margin-top: 12px !important;
+  }
+  .gensou-shell .room-entry button {
+    font-size: 13px !important;
+  }
+  .gensou-shell .room-qr button {
+    padding: 8px 4px !important;
+  }
+}

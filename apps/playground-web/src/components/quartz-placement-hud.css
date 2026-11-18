@@ -1,0 +1,51 @@
+.quartz-placement-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+}
+.quartz-placement-hud {
+  position: fixed;
+  z-index: 1600;
+  bottom: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(30rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 7rem);
+  overflow: auto;
+  padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  color: #f0f5ff;
+  background: rgba(15, 23, 42, 0.97);
+  border: 1px solid #708bb7;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 2rem #0008;
+  text-align: center;
+}
+.quartz-slot-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.quartz-slot-column {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+}
+.quartz-placement-hud button {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.55rem;
+  color: inherit;
+  background: #253b5d;
+  border: 1px solid #739ccc;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.quartz-placement-hud button:hover:not(:disabled) {
+  background: #395783;
+}
+.quartz-placement-hud button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

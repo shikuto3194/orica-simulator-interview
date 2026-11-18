@@ -1,0 +1,152 @@
+.mp-settings {
+  max-width: 800px;
+  margin: 8px auto 0;
+}
+.mp-settings .mp-header {
+  margin-bottom: 24px;
+}
+.mp-settings .mp-title {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.mp-settings-panel {
+  border: 1px solid var(--lobby-border);
+  border-radius: 12px;
+  background: var(--lobby-panel);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.mp-settings .mp-section-title {
+  border: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.mp-setting-row {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+.mp-settings .mp-label,
+.mp-setting-label {
+  font-size: 14px;
+  margin: 0;
+  color: var(--lobby-text);
+}
+.mp-settings .mp-input {
+  min-width: 0;
+  margin: 0;
+}
+.mp-settings :is(.mp-btn-primary, .mp-btn-secondary) {
+  width: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 16px;
+  font: inherit;
+  white-space: nowrap;
+}
+.mp-settings .mp-back-btn {
+  font: inherit;
+  font-size: 13px;
+  border: 0;
+  padding: 8px;
+  white-space: nowrap;
+}
+.mp-hint {
+  color: var(--lobby-muted);
+  font-size: 12px;
+  margin: 10px 0 0;
+}
+.mp-account-setting + .mp-account-setting {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lobby-border);
+}
+.mp-current-value {
+  color: var(--lobby-muted);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.mp-setting-form {
+  margin: 18px 0 0 158px;
+}
+.mp-setting-form[hidden] {
+  display: none;
+}
+.mp-setting-form .mp-label {
+  display: block;
+  margin: 14px 0 6px;
+}
+.mp-setting-form .mp-btn-primary {
+  margin-top: 12px;
+}
+.mp-settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+}
+.mp-footer-link {
+  font: inherit;
+  font-size: 13px;
+  border: 0;
+  padding: 10px 4px;
+  cursor: pointer;
+}
+.mp-signout {
+  margin-left: auto;
+}
+.mp-settings .mp-message {
+  overflow-wrap: anywhere;
+  margin-bottom: 0;
+}
+.mp-settings .mp-message.success {
+  color: #cad8bf;
+}
+.mp-settings .mp-message.error {
+  color: #ffd8d7;
+}
+@media (max-width: 600px) {
+  .mp-settings-panel {
+    padding: 20px;
+  }
+  .mp-setting-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+  }
+  .mp-setting-row :is(.mp-label, .mp-setting-label) {
+    grid-column: 1 / -1;
+  }
+  .mp-setting-row > button {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .mp-setting-form {
+    margin-left: 0;
+  }
+  .mp-settings .mp-input {
+    font-size: 16px;
+  }
+}
+@media (max-width: 380px) {
+  .mp-settings-panel {
+    padding: 16px;
+  }
+  .mp-settings .mp-header {
+    gap: 8px;
+  }
+  .mp-settings .mp-back-btn {
+    padding-inline: 2px;
+    font-size: 12px;
+  }
+}
+@media (pointer: coarse) {
+  .mp-settings button {
+    min-height: 44px;
+  }
+}

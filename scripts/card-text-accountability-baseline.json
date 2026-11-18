@@ -1,0 +1,1828 @@
+{
+  "schemaVersion": 2,
+  "sourceManifestHash": "3fe2e102690535fe",
+  "note": "既存の未帰属 textLines を可視の actionable backlog として固定する baseline。新規または変更済みの未帰属本文は baseline 化せず gate failure にする。",
+  "legacyUnclaimed": {
+    "BSAZ01-C01:textLines[0]": {
+      "textHash": "9a74700017f26964",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ01-C01:textLines[1]": {
+      "textHash": "7d7b0145aa5e494b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ01-C02:textLines[0]": {
+      "textHash": "c69f0ad07759d890",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-C05:textLines[5]": {
+      "textHash": "284690d5893890bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-C10:textLines[0]": {
+      "textHash": "87231f34fbe5481c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-C10:textLines[9]": {
+      "textHash": "db4826163e3f5c58",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-TR01(B):textLines[0]": {
+      "textHash": "e1975eb3711318c7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-TR01(B):textLines[2]": {
+      "textHash": "284690d5893890bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-TX01(B):textLines[0]": {
+      "textHash": "9f96f013cf6b0440",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X04:textLines[3]": {
+      "textHash": "567a8ef689a12042",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X04:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X04:textLines[11]": {
+      "textHash": "5d9ae93149f792ea",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X04:textLines[12]": {
+      "textHash": "7ed1b9cfeb1075a1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X05:textLines[3]": {
+      "textHash": "567a8ef689a12042",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X05:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X05:textLines[11]": {
+      "textHash": "94a4f15fc2887260",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSAZ02-X05:textLines[12]": {
+      "textHash": "b14b114544861864",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-C02:textLines[6]": {
+      "textHash": "de821393342cb07f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-C03:textLines[6]": {
+      "textHash": "35063024c1df8cdf",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-C04:textLines[6]": {
+      "textHash": "a9898ee62a52522a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-CX01:textLines[0]": {
+      "textHash": "f6e859ca0fcc62df",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-CX01:textLines[1]": {
+      "textHash": "5c2da264795595e4",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-R01:textLines[6]": {
+      "textHash": "a9898ee62a52522a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-R02:textLines[6]": {
+      "textHash": "a9898ee62a52522a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-R04:textLines[0]": {
+      "textHash": "5ec075335d2577c0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-R04:textLines[4]": {
+      "textHash": "5849645db493d1f0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-R04:textLines[5]": {
+      "textHash": "ec5fb608970dd578",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(A):textLines[3]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(A):textLines[4]": {
+      "textHash": "f8b3cd997153acd5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[0]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[1]": {
+      "textHash": "1d5df3d64286f8cf",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[3]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[4]": {
+      "textHash": "39d956a41e521680",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[5]": {
+      "textHash": "ac5e73aa60e1ce8a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSDB01-TX01(B):textLines[6]": {
+      "textHash": "2695431c895a193f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-CX01:textLines[0]": {
+      "textHash": "e44d147facf2cb52",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-CX01:textLines[1]": {
+      "textHash": "0565509de04032b0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-CX01:textLines[2]": {
+      "textHash": "85ecf764cce5fd17",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-R02:textLines[0]": {
+      "textHash": "4bc662e8779c782a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-R02:textLines[2]": {
+      "textHash": "1dd923c15aa3fcca",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-R02:textLines[3]": {
+      "textHash": "259d554f64245506",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-R02:textLines[4]": {
+      "textHash": "1b7bf3f4b8a5f1df",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSES01-T01:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR01(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR02(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR02(B):textLines[2]": {
+      "textHash": "264b5df7f858a5d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR02(B):textLines[4]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR03(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR04(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR05(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR06(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR07(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR08(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR09(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR10(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR11(B):textLines[0]": {
+      "textHash": "d2fb65801ddf88de",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR12(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR12(B):textLines[2]": {
+      "textHash": "264b5df7f858a5d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR12(B):textLines[4]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR13(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR13(B):textLines[2]": {
+      "textHash": "264b5df7f858a5d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSFT01-TR13(B):textLines[4]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C09:textLines[7]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C09:textLines[8]": {
+      "textHash": "b20346c54d8f8b7d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C10:textLines[7]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C10:textLines[8]": {
+      "textHash": "d500aefd6ba8af77",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C11:textLines[7]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C11:textLines[8]": {
+      "textHash": "c1e750e4a65ccf2e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C12:textLines[7]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C12:textLines[8]": {
+      "textHash": "4b21c2276f42513f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C13:textLines[0]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C13:textLines[6]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSGE01-C13:textLines[7]": {
+      "textHash": "c34bb5ae359938f6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-T01:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-T01:textLines[2]": {
+      "textHash": "d97b37987b38fe6e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[2]": {
+      "textHash": "92fa35553f3004bc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[3]": {
+      "textHash": "1462f66631887600",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[4]": {
+      "textHash": "10a42e8d2d76d0e3",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[5]": {
+      "textHash": "5464311b812766d0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[6]": {
+      "textHash": "b4cbc3e45b287fb7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[8]": {
+      "textHash": "293df29682346eb3",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSKB01-TX01(B):textLines[9]": {
+      "textHash": "3778e328c493503b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-C03:textLines[0]": {
+      "textHash": "f3925983a4234516",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-C08:textLines[0]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-M02:textLines[0]": {
+      "textHash": "f3925983a4234516",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T01:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T02:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T03:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T04:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T05:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T06:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T07:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T07:textLines[3]": {
+      "textHash": "17335f04e5771696",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T08:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T08:textLines[3]": {
+      "textHash": "997bed6c62fbde9f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T09:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T09:textLines[3]": {
+      "textHash": "75659e7a60f39264",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T10:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T10:textLines[3]": {
+      "textHash": "5c4dea1e52297b9c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T11:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T11:textLines[3]": {
+      "textHash": "8f69543e3ccf8393",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T12:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T12:textLines[3]": {
+      "textHash": "15bf91570b01daee",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T13:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T13:textLines[3]": {
+      "textHash": "a9744406bf140e1e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T14:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T14:textLines[3]": {
+      "textHash": "da4ccd85c753da15",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T15:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T15:textLines[3]": {
+      "textHash": "f2e1a5b796b79bdd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T16:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T16:textLines[3]": {
+      "textHash": "b845c79846d8011f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T17:textLines[2]": {
+      "textHash": "1e46e0da2ad09203",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-T17:textLines[3]": {
+      "textHash": "35fe3bc6172e2313",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[0]": {
+      "textHash": "e1975eb3711318c7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[2]": {
+      "textHash": "82d3525d1f41b277",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[3]": {
+      "textHash": "84678b2f0fa2f4ec",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[5]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[6]": {
+      "textHash": "bba2f4e2efe3e95e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[8]": {
+      "textHash": "395efa7de0fae7b5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR01(B):textLines[9]": {
+      "textHash": "fbb4f89e4651ad73",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[0]": {
+      "textHash": "e1975eb3711318c7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[2]": {
+      "textHash": "f7fb68639be54c47",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[3]": {
+      "textHash": "0c4bc2f181c2f9b6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[5]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[6]": {
+      "textHash": "aa41f0c916b39d3d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[8]": {
+      "textHash": "20e300aae3aaab0b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR02(B):textLines[9]": {
+      "textHash": "f11aaeceb2460a73",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[0]": {
+      "textHash": "e1975eb3711318c7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[2]": {
+      "textHash": "92fa35553f3004bc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[3]": {
+      "textHash": "d728974a73d35297",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[5]": {
+      "textHash": "9a27cb87e9f65cf9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[6]": {
+      "textHash": "81913095bd4f779e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[8]": {
+      "textHash": "06c46aabc6b5b8e7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR03(B):textLines[9]": {
+      "textHash": "96d692adfcf9ecd6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[0]": {
+      "textHash": "e1975eb3711318c7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[2]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[3]": {
+      "textHash": "f1d1ac82e0b4c147",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[5]": {
+      "textHash": "5b718664c5adc896",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[6]": {
+      "textHash": "06163f65d964256d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[8]": {
+      "textHash": "5885821bb8de10e5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-TR04(B):textLines[9]": {
+      "textHash": "532a0c76f10b8a37",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-X01:textLines[1]": {
+      "textHash": "2248cda0606d295b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-X01:textLines[2]": {
+      "textHash": "73e1e7a07095bcf2",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-X02:textLines[1]": {
+      "textHash": "2248cda0606d295b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSLH01-X02:textLines[2]": {
+      "textHash": "1a586dae4543743c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSRK01-M01:textLines[3]": {
+      "textHash": "233f7c4ec4f7b7f5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSRK01-X01:textLines[0]": {
+      "textHash": "9b98a624d3021ab5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-C06:textLines[0]": {
+      "textHash": "55781ff9ad7b4a1f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-XX01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-XX01:textLines[4]": {
+      "textHash": "1b58b4f4b2410e18",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-XX01:textLines[8]": {
+      "textHash": "ffa3a8d52db34b64",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-XX01:textLines[11]": {
+      "textHash": "d37356021a6211c4",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X01(B):textLines[0]": {
+      "textHash": "7d9ce369640ecf49",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X02(B):textLines[0]": {
+      "textHash": "7d9ce369640ecf49",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X03(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X03(B):textLines[5]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X03(B):textLines[6]": {
+      "textHash": "f575d89a76f531f7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSA01-転醒X04(B):textLines[0]": {
+      "textHash": "7d9ce369640ecf49",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-C01:textLines[2]": {
+      "textHash": "48a66ca76582926e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-C02:textLines[2]": {
+      "textHash": "48a66ca76582926e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-C03:textLines[2]": {
+      "textHash": "48a66ca76582926e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-C04:textLines[2]": {
+      "textHash": "48a66ca76582926e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-M01:textLines[8]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-M01:textLines[9]": {
+      "textHash": "c1f8d949455654b1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-M02:textLines[8]": {
+      "textHash": "860084e38d7f7823",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-M02:textLines[9]": {
+      "textHash": "77b3eec21215ea4b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-X03:textLines[0]": {
+      "textHash": "afc4d0c6a6547d85",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-X03:textLines[1]": {
+      "textHash": "c1dfb54a5e11c311",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG01-X03:textLines[3]": {
+      "textHash": "57f59b866a523d8f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSG02-C01:textLines[2]": {
+      "textHash": "48a66ca76582926e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSL01-C01:textLines[0]": {
+      "textHash": "39eea87dd0d3308d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSL01-C01:textLines[6]": {
+      "textHash": "a3aa30335bbf7e57",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSL01-T01:textLines[0]": {
+      "textHash": "5778e8c76ec10ef6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSL01-X01:textLines[3]": {
+      "textHash": "41e0efe4718f73bb",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSSL01-X02:textLines[1]": {
+      "textHash": "41bacf35da3a5a6e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-X01:textLines[0]": {
+      "textHash": "5ebebf67ccbb0700",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-X01:textLines[1]": {
+      "textHash": "85d0e0ad67f60550",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-X02:textLines[0]": {
+      "textHash": "5ebebf67ccbb0700",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-X02:textLines[1]": {
+      "textHash": "85d0e0ad67f60550",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(A):textLines[0]": {
+      "textHash": "5639de8b28297110",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(A):textLines[2]": {
+      "textHash": "10b7d2db113cf009",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(A):textLines[3]": {
+      "textHash": "575db44447cd5ee5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(A):textLines[7]": {
+      "textHash": "6dc5329c3ed696c1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(A):textLines[8]": {
+      "textHash": "ca4ccfaa1908a241",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R01(B):textLines[0]": {
+      "textHash": "b0855c0610d25879",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R02(B):textLines[0]": {
+      "textHash": "b0855c0610d25879",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH001-転醒R03(B):textLines[0]": {
+      "textHash": "b0855c0610d25879",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH002-C01:textLines[0]": {
+      "textHash": "09cc4ce057307222",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH002-X01:textLines[0]": {
+      "textHash": "5ebebf67ccbb0700",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH002-X01:textLines[1]": {
+      "textHash": "85d0e0ad67f60550",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH002-転醒R01(B):textLines[0]": {
+      "textHash": "b0855c0610d25879",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH002-転醒X01(B):textLines[0]": {
+      "textHash": "b0855c0610d25879",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X01:textLines[0]": {
+      "textHash": "f61df70ac6cfe733",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X01:textLines[3]": {
+      "textHash": "ddbe970e931388bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X03:textLines[0]": {
+      "textHash": "f61df70ac6cfe733",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X03:textLines[3]": {
+      "textHash": "ddbe970e931388bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X03:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X05:textLines[0]": {
+      "textHash": "5ebebf67ccbb0700",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH003-X05:textLines[1]": {
+      "textHash": "85d0e0ad67f60550",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH004-X03:textLines[0]": {
+      "textHash": "57f15a8bf04ce67c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH004-X03:textLines[1]": {
+      "textHash": "bce43b5de8faeba1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[2]": {
+      "textHash": "88ad9be97343ac33",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[3]": {
+      "textHash": "a73751af8c0bf18e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[5]": {
+      "textHash": "2a4bcbea04472039",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[6]": {
+      "textHash": "c8d97da0043773f3",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[8]": {
+      "textHash": "eb6ab6d0b1231a4f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH005-TX01(B):textLines[9]": {
+      "textHash": "1e2785bb668852ea",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-C12:textLines[0]": {
+      "textHash": "3480639b5a76df6a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-C21:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-C22:textLines[0]": {
+      "textHash": "ad1d091432d6164c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-R11:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-R12:textLines[0]": {
+      "textHash": "a3f085fd0e2094dd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-R21:textLines[0]": {
+      "textHash": "3480639b5a76df6a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-XX01:textLines[3]": {
+      "textHash": "e6f78b728a439af7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-XX01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-XX01:textLines[8]": {
+      "textHash": "7889e8dd515ecb24",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH01-XX01:textLines[9]": {
+      "textHash": "140efd95cf32ee73",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02-C21:textLines[0]": {
+      "textHash": "f3f1d2a042b35bc7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02-R11:textLines[0]": {
+      "textHash": "f3f1d2a042b35bc7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02-X01:textLines[3]": {
+      "textHash": "c23f3f68fc5390c0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-CX01:textLines[0]": {
+      "textHash": "370ad50ac95d4ef9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-CX01:textLines[1]": {
+      "textHash": "c2be6b79971f1c83",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-CX01:textLines[2]": {
+      "textHash": "786f98c7e229ad8b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-CX01:textLines[6]": {
+      "textHash": "8178f6b09fb448bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-CX01:textLines[7]": {
+      "textHash": "39cce4785a54ed6e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR01(B):textLines[2]": {
+      "textHash": "9e93247f0467ecbc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR01(B):textLines[3]": {
+      "textHash": "9f15b7b9587d387f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR01(B):textLines[5]": {
+      "textHash": "ef0df5169f493c34",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR01(B):textLines[6]": {
+      "textHash": "9e218f3eface1b55",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR02(B):textLines[2]": {
+      "textHash": "92fa35553f3004bc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR02(B):textLines[3]": {
+      "textHash": "08825e99f90b8550",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR02(B):textLines[5]": {
+      "textHash": "0dd1e5ff07ca87b1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR02(B):textLines[6]": {
+      "textHash": "025b749cb2645fe4",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(A):textLines[0]": {
+      "textHash": "a34d569e585d3987",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(A):textLines[1]": {
+      "textHash": "ae2d2ec859b040f4",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(A):textLines[3]": {
+      "textHash": "64e41d3d3e8d88ec",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(A):textLines[4]": {
+      "textHash": "d06fee84b0772dec",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(B):textLines[2]": {
+      "textHash": "28ae1ab309e737b8",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(B):textLines[3]": {
+      "textHash": "da726025b3ed3e74",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(B):textLines[7]": {
+      "textHash": "478c8658b2337a46",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TR03(B):textLines[8]": {
+      "textHash": "99419f27de6e92da",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TX01(B):textLines[2]": {
+      "textHash": "7aa1895ce0727f2d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TX01(B):textLines[3]": {
+      "textHash": "37ef851bcb1526c9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TX01(B):textLines[5]": {
+      "textHash": "d06f8225093d61bb",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-TX01(B):textLines[6]": {
+      "textHash": "eb849c51a203d7ed",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-X03:textLines[0]": {
+      "textHash": "21a07c142c095001",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH02.7-X03:textLines[1]": {
+      "textHash": "a06b2fa17cce2a0a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-C01:textLines[0]": {
+      "textHash": "ee35a44bd1f136e9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-C12:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M01:textLines[0]": {
+      "textHash": "b8a17d7baa62e241",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M02:textLines[0]": {
+      "textHash": "b8a17d7baa62e241",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M05:textLines[0]": {
+      "textHash": "bff6de8fb9a44791",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M06:textLines[0]": {
+      "textHash": "c17888e0c84b9c60",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M07:textLines[0]": {
+      "textHash": "9cc73fce98f79553",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-M08:textLines[0]": {
+      "textHash": "9cc73fce98f79553",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-R01:textLines[0]": {
+      "textHash": "9cc73fce98f79553",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X01:textLines[0]": {
+      "textHash": "692ae5feefa34bfc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X02:textLines[3]": {
+      "textHash": "4778814c65d73f4c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X02:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X02:textLines[8]": {
+      "textHash": "5e60ad76b09a5a61",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X02:textLines[9]": {
+      "textHash": "7fba85411aa259aa",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X04:textLines[0]": {
+      "textHash": "afc23afd80590e1c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-X04:textLines[2]": {
+      "textHash": "3c1f59148cbb3cf9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-転醒R01(B):textLines[0]": {
+      "textHash": "4732a03b6078b526",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH03-転醒X01(B):textLines[0]": {
+      "textHash": "4732a03b6078b526",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-C12:textLines[0]": {
+      "textHash": "87bff8e5e1d298b0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-X01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-XX01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-XX01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(A):textLines[0]": {
+      "textHash": "5639de8b28297110",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(A):textLines[2]": {
+      "textHash": "bb9baea0234e07b6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(A):textLines[3]": {
+      "textHash": "575db44447cd5ee5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(A):textLines[5]": {
+      "textHash": "9783c9c72c6d4791",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(A):textLines[6]": {
+      "textHash": "980bf84d3ee35bc5",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH04-転醒R02(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-C11:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-C12:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-C13:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-R02:textLines[0]": {
+      "textHash": "5816186186abdd97",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X01:textLines[4]": {
+      "textHash": "1b58b4f4b2410e18",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X02:textLines[3]": {
+      "textHash": "ddbe970e931388bd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X02:textLines[4]": {
+      "textHash": "1b58b4f4b2410e18",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X02:textLines[8]": {
+      "textHash": "cfd8e546a84c2c66",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05-X02:textLines[9]": {
+      "textHash": "b6fd2d3ffa34e174",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-C01:textLines[0]": {
+      "textHash": "50edd8688a1ee55e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-M02:textLines[0]": {
+      "textHash": "14b74ac647032d1c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-M04:textLines[0]": {
+      "textHash": "14b74ac647032d1c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-X01:textLines[0]": {
+      "textHash": "14b74ac647032d1c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-X02:textLines[3]": {
+      "textHash": "4778814c65d73f4c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-X02:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-X02:textLines[8]": {
+      "textHash": "5e60ad76b09a5a61",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-X02:textLines[9]": {
+      "textHash": "53fe3c595559c2b9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-XX01:textLines[3]": {
+      "textHash": "a763430a34c51cc3",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-XX01:textLines[8]": {
+      "textHash": "ffa3a8d52db34b64",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH05.5-XX01:textLines[9]": {
+      "textHash": "e2184d4a956eb920",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-R01:textLines[1]": {
+      "textHash": "6a4ff48c1634134a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-X01:textLines[3]": {
+      "textHash": "c23f3f68fc5390c0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒R01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(A):textLines[0]": {
+      "textHash": "46914359005c12b6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(A):textLines[2]": {
+      "textHash": "b4b1d189ae868e0f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(A):textLines[3]": {
+      "textHash": "b731a771ae0efdda",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(A):textLines[5]": {
+      "textHash": "9783c9c72c6d4791",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(A):textLines[6]": {
+      "textHash": "6b7a60cdbd3f3337",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH06-転醒X01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-X01:textLines[3]": {
+      "textHash": "29560773268d5243",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-X01:textLines[8]": {
+      "textHash": "0a4dfcf3eced47cd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-X01:textLines[9]": {
+      "textHash": "878c543e5e8e5148",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒R01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒R01(B):textLines[2]": {
+      "textHash": "6e386c9fa778f702",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(A):textLines[0]": {
+      "textHash": "46914359005c12b6",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(A):textLines[2]": {
+      "textHash": "faee94b1e5abd8df",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(A):textLines[3]": {
+      "textHash": "b731a771ae0efdda",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(A):textLines[5]": {
+      "textHash": "9783c9c72c6d4791",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(A):textLines[6]": {
+      "textHash": "6b7a60cdbd3f3337",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07-転醒X02(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07.8-XX01:textLines[3]": {
+      "textHash": "4778814c65d73f4c",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH07.8-XX01:textLines[4]": {
+      "textHash": "57dfbd857fa312cb",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-X01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-X01:textLines[11]": {
+      "textHash": "ccce9d61b63079e9",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-X01:textLines[12]": {
+      "textHash": "047adb1a271e9b06",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-XX01:textLines[3]": {
+      "textHash": "2024ab780a6648d7",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-XX01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R01(B):textLines[2]": {
+      "textHash": "92fa35553f3004bc",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R01(B):textLines[3]": {
+      "textHash": "5ef75a5c151686e2",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R01(B):textLines[5]": {
+      "textHash": "c425675ac9a9fb44",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R01(B):textLines[6]": {
+      "textHash": "383dd6765fb486cf",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R02(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R02(B):textLines[2]": {
+      "textHash": "6e386c9fa778f702",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R02(B):textLines[3]": {
+      "textHash": "b733754a1e7620e1",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R02(B):textLines[5]": {
+      "textHash": "214561ac88614f86",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08-転醒R02(B):textLines[6]": {
+      "textHash": "bd06ba03a6ddbd1a",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08.5-X03:textLines[3]": {
+      "textHash": "f7efd640ab0a224f",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH08.5-X03:textLines[4]": {
+      "textHash": "1b58b4f4b2410e18",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09-TR01(B):textLines[0]": {
+      "textHash": "7d9ce369640ecf49",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09-TR01(B):textLines[5]": {
+      "textHash": "478c8658b2337a46",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09-TR01(B):textLines[6]": {
+      "textHash": "1c7278ee548e7d10",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-X01:textLines[3]": {
+      "textHash": "b0e5cf97f0f8fd85",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-X01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-X01:textLines[8]": {
+      "textHash": "643a9ff1f014db47",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-X01:textLines[9]": {
+      "textHash": "c9a094bbe642019e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-XX01:textLines[3]": {
+      "textHash": "b0e5cf97f0f8fd85",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-XX01:textLines[4]": {
+      "textHash": "c36029e590e1f189",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-XX01:textLines[8]": {
+      "textHash": "49687ad5ce2ba7dd",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-XX01:textLines[9]": {
+      "textHash": "74d82f1625e83553",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-転醒R01(B):textLines[0]": {
+      "textHash": "f4f19524ce82b75e",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH09.2-転醒R03(B):textLines[0]": {
+      "textHash": "058965aa874b8eac",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[3]": {
+      "textHash": "802494287ac195d0",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[4]": {
+      "textHash": "1b58b4f4b2410e18",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[8]": {
+      "textHash": "a7113328bf0b3d4d",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[9]": {
+      "textHash": "99ad5829f58e5965",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[11]": {
+      "textHash": "7d79136784706f15",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH10.5-X01:textLines[12]": {
+      "textHash": "4092aabf90682847",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH11-X01:textLines[1]": {
+      "textHash": "2248cda0606d295b",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    },
+    "BSTH11-X01:textLines[2]": {
+      "textHash": "4084dea2f0715421",
+      "actionable": true,
+      "reason": "No effects.textRef, audited structured carrier, general rule, or justified exemption maps this source line."
+    }
+  },
+  "sourceGitBase": "6d45e2abeb76292feb9a3ca67d96413a968e6fd7"
+}

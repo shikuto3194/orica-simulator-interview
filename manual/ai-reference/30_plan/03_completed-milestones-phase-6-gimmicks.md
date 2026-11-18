@@ -1,0 +1,113 @@
+# Completed Milestones: Phase 6 — P2-07 Phase E-2/F-1/F-2/F-3 ギミック実装
+
+このファイルは、Phase 6 の「P2-07 Phase E-2 ミラージュ・Phase F-1/F-2/F-3 創界神/神託/神技/界放/転神/導界者」の完了履歴です。
+索引は [03_completed-milestones-phase-6.md](./03_completed-milestones-phase-6.md) から辿ります。
+
+> P3-13・P3-15・P3-17 の完了履歴は分割により以下に移行:
+> - [03_completed-milestones-phase-6-dsl-cleanup.md](./03_completed-milestones-phase-6-dsl-cleanup.md) — P3-13 / P3-15 問題2/4/5（プリミティブ層整備系）
+> - [03_completed-milestones-phase-6-v1-native.md](./03_completed-milestones-phase-6-v1-native.md) — P3-15 問題1 Phase 1〜15 + 問題3 + クリーンアップ + P3-17（V1→Native パス統合系）
+
+## Phase 6: データと DSL — P2-07 Phase E/F
+
+- **P2-07 Phase E-2: ミラージュ (Mirage) 基盤実装完了** (2026-04-07)
+  - `model.ts`: `MirageData` / `MirageSetState` インターフェース追加、`CardDefinition.mirageData?` / `GameState.mirageSetStates` / `GameState.mirageSetPlayerIdsThisTurn` 追加。
+  - `mirage-system.ts` 新規作成: `getMirageSetBlockReason()` / `useSetMirageAsAction()` / `removeMirageSetState()` / `getPlayerMirageSetState()` / `getAvailableMiragePaymentSources()`。
+  - `legal-actions-types.ts`: `SetMirageLegalAction` 型追加。`legal-actions-availability.ts`: `getAvailableSetMirageLegalActions()` 追加。`legal-actions-apply.ts`: `"set_mirage"` case 追加。
+  - `legal-actions-shared.ts`: `recomputeContinuousEffects()` で `while_on_field` CE がミラージュゾーンも保持するよう拡張。
+  - `factories.ts` / `turn-system.ts` / `game-state-invariants-core.ts` にミラージュ対応追加。
+  - テスト: `phase-e-mirage.test.ts` 27ケース追加（全731テスト通過）。
+- **P2-07 Phase F-1: 創界神ネクサス基盤実装完了** (2026-04-07)
+  - `model.ts`: `GrandwalkerData` / `OracleCondition` インターフェース追加、`CardDefinition.grandwalkerData?` フィールド追加。`isGrandwalkerOrGuidedNexus()` ヘルパー関数追加。
+  - `state-based-actions.ts`: `flushPendingLeaves()` で創界神/導界者ネクサスのフィールド離脱時にコアをボイドに移動するよう `normalCoreDestination` を上書き。
+  - 配置時コア不可: 既存の `enter_field_core_placement_forbidden` keywordTag を活用。
+  - カードデータ更新: BSSA01-XX01, BSLH01-X01/X02, BSAZ02-X04/X05, BSTH003-X01/X03, BSES01-CX01（7枚）に `grandwalkerData` + keywordTags 追加。
+  - テスト: `phase-f-grandwalker.test.ts` 18ケース追加（全750テスト通過）。
+- **P2-07 Phase F-2 神託基盤完了** (2026-04-07)
+  - `oracle-system.ts`: 神託トリガー判定 (`checkAndQueueOracleChoices`) / 配置時神託 (`startPlacementOracle` / `resolvePlacementOracle`) 実装。`PendingOracleChoice` / `PendingPlacementOracle` 型追加。
+  - `legal-actions`: `resolve_oracle_choice` / `resolve_placement_oracle` アクション追加。`applyOracleChoiceAction` / `applyPlacementOracleAction` 実装。
+  - 効果フック: `effect-resolution.ts` / `magic-system.ts` / `accel-change-system.ts` に神託トリガー呼び出し追加。
+  - テスト: `phase-f-grandwalker.test.ts` 18ケース追加（全768テスト通過）。
+- **P2-07 Phase F-2 神技/界放/神域/対象判定実装完了** (2026-04-08)
+  - `legal-actions-availability.ts`: `getAvailableDivineSkillLegalActions()` 実装（タイミング判定・レベル判定・コア数チェック・ターン制限）。メインステップ・フラッシュウィンドウ・スタック窓・バトルフラッシュの全タイミングに統合。
+  - `legal-actions.ts`: `getLegalActionsInner()` の全ウィンドウに `getAvailableDivineSkillLegalActions` を追加。
+  - `legal-actions-apply.ts`: `applyDivineSkillAction()` でコア消費（ネクサス→ボイド）+ ターン制限キー記録を実装済み。
+  - `dsl-types.ts`: `CardFilter` に `targetsGrandwalker?: boolean` 追加（対象判定フィルタ用）。
+  - `card-filter.ts`: `matchesCardFilter()` でフィールド上の創界神/導界者ネクサスをデフォルト除外（`targetsGrandwalker: true` で明示的に含める）。
+  - `structured-effect-interpreter.ts`: `evaluateConditionClause` で `grandwalker_core_count` 条件を処理（神域 CE の前提条件）。
+  - カードデータ: BSSA01-XX01 に `divineSkills`（神技:2 / 神技:4）と `levelDefs`（Lv1:0 / Lv2:4）追加。
+  - テスト: `phase-f-grandwalker.test.ts` 20ケース追加（全788テスト通過）。
+- **P2-07 Phase F-2 転神実装完了** (2026-04-08)
+  - `model.ts`: `DivineTransformAction` 型追加（target/bpByLevel/colors/symbols/protectedFromNonGrandwalker）。`EffectAction` union に追加。
+  - `dsl-types.ts`: `DSL.DivineTransformAction` インターフェース追加。`Action` union に追加。
+  - `structured-effect-interpreter.ts`: `executeDivineTransform()` 実装 — 対象の創界神/導界者ネクサスに `divineTransformState` を設定。`executeDestroy()` に `protectedFromNonGrandwalker` 破壊保護チェック追加。
+  - `battle-shared.ts`: `isBattleCapableCategory()` で転神状態のネクサスをバトル可能化。`getResolvedBpForBattleEntity()` で `divineTransformState.bpByLevel` によるBP計算。`getEffectiveSymbols()` で転神シンボル上書き対応。
+  - `battle-actions.ts`: `queueBattleResolutionDestroys()` で `protectedFromNonGrandwalker` によるバトル破壊保護。
+  - `legal-actions-apply.ts`: `applyDivineSkillAction()` で `skill.effects` を `executeEffectAction()` 経由でDSLインタプリタに接続。
+  - カードデータ: BSTH05-X01/X02 に `grandwalkerData`（oracleConditions/divineSkills/転神効果）+ `keywordTags` 追加。
+  - テスト: `phase-f-grandwalker.test.ts` 12ケース追加（全800テスト通過）。
+- **P2-07 Phase F-3 導界者ネクサス/導シンボル条件分離完了** (2026-04-08)
+  - `model.ts`: `field_has` / `field_lacks` ConditionClause に `grandwalkerKind?: "grandwalker" | "guided" | "any"` フィルタ追加。「創界神ネクサスがあるとき」条件で導界者を数えない区分を実現。
+  - `structured-effect-interpreter.ts`: `evaluateConditionClause` の `field_has` / `field_lacks` 両方で `grandwalkerKind` フィルタ判定を追加。`"grandwalker"` = 創界神のみ、`"guided"` = 導界者のみ、`"any"` = 両方。
+  - 既存実装確認: `GrandwalkerData.kind: "guided"` / `DivineSkillEntry.label: "guided_skill"` / `SpecialSymbol: "guide"` / `targetsGrandwalker` フィルタは F-1/F-2 で導界者対応済み。
+  - テスト: `phase-f-grandwalker.test.ts` に F-3 セクション 17ケース追加（全817テスト通過）。
+- **P2-07 Phase E-1 / G-1 / H-2 型スカフォールド完了** (2026-05-01)
+  - `model.ts`: `ZeroCounterData` (E-1) / `ImaginBraveData` (G-1) / `QuartzData` + `QuartzSetState` (H-2) インターフェース追加。`CardDefinition` に `zeroCounterData?` / `imaginBraveData?` / `quartzData?` 追加。`GameState` に `quartzSetStates: QuartzSetState[]` 追加。
+  - `model.ts`: ヘルパー追加 — `hasZeroCounter()` / `isImaginBrave()` / `isQuartz()` / `getQuartzSetStatesByHost()` / `getQuartzHost()`。
+  - `dsl-types.ts` / `model.ts` / `card-filter.ts` / `oracle-system.ts`: `hasMechanic` に `grandwalker` / `guided` / `imagin` / `quartz` を追加し、`zero_counter` も `zeroCounterData` で判定可能に更新。
+  - `factories.ts`: `createEmptyGameState()` / 内部 game-state 構築で `quartzSetStates: []` 初期化。
+  - `game-state-invariants-core.ts`: クォーツセット整合性チェック追加（duplicate_quartz_set_card_instance / missing_quartz_owner / missing_quartz_set_card / missing_quartz_host_card 検出）。
+  - スタック（H-1）の確認 — `Timing.kind: "activated", mode: "stack"` (model.ts:1167-1171) / `MainStepStackWindow` / `PreDeclarationStackWindow` / `BattleFlashWindowState` / 1-pass cascade モデル（2026-04-12 完了済み）が既に実装されているため、index と phase docs を「H-1 完了」に更新。
+  - テスト: `p2-07-foundations.test.ts` 19ケース追加（全1202テスト通過）。
+  - 残タスク（カード需要時に追加）: 踏み倒し召喚検出 + 専用窓 (E-1) / 左右独立合体スロット (G-1) / クォーツ host 追従ロジック (H-2)。
+  - H-4（星霊衣 / アルドノアドライブ / 分身スピリット）はユーザー確認待ち。
+- **創界石ネクサス基盤（grandstone-system）完了** (2026-06-10)
+  - `model.ts`: `GrandstoneData`（`unsealConditions` / コア閾値転醒 `rebirthCoreThreshold`・`rebirthMaxCount`・`rebirthRetainCores` / `postRebirth` / `rebirthExcludedFromUnseal`）+ `UnsealCondition` + `PendingUnsealChoice` / `PendingStoneRebirthChoice` / `PendingStoneFlipCombine`。判定は `isGrandstoneNexus()`、創界神/導界者/創界石 共通のコア独立管理は `hasIndependentCoreManagement()`（SSOT）。
+  - 対象制限は創界神と**別軸**: `CardFilter.targetsGrandstone` / v1 `EffectTarget.includeGrandstone`（創界神対象効果も創界石に当たらない・逆も同様）。
+  - `grandstone-system.ts` 新設: 解封トリガー検出（summon/rebirth/increase_hand は `collectAndQueueTriggerReactions` の delta フック、アタックは `battle-actions` 宣言箇所）、`resolveUnsealChoice()`（ボイド→創界石コア+1 + 閾値跨ぎで転醒キュー）、`checkAndQueueStoneRebirthChoices()`（下から閾値を跨いだ遷移のみ発火）。
+  - 手札増加系解封（「〜を持つ自分の効果による自分の手札の増加」）のため `causedBySourceInstanceId` を `collectAndQueueTriggerReactions` / `finalizeEffectResolution` / after_triggers connector に thread（原因カードの実効系統/実効色で判定、原因不明は fail-closed）。
+  - 転醒適用 `resolve_stone_rebirth_choice`: `executeRebirth` を `returnedCoresDest:"void"` / `skipMinLevelCheck` で拡張。転醒後合体は `pendingStoneFlipCombine`→`resolve_brave_combine_choice` 共用（`getValidBraveCombineHosts` + `CardBackFace.braveCondition` 追加）、転醒後コア配置は `pendingCoreDistribution`(any_movable) を流用。
+  - **既存バグ修正**: 「転醒は同時に使えない」ガードが全 log 走査でゲーム中 2 回目以降の転醒を恒久ブロックしていた。`GameState.actionStartLogIndex`（applyLegalAction 入口で記録）による action 窓スコープに修正。
+  - 両タイプ持ち（BSTH05.5-XX01 龍神 = 創界神・導界者）対応: `GrandwalkerData.alsoCountsAs` + `grandwalkerKindMatches()`（SSOT、field_has/field_lacks/hasMechanic の 4 箇所を集約）。
+  - カード移行: 創界石 5 枚（陰陽玉/アリスの人形工房/浄玻璃の鏡/核融合炉/毘沙門天の宝塔）に `grandstoneData` + `enter_field_core_placement_forbidden` を付与し本体ルール/解封/転醒 stub を解消（神秘 4 件はプリミティブ不足で stub 残、P3-16 残留懸念）。
+  - GUI: `resolve_unseal_choice`「解封コア+1/置かない」・`resolve_stone_rebirth_choice`「転醒する/裏返さない」を ActionBar 直接ボタン化。**併せて oracle（神託コア+1）も HIDDEN 解除**（旧実装はモーダル未実装のまま HIDDEN で進行不能だった）。シナリオ `?scenario=grandstone-unseal-rebirth` 追加。
+  - 裁定保留 5 件を `needs-ruling.jsonl` に追記（アリス邸の配置含否 / 転醒辞退後の再トリガー / 合体辞退時の消滅 / 解放・解封表記ゆれ / 原因効果の色は実効色か）。
+  - テスト: `grandstone.test.ts` 32 ケース + 創界石 5 枚のカードテスト更新。
+- **P2-05 複数体同時アタック＋複数ブロック基盤（Phase 1-4 + GUI）完了** (2026-06-13)
+  - ルール正源: `10_rules/05` §複数体同時アタック新設（公式 Q26724=デフォルト1体ブロック / Q26342=観測1回 / Q26333=group 解決、独自裁定 qa-022=XX01 は同時アタック数までブロック可）。
+  - エンジン: `allow_simultaneous_attack` CE（player-scoped、filter/maxCount/blockerCapacity）→ `AttackLegalAction.simultaneousAttackOption` + `additionalSourceInstanceIds` 入力（options-level、REST passthrough + replay allowlist 対応）。宣言前スタック窓 confirm 時に `joinActiveAttackAsAction(joinMode:"simultaneous_declaration")` 合成（観測トリガーは primary 1回、各自『アタック時』は同一 simultaneousGroupId）。
+  - 複数ブロック: `ActiveAttack.blockerCapacity` スナップショット + `getEffectiveBlockerCapacity` / `canDeclareMoreBlocks`。容量ゲート、複数ブロック中の after_block flash gate、ブロック済み decline_block =「ブロック完了」宣言（解決へ進まず後半フラッシュ経由）。
+  - マジック上書きコスト: `use_magic costMode "override"`（cost_override CE amount>0 消費、`resolveMagicReduction` で軽減なし固定支払い）。GUI はコストモードモーダル 3 択化。
+  - ステップ強制終了: `force_attack_step_end_after_first_battle` CE + `GameState.battlesEndedThisTurn`。初バトル解決終端で `executeEndAttackStep`（R12 deferral と同経路 = restrict_end_attack_step の妨害対象）。
+  - GUI: 「複数でアタック」モーダル + 対象選択モード流用（候補=CE filter 合致のみ）、ブロックボタンのペア別ラベル「ブロック（→対象名）」、ペア色分け外枠（1体目赤/2体目青/緑/黄/紫、attacker と blocker 同色）+ ⚔ DuelMark ペア毎描画、FieldArea の attacker 強調を全 participant に修正。シナリオ `?scenario=xx01-simul-attack`。
+  - カード: BSTH07.8-XX01【導域】4文中3文表現（残 stub「ただちにアタック」のみ）、BSTH02-R03 プリズムリバー stub 解消（カード名部分一致 + blockerCapacity 2）。
+  - 既存テスト 1 件をルール正源に合わせ修正（同時アタックへのブロックはデフォルト1体 = Q26724。旧 expectation は rule 未配線時代の挙動）。
+  - テスト: p2-05-simultaneous-attack.test.ts 15件 / cost-override-magic.test.ts +5件 / game-api passthrough +1 assert / Playwright E2E（宣言→ペア色→2体ブロック→同時解決→強制ステップ終了）。
+  - 残: XX01「ただちにアタック」（issue 参照、2026-07-08 完了・02_detailed-todo 参照）。
+- **P2-05 Phase 5: 1 participant 複数体ブロック強制 (BSFT01-TR06(B)[7]) 完了** (2026-07-12, engine-claude)
+  - ルール正源: `10_rules/05b` §複数体ブロック強制（裁定2026-07-12, 信頼度B・類推適用。公式【連刃】Q5331/Q30118 を「2体ブロック成立後の BP 比較は個別」の限定論点のみ類推適用）。
+  - 型拡張: `ActiveAttackBlockAssignment.blockedByEntityId: string|null` → `blockedByEntityIds: string[]`（空配列=未ブロック）。`BattleResolutionParticipantSnapshot.blockedBy` も同様に配列化。影響 13 ファイル（battle-actions/battle-availability/battle-shared/battle-types/current-actor/card-filter/structured-state-grants/game-state-invariants-battle/legal-actions-availability/legal-actions-shared/attack-burst-flow/dsl-types/model）+ GUI 2 ファイル（BattleScreen/FieldArea）。BP 比較・破壊判定・ライフ減少判定は全箇所で「各ブロッカーと個別に 1vs1」ループへ一般化（合算比較にしない）。
+  - 新規プリミティブ: `require_multi_block` CE（player-scoped、metadata に filter/requiredBlockerCount）。`allow_simultaneous_attack` の `blockerCapacity` と同じ「アタック宣言確定時にスナップショット」原則で `assignment.requiredBlockerCount` を確定し、`current-actor.ts`（`getCardDefinitionById` 無しの純粋関数）から参照可能にした。
+  - ブロック宣言: 1体目宣言後も「まだ完了していない」状態を維持し、2体目の `declare_block` を legal に保つ（既存の複数ATTACKER型 `canDeclareMoreBlocks`/`blockerCapacity` とは別軸で、1 participant への複数ブロックを許可）。要求数を満たす候補が場に揃わない場合はそのアタッカーへの block 宣言自体を不可にし、1体だけブロックした中間状態を作らない（`getBlockDeclarationBlockReason` 内 `countEligibleMultiBlockCandidates` プリフライト）。
+  - カード: BSFT01-TR06(B)[7] stub 解消。
+  - テスト: `p2-05-phase5-multi-blocker.test.ts` 4件（CE登録/2体目block legal維持/候補不足で宣言不可/個別BP比較で両ブロッカー破壊）。既存回帰: 全 rules-core/playground-web テスト（6444件）緑。
+  - GUI: `?scenario=bsft01-tr06b-multi-blocker` 追加。DuelMark/ペア色分けを 1 attacker に複数 blocker (同一 pairIndex) 対応に拡張。
+- **神技/導技/契約技/転神の divineSkills 移管 + 対象選択/maxUsesPerTurn 拡張完了** (2026-06-14)
+  - 発端: BSTH04-XX01【導技：4】が effects[] の `core_move from:this_card→void` 先頭コスト step として実装され、legal-actions が自己コアコストを検査せず 2 コアでも発揮可能だった（snapshot 観測）。同型 mismatch を全弾 sweep し計 11 枚を `grandwalkerData.divineSkills` へ移管（コアゲートは `getAvailableDivineSkillLegalActions` が担う正源）。
+  - 対象 11 枚: BSTH04-X01/XX01・BSTH01-XX01・BSTH02.7-CX01・BSTH03-X02・BSTH05.5-XX01・BSTH05-X02（divineSkills stub と effects[] の二重定義を解消）・BSTH07-X01・BSTH08-X01・BSTH09.2-X01/XX01。BSTH03-X02/BSTH04-X01 の vanish は `exhaustState:"exhausted"` で疲労限定を強制（stub 解消）。
+  - エンジン拡張1（対象選択）: `lookupRegistrationForStack` に `divine_skill` case 追加 → `generateDivineSkillTargetRegistration(skill.effects)`（structured-effect-registrations.ts、`extractFieldTargetingMetadata` 流用）で本体 effect の対象メタを合成。汎用 `pendingEffectTargetSelection` 経路に載り、`resolveDeferredDivineSkillStack` が `resolvedStack.targetInstanceIds` を executeEffect へ渡す。拡張前は候補機械選択（複数候補で先頭固定＝退行）。
+  - エンジン拡張2（回数）: `DivineSkillEntry.maxUsesPerTurn?:number`（省略=1）。availability の turn-limit を `usedDivineSkillKeysThisTurn` の occurrence count >= max に変更。「ターンに2回」(BSTH01-XX01/BSTH05.5-XX01) を表現。
+  - テスト: bsth04-dotechi-core-cost-gate.test.ts 8 件（コアゲート 2 vs 4 / maxUsesPerTurn 0/1/2）、phase-f-grandwalker.test.ts に対象選択 end-to-end（候補2体→機械選択せず pendingEffectTargetSelection→選択した1体のみ消滅）。既存 5 ファイル 16 件を divineSkills 構造へ更新。全 3735 件通過 + tsc + eslint + check:ssot + docs:lint + GUI boot 確認。
+- **神技/導技等 divineSkills の GUI 選択可能枠 欠落を修正** (2026-07-23)
+  - 発端: ユーザー報告（room snapshot）「BSTH04-XX01 がコア4個充足でも選択可能枠にならない」。エンジン層は `getLegalActions` が `use_divine_skill` を `can:true` で正しく返す（snapshot をエンジンに再ロードして再現確認済み）ため、GUI 側の欠落と特定。
+  - 根本原因: `apps/playground-web/src/components/BattleScreen.tsx` の `selectableFieldIds`（フィールドカードのタップ選択可能枠を決める唯一の集合）が `use_field_card_effect`/`brave_*`/`link_aid` 等は含む一方 `use_divine_skill` を含んでいなかった。`CardView.tsx` の onClick は `isSelectable` でゲートしているため、この集合に無いカードは自分のカードでもクリックが一切発火しない（当時の ActionBar 除外リストで意図的除外＝カードタップ→モーダル経路のみが唯一の入口設計）。`apps/playground-web/src` 内に `divineSkill`/`DivineSkill` の参照が皆無だったことから、実装以来 GUI からは一度も発揮不能だった欠落と判断。影響は `divineSkills` を持つ全18枚（BSAZ02-X04/X05, BSES01-CX01, BSSA01-XX01, BSTH01-XX01, BSTH02.7-CX01, BSTH03-X02, BSTH04-X01/XX01, BSTH05-X01/X02, BSTH05.5-X02/XX01, BSTH07-X01, BSTH08-X01, BSTH09.2-X01/XX01）。
+  - 即時点修正: `selectableFieldIds` の条件に `use_divine_skill` を追加。あわせてボタンラベルが未対応で生の `"use_divine_skill"` 文字列表示になっていた箇所に「発揮」ラベルを追加（後にACTION_LABELS再利用へ差し替え、下記）。
+  - **構造的原因の追及とSSOT統合** (ユーザー指摘「SSOT違反してない？」「なぜそもそも配線漏れが起きるのか」への対応): `check:wiring` は `rules-core/src/model.ts` の DSL Action kind のみ対象で `apps/` 配下を一切見ず、`check:ssot` は登録済み4パターンのみのレジストリ式スキャナでこの重複は未登録——両ゲートともこの種のGUI配線漏れを構造的に検知できないと判明。さらに当時の除外リストに `resolve_pending_count_decrease`/`resolve_pending_life_core_selection` が「GUI未配線(engine-only)」と明記済みで、同種の漏れが他に2件既存だったことも確認。加えて「フィールド/手札カードタップでどの kind を扱うか」の判別が `selectableFieldIds`・`selectableHandIds`・field/hand 双方の `onCardClick`（+`onTouchDragPlay`）の**最低5箇所**で個別に kind を列挙しており、今回のバグはその1箇所の追記漏れが直接原因と特定。
+  - 根治: `ACTION_UI_ROUTES: Record<LegalActionKind, "action-bar"|"field-tap"|"hand-tap"|"other">`（全80 kind網羅、Record網羅性チェックで新規 kind の分類漏れをコンパイルエラー化。実装中に実際に `skip_private_triggered_effect` の分類漏れをこの機構が検知）+ 対象カードの instanceId 抽出を一元化する `tapTargetInstanceIds()` を新設。当時の除外リストはこの表からの導出に変更（`join_active_attack` のみ ActionBar 同時表示の例外）。`BattleScreen.tsx` の `selectableFieldIds`/`selectableHandIds`/field・hand 双方の `onCardClick`/`onTouchDragPlay` は全てこの2つの正源を参照するよう置換（5箇所の並行実装を解消）。個別理由コメント（P3-48/P3-49/P3-55/P3-111 等）は `ACTION_UI_ROUTES` の該当エントリへ移設し情報損失なし。
+  - ラベルSSOT: `ACTION_LABELS`（既存の全kind網羅ラベル正源）を `export` し、カードタップ候補モーダルの手書きラベル分岐（`use_divine_skill` 用に独自追加した「発揮」を含む）のフォールバックを `ACTION_LABELS[a.kind]` に統一。正源に既にあった「神技使用」と重複しない第二定義を除去。
+  - 検証: ユーザー snapshot を `parseGameSnapshot`/`restoreSnapshot` 経由で実エンジンに再ロードし `getLegalActions` で `can:true` 確認 → dev server (localhost:4173) に同 snapshot をロードしブラウザ操作で再現: ネクサスタップ→「神技使用」ボタン表示→クリックでスタック開閉→`search_zone` 対象選択（6候補）まで到達をログ (`[DivineSkill] alice が【guided_skill：4】を発揮宣言`) で確認。手札タップ経路（place_nexus）もカード「太陽の畑」タップ→「配置」ボタン表示で別途確認。tsc/eslint clean、check:ssot 0 violation、check:wiring 違反0（rules-core側は無変更のため対象外)、rules-core関連3ファイル220件・playground-web全35ファイル484件（7 skip）とも既存回帰なし。
+- **ACTION_UI_ROUTES 監査で発覚した残り4件のGUI配線漏れを修正 + 再発防止ドキュメント整備** (2026-07-24)
+  - ユーザー指摘「他のGUI配線漏れはどうなった？あるなら実施。知見をworkerが拾えるようにして再発防止」への対応。
+  - `resolve_pending_count_decrease`（ENGINE-cost-modify-additional-cost-value-dynamic-amount、BSGE01-M02/TX03(B) 対象）・`resolve_pending_life_core_selection`（ENGINE-core-move-from-life-owner-soul-choice）は `ACTION_UI_ROUTES` 上で「GUI未配線(engine-only)」と自己申告済みだった2件。`PendingCountSelectionModal.tsx`/`PendingLifeCoreSelectionModal.tsx`（`CoreCountModal.tsx` を雛形）を新設し、`BattleScreen.tsx` の6箇所（`hasUiPending`/`queueAutoHide`/`handForceClosed`/`hasFullScreenModalPending`/`modalKey`/render部+`hasPending`）に配線。
+  - `ACTION_UI_ROUTES` の "other" 26件を `kind === "<lit>"` 出現数で機械スキャンした結果、`set_mirage`/`set_quartz` が **コメントなしの第3・第4のGUI配線漏れ**と判明（当時の除外リストでは「専用UIがあるはず」として隠されていたが実在しなかった）。`quartz-activation` シナリオで実機再現: クォーツ手札カードタップで「召喚」のみ表示され set 系ボタンが皆無。両方とも解決済み LegalAction（`sourceInstanceId` 単独、quartz は `hostInstanceId`/`slot` も込み）で完結するため `ACTION_UI_ROUTES` を `"hand-tap"` に修正するだけで新規モーダル不要。
+  - 検証: 全4件を実カード/実シナリオ + `parseGameSnapshot`/`restoreSnapshot` 合成 state のブラウザ実機で確認（count_decrease: カウント5→2 / life_core_selection: ソウルコアがライフ→リザーブへ実際に移動 / quartz: quartz-activation シナリオでクォーツセット+連動誘発発火 / mirage: 実カード BSDB01-R04 でミラージュゾーンへ移動）。**合成カード定義（ALL_CARDS未登録cardNo）はブラウザ側 `getCardDefinitionById` が解決できず `keywordTags`/`mirageData` 参照判定が silent 空振りする罠を発見**（pending state 自体に必要値が埋め込まれる count_decrease/life_core_selection は合成カードでも問題ないが、set_mirage は要実カード）。Vite PWA (Workbox precache) が同一タブで stale bundle を返す事象も発見、SW unregister + caches.delete で解消。tsc/eslint clean、playground-web全35ファイル569件通過。
+  - 再発防止: `.claude/rules/playground-web.md` 新設（`paths: apps/playground-web/**` で自動注入、ACTION_UI_ROUTES分類手順+検証罠2件を記載）。`.claude/rules/rules-core.md` に「新規 LegalActionKind 追加時は ACTION_UI_ROUTES 確認」を追記（kind新設は rules-core 側の編集がトリガーのため、GUI側ファイルに触れずとも気づけるようにする）。`CLAUDE.md` Cross-cutting Rule の SSOT 項目にも1行追加。

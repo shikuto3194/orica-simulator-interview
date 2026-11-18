@@ -1,0 +1,1229 @@
+{
+  "gates": {
+    "public-assets-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/public-build.test.ts"]
+    },
+    "card-source-audit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["packages/rules-core/test/revealed-target-ui-audit.test.ts"]
+    },
+    "scenario-file-scenario-post-stack-step-choice": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-post-stack-step-choice.spec.ts"]
+    },
+    "scenario-file-scenario-optional-choice-decline": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-optional-choice-decline.spec.ts"]
+    },
+    "scenario-file-scenario-post-draw-selection": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-post-draw-selection.spec.ts"]
+    },
+    "auxiliary-model-policy": {
+      "node": "scripts/test-auxiliary-model-policy.mjs"
+    },
+    "notice-editor": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/operation-notice-digest.test.ts"]
+    },
+    "ismcts-program": {
+      "node": "scripts/test-ismcts-program.mjs",
+      "inputScope": "operational-fixtures-v1"
+    },
+    "review-batch": {
+      "node": "scripts/verify-review-batch.mjs",
+      "diffBase": true
+    },
+    "audit-operations": {
+      "node": "scripts/test-audit-operations.mjs"
+    },
+    "dot-connection": {
+      "node": "scripts/dot/test.mjs"
+    },
+    "funnel-watchdog": {
+      "node": "scripts/test-funnel-watchdog.mjs"
+    },
+    "saved-deck-types": {
+      "node": "node_modules/typescript/bin/tsc",
+      "args": ["-p", "apps/playground-web/tsconfig.json", "--noEmit"]
+    },
+    "saved-deck-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": [
+        "apps/playground-web/test/saved-deck-sort.test.ts",
+        "apps/playground-web/test/saved-deck-filters.test.ts"
+      ]
+    },
+    "saved-deck-ui": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/saved-deck-sort.spec.ts",
+        "e2e/saved-deck-filters.spec.ts",
+        "e2e/room-deck-picker.spec.ts",
+        "e2e/deck-builder-layout.spec.ts"
+      ]
+    },
+    "invitation-test-cleanup": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/room-invitations-cleanup.test.ts"]
+    },
+    "changed-style": {
+      "node": "scripts/harness/check-changed-style.mjs",
+      "changedFiles": true
+    },
+    "home-layout": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": ["test", "e2e/home-lobby.spec.ts"]
+    },
+    "title-preparation": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/title-image-download.spec.ts",
+        "e2e/title-asset-storage.spec.ts",
+        "e2e/title-direct-link.spec.ts"
+      ]
+    },
+    "app-appearance": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/app-theme.spec.ts",
+        "e2e/room-invitations.spec.ts",
+        "e2e/room-push.spec.ts"
+      ]
+    },
+    "battle-navigation": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": [
+        "test",
+        "e2e/scenario-pregame-more-menu.spec.ts",
+        "e2e/replay-viewer.spec.ts"
+      ]
+    },
+    "public-disclosure-log-ui": {
+      "node": "node_modules/@playwright/test/cli.js",
+      "args": ["test", "e2e/scenario-public-disclosure-log.spec.ts"]
+    },
+    "format": {
+      "script": "format:check"
+    },
+    "lint": {
+      "script": "lint"
+    },
+    "dev-contract": {
+      "script": "check:dev-server"
+    },
+    "types": {
+      "script": "check"
+    },
+    "docs": {
+      "node": "scripts/check-docs.mjs",
+      "args": ["--summary"]
+    },
+    "ssot": {
+      "script": "check:ssot",
+      "reusable": true
+    },
+    "wiring": {
+      "script": "check:wiring",
+      "reusable": true
+    },
+    "ledger": {
+      "script": "cards:text-ledger",
+      "reusable": false,
+      "args": ["--gate"]
+    },
+    "harness": {
+      "script": "test:harness"
+    },
+    "e2e-changed": {
+      "node": "scripts/e2e-run.mjs",
+      "browser": true,
+      "diffBase": true,
+      "args": ["--changed"]
+    },
+    "verifier": {
+      "script": "test:verifier-gate"
+    },
+    "supervisor-lock": {
+      "script": "test:supervisor-lock"
+    },
+    "supervisor-runner-lock": {
+      "script": "test:supervisor-runner-lock"
+    },
+    "storage": {
+      "node": "scripts/test-artifact-storage.mjs"
+    },
+    "handoff": {
+      "script": "test:supervisor-handoff",
+      "inputScope": "operational-fixtures-v1"
+    },
+    "auto-merge-integration": {
+      "node": "scripts/test-supervisor-integration.mjs"
+    },
+    "telegram": {
+      "script": "test:telegram-reception"
+    },
+    "effect-debug": {
+      "script": "test:effect-debug-loop"
+    },
+    "text-accountability": {
+      "script": "test:card-text-accountability"
+    },
+    "put-semantics": {
+      "script": "test:put-action-semantics"
+    },
+    "fidelity": {
+      "script": "test:fidelity-audit"
+    },
+    "vitest": {
+      "node": "scripts/vitest-with-jest-aliases.mjs"
+    },
+    "card-tests": {
+      "script": "cards:test-coverage",
+      "diffBase": true,
+      "args": ["--gate"]
+    },
+    "build": {
+      "script": "build"
+    },
+    "scenario": {
+      "bin": "playwright",
+      "args": [
+        "test",
+        "e2e/scenario-four-of-a-kind.spec.ts",
+        "e2e/scenario-moon-girl.spec.ts",
+        "e2e/scenario-aldnoah-no-combine.spec.ts",
+        "e2e/scenario-m06-summon-life.spec.ts",
+        "e2e/scenario-c23-exclusive-reveal.spec.ts",
+        "e2e/scenario-self-magic-reduction.spec.ts",
+        "e2e/scenario-mirage-individual-swap.spec.ts",
+        "e2e/scenario-soul-state-brave-battle.spec.ts",
+        "e2e/ai-search-set-usage.spec.ts",
+        "e2e/ai-search-public-zone-instances.spec.ts",
+        "e2e/scenario-makai-conditional-cost.spec.ts",
+        "e2e/scenario-r21-conditional-cost.spec.ts",
+        "e2e/scenario-r12-accel-continuation.spec.ts",
+        "e2e/scenario-kaname-removal.spec.ts",
+        "e2e/scenario-deck-exclusion.spec.ts",
+        "e2e/scenario-brave-spirit-events.spec.ts",
+        "e2e/scenario-revealed-target-selection.spec.ts",
+        "e2e/reveal-retrieval-audit.spec.ts",
+        "e2e/scenario-game-long-press.spec.ts",
+        "e2e/scenario-board-peek-dock.spec.ts"
+      ]
+    },
+    "ismcts-runtime": {
+      "node": "scripts/test-ismcts-runtime.mjs"
+    },
+    "ismcts-telemetry": {
+      "node": "scripts/ismcts/test-runtime-telemetry.mjs"
+    },
+    "ismcts-dispatch": {
+      "node": "scripts/test-supervisor-work-plan.mjs"
+    },
+    "secrets": {
+      "node": "scripts/security/test-secrets.mjs"
+    },
+    "public-build": {
+      "bin": "playwright",
+      "args": ["test", "--config", "playwright.public.config.ts"]
+    },
+    "scenario-file-scenario-partial-target-resolution": {
+      "bin": "playwright",
+      "args": [
+        "test",
+        "e2e/scenario-partial-target-resolution.spec.ts",
+        "--config",
+        "playwright.local.config.ts"
+      ]
+    },
+    "local-game-ui": {
+      "bin": "playwright",
+      "args": ["test", "--config", "playwright.local.config.ts"]
+    },
+    "local-game-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": [
+        "apps/playground-web/test/local-game-session.test.ts",
+        "apps/playground-web/test/local-game-api.test.ts"
+      ]
+    },
+    "scenario-file-scenario-declaration-cues": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-declaration-cues.spec.ts"]
+    },
+    "scenario-file-scenario-four-of-a-kind": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-four-of-a-kind.spec.ts"]
+    },
+    "scenario-file-scenario-moon-girl": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-moon-girl.spec.ts"]
+    },
+    "scenario-file-scenario-aldnoah-no-combine": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-aldnoah-no-combine.spec.ts"]
+    },
+    "scenario-file-scenario-m06-summon-life": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-m06-summon-life.spec.ts"]
+    },
+    "scenario-file-scenario-c23-exclusive-reveal": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-c23-exclusive-reveal.spec.ts"]
+    },
+    "scenario-file-scenario-self-magic-reduction": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-self-magic-reduction.spec.ts"]
+    },
+    "scenario-file-scenario-mirage-individual-swap": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-mirage-individual-swap.spec.ts"]
+    },
+    "scenario-file-scenario-soul-state-brave-battle": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-soul-state-brave-battle.spec.ts"]
+    },
+    "scenario-file-ai-search-set-usage": {
+      "bin": "playwright",
+      "args": ["test", "e2e/ai-search-set-usage.spec.ts"]
+    },
+    "scenario-file-ai-search-public-zone-instances": {
+      "bin": "playwright",
+      "args": ["test", "e2e/ai-search-public-zone-instances.spec.ts"]
+    },
+    "scenario-file-scenario-makai-conditional-cost": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-makai-conditional-cost.spec.ts"]
+    },
+    "scenario-file-scenario-r21-conditional-cost": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-r21-conditional-cost.spec.ts"]
+    },
+    "scenario-file-scenario-r12-accel-continuation": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-r12-accel-continuation.spec.ts"]
+    },
+    "scenario-file-scenario-kaname-removal": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-kaname-removal.spec.ts"]
+    },
+    "scenario-file-scenario-deck-exclusion": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-deck-exclusion.spec.ts"]
+    },
+    "focused-vitest": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "inputScope": "focused-imports-v1"
+    },
+    "static-reduction": {
+      "node": "scripts/harness/check-static-reduction.mjs",
+      "changedFiles": true
+    },
+    "card-source": {
+      "node": "scripts/harness/check-card-source.mjs"
+    },
+    "supervisor-preflight": {
+      "node": "scripts/test-supervisor-preflight-diagnostics.mjs"
+    },
+    "room-delivery-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/room-sync-errors.test.ts"]
+    },
+    "ismcts-catalog": {
+      "node": "scripts/test-ismcts-catalog.mjs"
+    },
+    "harness-selection": {
+      "node": "scripts/test-harness.mjs",
+      "args": ["--selection-only"]
+    },
+    "scenario-file-scenario-brave-spirit-events": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-brave-spirit-events.spec.ts"]
+    },
+    "fuzz-runner": {
+      "node": "scripts/test-fuzz-runner.mjs"
+    },
+    "scenario-file-scenario-revealed-target-selection": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-revealed-target-selection.spec.ts"]
+    },
+    "scenario-file-reveal-retrieval-audit": {
+      "bin": "playwright",
+      "args": ["test", "e2e/reveal-retrieval-audit.spec.ts"]
+    },
+    "scenario-file-scenario-game-long-press": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-game-long-press.spec.ts"]
+    },
+    "scenario-file-scenario-board-peek-dock": {
+      "bin": "playwright",
+      "args": ["test", "e2e/scenario-board-peek-dock.spec.ts"]
+    },
+    "revealed-target-unit": {
+      "node": "scripts/vitest-with-jest-aliases.mjs",
+      "args": ["apps/playground-web/test/revealed-target-presentation.test.ts"]
+    }
+  },
+  "scopes": [
+    {
+      "patterns": ["^e2e/deck-builder-layout\\.spec\\.ts$"],
+      "gates": ["e2e-changed"]
+    },
+    {
+      "patterns": ["^playwright\\.config\\.ts$"],
+      "fallback": true,
+      "gates": [
+        "harness",
+        "verifier",
+        "e2e-changed",
+        "scenario",
+        "local-game-ui",
+        "build",
+        "public-build"
+      ]
+    },
+    {
+      "patterns": ["^e2e/scenario-post-draw-selection\\.spec\\.ts$"],
+      "gates": [
+        "secrets",
+        "docs",
+        "harness",
+        "scenario-file-scenario-post-draw-selection"
+      ]
+    },
+    {
+      "patterns": ["^e2e/scenario-post-stack-step-choice\\.spec\\.ts$"],
+      "gates": [
+        "secrets",
+        "docs",
+        "harness",
+        "scenario-file-scenario-post-stack-step-choice"
+      ]
+    },
+    {
+      "patterns": ["^e2e/scenario-optional-choice-decline\\.spec\\.ts$"],
+      "gates": [
+        "secrets",
+        "docs",
+        "harness",
+        "scenario-file-scenario-optional-choice-decline"
+      ]
+    },
+    {
+      "patterns": ["^scripts/audit-revealed-target-ui\\.cjs$"],
+      "gates": ["card-source-audit"]
+    },
+    {
+      "patterns": ["^\\.github/workflows/ci\\.yml$"],
+      "gates": ["harness", "verifier", "dev-contract"]
+    },
+    {
+      "patterns": ["^e2e/scenario-partial-target-resolution\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-partial-target-resolution"]
+    },
+    {
+      "patterns": ["^playwright\\.config\\.ts$"],
+      "changedLines": "^\\s*\"\\*\\*/scenario-partial-target-resolution\\.spec\\.ts\",$",
+      "gates": ["e2e-changed", "local-game-ui"]
+    },
+    {
+      "patterns": ["^e2e/scenario-brave-spirit-events\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-brave-spirit-events"]
+    },
+    {
+      "patterns": ["^fidelity-baseline\\.json$"],
+      "gates": ["fidelity"]
+    },
+    {
+      "patterns": ["^manual/ai-reference/10_rules/.*\\.md$"],
+      "gates": ["docs", "fidelity"]
+    },
+    {
+      "patterns": ["^manual/ai-reference/10_rules/04_state-based-rules\\.md$"],
+      "gates": ["ssot"]
+    },
+    {
+      "patterns": ["^packages/rules-core/test/helpers/.*\\.ts$"],
+      "gates": ["vitest", "fidelity"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/test/local-game-(?:session|api)\\.test\\.ts$"
+      ],
+      "gates": ["local-game-unit"]
+    },
+    {
+      "patterns": [
+        "^e2e/(?:local-game-(?:sync\\.spec|fixture)|scenario-(?:blazing-star-oracle|effect-usage-accounting)\\.spec)\\.ts$",
+        "^playwright\\.local\\.config\\.ts$"
+      ],
+      "gates": ["local-game-ui"]
+    },
+    {
+      "patterns": ["^e2e/public-build\\.spec\\.ts$"],
+      "gates": ["build", "public-build"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-deck\\-exclusion\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-deck-exclusion"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-kaname\\-removal\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-kaname-removal"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-r12\\-accel\\-continuation\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-r12-accel-continuation"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-r21\\-conditional\\-cost\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-r21-conditional-cost"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-makai\\-conditional\\-cost\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-makai-conditional-cost"]
+    },
+    {
+      "patterns": ["^e2e/ai\\-search\\-public\\-zone\\-instances\\.spec\\.ts$"],
+      "gates": ["scenario-file-ai-search-public-zone-instances"]
+    },
+    {
+      "patterns": ["^e2e/ai\\-search\\-set\\-usage\\.spec\\.ts$"],
+      "gates": ["scenario-file-ai-search-set-usage"]
+    },
+    {
+      "patterns": [
+        "^e2e/scenario\\-soul\\-state\\-brave\\-battle\\.spec\\.ts$"
+      ],
+      "gates": ["scenario-file-scenario-soul-state-brave-battle"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-mirage\\-individual\\-swap\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-mirage-individual-swap"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-self\\-magic\\-reduction\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-self-magic-reduction"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-c23\\-exclusive\\-reveal\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-c23-exclusive-reveal"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-m06\\-summon\\-life\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-m06-summon-life"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-aldnoah\\-no\\-combine\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-aldnoah-no-combine"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-moon\\-girl\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-moon-girl"]
+    },
+    {
+      "patterns": [
+        "^e2e/scenario\\-revealed\\-target\\-selection\\.spec\\.ts$"
+      ],
+      "gates": ["scenario-file-scenario-revealed-target-selection"]
+    },
+    {
+      "patterns": ["^e2e/reveal\\-retrieval\\-audit\\.spec\\.ts$"],
+      "gates": ["scenario-file-reveal-retrieval-audit"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-game\\-long\\-press\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-game-long-press"]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-board\\-peek\\-dock\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-board-peek-dock"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/hooks/useLongPress\\.ts$"],
+      "gates": [
+        "types",
+        "scenario-file-scenario-game-long-press",
+        "local-game-ui"
+      ]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/components/BattleScreen\\.tsx$"],
+      "changedLines": "^\\s*(?:onContextMenu=\\{\\(event\\) => \\{|const target = event\\.target;|if \\(|target instanceof HTMLElement &&|\\(target\\.isContentEditable \\|\\||target\\.closest\\(\"input, textarea, select\"\\)\\)|return;|\\)|// (?:Bubble phase preserves|including React portals).*|event\\.preventDefault\\(\\);|\\}\\})$",
+      "gates": [
+        "types",
+        "scenario-file-scenario-game-long-press",
+        "local-game-ui"
+      ]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/components/CardView\\.tsx$"],
+      "changedLines": "^\\s*(?:const touchStartY = useRef<number \\| null>\\(null\\);|const lp = useLongPress\\(.*|touchStartY\\.current = null;|onDetailRequest\\?\\.\\(\\);|\\}\\);|lp\\.cancel\\(\\);|\\[isDraggable(?:, lp)?\\]|onTouchCancel=\\{handleTouchEnd\\})$",
+      "gates": [
+        "types",
+        "scenario-file-scenario-game-long-press",
+        "local-game-ui"
+      ]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/battle\\.css$"],
+      "changedLines": "^\\s*(?:/?\\*.*|:is\\(|\\.battle-screen,|body:has\\(\\.battle-screen\\) \\.(?:cdm-overlay|effect-queue-list-overlay),?|\\),?(?: \\{)?|\\) \\{|-webkit-user-select: (?:none|text);|user-select: (?:none|text);|-webkit-touch-callout: (?:none|default);|-webkit-user-drag: none;|\\}|input,|textarea,|select,|\\[contenteditable\\]:not\\(\\[contenteditable=\"false\"\\]\\)(?:,| \\*|)|\\* \\{|img \\{|\\[contenteditable\\]:not\\(\\[contenteditable=\"false\"\\]\\) \\* \\{|)$",
+      "gates": [
+        "types",
+        "scenario-file-scenario-game-long-press",
+        "local-game-ui"
+      ]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/StepChoiceRevealedCards\\.tsx$",
+        "^apps/playground-web/src/scenario\\-revealed\\-target\\-selection\\.ts$",
+        "^apps/playground-web/test/revealed\\-target\\-presentation\\.test\\.ts$"
+      ],
+      "gates": [
+        "types",
+        "revealed-target-unit",
+        "scenario-file-scenario-revealed-target-selection",
+        "scenario-file-reveal-retrieval-audit"
+      ]
+    },
+    {
+      "patterns": ["^e2e/scenario\\-four\\-of\\-a\\-kind\\.spec\\.ts$"],
+      "gates": ["scenario-file-scenario-four-of-a-kind"]
+    },
+    {
+      "patterns": ["^scripts/(?:check-docs|doc-links|test-doc-links)\\.mjs$"],
+      "gates": ["docs", "harness"]
+    },
+    {
+      "patterns": ["^scripts/check-ssot\\.mjs$"],
+      "gates": ["ssot", "harness"]
+    },
+    {
+      "patterns": ["^scripts/(?:derived-state-ssot|effect-usage-ssot)\\.mjs$"],
+      "gates": ["ssot", "vitest", "harness"]
+    },
+    {
+      "patterns": [
+        "^packages/rules-core/test/fixtures/legacy-effect-usage/[^/]+\\.json$",
+        "^packages/rules-core/test/fixtures/effect-usage-identity-pins\\.json$",
+        "^packages/rules-core/test/fixtures/post-draw-audit\\.json$"
+      ],
+      "gates": ["vitest"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:generate-effect-usage-nested-states\\.mjs|lib/nested-state-graph\\.mjs)$"
+      ],
+      "gates": ["vitest"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:card-text-accountability-core|test-card-text-accountability-audit)\\.mjs$"
+      ],
+      "gates": ["text-accountability", "fidelity", "ledger", "vitest"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:fidelity-constraint-detector|test-fidelity-audit-integration|test-fidelity-coverage)\\.mjs$"
+      ],
+      "gates": ["fidelity"]
+    },
+    {
+      "patterns": ["^scripts/(?:link-agent-config\\.mjs|new-worktree\\.ps1)$"],
+      "gates": ["harness"]
+    },
+    {
+      "patterns": ["^scripts/ismcts/(?:test-)?runtime-telemetry\\.mjs$"],
+      "gates": ["ismcts-telemetry"]
+    },
+    {
+      "patterns": ["^scripts/test-ismcts-runtime\\.mjs$"],
+      "gates": ["ismcts-runtime"]
+    },
+    {
+      "patterns": ["^scripts/(?:fuzz-runner|run-fuzz|test-fuzz-runner)\\.mjs$"],
+      "gates": ["harness", "fuzz-runner"]
+    },
+    {
+      "patterns": ["^scripts/fuzz-seed-ledger\\.mjs$"],
+      "gates": ["harness-selection", "fuzz-runner", "effect-debug"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:auxiliary-model-policy|test-auxiliary-model-policy|telegram-reception-policy|telegram-message-worker|telegram-inbox)\\.mjs$"
+      ],
+      "gates": [
+        "auxiliary-model-policy",
+        "notice-editor",
+        "telegram",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/notices/(codex-summary|codex-large-input|digest|push-history|run-digest)\\.mjs$",
+        "^scripts/notices/register-task\\.ps1$",
+        "^apps/playground-web/test/operation-notice-digest\\.test\\.ts$"
+      ],
+      "gates": ["auxiliary-model-policy", "notice-editor"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:telegram-inbox|telegram-document|telegram-message-worker|test-telegram-documents)\\.mjs$"
+      ],
+      "gates": ["telegram"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:test-)?artifact-storage\\.mjs$",
+        "^scripts/artifact-storage-policy\\.json$"
+      ],
+      "gates": [
+        "vitest",
+        "storage",
+        "effect-debug",
+        "ismcts-program",
+        "ismcts-runtime",
+        "harness"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/ismcts-program\\.mjs$",
+        "^scripts/ismcts/(?!(?:test-)?runtime-telemetry\\.mjs$).*\\.(?:mjs|json|ps1|cs)$",
+        "^scripts/test-ismcts-program\\.mjs$"
+      ],
+      "gates": [
+        "ismcts-program",
+        "ismcts-runtime",
+        "harness",
+        "verifier",
+        "ismcts-dispatch",
+        "storage"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/fidelity-review-resolutions\\.json$",
+        "^fidelity-baseline\\.json$"
+      ],
+      "gates": ["fidelity", "review-batch"]
+    },
+    {
+      "patterns": ["^scripts/test-audit-operations\\.mjs$"],
+      "gates": ["audit-operations"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:audit-inputs|supervisor-run-metrics|verify-review-batch|fidelity-review-state|fidelity-review-resolution|test-fidelity-review-state|test-fidelity-review-resolution|cards-fidelity-audit)\\.mjs$"
+      ],
+      "gates": ["audit-operations", "fidelity", "handoff"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:worker-codex-stream|test-telegram-reception)\\.mjs$"
+      ],
+      "gates": [
+        "audit-operations",
+        "supervisor-runner-lock",
+        "telegram",
+        "handoff"
+      ]
+    },
+    {
+      "patterns": [
+        "^deploy/local-pc/funnel-(?:probe|policy|watchdog)\\.mjs$",
+        "^deploy/local-pc/register-funnel-watchdog\\.ps1$",
+        "^scripts/test-funnel-watchdog\\.mjs$",
+        "^\\.github/workflows/public-api-monitor\\.yml$"
+      ],
+      "gates": ["funnel-watchdog"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/(?:SavedDeckBrowser|SavedDeckSort|SavedDeckFilters|RoomDeckPicker)\\.tsx$",
+        "^apps/playground-web/src/utils/saved-deck-(?:sort|filters)\\.ts$",
+        "^apps/playground-web/src/saved-deck-browser\\.css$",
+        "^apps/playground-web/test/saved-deck-(?:sort|filters)\\.test\\.ts$",
+        "^e2e/(?:saved-deck-sort|saved-deck-filters|room-deck-picker)\\.spec\\.ts$"
+      ],
+      "gates": ["saved-deck-types", "saved-deck-unit", "saved-deck-ui"]
+    },
+    {
+      "patterns": ["^e2e/room-invitations-live\\.spec\\.ts$"],
+      "gates": ["invitation-test-cleanup", "app-appearance", "e2e-changed"]
+    },
+    {
+      "patterns": [
+        "^e2e/room-invitations-cleanup\\.ts$",
+        "^apps/playground-web/test/room-invitations-cleanup\\.test\\.ts$"
+      ],
+      "gates": ["invitation-test-cleanup", "app-appearance"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:verifier-write-lock|run-with-lock-heartbeat|spawn-verifier|verifier-card-context|verifier-evidence)\\.mjs$"
+      ],
+      "gates": [
+        "verifier",
+        "handoff",
+        "supervisor-lock",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/auto-merge\\.ps1$",
+        "^scripts/supervisor-integration\\.mjs$",
+        "^scripts/test-supervisor-integration\\.mjs$"
+      ],
+      "gates": [
+        "auto-merge-integration",
+        "supervisor-lock",
+        "supervisor-runner-lock"
+      ]
+    },
+    {
+      "patterns": ["^packages/rules-core/test/.*\\.test\\.ts$"],
+      "gates": ["vitest"]
+    },
+    {
+      "patterns": [
+        "^packages/rules-core/src/(?:effect|battle|stack|play)/.*\\.ts$"
+      ],
+      "gates": [
+        "types",
+        "vitest",
+        "put-semantics",
+        "fidelity",
+        "ismcts-catalog"
+      ]
+    },
+    {
+      "patterns": ["^packages/card-data/src/.*\\.ts$"],
+      "gates": [
+        "types",
+        "vitest",
+        "put-semantics",
+        "fidelity",
+        "ismcts-catalog",
+        "ledger",
+        "card-tests"
+      ]
+    },
+    {
+      "patterns": [
+        "^scripts/run-supervisor-iteration\\.ps1$",
+        "^scripts/(?:test-)?remote-main-integration\\.mjs$",
+        "^scripts/(?:test-)?full-run-checkouts\\.(?:mjs|json)$",
+        "^scripts/(?:register-supervisor-task|configure-codex-autostart)\\.ps1$",
+        "^scripts/sync-worktree-to-main\\.mjs$",
+        "^scripts/test-sync-worktree-failures\\.mjs$",
+        "^scripts/test-supervisor-publication-recovery\\.mjs$",
+        "^scripts/(?:test-)?supervisor-followup(?:-evidence)?\\.mjs$",
+        "^scripts/harness/vitest-acceptance-reporter\\.mjs$",
+        "^scripts/(?:test-)?primary-main\\.mjs$",
+        "^scripts/lib/supervisor-work-plan\\.ps1$",
+        "^scripts/test-supervisor-work-plan\\.mjs$",
+        "^scripts/test-supervisor-environment\\.mjs$",
+        "^scripts/(?:test-)?supervisor-health\\.mjs$",
+        "^scripts/auto-merge-status\\.mjs$",
+        "^scripts/watch-supervisor-events\\.mjs$",
+        "^scripts/test-supervisor-handoff\\.mjs$",
+        "^scripts/test-supervisor-runner-lock\\.mjs$",
+        "^scripts/(?:test-)?supervisor-work-recovery\\.mjs$"
+      ],
+      "gates": ["handoff", "supervisor-lock", "supervisor-runner-lock"]
+    },
+    {
+      "patterns": ["\\.md$"],
+      "gates": ["docs"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/Home(?:Lobby|AvatarPicker)\\.tsx$",
+        "^apps/playground-web/src/home-lobby\\.css$",
+        "^e2e/home-lobby\\.spec\\.ts$"
+      ],
+      "gates": ["home-layout"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/TitleScreen\\.tsx$",
+        "^apps/playground-web/src/components/title-screen\\.css$",
+        "^e2e/title-(?:image-download|asset-storage|direct-link)\\.spec\\.ts$"
+      ],
+      "gates": ["title-preparation"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/bgm/BgmControls\\.tsx$"],
+      "gates": ["title-preparation", "home-layout"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/app-theme\\.css$",
+        "^e2e/(?:app-theme|room-invitations|room-push)\\.spec\\.ts$"
+      ],
+      "gates": ["app-appearance"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/components/BattleScreen\\.tsx$"],
+      "changedLines": "^\\s*(?:// 「・・・」メニュー:.*|(?:タイトルへ|ホームへ)|onExit\\?\\.\\(\\);|\\(onHome \\?\\? onExit\\)\\?\\.\\(\\);|\\}, \\[roomId, userId, readOnly, (?:onHome, )?onExit, getAccessToken\\]\\);|\\{(?:onExit|\\(onHome \\|\\| onExit\\)) && \\()$",
+      "gates": ["battle-navigation"]
+    },
+    {
+      "patterns": ["^apps/playground-web/src/components/BattleScreen\\.tsx$"],
+      "fallback": true,
+      "gates": [
+        "types",
+        "vitest",
+        "secrets",
+        "docs",
+        "ssot",
+        "harness",
+        "scenario",
+        "local-game-ui",
+        "build",
+        "public-build"
+      ]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/BlockDeclarationHud\\.tsx$",
+        "^apps/playground-web/src/components/block-declaration-hud\\.css$"
+      ],
+      "gates": [
+        "types",
+        "secrets",
+        "scenario-file-scenario-declaration-cues",
+        "build",
+        "public-build"
+      ]
+    },
+    {
+      "patterns": ["^e2e/scenario-declaration-cues\\.spec\\.ts$"],
+      "gates": [
+        "scenario-file-scenario-declaration-cues",
+        "harness",
+        "docs",
+        "secrets"
+      ]
+    },
+    {
+      "patterns": [
+        "^e2e/(?:scenario-pregame-more-menu|replay-viewer)\\.spec\\.ts$"
+      ],
+      "gates": ["battle-navigation"]
+    },
+    {
+      "patterns": [
+        "^scripts/harness/",
+        "^scripts/test-harness\\.mjs$",
+        "^scripts/test-unit-entry\\.mjs$",
+        "^\\.husky/pre-push$",
+        "^scripts/(?:test-)?preflight-publish\\.mjs$",
+        "^scripts/(?:list-unclassified|gate-evidence)\\.mjs$"
+      ],
+      "gates": ["harness", "verifier", "dev-contract"]
+    },
+    {
+      "patterns": [
+        "^vitest\\.config\\.ts$",
+        "^apps/playground-web/test/vitest-pool-config\\.test\\.ts$"
+      ],
+      "gates": [
+        "types",
+        "ledger",
+        "vitest",
+        "harness",
+        "verifier",
+        "dev-contract",
+        "fidelity",
+        "audit-operations"
+      ]
+    },
+    {
+      "patterns": ["^scripts/harness/gate-manifest\\.json$"],
+      "gates": ["audit-operations"]
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/(?:PublicDisclosureLogView\\.tsx|public-disclosure-log\\.css)$",
+        "^e2e/scenario-public-disclosure-log\\.spec\\.ts$"
+      ],
+      "gates": [
+        "types",
+        "docs",
+        "secrets",
+        "build",
+        "public-build",
+        "public-disclosure-log-ui"
+      ]
+    },
+    {
+      "patterns": ["^apps/playground-web/test/selfplay-fuzz\\.test\\.ts$"],
+      "gates": ["types", "vitest", "harness"]
+    },
+    {
+      "patterns": ["^package\\.json$"],
+      "changedLines": "^\\s*\"(?:verify:dialogue\"\\s*:\\s*\"node scripts/harness/run-gates\\.mjs --profile dialogue|test:storage\"\\s*:\\s*\"node scripts/test-artifact-storage\\.mjs(?: && node scripts/test-supervisor-work-plan\\.mjs)?)\",?$",
+      "gates": ["harness"]
+    },
+    {
+      "patterns": [
+        "^scripts/security/",
+        "^\\.gitleaks\\.toml$",
+        "^\\.github/workflows/secrets\\.yml$",
+        "^\\.husky/pre-push$"
+      ],
+      "gates": ["secrets"]
+    },
+    {
+      "patterns": ["^scripts/test-local-game-gates\\.mjs$"],
+      "gates": ["harness"]
+    },
+    {
+      "patterns": [
+        "^scripts/(?:e2e-run|test-e2e-run|test-e2e-run-wiring)\\.mjs$"
+      ],
+      "gates": ["harness"]
+    },
+    {
+      "patterns": ["^playwright\\.public\\.config\\.ts$"],
+      "gates": ["build", "public-build"]
+    },
+    {
+      "patterns": [
+        "^scripts/test-(?:semantic-scope|path-classification)\\.mjs$",
+        "^\\.github/workflows/ci\\.yml$"
+      ],
+      "gates": ["harness", "verifier"]
+    },
+    {
+      "patterns": ["^scripts/test-verifier-gate\\.mjs$"],
+      "gates": ["harness", "verifier"]
+    },
+    {
+      "patterns": ["^scripts/vitest-with-jest-aliases\\.mjs$"],
+      "gates": ["harness", "vitest"]
+    },
+    {
+      "patterns": [
+        "^scripts/lib/full-run-checkout-preflight\\.ps1$",
+        "^scripts/test-supervisor-preflight-diagnostics\\.mjs$"
+      ],
+      "gates": ["supervisor-preflight"]
+    },
+    {
+      "patterns": ["^scripts/test-ismcts-catalog\\.mjs$"],
+      "gates": ["ismcts-catalog", "harness-selection", "verifier"]
+    },
+    {
+      "patterns": ["^\\.prettierignore$"],
+      "gates": ["format"]
+    },
+    {
+      "patterns": ["^eslint\\.config\\.mjs$"],
+      "gates": ["lint"]
+    },
+    {
+      "patterns": [
+        "^sounds/music/[^/]+/[^/]+\\.m4a$",
+        "^images/title/[^/]+/[^/]+\\.webp$"
+      ],
+      "gates": [
+        "public-assets-unit",
+        "build",
+        "public-build",
+        "title-preparation"
+      ]
+    },
+    {
+      "patterns": [
+        "^mockups/[^/]+\\.(?:css|html)$",
+        "^\\.telegram-images/[^/]+\\.jpg$"
+      ],
+      "gates": ["format"]
+    }
+  ],
+  "testGates": [
+    "auxiliary-model-policy",
+    "dot-connection",
+    "audit-operations",
+    "funnel-watchdog",
+    "harness",
+    "verifier",
+    "supervisor-lock",
+    "supervisor-runner-lock",
+    "storage",
+    "telegram",
+    "effect-debug",
+    "text-accountability",
+    "put-semantics",
+    "fidelity",
+    "ismcts-program",
+    "ismcts-runtime",
+    "handoff",
+    "auto-merge-integration",
+    "vitest",
+    "secrets"
+  ],
+  "sourceGates": [
+    "format",
+    "lint",
+    "dev-contract",
+    "types",
+    "docs",
+    "ssot",
+    "wiring",
+    "ledger",
+    "e2e-changed"
+  ],
+  "requiredScopes": [
+    {
+      "patterns": [
+        "^apps/playground-web/src/components/(?:PublicDisclosureLogView\\.tsx|public-disclosure-log\\.css)$",
+        "^e2e/scenario-public-disclosure-log\\.spec\\.ts$"
+      ],
+      "gates": ["build", "public-build", "public-disclosure-log-ui"],
+      "whenFull": true
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/server/(?:game-api|local-game-(?:session|api))\\.ts$",
+        "^apps/playground-web/src/(?:App\\.tsx|AuthContext\\.tsx|main\\.tsx|development\\.ts|local-game-auth\\.tsx|hooks/useRoomSync\\.ts|components/BattleScreen\\.tsx)$",
+        "^apps/playground-web/shared/room-protocol\\.ts$",
+        "^apps/playground-web/vite\\.config\\.ts$",
+        "^playwright\\.local\\.config\\.ts$"
+      ],
+      "gates": ["local-game-ui"],
+      "whenFull": true
+    },
+    {
+      "patterns": [
+        "^apps/playground-web/src/(?:main\\.tsx|development\\.ts|local-game-auth\\.tsx)$",
+        "^apps/playground-web/vite\\.config\\.ts$",
+        "^playwright\\.public\\.config\\.ts$"
+      ],
+      "gates": ["build", "public-build"]
+    }
+  ],
+  "crosscuttingScopes": [
+    {
+      "patterns": [
+        "^(?:pnpm-lock\\.yaml|pnpm-workspace\\.yaml|(?:packages/[^/]+/|apps/[^/]+/)?package\\.json|\\.npmrc|patches/.*)$"
+      ],
+      "reason": "Workspace dependency resolution can change the executable inputs of every suite and build"
+    },
+    {
+      "patterns": [
+        "^(?:vitest\\.config\\.ts|scripts/harness/vitest-unit\\.config\\.mjs|scripts/vitest-with-jest-aliases\\.mjs)$"
+      ],
+      "reason": "The shared test runtime or discovery contract can change how every test executes"
+    },
+    {
+      "patterns": [
+        "^packages/rules-core/src/(?:model|dsl-types|runtime)\\.ts$"
+      ],
+      "reason": "The shared state and action contracts are consumed across the engine, persistence, AI, server and UI"
+    }
+  ],
+  "fullScopes": [
+    {
+      "id": "autorun-queue",
+      "patterns": [
+        "^autorun-queue/",
+        "^(?:autorun-assignments.json|needs-ruling.jsonl)$"
+      ],
+      "reason": "Remainder of the lane ledgers after P2-16 narrowed cluster-registry.json and autorun-queue/needs-{dsl,ruling}.*.jsonl in semantic-scope.mjs pathOverride: autorun-assignments.json (no reader, 0 commits/90d, but prettier checks it), root needs-ruling.jsonl (own content-aware semantic scope) and any new file under autorun-queue/ (a new needs-{dsl,ruling}.<x>.jsonl is the exception: it matches the queue rule and runs docs only, accepted because only lane scripts outside the gates read the queues). Measured 2026-11-02 (確度B): corrupting the six ledgers changed no result of handoff, harness, fidelity, ismcts-program or ismcts-runtime. Narrow the rest with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "playground-server",
+      "patterns": ["^apps/playground-web/server/"],
+      "reason": "Room API / local-game server. The 15 modules that exist today are narrowed by exact path in semantic-scope.mjs pathOverride (lists in static-inputs.mjs), so this entry now covers only a file added under server/ later, which keeps the full verification until it is reviewed. Measured 2026-11-02 (確度B): corrupting and deleting all 15 files and running 23 gates (the 28 full gates minus format, lint, types, docs, vitest and secrets, plus card-tests; handoff, ismcts-program, ismcts-runtime, harness, fidelity, auto-merge-integration and 17 more) changed only ssot, through game-api.ts; the merge fuzz summary was identical. The override keeps types, vitest, secrets and docs (a deletion breaks the doc links to game-api.ts and api-limits.ts), plus scenario, local-game-ui, build and public-build for the twelve modules vite.config.ts loads (CI runs those four on a full fallback; chosen by reading imports, not mutated). The unit tests in test-harness.mjs call selectGates without overrides, so their full-selection assertions for server/game-api.ts still hold. Narrow a new file with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "playground-src",
+      "patterns": ["^apps/playground-web/src/"],
+      "reason": "Browser app source. The 261 files that no scope claimed on 2026-11-03 are narrowed by exact path (PLAYGROUND_SRC_FILES in static-inputs.mjs, rule in semantic-scope.mjs pathOverride), so this entry now covers only a file added under src/ later (or one a scope no longer claims), which keeps the full verification until it is reviewed. Measured 2026-11-03 (確度B): corrupting and then deleting all 414 files of this entry and of playground-test (261 src, 145 tests, 8 SQL suites) at once and running 24 gates against an unmutated baseline left the heavy script gates unchanged (handoff, ismcts-program, ismcts-runtime, fidelity, auto-merge-integration, effect-debug and 15 more); ssot, docs and harness moved, and a second run over src and tests separately (those three gates only) attributed them: ssot (scans src), docs (a deletion breaks doc links) and harness (the GUI entry-file guard of the server rule), so the override keeps types, vitest, secrets, docs, ssot and harness, plus scenario, local-game-ui, build and public-build (the GUI gates CI runs on a full fallback; chosen by reading, not mutated). The merge fuzz summary was identical (its entry points import none of them), so requiresMergeFuzz exempts the listed files. Narrow a new file with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "playground-test",
+      "patterns": ["^apps/playground-web/test/"],
+      "reason": "Vitest suites of the app. The 145 *.test.ts files that no scope claimed on 2026-11-03 (less the eight SQL-naming PGlite suites in SQL_INPUT_TESTS) are narrowed by exact path (PLAYGROUND_TEST_FILES in static-inputs.mjs, rule in semantic-scope.mjs pathOverride); helpers, fixtures, the SQL suites and a file added later are not in the list. A new leaf test is narrowed to focused-vitest by semanticScope (no new-verification finding then); any other new test keeps the full verification and raises that finding. Measured 2026-11-03 (確度B): corrupting and then deleting the 145 files together with the 261 src files and the 8 SQL suites (24 gates, one run each) left the heavy script gates unchanged; the 145 files alone (docs, ssot, harness) moved only docs on a deletion (doc links), and the merge fuzz summary was identical. The override keeps types, vitest, secrets, docs, harness and card-tests (card-tests: its run in the 24-gate experiment had no changed card against main, so it proves nothing, and 49 of the 145 listed tests contain card numbers it reads (two of them are the only references to six card numbers); harness: the SQL-naming guard of test-path-classification.mjs reads the whole test tree, which a corruption or deletion of an existing test cannot show). A leaf test edit is narrowed to focused-vitest by semanticScope, which replaces this path rule, so the harness guard runs only when the path rule applies (a test that another test imports; all 145 listed tests are leaves today, so it does not run for them; deleting a listed test needs the list, counts and digest updated, which returns that path to the full fallback); that behaviour predates this entry. Narrow a new file with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "playground-root",
+      "patterns": ["^apps/playground-web/(?:[^/]+|shared/.*|public/.*)$"],
+      "reason": "App entry config (vite, tsconfig, index.html, package.json, shared protocol, public assets). Affects build and every dependent suite. Reviewed 2026-11-02 with scripts/gate-evidence.mjs --paths: gates name it within their literal closure (rerun the command for the current list; over-approximate, 確度B); not narrowed because no per-gate proof exists. Narrow it with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "e2e",
+      "patterns": ["^e2e/"],
+      "reason": "Playwright specs/fixtures not registered as scenario-file gates. The 221 *.spec.ts files that no scope claimed on 2026-11-03 are narrowed by exact path (E2E_SPEC_FILES in static-inputs.mjs, rule E2E_SPEC_GATES in semantic-scope.mjs; docs: manual/ai-reference/00_meta/gate-classification-e2e.md): corrupting and deleting all of them left 27 gates (corruption and deletion) and the merge fuzz unchanged, and the four GUI gates (corruption only) unchanged, because, when measured, no gate executed them and nothing imported them (確度B). Since P2-17 the e2e-changed gate (E2E_SPEC_GATES) runs the specs a change touched, and only those; the list is 220 after the EDH-0041 spec was removed. Still reviewed-full and kept here: the six helpers and fixtures (helpers.ts, title-fixtures.ts and legal-main-deck.ts are imported by executed specs; room-installed-assets.ts, security/auth-helpers.ts and fixtures/*.json only by listed specs and were not measured), deck-builder-layout.spec.ts (the saved-deck-ui gate runs it by name), and any spec added later. Narrow the rest with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "scripts-ops",
+      "patterns": ["^scripts/"],
+      "reason": "Operational scripts and their data files. A script change stays blocking until a real scope names its consumers (semanticScope throws), so this entry never admits a silent full run. Reviewed 2026-11-02 with scripts/gate-evidence.mjs --paths: gates name it within their literal closure (rerun the command for the current list; over-approximate, 確度B); not narrowed because no per-gate proof exists. Narrow it with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "packages",
+      "patterns": ["^packages/"],
+      "reason": "Engine packages outside the scoped rules-core/card-data source directories (ai, replay-codec, card-data raw/scripts, rules-core fixtures). Imported by most suites and the build. Reviewed 2026-11-02 with scripts/gate-evidence.mjs --paths: gates name it within their literal closure (rerun the command for the current list; over-approximate, 確度B); not narrowed because no per-gate proof exists. Narrow it with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "apps-cli",
+      "patterns": ["^apps/cli/"],
+      "reason": "CLI app, imported by the operations gates' closure. Reviewed 2026-11-02 with scripts/gate-evidence.mjs --paths: gates name it within their literal closure (rerun the command for the current list; over-approximate, 確度B); not narrowed because no per-gate proof exists. Narrow it with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "supabase",
+      "patterns": ["^supabase/"],
+      "reason": "Database migrations and fixtures. *.sql under supabase/migrations and supabase/tests/fixtures are narrowed (the PGlite vitest suites run them); anything else under supabase/ (a new directory, a non-SQL file) keeps every gate. Narrowed 2026-11-02 (P2-16, 確度B): the files matched by STATIC_INPUT_PATTERNS in static-inputs.mjs run format, lint, docs and secrets (SQL also runs focused-vitest on the eight PGlite suites that executed it; images/*.webp also build and public-build). Groupwise vitest run 2026-11-02 (確度B, 22436 tests against an unmutated baseline): breaking or deleting images, deploy/oracle and the manual assets left every result identical; only the SQL moved, eight PGlite suites. The merge fuzz is not expected to read these groups (static reading; selfplay-fuzz.test.ts run directly for 100 games printed the identical summary under break and delete), so requiresMergeFuzz exempts them. The rest of this entry keeps every gate."
+    },
+    {
+      "id": "deploy",
+      "patterns": ["^deploy/"],
+      "reason": "Deployment units for the local PC and the Oracle host. deploy/oracle/* is narrowed (nothing in the gate closure reads it); deploy/local-pc is not: funnel-policy and update-policy are imported by gates, and test-harness.mjs asserts run-api.mjs full. Narrowed 2026-11-02 (P2-16, 確度B): the files matched by STATIC_INPUT_PATTERNS in static-inputs.mjs run format, lint, docs and secrets. Groupwise vitest run 2026-11-02 (確度B, 22436 tests against an unmutated baseline): breaking or deleting images, deploy/oracle and the manual assets left every result identical; only the SQL moved, eight PGlite suites. The merge fuzz is not expected to read these groups (static reading; selfplay-fuzz.test.ts run directly for 100 games printed the identical summary under break and delete), so requiresMergeFuzz exempts them. The rest of this entry keeps every gate."
+    },
+    {
+      "id": "tool-config",
+      "patterns": [
+        "^\\.(?:codex|husky)/",
+        "^(?:\\.git-blame-ignore-revs|\\.gitattributes|\\.gitignore|\\.mcp\\.json|\\.prettierrc\\.json|netlify\\.toml|playwright\\.config\\.ts|pnpm-lock\\.yaml|pnpm-workspace\\.yaml|tsconfig\\.base\\.json)$"
+      ],
+      "reason": "Agent hooks and repository config files (.codex, .husky, .gitattributes, root configs, lockfile). They define how every other check runs. Reviewed 2026-11-02 with scripts/gate-evidence.mjs --paths: gates name it within their literal closure (rerun the command for the current list; over-approximate, 確度B); not narrowed because no per-gate proof exists. Narrow it with a falsification test, never by deleting this entry."
+    },
+    {
+      "id": "manual-assets",
+      "patterns": ["^manual/", "^qa/"],
+      "reason": "Non-markdown manual material. The four manual/_legacy/dsl-v2-design/*.ts, qa/rest-rebirth-post-choice.ts, the home-lobby mockup html and its assets, and the 2026-09-10 effect-result wording audit JSON are narrowed (outside every tsconfig; docs checks links to them). Markdown is already scoped to docs; any other file under manual/ or qa/ keeps every gate. Narrowed 2026-11-02 (P2-16, 確度B): the files matched by STATIC_INPUT_PATTERNS in static-inputs.mjs run format, lint, docs and secrets. Groupwise vitest run 2026-11-02 (確度B, 22436 tests against an unmutated baseline): breaking or deleting images, deploy/oracle and the manual assets left every result identical; only the SQL moved, eight PGlite suites. The merge fuzz is not expected to read these groups (static reading; selfplay-fuzz.test.ts run directly for 100 games printed the identical summary under break and delete), so requiresMergeFuzz exempts them. The rest of this entry keeps every gate."
+    },
+    {
+      "id": "images",
+      "patterns": ["^images/"],
+      "reason": "Raster/document assets other than images/title and the top-level card images images/*.webp (now narrowed): images/ForGUI, avater, reference, zokuseichi and similar. Referenced by e2e fixtures, the app and several suites; which gate observes which subdirectory is not mapped, and these were not part of the mutation run. Narrowed 2026-11-02 (P2-16, 確度B): the files matched by STATIC_INPUT_PATTERNS in static-inputs.mjs run format, lint, docs and secrets (images/*.webp also run build and public-build: deleting them failed both, assertPublicCardImages). Groupwise vitest run 2026-11-02 (確度B, 22436 tests against an unmutated baseline): breaking or deleting images, deploy/oracle and the manual assets left every result identical; only the SQL moved, eight PGlite suites. The merge fuzz is not expected to read these groups (static reading; selfplay-fuzz.test.ts run directly for 100 games printed the identical summary under break and delete), so requiresMergeFuzz exempts them. The rest of this entry keeps every gate."
+    }
+  ],
+  "semanticGates": [
+    "card-source-audit",
+    "scenario-file-scenario-post-stack-step-choice",
+    "scenario-file-scenario-optional-choice-decline",
+    "scenario-file-scenario-post-draw-selection",
+
+    "changed-style",
+    "scenario",
+    "focused-vitest",
+    "static-reduction",
+    "card-source",
+    "room-delivery-unit",
+    "e2e-changed"
+  ]
+}

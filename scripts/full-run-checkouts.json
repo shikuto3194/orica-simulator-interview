@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "workerWorktree": "../orica-wt/engine-drain",
+  "workerRef": "refs/heads/feat/engine-drain",
+  "integrationWorktree": "../orica-wt/fullrun-sync-33f-20261001",
+  "integrationRef": "refs/heads/main"
+}

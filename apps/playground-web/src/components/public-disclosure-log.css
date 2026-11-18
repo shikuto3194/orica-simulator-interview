@@ -1,0 +1,19 @@
+.zone-browse-panel.public-disclosure-log-panel {
+  width: min(720px, calc(100vw - 42px));
+  max-height: min(720px, calc(100vh - 42px));
+}
+
+.public-disclosure-log-list {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+  padding: 0 2px 4px;
+}
+
+.public-disclosure-contract-heading {
+  margin: 0;
+  font-size: 13px;
+}

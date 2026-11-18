@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "id": "pc-shared",
+  "compute": {
+    "jobs": 1,
+    "threads": 2,
+    "priority": "BelowNormal",
+    "sampleMs": 2000
+  },
+  "ram": {
+    "softGiB": 2,
+    "hardGiB": 3,
+    "startFreeGiB": 6,
+    "stopFreeGiB": 4,
+    "resumeMs": 30000
+  },
+  "cpu": {
+    "stopPercent": 60,
+    "stopMs": 10000,
+    "resumeBelowPercent": 40,
+    "resumeMs": 30000
+  },
+  "gpu": {
+    "enabled": false,
+    "jobs": 1,
+    "batch": 16,
+    "vramGiB": 3,
+    "startFreeGiB": 6,
+    "startPercent": 25,
+    "resumeMs": 30000,
+    "stopFreeGiB": 4,
+    "stopPercent": 70,
+    "stopMs": 10000,
+    "stopCelsius": 80,
+    "resumeBelowCelsius": 75,
+    "windowMs": 1000,
+    "targetActivePercent": 25,
+    "batchMs": 50
+  },
+  "offline": {
+    "chunkMs": 1200000,
+    "wallMs": 86400000,
+    "cpuMs": 172800000,
+    "gpuMs": 21600000,
+    "monitorTickMs": 600000,
+    "monitorMs": 3600000,
+    "outputBytes": 2147483648,
+    "programSoftBytes": 21474836480,
+    "timeZone": "Asia/Tokyo"
+  },
+  "search": {
+    "concurrency": 1,
+    "softMs": 1500,
+    "hardMs": 3000,
+    "simulations": 512,
+    "calibrationSimulations": 64,
+    "rolloutDecisions": 64,
+    "forcedTransitions": 256,
+    "nodes": 20000,
+    "treeBytes": 134217728
+  },
+  "service": {
+    "queue": 4,
+    "sessionQueue": 1,
+    "queueMs": 2000,
+    "requestMs": 5000,
+    "bodyBytes": 2097152,
+    "bodyReadMs": 5000,
+    "cancelTargetMs": 100
+  }
+}

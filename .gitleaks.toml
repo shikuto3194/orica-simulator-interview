@@ -1,0 +1,21 @@
+title = "Repository secret guard"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Public Supabase client keys in reviewed entrypoints, including history (2026-10-30)"
+condition = "AND"
+paths = ['''^apps/playground-web/src/(supabase-config|supabaseClient)\.ts$''', '''^apps/playground-web/server/game-api\.ts$''', '''^e2e/room-invitations-live\.spec\.ts$''', '''^e2e/security/auth-helpers\.ts$''']
+regexTarget = "secret"
+regexes = ['''^sb_publishable_[A-Za-z0-9_-]+$''']
+
+[[rules.allowlists]]
+description = "SHA256 of a reviewed source file, not an API credential"
+condition = "AND"
+paths = ['''^packages/rules-core/test/fixtures/revealed-target-ui-raw-audit\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"packages/rules-core/src/effect/card-access-rules\.ts": "[a-f0-9]{64}"[,]?\s*$''']

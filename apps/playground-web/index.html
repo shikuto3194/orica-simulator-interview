@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d0e1a" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <title>幻想符</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- P2-08 タスク 8: 画面サイズ警告 overlay。表示制御は battle.css の @media -->
+    <div id="orientation-warning-portrait" role="alert" aria-live="polite">
+      <div class="ow-icon" aria-hidden="true">📱</div>
+      <p class="ow-title">横画面に回転してください</p>
+      <p class="ow-sub">本アプリは横画面表示に最適化されています</p>
+    </div>
+    <div id="orientation-warning-small" role="status" aria-live="polite">
+      <span class="ow-text">画面が小さく一部 UI が見切れる可能性があります</span>
+      <button class="ow-dismiss" type="button" aria-label="閉じる">×</button>
+    </div>
+    <script type="module" src="./src/main.tsx"></script>
+    <script>
+      // P2-08 タスク 8: 極小横画面 soft 警告 dismiss (sessionStorage 永続化)
+      (() => {
+        const small = document.getElementById('orientation-warning-small');
+        if (!small) return;
+        try {
+          if (sessionStorage.getItem('orientation-small-dismissed') === 'true') {
+            small.classList.add('dismissed');
+          }
+        } catch (e) { /* sessionStorage が使えない環境では skip */ }
+        const btn = small.querySelector('.ow-dismiss');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            small.classList.add('dismissed');
+            try { sessionStorage.setItem('orientation-small-dismissed', 'true'); } catch (e) {}
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

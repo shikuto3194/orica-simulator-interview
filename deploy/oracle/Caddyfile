@@ -1,0 +1,5 @@
+# Replace with the actual DNS hostname before enabling Caddy.
+api.example.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:3000
+}

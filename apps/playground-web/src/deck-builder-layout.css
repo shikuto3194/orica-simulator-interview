@@ -1,0 +1,300 @@
+/* Keep the existing vertical flow when the viewport is portrait or square. */
+.db-workspace {
+  display: flex;
+}
+.db-workspace-controls,
+.db-workspace-cards {
+  display: contents;
+}
+
+/* Keep the last actions scrollable above the floating BGM controls. */
+.db-root .db-tab-content,
+.db-root .saved-decks-grid {
+  padding-bottom: var(--bgm-controls-clearance, 0px);
+}
+
+/* Preserve the virtual viewport height when the portrait tab overflows. */
+.db-virtual-list-wrap,
+.db-virtual-grid-wrap {
+  flex-shrink: 0;
+}
+
+/* Virtual rows are replaced while scrolling; they must not become browser
+ * scroll anchors and shift the viewport as the trailing space comes into view. */
+.db-virtual-list-wrap > div,
+.db-virtual-grid-wrap > div,
+.db-root .db-tab-content,
+.db-workspace-cards {
+  overflow-anchor: none;
+}
+
+/* react-window owns the scroll viewport and sets the inner content height.
+ * Add clearance to that height without changing its absolute row positions. */
+.db-virtual-list-wrap > div > div,
+.db-virtual-grid-wrap > div > div {
+  box-sizing: content-box;
+  padding-bottom: var(--bgm-controls-clearance, 0px);
+}
+
+@media (orientation: landscape) {
+  .db-root .db-workspace {
+    padding-bottom: 0;
+  }
+  .db-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: 0.5em;
+    overflow: hidden;
+  }
+  .db-workspace-controls,
+  .db-workspace-cards {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+  }
+  .db-workspace-cards > .db-virtual-list-wrap:only-child > div,
+  .db-workspace-cards > .db-virtual-grid-wrap:only-child > div {
+    overscroll-behavior-y: contain;
+  }
+  .db-workspace-controls {
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: var(--bgm-controls-clearance, 0px);
+  }
+  .db-workspace-cards {
+    grid-column: 2;
+    grid-row: 1 / -1;
+  }
+  .db-workspace-footer {
+    display: block;
+  }
+  .db-workspace .db-input-row,
+  .db-workspace .db-deck-header {
+    flex-wrap: wrap;
+  }
+  .db-workspace input,
+  .db-workspace select,
+  .db-workspace .db-filter-field {
+    min-width: 0;
+  }
+  .db-workspace .db-filter-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .db-workspace .db-deck-header {
+    gap: 0.5em;
+  }
+  .db-workspace .db-deck-header .db-view-toggle-row {
+    width: 100%;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 900px) {
+  .db-workspace .db-filter-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Saved decks and QA share the same controls/results panes. */
+.db-root .db-tab-bar {
+  grid-template-columns: minmax(0, 1fr) repeat(3, minmax(0, 2.5fr)) minmax(
+      0,
+      1fr
+    );
+}
+.db-saved-workspace,
+.db-qa-workspace {
+  display: block;
+}
+.db-qa-search-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.db-qa-search {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0f3460;
+  color: #fff;
+}
+.db-qa-results-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin-bottom: 6px;
+}
+.db-qa-results-heading span {
+  color: #aaa;
+  font-size: 0.9em;
+}
+.db-qa-list {
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+.db-qa-item + .db-qa-item {
+  border-top: 1px solid #444;
+}
+.db-qa-question {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  width: 100%;
+  text-align: left;
+  padding: 0.7em 0.9em;
+  background: #16213e;
+  color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+.db-qa-question > span:first-of-type {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.db-qa-question strong {
+  color: #e94560;
+}
+.db-qa-question:hover,
+.db-qa-question[aria-expanded="true"] {
+  background: #0f3460;
+  color: #fff;
+}
+.db-qa-answer {
+  padding: 0.7em 1em 0.9em 2.2em;
+  background: #1a1a2e;
+}
+.db-qa-answer-label {
+  display: block;
+  color: #4caf50;
+  margin-bottom: 4px;
+}
+.db-qa-answer-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.db-qa-tags {
+  display: flex;
+  gap: 0.4em;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 0.85em;
+}
+.db-qa-tags > span {
+  background: #0f3460;
+  color: #e0e0e0;
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+}
+.db-qa-tags time {
+  margin-left: auto;
+  color: #aaa;
+}
+.db-qa-empty {
+  padding: 0.8em;
+  color: #aaa;
+}
+
+@media (orientation: landscape) {
+  .db-saved-workspace,
+  .db-qa-workspace {
+    display: grid;
+  }
+  .db-saved-workspace .saved-decks-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    margin-top: 0;
+  }
+  .db-saved-workspace .saved-deck-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    aspect-ratio: 1;
+    font-size: clamp(0.75rem, 1.8vw, 1rem);
+  }
+  .db-saved-workspace .deck-title {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .db-saved-workspace .deck-actions {
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 0.5em;
+  }
+  .db-saved-workspace .deck-actions button {
+    flex: 1;
+    min-width: 0;
+    padding: 0.4em 0.25em !important;
+  }
+  .db-qa-results {
+    padding-bottom: var(--bgm-controls-clearance, 0px);
+  }
+  .db-workspace-cards .db-virtual-grid-wrap > div {
+    scrollbar-gutter: stable;
+  }
+  .db-workspace-cards > .db-virtual-grid-wrap:only-child {
+    margin-bottom: 0;
+  }
+  .db-workspace-cards .db-grid-card-btns {
+    width: 92%;
+    justify-content: center;
+    gap: 4px;
+  }
+  .db-workspace-cards .db-grid-minus,
+  .db-workspace-cards .db-grid-plus {
+    width: min(2.75rem, calc((100% - 4px) / 2));
+    height: auto;
+    aspect-ratio: 1;
+    font-size: 1.2rem;
+    padding: 0;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .db-root .db-tab-btn {
+    font-size: clamp(0.8rem, 3.7vw, 0.95rem);
+  }
+}
+
+.saved-deck-sort-options {
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--lobby-border, #555);
+  border-radius: 6px;
+  padding: 0.4em 0.7em;
+  background: var(--lobby-surface, #0f3460);
+  color: #fff;
+}
+.saved-deck-sort-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em 0;
+  cursor: pointer;
+}
+.saved-deck-sort-options [role="radiogroup"] + [role="radiogroup"] {
+  border-top: 1px solid var(--lobby-border, #555);
+  margin-top: 0.4em;
+  padding-top: 0.4em;
+}
+
+.db-sort-toggle {
+  background: var(--lobby-primary, #e94560);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  font: inherit;
+  cursor: pointer;
+}

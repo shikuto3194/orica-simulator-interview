@@ -1,0 +1,242 @@
+{
+  "sourceSha256": "59d59ae0f1e5d24543d0a1e5495a00ff7d72ddf79dece2d356ec3e33e0a961f2",
+  "savedAt": "2026-10-25T07:57:55.299Z",
+  "note": "Exact observed post-battle subset. No pre-battle state or action replay is available.",
+  "players": [
+    {
+      "id": "alice",
+      "deckCount": 12,
+      "handCount": 10,
+      "countValue": 0,
+      "contractCardNo": null,
+      "soulCoreLocation": {
+        "kind": "trash"
+      },
+      "lifeSoulCoreCount": 0,
+      "trashSoulCoreCount": 1,
+      "lifeNormalCoreCount": 0,
+      "voidNormalCoreCount": 188,
+      "reserveSoulCoreCount": 0,
+      "soulStateInstanceIds": [],
+      "trashNormalCoreCount": 10,
+      "reserveNormalCoreCount": 1
+    },
+    {
+      "id": "bob",
+      "deckCount": 16,
+      "handCount": 6,
+      "countValue": 7,
+      "contractCardNo": "BSGE01-CX01",
+      "protectedCounts": {
+        "神喰": 7
+      },
+      "soulCoreLocation": {
+        "kind": "trash"
+      },
+      "lifeSoulCoreCount": 0,
+      "trashSoulCoreCount": 1,
+      "lifeNormalCoreCount": 2,
+      "voidNormalCoreCount": 174,
+      "reserveSoulCoreCount": 0,
+      "soulStateInstanceIds": ["card-42", "card-49", "card-59"],
+      "trashNormalCoreCount": 6,
+      "reserveNormalCoreCount": 1
+    }
+  ],
+  "cardInstances": [
+    {
+      "zone": "field",
+      "faceDown": false,
+      "instanceId": "card-59",
+      "underCards": [
+        {
+          "role": "text_role",
+          "roleTag": "バレットエディット",
+          "cardInstanceId": "card-58"
+        }
+      ],
+      "definitionId": "BSGE01-CX01",
+      "exhaustState": "recovered",
+      "zoneRoleName": "spirit",
+      "ownerPlayerId": "bob",
+      "soulCoreCount": 0,
+      "inUseSourceZone": "hand",
+      "normalCoreCount": 0,
+      "pendingLeaveKind": null,
+      "everHadCorePlaced": true,
+      "pendingLeaveCause": null,
+      "zoneEnteredAtTurn": 6,
+      "controllerPlayerId": "bob",
+      "attachedChildrenIds": ["card-51"],
+      "pendingLeaveChainId": null,
+      "attachedToInstanceId": null,
+      "divineTransformState": null,
+      "minimumRequiredCores": 1,
+      "originalDefinitionId": "BSGE01-CX01",
+      "pendingLeaveLvSnapshot": 0,
+      "detachedUnderCardOrigin": null,
+      "imaginRightCombinedWith": null,
+      "oraclePlacementSuppressed": false,
+      "deferZoneMoveUntilChainEnd": false,
+      "exhaustedByUnpreventableEffect": false,
+      "skipNextRefreshRecovery": false,
+      "soulStateGeneration": 1
+    },
+    {
+      "zone": "field",
+      "faceDown": false,
+      "instanceId": "card-51",
+      "underCards": [],
+      "definitionId": "BSGE01-TX01(A)",
+      "exhaustState": "recovered",
+      "zoneRoleName": "brave",
+      "ownerPlayerId": "bob",
+      "soulCoreCount": 0,
+      "normalCoreCount": 0,
+      "pendingLeaveKind": null,
+      "everHadCorePlaced": false,
+      "pendingLeaveCause": null,
+      "zoneEnteredAtTurn": 6,
+      "controllerPlayerId": "bob",
+      "attachedChildrenIds": [],
+      "pendingLeaveChainId": null,
+      "attachedToInstanceId": "card-59",
+      "divineTransformState": null,
+      "minimumRequiredCores": 0,
+      "originalDefinitionId": "BSGE01-TX01(A)",
+      "pendingLeaveLvSnapshot": 1,
+      "detachedUnderCardOrigin": null,
+      "imaginRightCombinedWith": null,
+      "oraclePlacementSuppressed": false,
+      "deferZoneMoveUntilChainEnd": false,
+      "exhaustedByUnpreventableEffect": false
+    }
+  ],
+  "battleEntities": [
+    {
+      "entityId": "battle-entity:card-59",
+      "resolvedBp": 0,
+      "attackState": "idle",
+      "resolvedSymbols": ["red"],
+      "memberInstanceIds": ["card-51"],
+      "resolvedSymbolCount": 1
+    }
+  ],
+  "publicDisclosures": [
+    {
+      "id": "public-disclosure:6:125",
+      "kind": "attack_declared",
+      "step": "attack",
+      "source": {
+        "instanceId": "card-59",
+        "definitionIdSnapshot": "BSGE01-CX01"
+      },
+      "results": [],
+      "targets": [
+        {
+          "kind": "card",
+          "instanceId": "card-59",
+          "actionLabel": "attack",
+          "definitionIdSnapshot": "BSGE01-CX01"
+        },
+        {
+          "kind": "card",
+          "instanceId": "card-51",
+          "actionLabel": "attack",
+          "definitionIdSnapshot": "BSGE01-TX01(A)"
+        },
+        {
+          "kind": "player",
+          "playerId": "alice",
+          "actionLabel": "attack_target"
+        }
+      ],
+      "attackId": "attack-group:6:bob:battle-entity:card-59",
+      "audience": "both",
+      "sequence": 125,
+      "turnNumber": 6,
+      "actorPlayerId": "bob"
+    },
+    {
+      "turnNumber": 6,
+      "step": "attack",
+      "actorPlayerId": "alice",
+      "audience": "both",
+      "source": {
+        "instanceId": "card-6",
+        "effectIndex": 0,
+        "definitionPath": ["accelData", "effects"],
+        "definitionIdSnapshot": "BSTH08.5-R13"
+      },
+      "kind": "target_declared",
+      "targets": [
+        {
+          "kind": "card",
+          "instanceId": "card-59",
+          "actionLabel": "destroy",
+          "definitionIdSnapshot": "BSGE01-CX01"
+        }
+      ],
+      "results": [
+        {
+          "kind": "card_move",
+          "instanceId": "card-59",
+          "from": "field",
+          "to": "trash",
+          "actionLabel": "destroy",
+          "definitionIdSnapshot": "BSGE01-CX01"
+        }
+      ],
+      "id": "public-disclosure:6:133",
+      "sequence": 133
+    },
+    {
+      "turnNumber": 6,
+      "step": "attack",
+      "actorPlayerId": "bob",
+      "audience": "both",
+      "kind": "state_changed",
+      "targets": [],
+      "results": [
+        {
+          "kind": "card_state",
+          "instanceId": "card-59",
+          "actionLabel": "enter_soul_state",
+          "definitionIdSnapshot": "BSGE01-CX01"
+        }
+      ],
+      "id": "public-disclosure:6:135",
+      "sequence": 135
+    },
+    {
+      "turnNumber": 6,
+      "step": "attack",
+      "actorPlayerId": "bob",
+      "audience": "both",
+      "source": {
+        "instanceId": "card-51",
+        "definitionIdSnapshot": "BSGE01-TX01(A)"
+      },
+      "kind": "battle_resolved",
+      "attackId": "attack-group:6:bob:battle-entity:card-59",
+      "targets": [
+        {
+          "kind": "card",
+          "instanceId": "card-51",
+          "actionLabel": "battle_resolve",
+          "definitionIdSnapshot": "BSGE01-TX01(A)"
+        }
+      ],
+      "results": [
+        {
+          "kind": "life_delta",
+          "playerId": "alice",
+          "amount": -1,
+          "actionLabel": "life_reduce"
+        }
+      ],
+      "id": "public-disclosure:6:139",
+      "sequence": 139
+    }
+  ]
+}

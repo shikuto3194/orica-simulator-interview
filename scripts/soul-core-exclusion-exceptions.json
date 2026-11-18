@@ -1,0 +1,6 @@
+{
+  "_note": "《ソウルコア》以外 → ソウル除外表現の監査の除外。キー=cardNo、値=除外理由（なぜ除外表現が不要か / なぜ語彙が該当しないか）。新規追加時は必ず理由を書く。",
+  "BSES01-T01": "《ソウルコア》以外 の部分は親ブレイヴ側 (BSES01-C02/C05/C06/M01-M04/R01/R03/X01) の card_event:summon 内で summon.trashCoreMax:1 + trashCoreKind:\"normal\" として表現済みのため、本監査 (ソウル除外表現の有無) の対象外。ただし**その実装自体が不正**: 印字は「召喚するとき、召喚コスト支払い前に」だが実装は召喚後の card_event:summon で近似されており、かつ該当印字を持たない 10 枚に mandatory 効果として置かれている。issues/P3-138 で追跡中。本監査はカード単位で見るためクロスカード実装を検出できない (構造的限界)。",
+  "BSDB01-TX01(B)": "語彙が別文脈。「《ソウルコア》以外のコアを取り除けない」は**コア除去耐性** (制約) であって、コアを置く効果の源指定ではない。必要なのは effectKind ではなく除去制約の CE なので本監査の対象外。",
+  "BSTS01-X02": "textLines[5,6]（『ライフと《ソウルコア》以外の自分のコアすべてをこのアルティメットに置ける。そうしたとき、置いたコア3個につき…召喚する』）該当アビリティ自体が effects[] に未実装 (missing_action)。reserve+trash+field をまたぐ単一 CoreLocation で表せないコア集約源と、置いたコア数÷3(floor)+上限5の動的召喚数という新規 DSL 拡張が必要で、本 cluster (effectKind 付与) のスコープを超える。issues/P3-135_soul-core-exclusion-and-unimplemented-core-abilities.md で追跡中。実装せず exceptions 登録するのは cluster scope の指示どおり (cards-soul-core-exclusion-effectkind の guardrails 参照)。"
+}

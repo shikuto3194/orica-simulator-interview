@@ -1,0 +1,584 @@
+{
+  "note": "残量メトリクス ledger（停止条件 = fidelity violations 合計 total が 0）。update-snapshot.mjs が維持。",
+  "metric": "total = fidelity.violations.length (all violation kinds)",
+  "current": {
+    "date": "2026-10-29",
+    "stub": 0,
+    "uncovered": 0,
+    "noTextRef": 0,
+    "symbolMismatch": 0,
+    "total": 0,
+    "semanticReviews": 21,
+    "coverageAuditViolations": 0,
+    "coverageAuditReviews": 46,
+    "needsDslOpen": 0,
+    "needsRulingOpen": 0,
+    "coverageTodo": 0
+  },
+  "low": {
+    "total": 0,
+    "date": "2026-10-29"
+  },
+  "history": [
+    {
+      "date": "2026-08-01",
+      "total": 18,
+      "stub": 18,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 17,
+      "stub": 17,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 16,
+      "stub": 16,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 15,
+      "stub": 15,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 14,
+      "stub": 14,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 13,
+      "stub": 13,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 12,
+      "stub": 12,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 11,
+      "stub": 11,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-01",
+      "total": 10,
+      "stub": 10,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 10,
+      "stub": 10,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-02",
+      "total": 9,
+      "stub": 9,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 8,
+      "stub": 8,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 7,
+      "stub": 7,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 45,
+      "stub": 45,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 39,
+      "stub": 39,
+      "uncovered": 0,
+      "delta": -6
+    },
+    {
+      "date": "2026-08-02",
+      "total": 36,
+      "stub": 36,
+      "uncovered": 0,
+      "delta": -3
+    },
+    {
+      "date": "2026-08-02",
+      "total": 35,
+      "stub": 35,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 34,
+      "stub": 34,
+      "uncovered": 0,
+      "delta": 27
+    },
+    {
+      "date": "2026-08-02",
+      "total": 29,
+      "stub": 29,
+      "uncovered": 0,
+      "delta": -5
+    },
+    {
+      "date": "2026-08-02",
+      "total": 24,
+      "stub": 24,
+      "uncovered": 0,
+      "delta": -5
+    },
+    {
+      "date": "2026-08-02",
+      "total": 21,
+      "stub": 21,
+      "uncovered": 0,
+      "delta": -3
+    },
+    {
+      "date": "2026-08-02",
+      "total": 20,
+      "stub": 20,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 19,
+      "stub": 19,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 18,
+      "stub": 18,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 17,
+      "stub": 17,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 16,
+      "stub": 16,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-02",
+      "total": 14,
+      "stub": 14,
+      "uncovered": 0,
+      "delta": -2
+    },
+    {
+      "date": "2026-08-03",
+      "total": 13,
+      "stub": 13,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 12,
+      "stub": 12,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 11,
+      "stub": 11,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 10,
+      "stub": 10,
+      "uncovered": 0,
+      "delta": -2
+    },
+    {
+      "date": "2026-08-03",
+      "total": 9,
+      "stub": 9,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 8,
+      "stub": 8,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 7,
+      "stub": 7,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 16,
+      "stub": 6,
+      "uncovered": 0,
+      "delta": 9
+    },
+    {
+      "date": "2026-08-03",
+      "total": 17,
+      "stub": 7,
+      "uncovered": 0,
+      "delta": 10
+    },
+    {
+      "date": "2026-08-03",
+      "total": 16,
+      "stub": 6,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-03",
+      "total": 6,
+      "stub": 6,
+      "uncovered": 0,
+      "delta": -10
+    },
+    {
+      "date": "2026-08-03",
+      "total": 15,
+      "stub": 5,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-03",
+      "total": 5,
+      "stub": 5,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-04",
+      "total": 6,
+      "stub": 6,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-04",
+      "total": 5,
+      "stub": 5,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-04",
+      "total": 4,
+      "stub": 4,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-04",
+      "total": 3,
+      "stub": 3,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-04",
+      "total": 2,
+      "stub": 2,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-08-04",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": -2
+    },
+    {
+      "date": "2026-08-05",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-05",
+      "total": 2,
+      "stub": 2,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-05",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-06",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-13",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-14",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-24",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-25",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-26",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-27",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-29",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-30",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-08-31",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-02",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-04",
+      "total": 4,
+      "stub": 0,
+      "uncovered": 4,
+      "delta": 4
+    },
+    {
+      "date": "2026-09-04",
+      "total": 2,
+      "stub": 0,
+      "uncovered": 2,
+      "delta": -2
+    },
+    {
+      "date": "2026-09-13",
+      "total": 2,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-13",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": -2
+    },
+    {
+      "date": "2026-09-14",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-13",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-14",
+      "total": 1,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 1
+    },
+    {
+      "date": "2026-09-14",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-09-15",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-15",
+      "total": 1,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 1
+    },
+    {
+      "date": "2026-09-15",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": -1
+    },
+    {
+      "date": "2026-09-16",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-17",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-18",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-19",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-20",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-21",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-22",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-23",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    },
+    {
+      "date": "2026-09-24",
+      "total": 0,
+      "stub": 0,
+      "uncovered": 0,
+      "delta": 0
+    }
+  ]
+}

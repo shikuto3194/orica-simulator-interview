@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>効果解決スタック プレビュー</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #1a1a2e; color: #e0e0e0; font-family: sans-serif; min-height: 100vh; }
+
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  background: #0f0f1a;
+  font-size: 0.85rem;
+}
+.hud .turn-badge { background: #c0392b; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+.hud .step { color: #aaa; }
+.hud .void { margin-left: auto; color: #88f; }
+
+.main-area {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.field-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.opponent-field, .self-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px;
+}
+.opponent-field { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.self-field { border-top: 1px solid rgba(255,255,255,0.1); }
+
+.card {
+  width: 60px;
+  height: 84px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  text-align: center;
+  position: relative;
+}
+.card.spirit { background: #2d3a5e; border: 2px solid #4a6fa5; }
+.card.nexus { background: #3a2d5e; border: 2px solid #7a4fa5; }
+.card.magic { background: #5e2d3a; border: 2px solid #a54f6f; }
+.card .bp { position: absolute; bottom: 2px; right: 4px; font-size: 0.55rem; color: #ffd700; }
+.card .core-count { position: absolute; top: 2px; right: 4px; font-size: 0.55rem; color: #4fc3f7; }
+.card.exhausted { transform: rotate(90deg); opacity: 0.7; }
+
+.battle-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  font-size: 0.8rem;
+  color: #ff9800;
+  min-height: 32px;
+}
+
+/* ====== 効果解決スタック ====== */
+.effect-stack-panel {
+  width: 180px;
+  background: #12122a;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  overflow-y: auto;
+}
+.effect-stack-header {
+  font-size: 0.7rem;
+  color: #888;
+  padding: 4px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 4px;
+}
+
+.stack-item {
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+  animation: slideIn 0.3s ease-out;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.stack-item:hover { transform: scale(1.02); }
+.stack-item.resolving {
+  box-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.stack-item .item-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.stack-item .item-icon { font-size: 0.8rem; }
+.stack-item .item-timing { font-size: 0.6rem; opacity: 0.8; }
+.stack-item .item-card { font-size: 0.65rem; }
+.stack-item .item-desc { font-size: 0.6rem; opacity: 0.7; margin-top: 2px; }
+.stack-item .item-target { font-size: 0.6rem; color: #ff9800; margin-top: 1px; }
+.stack-item .item-player { font-size: 0.55rem; opacity: 0.5; }
+
+/* 種別ごとの色 */
+.stack-item.magic { background: rgba(128, 0, 128, 0.3); border-left: 3px solid #a040d0; }
+.stack-item.field-effect { background: rgba(0, 80, 160, 0.3); border-left: 3px solid #4090e0; }
+.stack-item.battle-immediate { background: rgba(180, 40, 40, 0.3); border-left: 3px solid #e04040; }
+.stack-item.triggered { background: rgba(40, 140, 40, 0.3); border-left: 3px solid #40c040; }
+.stack-item.burst { background: rgba(200, 160, 0, 0.3); border-left: 3px solid #e0c000; }
+.stack-item.stack-effect { background: rgba(200, 120, 0, 0.3); border-left: 3px solid #e08000; }
+.stack-item.battle-resolution { background: rgba(200, 200, 200, 0.15); border-left: 3px solid #c0c0c0; }
+
+/* カード画像サムネイル: 上部トリミング */
+.stack-item-body {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+.stack-card-thumb {
+  width: 48px;
+  height: 36px;
+  border-radius: 3px;
+  object-fit: cover;
+  object-position: center 25%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.stack-card-thumb.burst-back {
+  object-fit: contain;
+  object-position: center;
+  background: #1a1a2e;
+}
+.stack-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 空の時 */
+.stack-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: #444;
+  font-size: 0.7rem;
+}
+
+.hand-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background: #0f0f1a;
+  min-height: 80px;
+}
+.hand-area .card { border-color: #2e7d32; }
+.hand-area .card.selectable { border-color: #4caf50; box-shadow: 0 0 6px rgba(76,175,80,0.5); }
+
+.action-bar {
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #0a0a15;
+  justify-content: center;
+}
+.action-bar button {
+  padding: 6px 16px;
+  border: 1px solid #555;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.action-bar button:hover { background: #2a2a3e; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* シナリオ切替 */
+.scenario-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px 12px;
+  background: #0a0a15;
+}
+.scenario-tabs button {
+  padding: 4px 12px;
+  border: 1px solid #333;
+  background: #1a1a2e;
+  color: #888;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+.scenario-tabs button.active { background: #2a3a5e; color: #fff; border-color: #4a6fa5; }
+</style>
+</head>
+<body>
+
+<div class="scenario-tabs">
+  <button class="active" id="btn-battle">バトル中（効果解決待ち多数）</button>
+  <button id="btn-flash">フラッシュタイミング</button>
+  <button id="btn-empty">通常（スタック空）</button>
+</div>
+
+<div class="game-screen">
+  <div class="hud">
+    <span class="turn-badge">相手のターン</span>
+    <span>T4</span>
+    <span class="step">アタック</span>
+    <span class="void">ボイド 自:190/相:188</span>
+  </div>
+
+  <div class="main-area">
+    <div class="field-area">
+      <div class="opponent-field">
+        <div class="card spirit">
+          <span>ステイギス</span>
+          <span class="bp">2000</span>
+          <span class="core-count">●2</span>
+        </div>
+        <div class="card spirit exhausted">
+          <span>孫悟空</span>
+          <span class="bp">7000</span>
+          <span class="core-count">●2</span>
+        </div>
+      </div>
+      <div class="battle-center" id="battle-center">
+        ATK ステイギス 2000 ⚔ LIFE
+      </div>
+      <div class="self-field">
+        <div class="card spirit">
+          <span>加賀美リョウ</span>
+          <span class="bp">5000</span>
+          <span class="core-count">●2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 効果解決スタック -->
+    <div class="effect-stack-panel" id="stack-panel">
+      <div class="effect-stack-header">効果スタック</div>
+      <div id="stack-items"></div>
+    </div>
+  </div>
+
+  <div class="hand-area" id="hand-area">
+    <div class="card magic selectable">
+      <span>土符<br>レイジィ<br>トリリトン</span>
+    </div>
+  </div>
+
+  <div class="action-bar" id="action-bar">
+    <button>フラッシュパス</button>
+    <button>ブロック</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const scenarios = {
+  battle: [
+    { kind: 'battle-resolution', icon: '⚖', timing: 'バトル解決待ち', card: 'ステイギス vs ライフ', desc: 'BP2000 → ライフダメージ1', player: '相手', img: '/images/BSAZ01-C01.webp' },
+    { kind: 'burst', icon: '💥', timing: 'バーストチェック', card: 'BURST', desc: 'ライフ減少後', player: '自分', resolving: true, img: 'burst' },
+    { kind: 'triggered', icon: '🔔', timing: '誘発効果', card: '紅魔館', desc: 'Lv2: 夜族コスト8以上召喚時', player: '自分', img: '/images/BSTH01-R21.webp' },
+    { kind: 'battle-immediate', icon: '⚔', timing: 'アタック時', card: 'ステイギス', desc: 'BP+3000（合体中）', player: '相手', img: '/images/BSAZ01-C01.webp' },
+  ],
+  flash: [
+    { kind: 'magic', icon: '📜', timing: 'フラッシュ', card: '土符「レイジィトリリトン」', desc: '相手フィールドのコア2個→リザーブ', target: '→ 対象選択中...', player: '自分', resolving: true, img: '/images/BSTH01-C22.webp' },
+    { kind: 'stack-effect', icon: '🛡', timing: 'スタック', card: '[花映塚]チルノ', desc: '召喚を無効にする', player: '相手', img: '/images/BSTH04-C01.webp' },
+  ],
+  empty: [],
+};
+
+function showScenario(name) {
+  const items = scenarios[name];
+  const container = document.getElementById('stack-items');
+
+  document.querySelectorAll('.scenario-tabs button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  if (items.length === 0) {
+    container.innerHTML = '<div class="stack-empty">解決待ちの効果なし</div>';
+    return;
+  }
+
+  container.innerHTML = items.map((item, i) => {
+    const imgTag = item.img === 'burst'
+      ? `<img class="stack-card-thumb burst-back" src="/images/ForGUI/card-back.jpg" alt="BURST">`
+      : item.img
+        ? `<img class="stack-card-thumb" src="${item.img}" alt="${item.card}">`
+        : '';
+    return `
+    <div class="stack-item ${item.kind} ${item.resolving ? 'resolving' : ''}" style="animation-delay: ${i * 0.1}s">
+      <div class="item-header">
+        <span class="item-icon">${item.icon}</span>
+        <span class="item-timing">${item.timing}</span>
+      </div>
+      <div class="stack-item-body">
+        ${imgTag}
+        <div class="stack-item-info">
+          <div class="item-card">${item.card}</div>
+          <div class="item-desc">${item.desc}</div>
+          ${item.target ? `<div class="item-target">${item.target}</div>` : ''}
+          <div class="item-player">${item.player}</div>
+        </div>
+      </div>
+    </div>
+  `}).join('');
+}
+
+// ボタンイベント
+document.getElementById('btn-battle').addEventListener('click', function() { switchScenario('battle', this); });
+document.getElementById('btn-flash').addEventListener('click', function() { switchScenario('flash', this); });
+document.getElementById('btn-empty').addEventListener('click', function() { switchScenario('empty', this); });
+
+function switchScenario(name, btn) {
+  document.querySelectorAll('.scenario-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  showScenario(name);
+}
+
+// 初期表示
+showScenario('battle');
+});
+</script>
+
+</body>
+</html>

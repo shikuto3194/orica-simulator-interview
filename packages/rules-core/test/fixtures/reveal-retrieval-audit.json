@@ -1,0 +1,2186 @@
+{
+  "reviewedAt": "2026-09-23",
+  "source": "packages/card-data/raw/by-pack/*.js / 03c_effect-text-interpretation.md / 07c_card-observed-mechanics-extra.md",
+  "reveals": [
+    {
+      "cardNo": "BSAZ01-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分はデッキの上から4枚オープンでき、その中の系統：「地球」を持つブレイヴカード/ネクサスカード/マジックカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ01-C16",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このネクサスの配置時』",
+        "自分のデッキを上から5枚オープンできる。そうしたとき、その中の系統：「地球」と「ＣＦ」を持つスピリットカード1枚と、系統：「地球」を持つブレイヴカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ01-C17",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1",
+        "系統：「地球」と「ＣＦ」を持つ自分のスピリットが相手によってフィールドを離れるとき、自分のデッキを上から2枚オープンできる。その中の系統：「地球」を持つマジックカード1枚をフィールドに置く。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ01-CX01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1『自分のメインステップ』",
+        "[ゲームに1回：同名]自分はデッキの上から13枚オープンでき、その中の系統：「地球」を持つマジックカード3枚までをフィールドに置き、コスト4以下の「スレイプニール」1枚をコストを支払わずに召喚する。オープンしたカードの効果は発揮されず、残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 3,
+          "mandatory": false,
+          "destination": "field"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ01-X01",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの煌臨/アタック/ブロック時』",
+        "ターンに1回、自分はデッキの上から5枚オープンでき、その中の系統：「地球」を持つマジックカード1枚のフラッシュ効果をただちに発揮する。その後、効果を発揮したマジックカードはフィールドに置き、残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ02-C06",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1『このスピリットの召喚時』",
+        "〔ターンに1回：同名〕自分のデッキを上から5枚オープンできる。その中の系統：「ＣＦ」を持つアルティメットカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ02-C12",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1『このブレイヴの召喚時』",
+        "〔ターンに1回：同名〕自分のデッキを上から4枚オープンできる。その中の系統：「火星」を持つカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ02-C13",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "メイン",
+        "〔ターンに1回：同名〕自分のデッキを上から6枚オープンし、その中のカード名：「アルドノアドライブ」すべてと系統：「ＣＦ」持つアルティメットカード1枚を手札に加え、残ったカードはデッキの下に戻す。または、トラッシュにあるカード名：「アルドノアドライブ」1枚と系統：「ＣＦ」を持つアルティメットカード1枚を手札に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 6,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSAZ02-C16",
+      "path": "effects[2].steps[1].action",
+      "sourceLines": [
+        "フラッシュ",
+        "〔ターンに1回：同名〕自分の「ヴァース」を含む創界神ネクサス1つを破壊することで、自分のデッキを上から5枚オープンする。その中の、「アルドノアドライブ」1枚を手札に加え、アルティメットカード1枚を召喚条件を無視してコストを支払わずに召喚する。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ02-TX01(A)",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "【アルドノアドライブ：1】（このアルティメットの下にアルドノアドライブを1枚まで置ける。あるとき、以下の効果を得る）",
+        "Lv3-Lv4『このアルティメットの召喚時』",
+        "自分は、デッキの上から5枚オープンでき、その中のマジックカード以外の系統：「アルドノア」を持つカードすべてを手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": -1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSAZ02-X01",
+      "path": "effects[3].steps[0].action",
+      "sourceLines": [
+        "【アルドノアドライブ：1】（このアルティメットの下にアルドノアドライブを1枚まで置ける。あるとき、以下の効果を得る）",
+        "Lv4-Lv5『お互いのスタートステップ』",
+        "〔重複不可〕自分は、ターンプレイヤーのデッキの上から5枚内容を見る。その後、好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSAZ02-X01",
+      "path": "effects[4].steps[0].action",
+      "sourceLines": [
+        "【アルドノアドライブ：1】（このアルティメットの下にアルドノアドライブを1枚まで置ける。あるとき、以下の効果を得る）",
+        "Lv4-Lv5『お互いのスタートステップ』",
+        "〔重複不可〕自分は、ターンプレイヤーのデッキの上から5枚内容を見る。その後、好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSDB01-C05",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のカウント+1する。その後、自分のデッキを上から3枚オープンできる。その中の系統：「サイヤ人」を持つカード1枚か、赤のネクサスカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSES01-C01",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "フラッシュ",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「指揮官」/「８６」を持つネクサスカード/ブレイヴカード1枚を手札に加える。残ったカードはデッキの下に戻すか破棄する。その後、このカードをフィールドに置ける。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSES01-C02",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "『このブレイヴの召喚時』",
+        "〔ターンに1回：同名〕自分のデッキを上から3枚オープンできる。その中の系統：「８６」を持つブレイヴカード1枚を手札に加えられる。残ったカードは、デッキの下に戻すか破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSFT01-TR12(A)",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "メイン",
+        "自分のデッキを上から3枚オープンする。その中の系統：「光導」を持つ鍵ブレイヴカード1枚を手札に加える。残ったカードは破棄する。",
+        "【転醒：自分のライフ1以上（転醒は同時に使えない）】",
+        "このカードのメイン効果が使用されたとき、効果発揮後、このカードを自分のスピリットに合体させるか、裏返せる。このとき、自分のフィールド/リザーブのコアを好きなだけこの転醒後スピリットに置ける。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSGE01-M04",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "セットしているこのカードは、自分のスピリットがアタックしたときに発動できる。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "mirage_set"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSGE01-M04",
+      "path": "effects[2].steps[1].action",
+      "sourceLines": [
+        "【バースト：フィールドを離れた自分のスピリットが魂状態になった後】",
+        "相手のスピリット/アルティメット1体を重疲労させる。さらに、自分のデッキを上から5枚オープンする。その中のミラージュ効果を持つ緑/青のカードをコストを支払わずにセットし、緑/青のブレイヴカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "mirage_set"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSKB01-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の「宝剣ギャラクシア」/「戦艦ハルバード」/系統:「鋼騎士」を持つカード合計2枚までを手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 2,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSKB01-M01",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの煌臨/アタック時』",
+        "ターンに1回、自分のデッキを上から3枚オープンできる。その中の、系統：「鋼騎士」を持つカード1枚を1コスト支払って召喚/配置でき、カード1枚をトラッシュに置ける。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "field"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "trash"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSLH01-C01",
+      "path": "effects[3].steps[0].action",
+      "sourceLines": [
+        "【クォーツ：双魚珠｜コストC2｜属性値：<時>5（手札から対象にセットできる）】",
+        "ターンに1回、系統：「CB」を持つ自分のスピリットが相手のマジック/アルティメットの効果の対象になるとき、自分のデッキを上から1枚オープンできる。それがスピリットカードのとき、その効果を受けない。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSLH01-C04",
+      "path": "effects[0].steps[2].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のカウント+1できる。自分はボイドからコア1個を自分のスピリットに置くことができ、デッキの上から1枚オープンできる。その中の系統：「CB」を持つカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSLH01-C09",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のカウント+1できる。自分のデッキを上から3枚オープンできる。その中の系統：「CB」を持つネクサスカード1枚か、系統：「CB」/「EE」を持つコスト4以上のスピリットカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSLH01-C11",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2",
+        "このネクサスのシンボルは赤/紫/緑/白/黄/青としても扱う。自分が系統：「S.S.S」を持つスピリットを召喚したとき、自分のデッキの上から1枚内容を見れる。それをデッキの上か下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSLH01-C14",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "フラッシュ",
+        "〔ターンに1回:同名〕自分のデッキを上から3枚オープンする。その中のスピリットカード1枚につき、自分の創界神ネクサス/導界者ネクサスにコア+1する。その後、その中のカード1枚までを手札に加え、残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSLH01-M04",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "【クォーツ：龍眼｜コストC2｜属性値：<幻>5 <火>2 <空>2（手札から対象にセットできる）】",
+        "ターンに1回、自分のスピリットの効果で、相手のスピリット/アルティメットがフィールドを離れたとき、対象1体につき、相手のデッキを上から1枚内容を見る。それらを好きなようにデッキの上か下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSLH01-R04",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『自分のメインステップ』",
+        "〔ゲームに1回：同名〕自分はデッキの上から6枚オープンできる。その中の系統：「CB」を持つカード2枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 2,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSLH01-R06",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "【クォーツ：回避3｜コストC2｜属性値：<風>5（手札から対象にセットできる）】",
+        "ターンに1回、自分の系統：「CB」を持つスピリットが相手のスピリット/ネクサスの効果の対象になるとき、自分のデッキを上から1枚オープンできる。それがスピリットカードのとき、その効果を受けない。オープンしたカードは手札に加える。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSLH01-TR01(A)",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のカウント+1できる。自分のデッキを上から3枚オープンできる。その中の系統：「CB」を持つカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSLH01-X01",
+      "path": "grandwalkerData.divineSkills[0].effects[0].steps[0].action",
+      "sourceLines": [
+        "【導技：2】Lv1-Lv2 フラッシュ",
+        "〔ターンに1回、このネクサスのコア-2する〕自分のデッキを上から2枚オープンし、その中のクォーツ効果を持つカード1枚をコストを支払わずに魂状態の対象にセットする。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSLH01-X07",
+      "path": "effects[2].steps[1].action",
+      "sourceLines": [
+        "Lv3 フラッシュ",
+        "【ソウルドライブ・S】〔ターンに1回：同名〕自分のフィールド/リザーブの<ソウルコア>1個を除外すると、自分のデッキを上から6枚オープンする。その中の系統：「CB」を持つカード3枚までをコストを支払わずに召喚し、残りはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 3,
+          "mandatory": false,
+          "destination": "field"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSRK01-C01",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "メイン",
+        "自分のデッキを上から3枚内容を見る。その中の1枚を手札1枚と入れ替えられる。自分の手札が4枚以下のとき、かわりに手札に加えられる。残ったカードは好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_swap"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSRK01-C01",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "メイン",
+        "自分のデッキを上から3枚内容を見る。その中の1枚を手札1枚と入れ替えられる。自分の手札が4枚以下のとき、かわりに手札に加えられる。残ったカードは好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSRK01-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このネクサスの配置時』",
+        "〔ターンに1回:同名〕自分のデッキを上から2枚内容を見れる。その中の1枚を手札に加えられる。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSRK01-R03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの煌臨/アタック時』",
+        "［ターンに1回：同名］自分のデッキを上から3枚オープンできる。その中の「飛天御剣流」を含むマジックカード1枚のメイン/フラッシュ効果を発揮できる。残ったカードは破棄し、効果を発揮したカードは手札に加える。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSSA01-C02",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個を自分のリザーブに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「夜錆」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。自分のカウント0のとき、自分のカウント+1できる。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSSA01-R01",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『自分のメインステップ』",
+        "［ゲーム1に回：同名］このスピリットを疲労させることで、自分のデッキを上から8枚オープンする。その中の系統：「夜錆」を持つカード3枚までを手札に加える。残ったカードは好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 3,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSSG01-C01",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "ボイドからコア1個をこのスピリットに置ける。さらに、〔ターンに1回：同名〕自分のデッキを上から3枚オープンできる。その中の系統：「装者」を持つカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSSG01-C02",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "自分はデッキの上から1枚ドローできる。さらに、〔ターンに1回：同名〕自分のデッキを上から3枚オープンできる。その中の系統：「装者」を持つカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSSG01-C08",
+      "path": "effects[3].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このネクサスの配置時』",
+        "〔ターンに1回：同名〕自分のデッキを上から4枚オープンできる。その中の系統：「装者」を持つコスト5以下のスピリット1枚をコストを支払わずに召喚できる。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSSG02-C01",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "ボイドからコア1個を自分のリザーブに置ける。さらに、〔ターンに1回：同名〕自分のデッキを上から3枚オープンできる。その中の系統：「装者」を持つカード1枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH001-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中のカード名：「幻想郷」、または系統：「創界神」/「靈異」を持つ赤/紫のネクサスカード1枚をコストを支払わずに配置し、系統：「靈異」を持つコスト4以上のスピリットカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH001-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中のカード名：「幻想郷」、または系統：「創界神」/「靈異」を持つ赤/紫のネクサスカード1枚をコストを支払わずに配置し、系統：「靈異」を持つコスト4以上のスピリットカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "field"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH002-C02",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個を自分のリザーブに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「封魔」を持つミラージュ効果を持つカード1枚と、カード名：「里香」/「呪い子」以外の系統：「封魔」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH002-C03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「封魔」を持つミラージュ効果を持つカード1枚と、カード名：「里香」/「呪い子」以外の系統：「封魔」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH003-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「導魔」/「秘封」を持つ導界者ネクサスカード1枚と、系統：「導魔」/「空牙」を持つコスト4以上のスピリットカード1枚と、系統：「導魔」/「動器」を持つブレイヴカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH003-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「導魔」/「秘封」を持つ導界者ネクサスカード1枚と、系統：「導魔」/「空牙」を持つコスト4以上のスピリットカード1枚と、系統：「導魔」/「動器」を持つブレイヴカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から4枚オープンできる。その中の黄の導界者ネクサスカード1枚と、系統：「幻想」を持つ黄のスピリットカード1枚と、系統：「導魔」を持つブレイヴカード2枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 2,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-C04",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「紅魔」/「夜族」を持つスピリットカード1枚と、系統：「紅魔」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの上か下だけに戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-M03",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から5枚オープンできる。その中の導界者ネクサスカードすべてか、1コスト支払うことで、系統：「幻想」を持つスピリットカード2枚までを手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"],
+      "boundary": "all-or-up-to-two"
+    },
+    {
+      "cardNo": "BSTH01-M03",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "【界放:1】 Lv2『このスピリットのアタック時』",
+        "相手のデッキを上から1枚オープンし、デッキの上に戻す。 または、自分の導界者ネクサスのコア1個をこのスピリットに置くことで、デッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-M03",
+      "path": "effects[2].steps[1].action",
+      "sourceLines": [
+        "【界放:1】 Lv2『このスピリットのアタック時』",
+        "相手のデッキを上から1枚オープンし、デッキの上に戻す。 または、自分の導界者ネクサスのコア1個をこのスピリットに置くことで、デッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-R04",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から4枚オープンできる。その中の系統：「紅魔」を持つカード2枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。この効果はターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 2,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH01-X02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から6枚オープンする。その中/手札/手元/トラッシュにあるカード名：「ミニ八卦炉」1枚と、カード名：「魔理沙の箒」1枚を召喚コストを0として召喚する。残ったオープンしたカードは破棄する。"
+      ],
+      "picks": [],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH01-XX01",
+      "path": "grandwalkerData.divineSkills[0].effects[0].steps[0].action",
+      "sourceLines": [
+        "【導技:2】Lv1-Lv2『自分のメインステップ』",
+        "〔ターンに2回、このネクサスのコア2個をボイドに置く〕自分のデッキを2枚オープンする。その中の系統：「幻想」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの上か下だけに戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH02.7-C03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分はデッキの上から3枚オープンできる。その中のマジックカード1枚を手札に加えられる。残ったカードは破棄する。その後、手札に加えなかったとき、〔ステップに1回:同名〕トラッシュにある系統：「導魔」/「動玩」/「四道」/「楽族」を持つ黄1色のスピリットカード/ネクサスカード1枚を手札に戻せる。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH02.7-C04",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分はデッキの上から3枚オープンできる。その中の黄1色の導界者ネクサスカード1枚と、系統：「導魔」/「動玩」/「四道」を持つ黄1色のカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH02.7-TR02(A)",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv2-Lv3『このスピリットのアタック時』",
+        "自分のデッキの上から2枚をトラッシュに置ける。そうしたとき、トラッシュの《ソウルコア》以外のコア1個を自分のライフに置ける。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH02-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の紫/白の導界者ネクサスカード1枚と、系統：「幻想」を持つ紫/白のスピリットカード1枚か、系統：「幻想」と「冥主」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH02-C03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から4枚オープンできる。その中の系統：「妖戒」を持つスピリットカード2枚、または、1コスト支払うことでネクサスカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"],
+      "boundary": "two-or-one"
+    },
+    {
+      "cardNo": "BSTH03-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv3-Lv4『このアルティメットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中の黄/紫の導界者ネクサスカード1枚と、系統：「想獣」/「魔影」を持つ黄/紫のスピリットカード/アルティメットカード1枚と、系統：「蓬莱」を持つブレイヴカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH03-C01",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "Lv3-Lv4『このアルティメットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中の黄/紫の導界者ネクサスカード1枚と、系統：「想獣」/「魔影」を持つ黄/紫のスピリットカード/アルティメットカード1枚と、系統：「蓬莱」を持つブレイヴカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH03-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中の黄/紫の導界者ネクサスカード1枚と、系統：「想獣」/「魔影」を持つ黄/紫のスピリットカード/アルティメットカード1枚と、系統：「蓬莱」を持つブレイヴカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH03-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から4枚オープンできる。その中の黄/紫の導界者ネクサスカード1枚と、系統：「想獣」/「魔影」を持つ黄/紫のスピリットカード/アルティメットカード1枚と、系統：「蓬莱」を持つブレイヴカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH03-C04",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個をこのスピリットに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ赤/緑の導界者ネクサスカード1枚と、系統：「幻想」と「起幻」を持つ赤/緑のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH04-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ黄/紫の導界者ネクサスカード1枚と、系統：「幻想」と「起幻」を持つ黄/紫のカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH04-C02",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ黄/紫の導界者ネクサスカード1枚と、系統：「幻想」と「起幻」を持つ黄/紫のカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH05.5-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「竜渡」/「幻想」を持つ青のネクサスカード1枚と、系統：「緋想」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの上か下だけに戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH05.5-C03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から4枚オープンできる。その中の系統：「竜渡」/「幻想」を持つ青のネクサスカード1枚と、系統：「緋想」/「竜渡」を持つアルティメットカード1枚と、系統：「緋想」を持つブレイヴカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH05.5-XX01",
+      "path": "grandwalkerData.divineSkills[0].effects[0].steps[0].action",
+      "sourceLines": [
+        "【神技：2】Lv1-Lv2『自分のメインステップ』",
+        "〔ターンに2回、このネクサスのコア2個をボイドに置く〕自分は、デッキの上から2枚を見る。その中のカード1枚までを手札に加え、残りを好きなようにデッキの上か下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH05-C01",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個をこのスピリットに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「アシハラ」を持つ緑の創界神ネクサスカード1枚と、系統：「幻想」/「風神」を持つ緑のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH05-C02",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個をこのスピリットに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「アシハラ」を持つ緑の創界神ネクサスカード1枚と、系統：「幻想」/「風神」を持つ緑のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH06-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「地霊」を持つ導界者ネクサスカード1枚と系統：「地霊」を持つカード1枚を手札に加える。残ったカードは、好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH06-C02",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "ボイドからコア1個をこのスピリットに置ける。自分のデッキを上から3枚オープンできる。その中の系統：「地霊」を持つ導界者ネクサスカード1枚と、系統：「地霊」を持つカード1枚を手札に加える。残ったカードは、好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH07.8-C01",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "自分の導界者ネクサスがないとき、このスピリットを疲労させることで、自分のデッキを上から3枚オープンする。その中の系統：「妖精」を持つ導界者ネクサスカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH07.8-C02",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "自分の導界者ネクサスがないとき、このスピリットを疲労させることで、自分のデッキを上から3枚オープンする。その中の系統：「妖精」を持つ導界者ネクサスカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH07.8-C03",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「妖精」を持つ導界者ネクサスカード1枚と系統：「妖精」を持つコスト3以上のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH07.8-C04",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「妖精」を持つ導界者ネクサスカード1枚と系統：「妖精」を持つコスト3以上のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH07.8-C05",
+      "path": "effects[2].steps[0].action",
+      "sourceLines": [
+        "Lv1『このネクサスの配置時』",
+        "自分のデッキを上から4枚オープンできる。その中の系統：「妖精」を持つ導界者ネクサスカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH07.8-M01",
+      "path": "effects[1].steps[2].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "このスピリットを疲労させることで、ボイドからコア2個をこのスピリットに置き、自分のデッキを上から7枚オープンする。その中の系統：「妖精」を持つ導界者ネクサスカード1枚とカード名：「チルノ」1枚を手札に加える。残ったカードは破棄する。この効果はゲーム中に1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH07-C01",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ青の導界者ネクサスカード1枚と、系統：「幻想」と「起幻」を持つ青のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH07-C02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚/アタック時』",
+        "ターンに1回、自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ青の導界者ネクサスカード1枚と、系統：「幻想」と「起幻」を持つ青のカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH08.5-C20",
+      "path": "accelData.effects[0].steps[0].action",
+      "sourceLines": [
+        "メイン【アクセル：コスト3<赤>（この効果は手札から使用できる）】",
+        "自分のデッキを上から4枚オープンする。その中の系統：「面霊」を持つ創界神ネクサスカード1枚と、系統：「面霊」を持つスピリットカード1枚と、系統：「面霊」を持つブレイヴカード2枚までを手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 2,
+          "mandatory": false,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH08.5-C23",
+      "path": "accelData.effects[0].steps[0].action",
+      "sourceLines": [
+        "メイン【アクセル：コスト4<赤><赤>（この効果は手札から使用できる）】",
+        "自分のデッキを上から5枚オープンする。その中の系統：「面霊」を持つ創界神ネクサスカードすべてか、1コスト支払うことで、系統：「面霊」を持つスピリットカード/ブレイヴカード合計3枚を手札に加えるまたは手元に置く。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": -1,
+          "mandatory": true,
+          "destination": "hand_or_set_aside_choice"
+        },
+        {
+          "count": 3,
+          "mandatory": true,
+          "destination": "hand_or_set_aside_choice"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH08.5-X03",
+      "path": "grandwalkerData.divineSkills[0].effects[0].steps[0].action",
+      "sourceLines": [
+        "【神技：3】Lv1-Lv2 フラッシュ",
+        "〔ターンに1回、このネクサスのコア3個をボイドに置く〕自分のデッキを3枚オープンし、その中の系統：「面霊」を持つ、ブレイヴカードすべてか、スピリットカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": -1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": []
+    },
+    {
+      "cardNo": "BSTH08-C02",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "ゲーム中に1回、このスピリットを疲労させることで、自分のデッキを上から3枚オープンする。その中の系統：「起幻」を持つ白/青の導界者ネクサスカード1枚と、カード名：「[神霊廟]西行寺 幽々子」/「幽谷 響子」以外の系統：「起幻」を持つ白/青のカード1枚を手札に加える。残ったカードは破棄する。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH08-C03",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "ゲーム中に1回、このスピリットを疲労させることで、自分のデッキを上から3枚オープンする。その中の系統：「起幻」を持つ白/青の導界者ネクサスカード1枚と、カード名：「[神霊廟]西行寺 幽々子」/「幽谷 響子」以外の系統：「起幻」を持つ白/青のカード1枚を手札に加える。残ったカードは破棄する。この効果は、ターンに1回しか使えない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH08-転醒R02(B)",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1『このネクサスの転醒時』",
+        "自分のデッキを上から2枚オープンできる。その中の系統：「起幻」を持つ青/白のカード1枚を手札に加える。残ったカードは破棄する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH09.2-C01",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。その中の系統：「起幻」を持つ赤/緑の導界者ネクサスカード1枚と系統：「幻想」と「起幻」を持つ赤/緑のカード1枚を手札に加える。残ったカードは、好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH09-C01",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "このスピリットを疲労させることで、自分のデッキを上から4枚オープンできる。その中のカード名：「柱斧」1枚までと、カード名：「少名 針妙丸」1枚までと、系統：「妖戒」を持つカード1枚までを手札/手元と入れ替えられる。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH09-C02",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『自分のメインステップ』",
+        "このスピリットを疲労させることで、自分のデッキを上から4枚オープンできる。その中のカード名：「柱斧」1枚までと、カード名：「少名 針妙丸」1枚までと、系統：「妖戒」を持つカード1枚までを手札/手元と入れ替えられる。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional"],
+      "scopeReview": "03c: whole cost/result is optional; picks remain mandatory after execution. See conditional-cost-scope-audit-2026-10-26.md and per-card execution regressions."
+    },
+    {
+      "cardNo": "BSTH09-C03",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のカウント+1できる。自分のデッキを上から5枚オープンできる。その中のカード名：「柱斧」1枚までとカード名：「少名 針妙丸」1枚までと系統：「妖戒」を持つカード1枚までを手札/手元と入れ替えられる。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH09-C04",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "v1-Lv2-Lv3『このスピリットの召喚時』",
+        "自分のカウント+1できる。自分のデッキを上から5枚オープンできる。その中のカード名：「柱斧」1枚までとカード名：「少名 針妙丸」1枚までと系統：「妖戒」を持つカード1枚までを手札/手元と入れ替えられる。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH09-C05",
+      "path": "effects[0].steps[1].action",
+      "sourceLines": [
+        "Lv1-Lv2『このネクサスの配置時』",
+        "自分のカウント+1できる。自分のデッキを上から5枚オープンできる。その中のカード名：「柱斧」1枚までとカード名：「少名 針妙丸」1枚までと系統：「妖戒」を持つカード1枚までを手札/手元と入れ替えられる。オープンしたカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        },
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH09-TR01(B)",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "【合体中】『このスピリットのアタック時』",
+        "〔ターンに1回：同名〕自分のデッキを上から4枚オープンできる。その中の転醒カード以外のコスト7以下のカード1枚をコストを支払わずに召喚/配置できる。残ったカードはデッキの下に戻す。この効果を自分のカウント1につき1回発揮できる。召喚/配置したカード／創界神ネクサスの『召喚/配置時』効果は発揮されない。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH11-C01",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-2『このスピリットの召喚/アタック時』",
+        "ゲーム中に1回、ボイドからコア1個を自分のスピリットに置くことができ、自分のデッキを上から3枚オープンできる。その中の系統：「秘神」を持つ創界神ネクサスカード1枚と、系統：「天璋」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH11-C02",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-2『このスピリットの召喚/ブロック時』",
+        "ゲーム中に1回、ボイドからコア1個を自分のスピリットに置くことができ、自分のデッキを上から3枚オープンできる。その中の系統：「秘神」を持つ創界神ネクサスカード1枚と、系統：「天璋」を持つカード1枚を手札に加える。残ったカードは好きな順番でデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        },
+        {
+          "count": 1,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH11-C03",
+      "path": "effects[1].steps[1].action",
+      "sourceLines": [
+        "Lv1-2-3『このスピリットの召喚時』",
+        "ボイドからコア1個を系統：「幻想」を持つ自分のスピリットに置ける。さらに、〔ターンに1回：同名〕自分が契約していなければ、自分のデッキを上から4枚オープンできる。その中の系統：「幻想」/「秘神」を持つ緑のカード2枚を手札に加える。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 2,
+          "mandatory": true,
+          "destination": "hand"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH11-X02",
+      "path": "effects[1].steps[3].action",
+      "sourceLines": [
+        "Lv1-2-3『このスピリットの現界/アタック/ブロック時』",
+        "自分の緑の創界神ネクサス/導界者ネクサスにコア合計+2できる。その後、相手のトラッシュにあるカードを好きなだけ除外できる。除外したカード1枚につき、自分のトラッシュにあるカード1枚をデッキの下に戻す。その後、自分のデッキを上から2枚オープンできる。その中の系統：「天璋」/「秘神」を持つコスト7以下のカード1枚をコストを支払わずに召喚/配置できる。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTH11-X02",
+      "path": "effects[2].steps[3].action",
+      "sourceLines": [
+        "Lv1-2-3『このスピリットの現界/アタック/ブロック時』",
+        "自分の緑の創界神ネクサス/導界者ネクサスにコア合計+2できる。その後、相手のトラッシュにあるカードを好きなだけ除外できる。除外したカード1枚につき、自分のトラッシュにあるカード1枚をデッキの下に戻す。その後、自分のデッキを上から2枚オープンできる。その中の系統：「天璋」/「秘神」を持つコスト7以下のカード1枚をコストを支払わずに召喚/配置できる。残ったカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "field"
+        }
+      ],
+      "executionModes": ["optional", "optional"]
+    },
+    {
+      "cardNo": "BSTS01-C03",
+      "path": "effects[1].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキの上から3枚内容を見れる。それらのカードを好きなようにデッキの上か下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH10-C03",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から3枚オープンできる。そうしたとき、自分の手札2枚をオープンする。それら5枚のカードの状態により以下の効果を発揮する。オープンしたカードは、デッキからならデッキの下に戻し、手札からなら手札に戻す。",
+        "同じコスト1組：ボイドからコア1個を自分のトラッシュに置く。",
+        "同じコスト2組：ボイドからコア1個ずつを自分のリザーブ/トラッシュに置く。",
+        "同じコスト3枚：ボイドからコア1個を自分のリザーブに置き、自分はデッキの上から1枚ドローする。",
+        "5枚すべて連続した異なるコスト：ボイドからコア2個を自分のリザーブに置き、自分はデッキの上から2枚ドローする。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH10-C04",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv1-Lv2『このスピリットの召喚時』",
+        "自分のデッキを上から5枚内容を見れる。それらを好きなようにデッキの上と下に戻す。"
+      ],
+      "picks": [],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH10-R02",
+      "path": "effects[0].steps[0].action",
+      "sourceLines": [
+        "Lv3-Lv4-Lv5『このアルティメットの召喚時』",
+        "自分のフィールドが黒1色のとき、自分のデッキを上から4枚内容を見れる。その中のカード2枚までを手札/手元と入れ替えられる。内容を見たカードはデッキの下に戻す。"
+      ],
+      "picks": [
+        {
+          "count": 2,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional"]
+    },
+    {
+      "cardNo": "BSTH10-X04",
+      "path": "grandwalkerData.divineSkills[0].effects[0].steps[0].action",
+      "sourceLines": [
+        "【神技：3】Lv1-Lv2『自分のメインステップ』",
+        "〔ターンに1回：同名〕〔このネクサスのコア-3する〕自分のデッキを上から3枚内容を見れる。その中のカード1枚までを手札/手元と入れ替える。内容を見たカードは好きなようにデッキの上と下に戻す。その後、このステップの間、自分のスピリット/アルティメット/創界神ネクサスすべてに黒のシンボル1つずつを追加する。"
+      ],
+      "picks": [
+        {
+          "count": 1,
+          "mandatory": false,
+          "destination": "hand_or_set_aside_swap"
+        }
+      ],
+      "executionModes": ["optional"]
+    }
+  ],
+  "onRevealed": [
+    {
+      "cardNo": "BSAZ02-C13",
+      "path": "effects[0]",
+      "sourceLines": [
+        "〔ターンに1回：同名〕マジックカード以外の自分の白の効果でデッキからオープンされた/トラッシュに置かれたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSDB01-C07",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統:「地球人」/「サイヤ人」を持つ効果でデッキからオープンされたこのカードは、手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSDB01-C10",
+      "path": "effects[0]",
+      "sourceLines": [
+        "〔重複不可〕系統：「地球人」を持つ自分の効果でデッキからオープンされたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSES01-C01",
+      "path": "effects[0]",
+      "sourceLines": [
+        "マジック以外の自分の効果でデッキからオープンされた/トラッシュに置かれたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSES01-C04",
+      "path": "effects[2]",
+      "sourceLines": [
+        "このカードは相手の効果を受けない。デッキからオープンされた/トラッシュにあるこのカードは手札に加えられず、入れ替えられない。"
+      ],
+      "executionMode": "mandatory"
+    },
+    {
+      "cardNo": "BSES01-R02",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の効果でデッキからオープンされた/トラッシュに置かれたこのカードはセットできる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSFT01-C01",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統：「鍵」/「星霊」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSFT01-C02",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統：「鍵」/「星霊」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSFT01-C03",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の系統：「鍵」/「星霊」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSFT01-C04",
+      "path": "effects[0]",
+      "sourceLines": [
+        "〔重複不可〕自分の系統：「鍵」/「星霊」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、自分の手札が5枚以下のとき、手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSLH01-M05",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統：「CB」を持つ自分の効果でデッキからオープンされた/トラッシュに置かれたこのカードは手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSSG01-C07",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統：「装者」/「錬金術師」を持つ効果でデッキからオープンされたこのカードは、手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSSG01-C08",
+      "path": "effects[0]",
+      "sourceLines": [
+        "デッキからオープンされたこのカードは、トラッシュに置ける。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSSG01-R02",
+      "path": "effects[0]",
+      "sourceLines": [
+        "デッキからオープンされたこのカードは、手札1枚と入れ替えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH001-C05",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の系統：「靈異」を持つ効果でデッキからオープンされたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH001-C06",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の系統：「靈異」を持つ効果でデッキからオープンされたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH003-R03",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の黄／赤の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH01-C11",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の黄の効果でデッキからオープンされたこのカードは、手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH01-C21",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の黄の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の黄の導界者ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH01-R12",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の白/紫/赤の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH02-R11",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の白/紫の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の白/紫の導界者ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH03-C11",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の系統：「蓬莱」/「想獣」/「魔影」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を系統：「蓬莱」を持つ自分の導界者ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH03-C12",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の系統：「蓬莱」/「想獣」/「魔影」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を系統：「蓬莱」を持つ自分の導界者ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH03-C31",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の黄／紫の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、コストを支払わずに配置できる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH05.5-R10",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の青の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の青の導界者ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH05-C11",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の緑の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の緑の創界神ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH05-C12",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の緑の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の緑の創界神ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH05-C13",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の緑の効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられ、トラッシュから手札に加えたとき、ボイドからコア1個を自分の緑の創界神ネクサスに置く。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH07.8-C05",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の系統：「妖精」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは、手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH07.8-R04",
+      "path": "effects[1]",
+      "sourceLines": [
+        "自分の「霧の湖」/系統：「妖精」を持つ効果でデッキからオープンされたか、トラッシュに置かれたこのカードは手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH09-M01",
+      "path": "effects[0]",
+      "sourceLines": [
+        "系統：「勇傑」/「妖戒」を持つ効果でデッキからオープンされたこのカードは、自分のバーストがセットされていなければ、セットできる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH09-R03",
+      "path": "effects[0]",
+      "sourceLines": [
+        "〔ターンに1回：同名〕系統：「勇傑」/「妖戒」を持つ効果でデッキからオープンされたこのカードは、自分の手札が5枚以下のとき、手札に加えられる。"
+      ],
+      "executionMode": "optional"
+    },
+    {
+      "cardNo": "BSTH10-R03",
+      "path": "effects[0]",
+      "sourceLines": [
+        "自分の黒の効果でデッキからオープンされた/トラッシュに置かれたこのカードは手札に加えられる。トラッシュから手札に加えたとき、自分の黒の創界神ネクサス/導界者ネクサスにコア+1できる。"
+      ],
+      "executionMode": "optional"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "pendingId": "stack-step-choice:trigger:trigger:action_resolution:play:4:alice:main:place_nexus:card-5:place:alice:alice:card-5:none:0",
+  "actingPlayerId": "alice",
+  "choosingPlayerId": "alice",
+  "sourceInstanceId": "card-5",
+  "sourceDefinitionId": "BSTS01-C05",
+  "effectIndex": 1,
+  "stepIndex": 0,
+  "stepLabel": "__step_0",
+  "prompt": {
+    "label": "効果を選択",
+    "question": "発揮する効果を選んでください"
+  },
+  "choices": [
+    {
+      "choiceIndex": 0,
+      "label": "召喚"
+    },
+    {
+      "choiceIndex": 1,
+      "label": "召喚"
+    }
+  ],
+  "continuation": {
+    "sourceDefinitionId": "BSTS01-C05",
+    "effectIndex": 1,
+    "sourceInstanceId": "card-5",
+    "actingPlayerId": "alice",
+    "stepIndex": 0,
+    "stepContext": {
+      "results": {}
+    }
+  },
+  "deferredStack": {
+    "chainId": "trigger:trigger:action_resolution:play:4:alice:main:place_nexus:card-5:place:alice:alice:card-5:none:0",
+    "stackId": "stack:trigger:trigger:action_resolution:play:4:alice:main:place_nexus:card-5:place:alice:alice:card-5:none:0",
+    "actionKind": "triggered_effect",
+    "actingPlayerId": "alice",
+    "cardInstanceId": "card-5",
+    "cardDefinitionId": "BSTS01-C05",
+    "targetInstanceIds": [],
+    "reevaluationPoints": [
+      {
+        "checks": ["effect_suppression"],
+        "timing": "before_each_step",
+        "failurePolicy": "abort_remaining"
+      }
+    ],
+    "triggeredSourceKind": "nexus",
+    "deferredChoiceIndexes": [0, 1],
+    "triggeredSourceCardNo": "BSTS01-C05",
+    "targetEffectFilterTags": [],
+    "triggeredPendingSnapshot": {
+      "step": "main",
+      "event": {
+        "family": "enter_field",
+        "actionKind": "placement",
+        "validationMode": "require_related_instance_on_field",
+        "effectSourceInstanceId": "card-5"
+      },
+      "amount": null,
+      "source": "action_resolution",
+      "window": "none",
+      "chainId": "play:4:alice:main:place_nexus:card-5",
+      "attackId": null,
+      "fromZone": "in_use",
+      "eventKind": "place",
+      "pendingId": "trigger:action_resolution:play:4:alice:main:place_nexus:card-5:place:alice:alice:card-5:none:0",
+      "actingPlayerId": "alice",
+      "relatedPlayerId": "alice",
+      "triggerPriority": "normal",
+      "relatedInstanceId": "card-5",
+      "relatedInstanceIds": ["card-5"],
+      "effectSourceInstanceId": "card-5",
+      "resolvedSourceInstanceIds": [],
+      "relatedInstanceIdsBySourceRegistrationKey": {
+        "card-5#0": ["card-5"],
+        "card-7#3": ["card-5"]
+      }
+    },
+    "previousPendingStackAction": null,
+    "triggeredRegistrationIndex": 0,
+    "suppressionEffectDescriptor": {
+      "sourceKind": "nexus",
+      "timingKind": "card_event",
+      "effectIndex": 1,
+      "eventAction": "place",
+      "triggerPhrases": ["配置時"],
+      "sourceDefinitionId": "BSTS01-C05",
+      "containsActionKinds": ["summon"]
+    },
+    "previousResponseSourcePlayerId": null,
+    "effectDeclarationTriggerQueued": true
+  },
+  "remainingStacks": []
+}

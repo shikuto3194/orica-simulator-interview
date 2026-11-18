@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "note": "個別の構造化 carrier / general rule / runtime 範囲外 exemption はここで理由付きに明示する。keywordTags や effect object の存在だけを根拠にした登録は禁止。",
+  "accounts": {
+    "BSTH05.5-XX01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_normal_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-independent-oracle.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-independent-oracle.test.ts",
+        "testName": "BSTH05.5-XX01 printed_normal_oracle: 4系統のアルティメットと導界者ネクサスだけを印字イベントで受諾/辞退する"
+      },
+      "reason": "通常神託は独自配置時神託と独立。印字の系統OR付きアルティメット/導界者ネクサスと召喚/煌臨/配置だけを厳密照合する。全4系統、導界者、非対象カテゴリ・系統、相手側、使用/アクセル不発、受諾/辞退と窓後のボイド→本体コアを実盤面で確認。"
+    },
+    "BSTH02.7-CX01:textLines[1]": {
+      "kind": "structured_carrier",
+      "sourceCorrection": {
+        "previousTextHash": "c2be6b79971f1c83",
+        "correctedTextHash": "734bdfd3a53909ca",
+        "reason": "2026-09-27ユーザー提示の訂正本文: 通常導託の『コア+1する』を『コア+1できる』に変更。"
+      },
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH02.7-CX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSES01-R02:textLines[2]": {
+      "kind": "structured_carrier",
+      "carrierPath": "mirageData",
+      "behavior": "mirage_cost=1,reduction=[]",
+      "testRefs": ["packages/rules-core/test/bses01-r02-mirage.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bses01-r02-mirage.test.ts",
+        "testName": "BSES01-R02 mirage_cost=1,reduction=[]: ミラージュ手札セットでリザーブ1コアを支払う"
+      },
+      "reason": "【ミラージュ：コスト1】は mirageData を通常セット処理が参照し、1コア支払いを要求する。"
+    },
+    "BSAZ02-C10:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "maxDeckCount",
+      "behavior": "maxDeckCount=20",
+      "testRefs": ["packages/rules-core/test/bsaz02-cards.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsaz02-cards.test.ts",
+        "testName": "BSAZ02-C10 maxDeckCount=20: デッキ上限20枚を初期化時に適用する"
+      },
+      "reason": "印字の20枚上限は CardDefinition.maxDeckCount=20 でデッキ構築の上限判定へ渡される。"
+    },
+    "BSTH09.2-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH09.2-X01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH09.2-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH09.2-X01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH09.2-X01:textLines[8]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "guided_skill",
+      "testRefs": [
+        "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts",
+        "testName": "BSTH09.2-X01 guided_skill: attack core cost pays and resolves send_to_deck"
+      },
+      "reason": "【導技：4】のタイミング・コスト・回数制限は grandwalkerData.divineSkills を legal-actions が実行する。"
+    },
+    "BSTH09.2-X01:textLines[9]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "guided_skill",
+      "testRefs": [
+        "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts",
+        "testName": "BSTH09.2-X01 guided_skill: attack core cost pays and resolves send_to_deck"
+      },
+      "reason": "疲労中・コスト8以下の相手をデッキ下へ戻す本体は grandwalkerData.divineSkills の nested effect として解決する。"
+    },
+    "BSTH09.2-XX01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH09.2-XX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH09.2-XX01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH09.2-XX01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH09.2-XX01:textLines[8]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "guided_skill",
+      "testRefs": [
+        "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts",
+        "testName": "BSTH09.2-XX01 guided_skill: main core cost pays and free trash summon resolves"
+      },
+      "reason": "【導技：4】のタイミング・コスト・回数制限は grandwalkerData.divineSkills を legal-actions が実行する。"
+    },
+    "BSTH09.2-XX01:textLines[9]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "guided_skill",
+      "testRefs": [
+        "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth09_2-grandwalker-evidence.test.ts",
+        "testName": "BSTH09.2-XX01 guided_skill: main core cost pays and free trash summon resolves"
+      },
+      "reason": "トラッシュの条件付きスピリット/アルティメットを無償召喚する本体は grandwalkerData.divineSkills の nested effect として解決する。"
+    },
+    "BSTH10-C01:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-C01 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-M01:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-M01 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-M02:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-M02 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-R01:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-R01 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-R02:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-R02 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-X02:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-X02 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-X05:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "summonCondition",
+      "behavior": "no_contract",
+      "testRefs": ["packages/rules-core/test/bsth10-carrier-evidence.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-carrier-evidence.test.ts",
+        "testName": "BSTH10-X05 no_contract: 未契約なら召喚し、契約中は手札に残す"
+      },
+      "reason": "召喚条件は summonCondition の no_contract_card を共通召喚検証が evaluateCondition で判定する。現界も同じ召喚条件を経由する。"
+    },
+    "BSTH10-X01:textLines[1]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X01 printed_oracle: 黒単色と月人のOR・受諾/辞退・実効色・非対象イベントを最終盤面で確認"
+      },
+      "reason": "保存原文の黒1色スピリット/アルティメット/ネクサスと召喚/煌臨/配置だけに厳密照合。カテゴリだけを結合した同値ORを認識し、黒多色・非黒・ブレイヴ/マジック・非印字イベント・相手側を除外。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各カテゴリの対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH10-X01:textLines[2]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X01 printed_placement_oracle: 全OR枝と黒多色を上3枚の直接トラッシュ・コア数・同名条件で確認"
+      },
+      "reason": "保存原文の黒1色スピリット/アルティメット/ネクサスと召喚/煌臨/配置だけに厳密照合。カテゴリだけを結合した同値ORを認識し、黒多色・非黒・ブレイヴ/マジック・非印字イベント・相手側を除外。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各カテゴリの対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH10-X03:textLines[1]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X03 printed_oracle: 黒単色と月人のOR・受諾/辞退・実効色・非対象イベントを最終盤面で確認"
+      },
+      "reason": "保存原文の月人アルティメット OR 黒1色スピリット/アルティメット、召喚/煌臨だけに厳密照合。月人の多色アルティメットは許可し、月人の非黒スピリット・月人でない黒多色・ネクサス等は除外。両枝を同時に満たしてもコア1個のみ。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各OR枝の対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH10-X03:textLines[2]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X03 printed_placement_oracle: 全OR枝と黒多色を上3枚の直接トラッシュ・コア数・同名条件で確認"
+      },
+      "reason": "保存原文の月人アルティメット OR 黒1色スピリット/アルティメット、召喚/煌臨だけに厳密照合。月人の多色アルティメットは許可し、月人の非黒スピリット・月人でない黒多色・ネクサス等は除外。両枝を同時に満たしてもコア1個のみ。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各OR枝の対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH10-X04:textLines[1]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X04 printed_oracle: 黒単色と月人のOR・受諾/辞退・実効色・非対象イベントを最終盤面で確認"
+      },
+      "reason": "保存原文の月人アルティメット OR 黒1色スピリット/アルティメット、召喚/煌臨だけに厳密照合。月人の多色アルティメットは許可し、月人の非黒スピリット・月人でない黒多色・ネクサス等は除外。両枝を同時に満たしてもコア1個のみ。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各OR枝の対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH10-X04:textLines[2]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-color-oracle-carrier.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-color-oracle-carrier.test.ts",
+        "testName": "BSTH10-X04 printed_placement_oracle: 全OR枝と黒多色を上3枚の直接トラッシュ・コア数・同名条件で確認"
+      },
+      "reason": "保存原文の月人アルティメット OR 黒1色スピリット/アルティメット、召喚/煌臨だけに厳密照合。月人の多色アルティメットは許可し、月人の非黒スピリット・月人でない黒多色・ネクサス等は除外。両枝を同時に満たしてもコア1個のみ。受諾/辞退とスタック後のコア、上3枚の直接トラッシュと各OR枝の対象枚数、同名不在・相手の同名・短いデッキを最終盤面で確認。"
+    },
+    "BSTH01-XX01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH01-XX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH01-XX01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH01-XX01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH02-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH02-X01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH02-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH02-X01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH04-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH04-X01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH04-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH04-X01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH04-XX01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH04-XX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH04-XX01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH04-XX01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH02.7-CX01:textLines[0]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH02.7-CX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH02.7-CX01:textLines[2]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH02.7-CX01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字された系統OR/AND・カテゴリ・コスト・転醒条件とDSLの全条件を照合し、本文列挙イベントだけを許可する。通常導託の任意受諾/辞退、スタック解決後のコア移動、配置時の上3枚直接移動と対象数・同名制限を盤面回帰で確認する。"
+    },
+    "BSTH07-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH07-X01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH07-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH07-X01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH07.8-XX01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH07.8-XX01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の妖精スピリット/妖精アルティメットと召喚/煌臨イベントだけを照合。配置時は同名不在・同名ターン制限が印字されておらずsameNameGate:falseと照合。同名2個体が同ターンにそれぞれ配置時導託を完走し、上3枚/残り1枚のトラッシュ移動と各個体のコア2/1個を実盤面で確認。"
+    },
+    "BSTH07.8-XX01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH07.8-XX01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の妖精スピリット/妖精アルティメットと召喚/煌臨イベントだけを照合。配置時は同名不在・同名ターン制限が印字されておらずsameNameGate:falseと照合。同名2個体が同ターンにそれぞれ配置時導託を完走し、上3枚/残り1枚のトラッシュ移動と各個体のコア2/1個を実盤面で確認。"
+    },
+    "BSTH08-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH08-X01 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH08-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH08-X01 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH08.5-X03:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH08.5-X03 printed_oracle: 全印字条件の受諾/辞退と非対象・非印字イベントを最終盤面で確認"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH08.5-X03:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": ["packages/rules-core/test/printed-oracle-carrier.test.ts"],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-oracle-carrier.test.ts",
+        "testName": "BSTH08.5-X03 printed_placement_oracle: 上3枚を直接トラッシュへ置き対象2枚のコアを得て同名制限を守る"
+      },
+      "reason": "印字の系統OR・カテゴリ・コスト・機構条件と本文列挙イベントをDSL全条件に厳密照合。非印字イベント/対象外/相手のカードは不発、任意受諾/辞退とスタック解決後のコアを確認。配置時上3枚の直接トラッシュ移動、非対象除外、デッキ残枚数、同名/相手の同名ゲートを最終盤面で検証。"
+    },
+    "BSTH10.5-X01:textLines[3]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_oracle",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_oracle: 依神配置とスタックマジック使用を受諾/辞退し非印字イベントは不発"
+      },
+      "reason": "神託の印字対象は依神ネクサスまたはスタック効果を持つマジック。配置/use_magicを明示し、マジックはstack使用に限る。受諾と辞退、異系統/通常マジック/相手/非印字イベントの不発、窓後のボイドと本体コアを完走確認。"
+    },
+    "BSTH10.5-X01:textLines[4]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_placement_oracle: 上3枚の対象2枚を数え直接トラッシュに置き同名不在条件を守る"
+      },
+      "reason": "配置時神託は任意で同一プレイヤーの同名不在が条件。上3枚を直接トラッシュに置き、依神ネクサスとスタックマジックだけを数える。通常マジックは0、4枚目はデッキに残り、受諾/辞退と自己側/相手側同名を最終盤面確認。"
+    },
+    "BSTH10.5-X01:textLines[8]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData.domainHooks",
+      "behavior": "printed_blue_magic_domain",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_blue_magic_domain: Lv1/Lv2のボイド支払いとLv2のスタック完走後4枚破棄・コア増加を確認"
+      },
+      "reason": "Lv1-Lv2の青マジック使用コストは本体コアからボイドへの選択支払い。Lv2の青マジックstack効果発揮後は相手上4枚破棄と自己本体コア+1を強制解決する。正規use_magic/応答/誘発順序選択/窓閉鎖を完走し、Lv1の不発、赤マジック支払い非候補、親マジックの再開・トラッシュ着地まで検証。静的carrierは両本文・Lv・固定hookが厳密一致する場合に限定し、壊れたDSLは拒否。"
+    },
+    "BSTH10.5-X01:textLines[9]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData.domainHooks",
+      "behavior": "printed_blue_magic_domain",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_blue_magic_domain: Lv1/Lv2のボイド支払いとLv2のスタック完走後4枚破棄・コア増加を確認"
+      },
+      "reason": "Lv1-Lv2の青マジック使用コストは本体コアからボイドへの選択支払い。Lv2の青マジックstack効果発揮後は相手上4枚破棄と自己本体コア+1を強制解決する。正規use_magic/応答/誘発順序選択/窓閉鎖を完走し、Lv1の不発、赤マジック支払い非候補、親マジックの再開・トラッシュ着地まで検証。静的carrierは両本文・Lv・固定hookが厳密一致する場合に限定し、壊れたDSLは拒否。"
+    },
+    "BSTH10.5-X01:textLines[11]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData.domainHooks",
+      "behavior": "printed_blue_magic_domain",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_blue_magic_domain: Lv1/Lv2のボイド支払いとLv2のスタック完走後4枚破棄・コア増加を確認"
+      },
+      "reason": "Lv1-Lv2の青マジック使用コストは本体コアからボイドへの選択支払い。Lv2の青マジックstack効果発揮後は相手上4枚破棄と自己本体コア+1を強制解決する。正規use_magic/応答/誘発順序選択/窓閉鎖を完走し、Lv1の不発、赤マジック支払い非候補、親マジックの再開・トラッシュ着地まで検証。静的carrierは両本文・Lv・固定hookが厳密一致する場合に限定し、壊れたDSLは拒否。"
+    },
+    "BSTH10.5-X01:textLines[12]": {
+      "kind": "structured_carrier",
+      "carrierPath": "grandwalkerData.domainHooks",
+      "behavior": "printed_blue_magic_domain",
+      "testRefs": [
+        "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/bsth10-5-x01-printed-oracle-domain.test.ts",
+        "testName": "BSTH10.5-X01 printed_blue_magic_domain: Lv1/Lv2のボイド支払いとLv2のスタック完走後4枚破棄・コア増加を確認"
+      },
+      "reason": "Lv1-Lv2の青マジック使用コストは本体コアからボイドへの選択支払い。Lv2の青マジックstack効果発揮後は相手上4枚破棄と自己本体コア+1を強制解決する。正規use_magic/応答/誘発順序選択/窓閉鎖を完走し、Lv1の不発、赤マジック支払い非候補、親マジックの再開・トラッシュ着地まで検証。静的carrierは両本文・Lv・固定hookが厳密一致する場合に限定し、壊れたDSLは拒否。"
+    },
+    "BSTH11-X01:textLines[2]": {
+      "kind": "structured_carrier",
+      "sourceCorrection": {
+        "previousTextHash": "4084dea2f0715421",
+        "correctedTextHash": "e034d658f6c7557c",
+        "reason": "2026-10-04ユーザー提示画像とimages/BSTH11-X01.pngの印字「置ける」を確認。転記の「置く」を訂正。"
+      },
+      "carrierPath": "grandwalkerData",
+      "behavior": "printed_placement_oracle",
+      "testRefs": [
+        "packages/rules-core/test/printed-independent-oracle.test.ts"
+      ],
+      "testEvidence": {
+        "testRef": "packages/rules-core/test/printed-independent-oracle.test.ts",
+        "testName": "BSTH11-X01 printed_placement_oracle: 受諾時だけ上3枚を直接トラッシュへ置き天璋スピリットを数え、辞退と同名条件を守る"
+      },
+      "reason": "画像どおり任意の共通配置時神託を用いる。受諾/辞退、上3枚未満、対象外ネクサス、自分/相手の同名ネクサス、窓後の移動とコア数を実盤面で検証。"
+    }
+  }
+}

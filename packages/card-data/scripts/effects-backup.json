@@ -1,0 +1,2403 @@
+{
+  "BSTH01-C01": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "additional_cost",
+          "additionalCost": 3
+        }
+      ]
+    }
+  ],
+  "BSTH01-C02": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 4,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["導界者"],
+                "category": ["nexus"],
+                "colors": ["yellow"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想"],
+                "category": ["spirit"],
+                "colors": ["yellow"]
+              }
+            },
+            {
+              "count": 2,
+              "filter": {
+                "tribes": ["導魔"],
+                "category": ["brave"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 99
+          },
+          "amount": -2000,
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-C04": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["紅魔", "夜族"],
+                "category": ["spirit"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["紅魔"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    },
+    {
+      "timing": "main",
+      "condition": {
+        "minLevel": 2,
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "usageLimit": {
+        "kind": "per_card_name",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-C05": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "bounce",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "bounce",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "BSTH01-C11": [
+    {
+      "timing": "on_place",
+      "actions": [
+        {
+          "kind": "return_from_trash",
+          "count": 2,
+          "filter": {
+            "tribes": ["幻想", "導魔", "楽族"],
+            "colors": ["yellow"]
+          },
+          "destination": "hand"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "life",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH01-C12": [
+    {
+      "timing": "start_step",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        },
+        {
+          "kind": "discard_hand",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "timing": "start_step",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        },
+        {
+          "kind": "discard_hand",
+          "count": 1,
+          "filter": {
+            "tribes": ["紅魔"]
+          }
+        }
+      ]
+    },
+    {
+      "timing": "main",
+      "condition": {
+        "minLevel": 2
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "life",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      },
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "this_turn"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "purple",
+          "duration": "this_turn"
+        }
+      ]
+    }
+  ],
+  "BSTH01-C21": [
+    {
+      "timing": "flash",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "unblockable",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "tribes": ["幻想", "導魔", "楽族"],
+            "colors": ["yellow"],
+            "count": 1
+          },
+          "duration": "this_battle"
+        }
+      ]
+    },
+    {
+      "timing": "flash",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "end_attack_step"
+        }
+      ]
+    }
+  ],
+  "BSTH01-C22": [
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_card_name",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "field",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "opponent"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH01-M01": [
+    {
+      "timing": "start_step",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "summon_self",
+          "withoutCost": false
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "effect_immunity",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "cost_override",
+          "player": "self",
+          "filter": {
+            "category": ["magic"],
+            "tribes": ["紅魔", "導魔"]
+          },
+          "costOverride": 0,
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "start_step",
+      "condition": {
+        "minLevel": 2
+      },
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "recover",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "tribes": ["紅魔"],
+            "count": 99
+          }
+        },
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "trash",
+            "player": "self"
+          },
+          "to": {
+            "kind": "field",
+            "player": "self"
+          },
+          "amount": 99
+        }
+      ]
+    }
+  ],
+  "BSTH01-M03": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "cost_override",
+          "player": "self",
+          "costOverride": 3,
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 5,
+          "picks": [
+            {
+              "count": 99,
+              "filter": {
+                "tribes": ["導界者"],
+                "category": ["nexus"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 1,
+          "picks": [],
+          "remainder": "top"
+        }
+      ]
+    }
+  ],
+  "BSTH01-M13": [
+    {
+      "timing": "burst",
+      "actions": [
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "purple",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "green",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "white",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "yellow",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "blue",
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["妖精"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "prevent_attack",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-R02": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "combined": true
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "life",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "opponent"
+          },
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH01-R03": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "combined": true
+      },
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          },
+          "amount": -10000,
+          "duration": "this_turn"
+        },
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "maxBp": 0,
+            "count": 99
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH01-R04": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_card_name",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 4,
+          "picks": [
+            {
+              "count": 2,
+              "filter": {
+                "tribes": ["紅魔"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "prevent_attack",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        },
+        {
+          "kind": "effect_immunity",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "main",
+      "condition": {
+        "minLevel": 2,
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "count": 1
+          },
+          "symbol": "purple",
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-R05": [
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_card_name",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [],
+          "remainder": "trash"
+        },
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "timing": "on_summon",
+      "actions": [
+        {
+          "kind": "return_from_trash",
+          "count": 1,
+          "filter": {
+            "tribes": ["紅魔"]
+          },
+          "destination": "hand"
+        }
+      ]
+    }
+  ],
+  "BSTH01-R11": [
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 99
+          },
+          "amount": -2000,
+          "duration": "this_turn"
+        }
+      ]
+    }
+  ],
+  "BSTH01-R12": [
+    {
+      "timing": "flash",
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "end_attack_step"
+        }
+      ]
+    }
+  ],
+  "BSTH01-R21": [
+    {
+      "timing": "flash",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "activationCost": {
+        "exhaustSelf": true
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "maxBp": 5000,
+            "count": 1
+          }
+        },
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["ultimate"],
+            "maxBp": 1000,
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "effect_immunity",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "tribes": ["紅魔"],
+            "count": 99
+          },
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "usageLimit": {
+        "kind": "per_card_name",
+        "duration": "turn"
+      },
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "life",
+            "player": "self"
+          },
+          "amount": 5
+        }
+      ]
+    }
+  ],
+  "BSTH01-X02": [
+    {
+      "timing": "on_summon",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 6,
+          "picks": [],
+          "remainder": "trash"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "cost_override",
+          "player": "self",
+          "filter": {
+            "category": ["brave"],
+            "tribes": ["導魔"]
+          },
+          "costOverride": 0,
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 3
+      },
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          },
+          "amount": -3000,
+          "duration": "this_turn"
+        },
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "maxBp": 0,
+            "count": 99
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH01-X03": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["nexus"],
+            "tribes": ["創界神"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["nexus"],
+            "tribes": ["創界神"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "maxBp": 20000,
+            "count": 1
+          }
+        },
+        {
+          "kind": "recover",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH01-X04": [
+    {
+      "timing": "flash",
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "maxBp": 10000,
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH01-X05": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "on_opponent_flash",
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        },
+        {
+          "kind": "negate",
+          "negateTarget": "effect"
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "life_damage",
+          "player": "opponent",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH01-X07": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "effect_immunity",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "burst",
+      "condition": {
+        "noFieldCard": {
+          "player": "self",
+          "tribes": ["導界者", "創界神"]
+        }
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "field",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "void",
+            "player": "opponent"
+          },
+          "amount": 99
+        },
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 3
+      },
+      "actions": [
+        {
+          "kind": "vanish",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "maxBp": 15000,
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH01-X08": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "combined": true
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "life",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "void",
+            "player": "opponent"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH01-X09": [
+    {
+      "timing": "continuous",
+      "condition": {
+        "combined": true
+      },
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 99
+          },
+          "amount": 5000,
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-XX01": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "red",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "purple",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "green",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "white",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "yellow",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "blue",
+          "duration": "permanent"
+        },
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["nexus"],
+            "count": 1
+          },
+          "symbol": "ultimate_symbol",
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn",
+        "maxCount": 2
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "this_card"
+          },
+          "amount": 2
+        }
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 2,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想"]
+              }
+            }
+          ],
+          "remainder": "top"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "unblockable",
+          "target": {
+            "player": "self",
+            "category": ["spirit", "ultimate"],
+            "tribes": ["幻想"],
+            "count": 99
+          },
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH01-XX02": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "effect_immunity",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "field",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      },
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 4
+      },
+      "actions": [
+        {
+          "kind": "unblockable",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "this_turn"
+        }
+      ]
+    }
+  ],
+  "BSTH04.5-X01": [
+    {
+      "timing": "on_summon",
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 3
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-C01": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["導界者"],
+                "category": ["nexus"],
+                "colors": ["yellow", "purple"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想", "起幻"],
+                "colors": ["yellow", "purple"]
+              }
+            }
+          ],
+          "remainder": "trash"
+        }
+      ]
+    },
+    {
+      "timing": "stack",
+      "activationCost": {
+        "exhaustSelf": true
+      },
+      "actions": [
+        {
+          "kind": "negate",
+          "negateTarget": "summon",
+          "targetFilter": {
+            "category": ["spirit"]
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-C02": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["導界者"],
+                "category": ["nexus"],
+                "colors": ["yellow", "purple"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想", "起幻"],
+                "colors": ["yellow", "purple"]
+              }
+            }
+          ],
+          "remainder": "trash"
+        }
+      ]
+    },
+    {
+      "timing": "stack",
+      "activationCost": {
+        "exhaustSelf": true
+      },
+      "actions": [
+        {
+          "kind": "negate",
+          "negateTarget": "place",
+          "targetFilter": {
+            "category": ["nexus"]
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-C03": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 2,
+          "picks": [],
+          "remainder": "trash"
+        },
+        {
+          "kind": "return_from_trash",
+          "count": 1,
+          "filter": {
+            "tribes": ["起幻"],
+            "colors": ["yellow", "purple"]
+          },
+          "destination": "hand"
+        }
+      ]
+    }
+  ],
+  "BSTH04-C11": [
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "prevent_attack",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 99
+          },
+          "duration": "this_turn"
+        }
+      ]
+    },
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "prevent_life_damage",
+          "player": "self",
+          "duration": "this_battle"
+        }
+      ]
+    }
+  ],
+  "BSTH04-C12": [
+    {
+      "timing": "main",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "BSTH04-M01": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "prevent_attack",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH04-R01": [
+    {
+      "timing": "burst",
+      "actions": [
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    }
+  ],
+  "BSTH04-R02": [
+    {
+      "timing": "burst",
+      "actions": [
+        {
+          "kind": "vanish",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "nexus"],
+            "count": 1
+          }
+        },
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "field",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "opponent"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH04-X01": [
+    {
+      "timing": "flash",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "this_card"
+          },
+          "amount": 4
+        }
+      },
+      "actions": [
+        {
+          "kind": "vanish",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-X02": [
+    {
+      "timing": "on_attack",
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          },
+          "amount": -10000,
+          "duration": "this_turn"
+        }
+      ]
+    }
+  ],
+  "BSTH04-X03": [
+    {
+      "timing": "on_summon",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "count_increase",
+          "player": "self",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "count_increase",
+          "player": "self",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 3
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "recover",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-XX01": [
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "this_card"
+          },
+          "amount": 4
+        }
+      },
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 2,
+          "picks": [],
+          "remainder": "trash"
+        },
+        {
+          "kind": "return_from_trash",
+          "count": 1,
+          "filter": {
+            "tribes": ["幻想"],
+            "category": ["spirit", "nexus"]
+          },
+          "destination": "hand"
+        }
+      ]
+    }
+  ],
+  "BSTH04-転醒R01(A)": [
+    {
+      "timing": "continuous",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "this_card"
+          },
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "rebirth",
+          "maxCount": 5,
+          "triggerDescription": "このネクサスのコアが4個以上になったとき、このネクサスを裏返せる",
+          "retainCores": 1
+        }
+      ]
+    },
+    {
+      "timing": "on_place",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "deck_reveal",
+          "revealCount": 2,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["起幻"],
+                "colors": ["yellow", "purple"]
+              }
+            }
+          ],
+          "remainder": "trash"
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "negate",
+          "negateTarget": "effect",
+          "targetFilter": {
+            "category": ["spirit", "ultimate", "nexus"]
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH04-転醒R02(A)": [
+    {
+      "timing": "continuous",
+      "actions": [
+        {
+          "kind": "rebirth",
+          "maxCount": 3,
+          "triggerDescription": "ライフが増えた/減ったか、このネクサスが相手によってフィールドを離れるとき、このネクサスを裏返せる"
+        }
+      ]
+    },
+    {
+      "timing": "on_place",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "amount": -5000,
+          "duration": "this_turn"
+        },
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "maxBp": 0,
+            "count": 99
+          }
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "negate",
+          "negateTarget": "effect"
+        }
+      ]
+    }
+  ],
+  "BSTH05-C01": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "this_card"
+          },
+          "amount": 1
+        },
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["アシハラ"],
+                "category": ["nexus"],
+                "colors": ["green"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想", "風神"],
+                "colors": ["green"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    }
+  ],
+  "BSTH05-C02": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "this_card"
+          },
+          "amount": 1
+        },
+        {
+          "kind": "deck_reveal",
+          "revealCount": 3,
+          "picks": [
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["アシハラ"],
+                "category": ["nexus"],
+                "colors": ["green"]
+              }
+            },
+            {
+              "count": 1,
+              "filter": {
+                "tribes": ["幻想", "風神"],
+                "colors": ["green"]
+              }
+            }
+          ],
+          "remainder": "bottom"
+        }
+      ]
+    }
+  ],
+  "BSTH05-C11": [
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "bounce",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 2
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH05-C12": [
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 2
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH05-C13": [
+    {
+      "timing": "main",
+      "actions": [
+        {
+          "kind": "discard_hand",
+          "count": -1
+        },
+        {
+          "kind": "draw",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "BSTH05-M01": [
+    {
+      "timing": "on_attack",
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          },
+          "targetState": "heavily_exhausted"
+        }
+      ]
+    }
+  ],
+  "BSTH05-M02": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "recover",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH05-M03": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH05-M04": [
+    {
+      "timing": "burst",
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 2
+        },
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    }
+  ],
+  "BSTH05-M11": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "combined": true
+      },
+      "actions": [
+        {
+          "kind": "symbol_add",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "symbol": "green",
+          "duration": "this_turn"
+        }
+      ]
+    },
+    {
+      "timing": "main",
+      "condition": {
+        "combined": true
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH05-R01": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH05-R02": [
+    {
+      "timing": "flash",
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "count": 1
+          },
+          "targetState": "heavily_exhausted"
+        }
+      ]
+    }
+  ],
+  "BSTH05-R03": [
+    {
+      "timing": "on_summon",
+      "executionMode": "optional",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "this_card"
+          },
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "BSTH05-X01": [
+    {
+      "timing": "flash",
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "this_card"
+          },
+          "amount": 5
+        }
+      },
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "timing": "continuous",
+      "condition": {
+        "minLevel": 2
+      },
+      "actions": [
+        {
+          "kind": "bp_modify",
+          "target": {
+            "player": "self",
+            "category": ["spirit"],
+            "tribes": ["風神", "アシハラ"],
+            "count": 99
+          },
+          "amount": 5000,
+          "duration": "permanent"
+        }
+      ]
+    }
+  ],
+  "BSTH05-X02": [
+    {
+      "timing": "flash",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "activationCost": {
+        "coreCost": {
+          "from": {
+            "kind": "this_card"
+          },
+          "amount": 4
+        }
+      },
+      "actions": [
+        {
+          "kind": "summon_self",
+          "withoutCost": true
+        }
+      ]
+    }
+  ],
+  "BSTH05-X03": [
+    {
+      "timing": "on_attack",
+      "condition": {
+        "minLevel": 3
+      },
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn"
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "life",
+            "player": "opponent"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "opponent"
+          },
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH05-X04": [
+    {
+      "timing": "on_summon",
+      "actions": [
+        {
+          "kind": "exhaust",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit", "ultimate"],
+            "count": 3
+          },
+          "targetState": "heavily_exhausted"
+        }
+      ]
+    }
+  ],
+  "BSTH06-C01": [
+    {
+      "timing": "on_summon",
+      "condition": {
+        "minLevel": 2
+      },
+      "executionMode": "optional",
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "maxBp": 1000,
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH06-R02": [
+    {
+      "timing": "main",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "BSTH07-C01": [
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn",
+        "maxCount": 1
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH07-C02": [
+    {
+      "timing": "main",
+      "usageLimit": {
+        "kind": "per_instance",
+        "duration": "turn",
+        "maxCount": 1
+      },
+      "actions": [
+        {
+          "kind": "core_move",
+          "from": {
+            "kind": "void",
+            "player": "self"
+          },
+          "to": {
+            "kind": "reserve",
+            "player": "self"
+          },
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "BSTH07-M01": [
+    {
+      "timing": "on_summon",
+      "actions": [
+        {
+          "kind": "destroy",
+          "target": {
+            "player": "opponent",
+            "category": ["spirit"],
+            "maxCost": 6,
+            "count": 1
+          }
+        }
+      ]
+    }
+  ],
+  "BSTH10.5-R21": [
+    {
+      "timing": "main",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 3
+        },
+        {
+          "kind": "discard_hand",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "BSTH10.5-R22": [
+    {
+      "timing": "main",
+      "actions": [
+        {
+          "kind": "draw",
+          "count": 2
+        },
+        {
+          "kind": "discard_hand",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

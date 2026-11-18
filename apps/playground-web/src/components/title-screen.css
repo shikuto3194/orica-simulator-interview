@@ -1,0 +1,342 @@
+/* The title and lobby share a quiet wordmark; artwork remains the backdrop. */
+.title-screen {
+  min-height: 100svh;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+}
+.title-screen-preload {
+  cursor: default;
+}
+.title-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(8, 10, 24, 0.68),
+    rgba(8, 10, 24, 0.12) 70%
+  );
+  pointer-events: none;
+}
+.title-screen .title-card * {
+  text-shadow: none;
+}
+.title-screen .title-card {
+  min-height: 100svh;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 24px calc(24px + var(--bgm-controls-clearance, 34px));
+  gap: clamp(24px, 5vh, 48px);
+}
+.title-brand {
+  text-align: center;
+}
+.title-brand-reading {
+  display: block;
+  color: #e5c991;
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  margin-bottom: 12px;
+  text-shadow: none;
+}
+.title-screen .title-card .title-logo {
+  font-family: "Gensoufu Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(64px, 9vw, 120px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  padding-left: 0.16em;
+  color: #f7edd8;
+  margin: 0;
+}
+.title-brand-rule {
+  display: block;
+  position: relative;
+  width: 108px;
+  height: 1px;
+  margin: 20px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d8bc83 35%,
+    #d8bc83 65%,
+    transparent
+  );
+}
+.title-brand-rule::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 2px);
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  background: #e5c991;
+  transform: rotate(45deg);
+}
+.title-screen .title-card .title-sub {
+  color: #e5ddcf;
+  font-size: clamp(10px, 1.3vw, 13px);
+  letter-spacing: 0.18em;
+  line-height: 1.8;
+  text-shadow: none;
+}
+.title-screen .title-card .title-start-prompt {
+  text-shadow: none;
+  color: #f3ead8;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  animation: title-invitation 3s ease-in-out infinite;
+}
+.title-screen .title-card .title-status {
+  text-shadow: none;
+  font-size: 10px;
+  color: #d6d1c6;
+  overflow-wrap: anywhere;
+}
+.title-screen .title-status-dot {
+  width: 5px;
+  height: 5px;
+  background: #d8bc83;
+  box-shadow: none;
+}
+@keyframes title-invitation {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.title-screen-preload .title-card {
+  width: 100%;
+  min-height: 100svh;
+  justify-content: center;
+  gap: clamp(20px, 4vh, 36px);
+  padding: 32px 20px 58px;
+}
+.title-login-form {
+  width: min(320px, 82vw);
+  color: #f4ead5;
+  text-align: left;
+}
+.title-login-form > p {
+  margin: 0 0 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #d6cbb3;
+  text-align: center;
+}
+.title-login-form label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #e3d9c6;
+  margin-bottom: 6px;
+}
+.title-login-form input {
+  width: 100%;
+  padding: 11px 13px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(224, 200, 138, 0.25);
+  border-radius: 3px;
+  background: rgba(7, 12, 26, 0.65);
+  color: #fff6e7;
+  font: inherit;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 180ms,
+    background 180ms;
+}
+.title-login-form input::placeholder {
+  color: #92939c;
+}
+.title-login-form input:focus-visible {
+  outline: 1px solid #d8bd78;
+  outline-offset: 2px;
+  border-color: #d8bd78;
+  background: rgba(7, 12, 26, 0.86);
+}
+.title-login-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  border: 1px solid rgba(230, 205, 143, 0.7);
+  border-radius: 3px;
+  background: linear-gradient(
+    110deg,
+    rgba(107, 80, 30, 0.75),
+    rgba(36, 30, 26, 0.88)
+  );
+  color: #fff0c7;
+  font: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  cursor: pointer;
+  transition:
+    border-color 180ms,
+    background 180ms;
+}
+.title-login-form button[type="submit"]:hover:not(:disabled) {
+  border-color: #ffe3a3;
+  background: rgba(132, 100, 42, 0.85);
+}
+.title-login-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.title-login-form button:focus-visible {
+  outline: 2px solid #f1d797;
+  outline-offset: 5px;
+}
+.title-session-status {
+  color: #e3d9c6;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+.title-loading-ring {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  justify-self: center;
+  border: 1.5px solid rgba(229, 201, 145, 0.2);
+  border-top-color: #e5c991;
+  border-right-color: rgba(229, 201, 145, 0.6);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px rgba(229, 201, 145, 0.2));
+  animation: title-loading-spin 1.4s linear infinite;
+}
+@keyframes title-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (orientation: landscape) {
+  :is(.title-screen-checking, .title-screen-downloading) .title-card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+  }
+}
+.title-download {
+  position: relative;
+  width: min(400px, 82vw);
+  max-width: 100%;
+  justify-self: center;
+  padding: 8px 0;
+  text-shadow: 0 1px 5px #090b16;
+}
+.title-download-percent {
+  color: #f5e4b9;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  margin-bottom: 17px;
+}
+.title-download-track {
+  height: 3px;
+  background: rgba(234, 215, 169, 0.2);
+  border-radius: 2px;
+}
+.title-download-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #a47b36, #f7e2a3);
+  box-shadow: 0 0 12px rgba(247, 219, 145, 0.3);
+  transition: width 200ms ease-out;
+}
+.title-download-log {
+  height: 4.5em;
+  margin-top: 19px;
+  text-align: left;
+  font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #d6d1c6;
+  overflow: hidden;
+}
+.title-download-log > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.55;
+}
+.title-download-log > div:last-child {
+  opacity: 1;
+  color: #f3e5c6;
+}
+.title-download-retry {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.title-download-retry:focus-visible {
+  outline: 1px solid #f1d797;
+  outline-offset: 6px;
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .title-screen .title-card {
+    gap: 20px;
+    padding-top: 18px;
+  }
+  .title-screen .title-card .title-logo {
+    font-size: clamp(48px, 8vw, 80px);
+  }
+  .title-brand-reading {
+    margin-bottom: 4px;
+    font-size: 9px;
+  }
+  .title-brand-rule {
+    margin: 10px auto;
+    width: 80px;
+  }
+  .title-screen-preload .title-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 15px;
+    padding: 20px 22px 44px;
+  }
+  .title-screen-preload :is(.title-login-form, .title-download) {
+    width: 100%;
+  }
+  .title-screen-preload .title-logo {
+    font-size: clamp(1.7rem, 5vw, 2.7rem);
+  }
+  .title-screen-preload .title-sub {
+    font-size: 0.7rem;
+  }
+  .title-login-form > p {
+    margin-bottom: 10px;
+  }
+  .title-login-form input {
+    padding: 7px 10px;
+    margin-bottom: 10px;
+  }
+  .title-login-form button[type="submit"] {
+    padding: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .title-download-fill,
+  .title-login-form input,
+  .title-login-form button {
+    transition: none;
+  }
+  .title-screen .title-card .title-start-prompt,
+  .title-loading-ring {
+    animation: none;
+  }
+}

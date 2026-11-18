@@ -1,0 +1,10 @@
+{
+  "BSTH01-X03": {
+    "aspects": ["symbol"],
+    "reason": "印字は赤シンボル2つ（カード画像 images/BSTH01-X03.png で目視確認）。external-qa ミラーの symbol:['赤'] が転記漏れで、card-data symbolColors:['red','red'] が正。source precedence: カード本文 > ミラー転記。"
+  },
+  "BSTH01-XX01": {
+    "aspects": ["symbol"],
+    "reason": "印字は導シンボル1つ（カード画像 images/BSTH01-XX01.png で目視確認）。external-qa ミラーの symbol:[] が転記漏れで、card-data symbolColors:['guide'] が正。source precedence: カード本文 > ミラー転記。"
+  }
+}

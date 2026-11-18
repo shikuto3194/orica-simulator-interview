@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "card-definition.schema.json",
+  "title": "CardDefinition (historical metadata subset)",
+  "$comment": "Historical schema, not the validator for current cards or DSL effects. Use TypeScript CardDefinition and the gates linked in manual/ai-reference/28_policy/06_card-data-update-flow.md.",
+  "description": "バトルスピリッツ カード定義スキーマ",
+  "type": "object",
+  "required": [
+    "cardNo",
+    "name",
+    "printedCategory",
+    "colors",
+    "cost",
+    "reductionSymbols",
+    "levelDefs",
+    "symbolColors",
+    "textLines",
+    "keywordTags",
+    "sourceUrls",
+    "sourceConfidence"
+  ],
+  "properties": {
+    "cardNo": {
+      "type": "string",
+      "description": "カード番号 (例: BSTH01-C01)",
+      "pattern": "^[A-Z0-9]+-[A-Z0-9]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "カード名"
+    },
+    "printedCategory": {
+      "type": "string",
+      "enum": ["spirit", "brave", "ultimate", "nexus", "magic"],
+      "description": "カードカテゴリ"
+    },
+    "colors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/CardColor" },
+      "minItems": 1,
+      "description": "カードの色（多色の場合は複数）"
+    },
+    "cost": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "コスト"
+    },
+    "displayCostText": {
+      "type": "string",
+      "description": "非数値コスト表示用 (例: C2, X+3)"
+    },
+    "reductionSymbols": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SymbolColor" },
+      "description": "軽減シンボル"
+    },
+    "levelDefs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LevelDefinition" },
+      "description": "レベル定義"
+    },
+    "symbolColors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SymbolColor" },
+      "description": "シンボル"
+    },
+    "textLines": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "効果テキスト"
+    },
+    "keywordTags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "キーワード能力タグ (burst, accel 等)"
+    },
+    "tribe": {
+      "type": "string",
+      "description": "系統"
+    },
+    "image": {
+      "type": "string",
+      "description": "画像パス (例: images/BSTH01-C01.png)"
+    },
+    "rarity": {
+      "type": "string",
+      "description": "レアリティ (C, R, M, X 等)"
+    },
+    "pack": {
+      "type": "string",
+      "description": "収録パック"
+    },
+    "maxDeckCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "デッキ投入上限 (省略時は3)"
+    },
+    "braveCondition": {
+      "$ref": "#/$defs/BraveCondition",
+      "description": "ブレイヴの合体条件 (ブレイヴカードのみ)"
+    },
+    "maxCombinedBraves": {
+      "type": "object",
+      "required": ["count"],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "同時に合体できるブレイヴ数"
+        },
+        "condition": {
+          "$ref": "#/$defs/BraveCondition",
+          "description": "この上限で受け入れられるブレイヴ条件"
+        },
+        "ignoreIncomingBraveCondition": {
+          "type": "boolean",
+          "description": "このhost側許可で受け入れるブレイヴ自身の合体条件を無視する"
+        },
+        "effectIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "対応する continuous effect の effects[] index（Lv/applicability/effect suppression 連動用）"
+        },
+        "nameLimits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["cardNameContains", "maxCount"],
+            "properties": {
+              "cardNameContains": { "type": "string" },
+              "maxCount": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "additionalBraveSlot": {
+      "type": "object",
+      "properties": {
+        "hostCondition": {
+          "$ref": "#/$defs/BraveCondition",
+          "description": "この追加合体枠を開けるホスト条件"
+        },
+        "requiredAttachedBraveNameContains": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ホストが既に合体している必要があるブレイヴ名（部分一致）"
+        },
+        "maxPerHost": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "同一カード番号の追加合体上限"
+        }
+      }
+    },
+    "sourceUrls": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "ソースURL"
+    },
+    "sourceConfidence": {
+      "type": "string",
+      "enum": ["A", "B", "C"],
+      "description": "ソース信頼度"
+    }
+  },
+  "$defs": {
+    "CardColor": {
+      "type": "string",
+      "enum": ["red", "purple", "green", "white", "yellow", "blue", "black"]
+    },
+    "SpecialSymbol": {
+      "type": "string",
+      "enum": ["god", "guide", "ultimate_symbol", "seven", "six"]
+    },
+    "SymbolColor": {
+      "oneOf": [
+        { "$ref": "#/$defs/CardColor" },
+        { "$ref": "#/$defs/SpecialSymbol" }
+      ]
+    },
+    "LevelDefinition": {
+      "type": "object",
+      "required": ["level", "requiredCores", "bp"],
+      "properties": {
+        "level": { "type": "integer", "minimum": 1 },
+        "requiredCores": { "type": "integer", "minimum": 0 },
+        "bp": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "BraveCondition": {
+      "type": "object",
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["spirit", "brave", "ultimate", "nexus", "magic"]
+          },
+          "description": "合体可能なカテゴリ"
+        },
+        "colors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/CardColor" },
+          "description": "合体可能な色"
+        },
+        "tribes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "合体可能な系統"
+        },
+        "minCost": {
+          "type": "number",
+          "description": "合体可能な最小コスト"
+        },
+        "minCount": {
+          "type": "number",
+          "description": "合体可能な最小カウント（例: C2以上）"
+        },
+        "cardNames": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "合体可能なカード名 (指名合体・全文完全一致。カード名：「X」形式)"
+        },
+        "cardNameContains": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "合体可能なカード名 (部分一致。「X」形式。変種カードも対象)"
+        },
+        "attachedBraveNameContains": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ホストが既に合体しているブレイヴ名 (部分一致)"
+        }
+      }
+    }
+  }
+}

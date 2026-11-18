@@ -1,0 +1,19 @@
+/* Shippori Mincho Medium; Google Fonts' three-glyph subset, bundled offline.
+   Redistribution license: public/fonts-license.txt. */
+@font-face {
+  font-family: "Gensoufu Mincho";
+  src: url("./assets/fonts/gensoufu-mincho.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+5E7B, U+60F3, U+7B26;
+}
+.gensou-wordmark {
+  font-family: "Gensoufu Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  font-synthesis: none;
+}
+.gensou-wordmark,
+.title-screen .title-logo.gensou-wordmark {
+  text-shadow: none;
+}
