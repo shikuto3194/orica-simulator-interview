@@ -131,3 +131,4 @@ npx vite --config apps/playground-web/vite.config.ts --port 4173
 
 - [ACGマネージャー](https://github.com/shikuto3194/acg-react-interview)
 - [オリカマネージャー](https://github.com/shikuto3194/orika-react-interview)
+- [TCG マネージャー](https://github.com/shikuto3194/tcg-react)
