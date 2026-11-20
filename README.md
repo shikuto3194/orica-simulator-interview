@@ -6,7 +6,7 @@
 
 ## 対戦デモ
 
-[![対戦中の2人分の盤面とカード効果の表示](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.webp)](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
+https://github.com/user-attachments/assets/25950917-08c2-4c86-afc0-414f21a00ba0
 
 [対戦動画をダウンロード（4分21秒・音声あり・MP4）](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
 
