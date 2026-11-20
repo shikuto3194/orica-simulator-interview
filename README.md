@@ -8,9 +8,9 @@
 
 [![対戦中の2人分の盤面とカード効果の表示](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.webp)](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
 
-[対戦動画をダウンロード（4分21秒・音声あり・MP4）](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4) · [面接用デモを開く](https://orica-simulator-interview-001.netlify.app/)
+[対戦動画をダウンロード（4分21秒・音声あり・MP4）](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4) · [デモを開く](https://orica-simulator-interview-001.netlify.app/)
 
-録画では、上段と下段にそれぞれのプレイヤーの画面を表示しています。冒頭で招待とデッキ選択、0:35付近から対戦開始、2:08付近で手札からの選択、3:25付近でカード効果の表示と盤面への反映を確認できます。面接用デモにはログインが必要で、オンライン対戦には対戦APIの稼働が必要です。
+録画では、上段と下段にそれぞれのプレイヤーの画面を表示しています。冒頭で招待とデッキ選択、0:35付近から対戦開始、2:08付近で手札からの選択、3:25付近でカード効果の表示と盤面への反映を確認できます。
 
 ## 開発で担当したこと
 
