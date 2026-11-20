@@ -2,6 +2,8 @@
 
 バトルスピリッツのルールに沿った対戦をブラウザーで進める個人開発のシミュレーターです。カードごとに異なる発動条件や処理順をデータとして定義し、画面から独立したルールエンジンで扱います。
 
+本作は個人制作の同人作品で、非売品です。
+
 ## 対戦デモ
 
 [![対戦中の2人分の盤面とカード効果の表示](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.webp)](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
