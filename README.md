@@ -1,12 +1,28 @@
-# Orica Simulator
+# 幻想符 Simulator
 
-バトルスピリッツ向けの、再利用可能なルールエンジンを中核にしたシミュレーターです。
+バトルスピリッツのルールに沿った対戦をブラウザーで進める個人開発のシミュレーターです。カードごとに異なる発動条件や処理順をデータとして定義し、画面から独立したルールエンジンで扱います。
 
-## 方針
+## 対戦デモ
 
-- 先に UI 非依存のルールエンジンを作る
-- その上に手動操作 UI、AI 操作、将来的なゲーム画面を載せる
-- 全カード対応より先に、状態遷移とルール再現性を固める
+[![対戦中の2人分の盤面とカード効果の表示](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.webp)](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
+
+[対戦動画をダウンロード（4分21秒・音声あり・MP4）](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4) · [面接用デモを開く](https://orica-simulator-interview-001.netlify.app/)
+
+録画では、上段と下段にそれぞれのプレイヤーの画面を表示しています。冒頭で招待とデッキ選択、0:35付近から対戦開始、2:08付近で手札からの選択、3:25付近でカード効果の表示と盤面への反映を確認できます。面接用デモにはログインが必要で、オンライン対戦には対戦APIの稼働が必要です。
+
+## 開発で担当したこと
+
+個人開発として、目的と仕様の整理、AIへの実装指示、改善方針の判断、動作確認を担当しました。コード作成にはAIを活用しています。
+
+効果定義の見直しと、操作後の盤面まで確認する検証手順の改善を進めました。
+
+## 設計の工夫
+
+- **カード効果を手順に分ける。** 効果が適用される範囲、発動タイミング、条件、処理手順を定義します。対象を選び、条件に応じてコストを払い、その結果を後続の処理へ渡すような効果を、共通処理の組み合わせで表現します。[DSL仕様](manual/ai-reference/20_design/12_dsl-specification.md) · [型定義](packages/rules-core/src/dsl-types.ts)
+- **対戦ルールをUIから分ける。** ブラウザーで受けた操作を対戦APIへ渡し、ルール処理で状態を更新して盤面に反映します。[ルールエンジン](packages/rules-core) · [対戦API](apps/playground-web/server/game-api.ts)
+- **操作の結果を盤面で確認する。** ログ上は成功しても盤面に反映されないケースを経験し、ルールの回帰テストに加えて、手動操作とAIを使った画面確認で期待する変化を追うようにしました。[単体テストの入口](manual/ai-reference/00_meta/unit-test-entry.md) · [GUIシナリオ](manual/ai-reference/25_gui/10_scenario-test-reference.md)
+
+**主な技術**　TypeScript、React、Vite、Node.js
 
 ## ワークスペース構成
 
@@ -110,3 +126,8 @@ npx vite --config apps/playground-web/vite.config.ts --port 4173
 現況 (Current Snapshot) と現役タスク (Active Board) は [manual/ai-reference/30_plan/02_detailed-todo.md](manual/ai-reference/30_plan/02_detailed-todo.md) を参照。完了履歴は [manual/ai-reference/30_plan/03_completed-milestones.md](manual/ai-reference/30_plan/03_completed-milestones.md) を起点に phase 別ファイルへ辿る。
 
 ルール・設計・GUI・ポリシーの詳細は [manual/ai-reference/README.md](manual/ai-reference/README.md) の目的別索引から、運用ルールは [CLAUDE.md](CLAUDE.md) の Cross-cutting Rule を参照。
+
+## 関連作品
+
+- [ACGマネージャー](https://github.com/shikuto3194/acg-react-interview)
+- [オリカマネージャー](https://github.com/shikuto3194/orika-react-interview)
