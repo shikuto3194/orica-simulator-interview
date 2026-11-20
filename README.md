@@ -6,9 +6,7 @@
 
 ## 対戦デモ
 
-https://github.com/user-attachments/assets/25950917-08c2-4c86-afc0-414f21a00ba0
-
-[対戦動画をダウンロード（4分21秒・音声あり・MP4）](https://github.com/shikuto3194/orica-simulator-interview/releases/download/portfolio-demo-20261120/match-demo.mp4)
+https://github.com/user-attachments/assets/b1c9bf32-b7e9-48de-ac50-503f0148fa8d
 
 録画では、上段と下段にそれぞれのプレイヤーの画面を表示しています。冒頭で招待とデッキ選択、0:35付近から対戦開始、2:08付近で手札からの選択、3:25付近でカード効果の表示と盤面への反映を確認できます。
 
